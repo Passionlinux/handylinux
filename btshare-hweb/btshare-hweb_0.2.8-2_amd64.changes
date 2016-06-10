@@ -1,0 +1,44 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sun, 10 Jan 2016 18:06:41 +0100
+Source: btshare-hweb
+Binary: btshare-hweb
+Architecture: source all
+Version: 0.2.8-2
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ btshare-hweb - Partager vos données via P2P
+Changes:
+ btshare-hweb (0.2.8-2) unstable; urgency=medium
+ .
+   * fix Debian files
+Checksums-Sha1:
+ c016ac51df33444072a1a4a97b44b87576018523 1434 btshare-hweb_0.2.8-2.dsc
+ 7b6742dd595e8aece6ec8f49f9b8b984abb166d9 2340 btshare-hweb_0.2.8-2.debian.tar.xz
+ 03d1dcbafa2f65996f91e593314b40c3b834ef68 27124 btshare-hweb_0.2.8-2_all.deb
+Checksums-Sha256:
+ 8353f7c968a6ea29323bb23ae306197e0514396d60b8600e207a0b481b4aa39c 1434 btshare-hweb_0.2.8-2.dsc
+ 45bd21f258969ec62bb79dfda75c8b0ab3cecbd6054742b8d269adb055068243 2340 btshare-hweb_0.2.8-2.debian.tar.xz
+ ff6924d3ad21a08daac01f69bcb0c3fa7a5f87978141ffc2f8d58c6105cdfb8c 27124 btshare-hweb_0.2.8-2_all.deb
+Files:
+ 71e3b030b2f38666f051948f78a5aa80 1434 misc extra btshare-hweb_0.2.8-2.dsc
+ c297f1c46c373dcf9b591c79153ee413 2340 misc extra btshare-hweb_0.2.8-2.debian.tar.xz
+ 16e2d7dde4c9d700d5eef7813d940338 27124 misc extra btshare-hweb_0.2.8-2_all.deb
+Original-Maintainer: Thuban <thuban@yeuxdelibad.net>
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJWko/lAAoJELOLTsK+RB/PtacH/2bzShS2XO31r3DkqAU8FWRf
++oDytAmdA7HDAGXAb4lwz7Gl2FFuVCCPPyhqL39DxnTXHrleCN4MQafZQhgUcr+T
+Ibl1vW4EODsTg5L4dF6mVpRJQj+UzHPo3yz50yaYuXOtoxh1zJykUvWastLlVBrW
+2ztgNxQKh/U3Ke4ySu0sa5I3bCkZE3IQjzF0uwub4HEzKHZfgbnWAEIiiei4qajX
+Yg7vTPh0+b7u5owiXOK+7dCEosE5AneEt50v6zNXYMHVA8I92bhaUrdJhJNBvvoG
+M5WAL40cv/ycHe3ghYBX8Rppht/SQjoqjYV/jg3tgJXjiPtI2Yfc20P7RS6ilcE=
+=fMz9
+-----END PGP SIGNATURE-----

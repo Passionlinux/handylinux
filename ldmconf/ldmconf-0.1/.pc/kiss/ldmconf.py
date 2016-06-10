@@ -1,0 +1,424 @@
+#!/usr/bin/env python3
+# -*- coding:Utf-8 -*- 
+# Fichier: ldmconf.py
+# Cree le 01 juin 2015 17:34:13
+
+
+"""
+
+Auteur :      thuban (thuban@yeuxdelibad.net)  
+    modify https://launchpad.net/lightdm-gtk-greeter-settings
+licence :     GNU General Public Licence
+
+Description :
+    configuration simplifiée de lightdm
+
+Dépendances : Gtk3
+"""
+
+import sys
+import os
+import locale
+import subprocess
+from gi.repository import Gtk
+
+noautomsg = "No automatic connexion"
+nothingtodomsg = "Nothing to do"
+changesappliedmsg = "Changes applied"
+choosebgmsg = "Choose a background image"
+automaticconnmsg = "Automatic connexion"
+changebgmsg = "Change background image"
+changeappear = "Change appearance"
+changefont = "Change font"
+themestxt = "GTK Theme"
+iconstxt = "Icons Theme"
+msglist = ["Pizza forever", "The quick brown fox jumps over the lazy dog"]
+
+# traductions
+LOCALE = locale.setlocale(locale.LC_ALL, "")[0:2]
+if LOCALE == 'fr':
+    noautomsg = "Pas de connexion automatique"
+    nothingtodomsg = "Rien à modifier"
+    changesappliedmsg = "Changements appliqués"
+    choosebgmsg = "Choisir une image d'arrière-plan"
+    automaticconnmsg = "Connexion automatique"
+    changebgmsg = "Changer l'image d'arrière-plan"
+    changeappear = "Modifier l'apparence"
+    changefont = "Modifier la police"
+    themestxt = "Thème GTK"
+    iconstxt = "Thème d'icônes"
+    msglist = ["Le gras, c'est la vie", "J'adore les crêpes",\
+            "Portez ce vieux whisky au juge blond qui fume", \
+            "Bâchez la queue du wagon-taxi avec les pyjamas du fakir",\
+            "Dès Noël où un zéphyr haï me vêt de glaçons würmiens je dîne d’exquis rôtis de bœuf au kir à l’aÿ d’âge mûr & cætera !"]
+
+def listusers():
+    """return a list of avaiables users on system"""
+    allusers = []
+    with open('/etc/passwd', 'r') as pw:
+        for l in pw.readlines():
+            allusers.append(l.split(':')[0])
+    users = [ d for d in os.listdir("/home") if d in allusers ]
+    return(users)
+
+def saveconfig(conf, conffile="/etc/lightdm/lightdm.conf"):
+    try:
+        with open(conffile, 'w') as nc:
+            nc.write(conf)
+        return(True)
+    except IOError:
+        print("error opening lightdm config")
+        return(False)
+
+def autolog(user):
+    """configure lightdm to auto login user"""
+    with open('/etc/lightdm/lightdm.conf', 'r') as oc:
+        oldconf = oc.readlines()
+        newconf = []
+        ok = False
+        for l in oldconf:
+            if l.startswith("#autologin-user") and not ok:
+                l = "autologin-user={}\n".format(user)
+                l += "autologin-user-timeout=0\n"
+                l += "pam-service=lightdm-autologin\n"
+                ok = True
+            elif l.startswith("autologin-user") and not ok:
+                l = "autologin-user={}\n".format(user)
+                l += "autologin-user-timeout=0\n"
+                l += "pam-service=lightdm-autologin\n"
+                ok = True
+            elif l.startswith("autologin-user-timeout"):
+                l = ""
+            elif l.startswith("pam-service=lightdm-autologin"):
+                l = ""
+            newconf.append(l)
+
+    if len(newconf) > 0:
+        newconftxt = "".join(newconf)
+        saveconfig(newconftxt)
+
+def noauto():
+    with open('/etc/lightdm/lightdm.conf', 'r') as oc:
+        oldconf = oc.readlines()
+        newconf = []
+        for l in oldconf:
+            if l.startswith("autologin-user") :
+                l = "#autologin-user=\n"
+            elif l.startswith("autologin-user-timeout"):
+                l = "#autologin-user-timeout=\n"
+            elif l.startswith("pam-service"):
+                l = "#pam-service=\n"
+            newconf.append(l)
+
+    if len(newconf) > 0:
+        newconftxt = "".join(newconf)
+        saveconfig(newconftxt)
+
+def changebg(bgpath):
+    if not os.path.isfile(bgpath):
+        return False
+    #subprocess.call("update-alternatives --install /usr/share/desktop-base/desktop-background desktop-background {} 10".format(bgpath), shell=True)
+    #subprocess.call("update-alternatives --set desktop-background {}".format(bgpath), shell=True)
+    with open('/etc/lightdm/lightdm-gtk-greeter.conf', 'r') as oc:
+        oldconf = oc.readlines()
+        newconf = []
+        for l in oldconf:
+            if l.startswith("background") :
+                l = "background = {}\n".format(bgpath)
+            newconf.append(l)
+
+    if len(newconf) > 0:
+        newconftxt = "".join(newconf)
+        saveconfig(newconftxt, "/etc/lightdm/lightdm-gtk-greeter.conf")
+
+
+def change_font(font):
+    with open('/etc/lightdm/lightdm-gtk-greeter.conf', 'r') as oc:
+        oldconf = oc.readlines()
+        newconf = []
+        found = False
+        for l in oldconf:
+            if l.startswith("font-name") :
+                found = True
+                l = "font-name = {}\n".format(font)
+            newconf.append(l)
+        if not found:
+            l = "font-name = {}\n".format(font)
+            newconf.append(l)
+
+    if len(newconf) > 0:
+        newconftxt = "".join(newconf)
+        saveconfig(newconftxt, "/etc/lightdm/lightdm-gtk-greeter.conf")
+
+def change_theme(theme):
+    with open('/etc/lightdm/lightdm-gtk-greeter.conf', 'r') as oc:
+        oldconf = oc.readlines()
+        newconf = []
+        found = False
+        for l in oldconf:
+            if l.startswith("theme-name") :
+                found = True
+                l = "theme-name = {}\n".format(theme)
+            newconf.append(l)
+        if not found:
+            l = "theme-name = {}\n".format(theme)
+            newconf.append(l)
+
+    if len(newconf) > 0:
+        newconftxt = "".join(newconf)
+        saveconfig(newconftxt, "/etc/lightdm/lightdm-gtk-greeter.conf")
+
+
+def change_icons(icons):
+    with open('/etc/lightdm/lightdm-gtk-greeter.conf', 'r') as oc:
+        oldconf = oc.readlines()
+        newconf = []
+        found = False
+        for l in oldconf:
+            if l.startswith("icon-theme-name") :
+                found = True
+                l = "icon-theme-name = {}\n".format(icons)
+            newconf.append(l)
+        if not found:
+            l = "icon-theme-name = {}\n".format(icons)
+            newconf.append(l)
+
+    if len(newconf) > 0:
+        newconftxt = "".join(newconf)
+        saveconfig(newconftxt, "/etc/lightdm/lightdm-gtk-greeter.conf")
+
+
+
+def applychanges(user, bg, font, theme, icons):
+    if bg != "":
+        changebg(bg)
+
+    if font != "":
+        change_font(font)
+
+    if theme != "":
+        change_theme(theme)
+
+    if icons != "":
+        change_icons(icons)
+
+    if user == noautomsg:
+        noauto()
+    elif user != "":
+        autolog(user)
+
+
+class LDMconf:
+    def apply(self, widget, event):
+        if self.userselected == "" and self.newbg == "" \
+                and self.newfont == ""\
+                and self.newtheme == ""\
+                and self.newicons == "":
+            self.label.set_text(nothingtodomsg)
+        else:
+            applychanges(self.userselected, self.newbg, self.newfont,\
+                    self.newtheme, self.newicons)
+            self.label.set_text(changesappliedmsg)
+
+    def font_dialog(self, event, user_data):
+        import random
+        chooser = Gtk.FontChooserDialog(parent=self.window, title=changefont)
+        chooser.set_preview_text(random.choice(msglist))
+        chooser.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
+        chooser.add_buttons(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+        response = chooser.run()
+
+        if response == Gtk.ResponseType.CANCEL:
+            chooser.destroy()
+        elif response == Gtk.ResponseType.OK:
+            i = chooser.get_font()
+            chooser.destroy()
+            self.newfont = i
+            self.fontbtn.set_label(i)
+
+        chooser.destroy()
+
+    def selbg(self, widget, event):
+        chooser = Gtk.FileChooserDialog(parent=self.window, title=choosebgmsg)
+        chooser.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
+        chooser.add_buttons(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+        chooser.set_current_folder("/usr/share/xfce4/backdrops")
+        filter = Gtk.FileFilter()
+        filter.set_name("Images")
+        filter.add_mime_type("image/png")
+        filter.add_mime_type("image/jpeg")
+        filter.add_mime_type("image/svg+xml")
+        chooser.add_filter(filter)
+
+        response = chooser.run()
+
+        if response == Gtk.ResponseType.CANCEL:
+            print('Closed, no files selected')
+            chooser.destroy()
+        elif response == Gtk.ResponseType.OK:
+            i = chooser.get_filename()
+            chooser.destroy()
+            self.newbg = i
+            self.bgbtn.set_label(i)
+
+        chooser.destroy()
+
+    def on_user_changed(self, combo):
+        tree_iter = combo.get_active_iter()
+        if tree_iter != None:
+            model = combo.get_model()
+            user = model[tree_iter][0]
+            self.userselected = user
+
+    def on_theme_changed(self, combo):
+        tree_iter = combo.get_active_iter()
+        if tree_iter != None:
+            model = combo.get_model()
+            user = model[tree_iter][0]
+            self.newtheme = user
+
+    def on_icons_changed(self, combo):
+        tree_iter = combo.get_active_iter()
+        if tree_iter != None:
+            model = combo.get_model()
+            user = model[tree_iter][0]
+            self.newicons = user
+
+    def close_application(self, widget, event):
+        Gtk.main_quit()
+        return False
+
+    def __init__(self):
+        self.newbg = ""
+        self.newfont = ""
+        self.newtheme = ""
+        self.newicons = ""
+        self.userselected= "" # to know which user choosed
+
+        self.window = Gtk.Window()
+        self.window.connect("delete_event", self.close_application)
+
+        self.window.set_title("LightDM-config")
+
+        # Conteneur principal
+        vbox = Gtk.VBox(False, 10)
+        vbox.set_border_width(10)
+        self.window.add(vbox)
+
+        # pitite image, comprendra qui pourra
+        image = Gtk.Image().new_from_file("./ch.gif")
+        vbox.pack_start(image, False, False, 5)
+
+        # Choix d'utilisateur
+        users_store = Gtk.ListStore(str)
+        for u in listusers():
+            users_store.append([u])
+        users_store.append([noautomsg])
+
+        users_combo = Gtk.ComboBox.new_with_model(users_store)
+        users_combo.connect("changed", self.on_user_changed)
+        renderer_text = Gtk.CellRendererText()
+        users_combo.pack_start(renderer_text, True)
+        users_combo.add_attribute(renderer_text, "text", 0)
+
+        frame = Gtk.Frame(label = automaticconnmsg)
+        frame.add(users_combo)
+        vbox.pack_start(frame, True, True, 0)
+
+        # apparence
+        frame = Gtk.Frame(label = changeappear)
+        appearbox = Gtk.VBox()
+
+        # bg
+        self.bgbtn = Gtk.Button(label = changebgmsg)
+        self.bgbtn.connect("button_release_event", self.selbg)
+        self.bgbtn.connect("key_press_event", self.selbg)
+        appearbox.pack_start(self.bgbtn, False, False, 5)
+
+        # police
+        self.fontbtn = Gtk.Button(label = changefont)
+        self.fontbtn.connect("button_release_event", self.font_dialog)
+        self.fontbtn.connect("key_press_event", self.font_dialog)
+        appearbox.pack_start(self.fontbtn, False, False, 5)
+
+        frame.add(appearbox)
+        vbox.pack_start(frame, True, True, 0)
+        
+        # theme
+        themes_store = Gtk.ListStore(str)
+        themeslist = [ d for d in os.listdir("/usr/share/themes") if \
+                os.path.isdir(os.path.join("/usr/share/themes",d)) ]
+        themeslist.sort()
+        for u in themeslist:
+            themes_store.append([u])
+
+        themes_combo = Gtk.ComboBox.new_with_model(themes_store)
+        themes_combo.connect("changed", self.on_theme_changed)
+        renderer_text = Gtk.CellRendererText()
+        themes_combo.pack_start(renderer_text, True)
+        themes_combo.add_attribute(renderer_text, "text", 0)
+        #themes_combo.set_active(0)
+
+        themelabel = Gtk.Label(themestxt)
+        hbox = Gtk.HBox()
+        hbox.pack_start(themelabel, False, False, 10)
+        hbox.pack_start(themes_combo, True, True, 10)
+        appearbox.pack_start(hbox, False, False, 5)
+
+        # icons
+        icons_store = Gtk.ListStore(str)
+        iconslist = [ d for d in os.listdir("/usr/share/icons") if \
+                os.path.isdir(os.path.join("/usr/share/icons",d)) ]
+        iconslist.sort()
+        for u in iconslist:
+            icons_store.append([u])
+
+        icons_combo = Gtk.ComboBox.new_with_model(icons_store)
+        icons_combo.connect("changed", self.on_icons_changed)
+        renderer_text = Gtk.CellRendererText()
+        icons_combo.pack_start(renderer_text, True)
+        icons_combo.add_attribute(renderer_text, "text", 0)
+        #icons_combo.set_active(0)
+
+        iconslabel = Gtk.Label(iconstxt)
+        hbox = Gtk.HBox()
+        hbox.pack_start(iconslabel, False, False, 10)
+        hbox.pack_start(icons_combo, True, True, 10)
+        appearbox.pack_start(hbox, False, False, 5)
+
+        # POur un éventuel message d'erreur
+        self.label = Gtk.Label("")
+        vbox.pack_start(self.label, False, True, 0)
+
+        # conteneur pour les boutons
+        hbox = Gtk.HBox(False, 10)
+        vbox.pack_start(hbox, True, True, 0)
+
+        qbtn = Gtk.Button(label = "Quitter", stock = Gtk.STOCK_CLOSE)
+        qbtn.connect("button_release_event", self.close_application)
+        qbtn.connect("key_press_event", self.close_application)
+        hbox.pack_start(qbtn, True, True, 0)
+
+        abtn = Gtk.Button(label = "Appliquer", stock = Gtk.STOCK_APPLY)
+        abtn.connect("button_release_event", self.apply)
+        abtn.connect("key_press_event", self.apply)
+        hbox.pack_start(abtn, True, True, 0)
+
+        self.window.show_all()
+
+def main():
+    if os.geteuid() != 0:
+        status = subprocess.call('gksudo python3 {0}'.format(os.path.realpath(__file__)), shell=True)
+    else:
+        os.chdir(os.path.dirname((os.path.realpath(__file__))))
+        LDMconf()
+        Gtk.main()
+    return 0        
+
+if __name__ == "__main__":
+    main()
+
+
+
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
+

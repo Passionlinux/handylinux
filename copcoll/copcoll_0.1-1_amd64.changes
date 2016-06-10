@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Thu, 17 Mar 2016 17:22:07 +0100
+Source: copcoll
+Binary: copcoll
+Architecture: source all
+Version: 0.1-1
+Distribution: unstable
+Urgency: low
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ copcoll    - small tool to copy and paste recurrent snippets
+Changes:
+ copcoll (0.1-1) unstable; urgency=low
+ .
+   * Initial release
+Checksums-Sha1:
+ ee14459c4ba4ec14aa7617af02148c975f93258b 1272 copcoll_0.1-1.dsc
+ 666524bb2870f51c13c96741cbddfb9e87a6df42 4208 copcoll_0.1.orig.tar.xz
+ 224bb836c3e8d7b278f85a2fa22bb95b54a3047f 2020 copcoll_0.1-1.debian.tar.xz
+ 02231eda5483b4208f95eb91319591e6fc070f30 4152 copcoll_0.1-1_all.deb
+Checksums-Sha256:
+ 9460b6a5cb02be311db9fb211955dc342e49eec05e0dec40570827d60a3d8711 1272 copcoll_0.1-1.dsc
+ b42bfeaff1841d72a1b220152fdab145439558a8e4030eb062e562a9fcc72b65 4208 copcoll_0.1.orig.tar.xz
+ 2028321bda09c526072b7a15d85c73abd8039caf861506cfb306fe18135cc1ec 2020 copcoll_0.1-1.debian.tar.xz
+ fadf595b0df64749a43363c443347c62d99cbf5a933708d0fa0a9486b89a3493 4152 copcoll_0.1-1_all.deb
+Files:
+ 7553041de07b199d79005d357f4ed4f6 1272 x11 optional copcoll_0.1-1.dsc
+ 9ddca2f9a557761698244026a6cfedfb 4208 x11 optional copcoll_0.1.orig.tar.xz
+ 0995cfe7882d5e5e6b2c3a8c60d52baa 2020 x11 optional copcoll_0.1-1.debian.tar.xz
+ a10cb83bfd09c36e680db685c940e8a8 4152 x11 optional copcoll_0.1-1_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJW6twJAAoJELOLTsK+RB/P3boH/3XsYX66KuaKPrChEErEAqE5
+zpbZ6dwcBSeghyXB1PEctrNDZiacvNG7jSQpop8OE+T6EpAwWNQqxrq28NgJUn1D
+OX6xGD295gSMfsVcOgDuMQktnImczgQs71/vWxviyTfQvP/LgouQmYR8db/7CzuZ
+CWU1KhlbWmJ56jHvHyD62d/oO6jijk9LwshO8D2LZhBhNwnRdsB4zIzm186AF63W
+7Y3xjZgDnVo/SULF7XBfO/OqN99hGzlIkDioo8uCotRiJtoX4MRm62NdVlEnhDFV
+lqG3I3lfpSkP63DidXWUroR6CzZDMFhskSCwO+iCbE80DPdwtaC92kwGToj0kx0=
+=pugW
+-----END PGP SIGNATURE-----

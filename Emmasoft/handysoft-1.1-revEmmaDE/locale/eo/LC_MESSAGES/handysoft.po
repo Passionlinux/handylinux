@@ -1,0 +1,194 @@
+# Esperanto translations for handysoft package.
+# Copyright (C) 2015 ORGANIZATION
+# arpinux <arp@nakedev>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: handysoft 0.42\n"
+"POT-Creation-Date: 2016-05-20 21:14+CEST\n"
+"PO-Revision-Date: 2015-11-29 01:31+0100\n"
+"Last-Translator: arpinux <arp@nakedev>\n"
+"Language-Team: English (British)\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: handysoft.py:88
+msgid "Package informations"
+msgstr "Pako informoj"
+
+#: handysoft.py:127
+msgid "Remove this package"
+msgstr "Forigi tiun pakaĵon"
+
+#: handysoft.py:128
+msgid "This package is installed"
+msgstr "Ĉi tiu pako estas instalita"
+
+#: handysoft.py:131
+msgid "Install this package"
+msgstr "Instali tiun pakon"
+
+#: handysoft.py:132
+msgid "This package is not installed"
+msgstr "Tiu pako ne estas instalita"
+
+#: handysoft.py:150
+msgid "Downloading screenshot..."
+msgstr "elŝuti ekrankopion..."
+
+#: handysoft.py:158
+msgid "Right click to add a screenshot"
+msgstr "Dekstre klaku por aldoni ekrankopio"
+
+#: handysoft.py:171 handysoft.py:718
+msgid "To add a screenshot for {}, click here : "
+msgstr "Aldoni ekrankopion por {}, klaku tie : "
+
+#: handysoft.py:172 handysoft.py:719
+msgid "Click here to upload a screenshot"
+msgstr "Klaku ĉi tie por alŝuti ekrankopio"
+
+#: handysoft.py:207
+msgid "Search package"
+msgstr "Serĉo pako"
+
+#: handysoft.py:208
+msgid "Enter your research here (regexp are allowed)"
+msgstr "Entajpu vian serĉon tie"
+
+#: handysoft.py:213
+msgid "Click to start searching"
+msgstr "Klaku por ekserĉi"
+
+#: handysoft.py:221
+msgid "Search also in description"
+msgstr "Serĉu ankaŭ en priskribo"
+
+#: handysoft.py:223
+msgid "Search in description"
+msgstr "Serĉi en priskribo"
+
+#: handysoft.py:254
+msgid "Search"
+msgstr "Serĉu"
+
+#: handysoft.py:254
+msgid "Search packages"
+msgstr "Serĉo pakoj"
+
+#: handysoft.py:255
+msgid "Softwares"
+msgstr "Softvaroj"
+
+#: handysoft.py:259
+msgid "Toggle between packages search or packages list"
+msgstr "Baskuli inter pakoj serĉu aŭ pakoj listo"
+
+#: handysoft.py:266
+msgid "About"
+msgstr "Pri"
+
+#: handysoft.py:323
+msgid "Opening cache"
+msgstr "Malfermo kaŝmemoron"
+
+#: handysoft.py:383
+msgid ""
+"\n"
+"{} lets you install common applications easily\n"
+"\n"
+"\n"
+"For a full list of available packages in Debian and Handylinux "
+"repositories, \n"
+"you must use the Synaptic Package Manager.\n"
+"                "
+msgstr ""
+"\n"
+"{} permesas instali komunaj aplikoj facile\n"
+"\n"
+"\n"
+"Por plena listo de disponeblaj pakoj en Debiano deponejoj, \n"
+"vi devas uzi la Synaptic Package Manager.\n"
+"                "
+
+#: handysoft.py:390
+msgid "I'm an expert, open synaptic"
+msgstr "Mi sperta, malfermita synaptic"
+
+#: handysoft.py:416 handysoft.py:634
+msgid "Installed"
+msgstr "Instalita"
+
+#: handysoft.py:423 handysoft.py:640
+msgid "Package name"
+msgstr "Pakaĵo nomo"
+
+#: handysoft.py:430 handysoft.py:646
+msgid "Description"
+msgstr "Priskribo"
+
+#: handysoft.py:515
+msgid "Searching in packages..."
+msgstr "Serĉado en pakoj..."
+
+#: handysoft.py:786
+msgid ""
+"<b>{0}</b>\n"
+"\n"
+"From {2} for handylinux community with love.\n"
+"version : {1}\n"
+"licence : {3}\n"
+"homepage : <a href=\"{4}\" title=\"handysoft homepage\">{4}</a>"
+msgstr ""
+
+#: handysoft_utils.py:35
+msgid "Games"
+msgstr "Ludoj"
+
+#: handysoft_utils.py:36
+msgid "Education"
+msgstr "Edukado"
+
+#: handysoft_utils.py:37
+msgid "Multimedia"
+msgstr ""
+
+#: handysoft_utils.py:38
+msgid "Internet"
+msgstr "Interreto"
+
+#: handysoft_utils.py:39
+msgid "Office"
+msgstr "Oficejo"
+
+#: handysoft_utils.py:40
+msgid "Graphics"
+msgstr "Grafikaĵoj"
+
+#: handysoft_utils.py:41
+msgid "Tools and others"
+msgstr "Iloj kaj aliaj"
+
+#: handysoft_utils.py:42
+msgid "Expert"
+msgstr "Fakulo"
+
+#: handysoft_utils.py:249
+msgid "Installing a new package : "
+msgstr "Instali novan pakon : "
+
+#: handysoft_utils.py:257
+msgid "Removing a package : "
+msgstr "Forigado pako"
+
+#: soft_install.py:94
+msgid "<span size='large'>☺ All changes applied with success</span>"
+msgstr "<span size='large'>☺ Ĉiuj ŝanĝoj aplikita kun sukceso</span>"
+
+#: soft_install.py:96
+msgid "<span size='large'>☹ An Error Occurred!</span>"
+msgstr "<span size='large'>☹ Eraro okazis !</span>"

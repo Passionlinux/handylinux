@@ -1,0 +1,54 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handylinux-desktop-nomain
+dpkg-buildpackage: source version 0.4-1
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by arnault perret <arpinux@member.fsf.org>
+ dpkg-source --before-build handylinux-desktop-nomain-0.4
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handylinux-desktop-nomain-0.4
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handylinux-desktop-nomain using existing ./handylinux-desktop-nomain_0.4.orig.tar.xz
+dpkg-source: info: building handylinux-desktop-nomain in handylinux-desktop-nomain_0.4-1.debian.tar.xz
+dpkg-source: info: building handylinux-desktop-nomain in handylinux-desktop-nomain_0.4-1.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+   dh_installdocs
+   dh_installchangelogs
+   dh_pysupport
+dh_pysupport: This program is deprecated, you should use dh_python2 instead. Migration guide: http://deb.li/dhs2p
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `handylinux-desktop-nomain' in `../handylinux-desktop-nomain_0.4-1_all.deb'.
+ dpkg-genchanges  >../handylinux-desktop-nomain_0.4-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build handylinux-desktop-nomain-0.4
+dpkg-buildpackage: full upload (original source is included)
+Now running lintian...
+W: handylinux-desktop-nomain: empty-binary-package
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handylinux-desktop-nomain_0.4-1.dsc arnault perret <arpinux@member.fsf.org>
+gpg: skipped "arnault perret <arpinux@member.fsf.org>": secret key not available
+gpg: /tmp/debsign.x6iWddzS/handylinux-desktop-nomain_0.4-1.dsc: clearsign failed: secret key not available
+debsign: gpg error occurred!  Aborting....

@@ -1,0 +1,8 @@
+#!/bin/bash
+# simple script to launch handytheme
+
+cd /usr/share/handytheme
+
+./handytheme.py &
+
+exit 0

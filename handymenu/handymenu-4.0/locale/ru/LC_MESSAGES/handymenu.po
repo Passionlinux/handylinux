@@ -1,0 +1,528 @@
+# Fichier de configuration du HandyMenu.
+# Copyright (C) GPL-v3 2015 HandyLinux
+# Xavier Cartron <thuban@yeuxdelibad.net>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: handymenu-3.2\n"
+"POT-Creation-Date: 2016-03-15 16:55+CET\n"
+"PO-Revision-Date: 2015-06-13 20:37+CEST\n"
+"Last-Translator: Flor de azucena, arpinux\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: handymenu-configuration.py:42
+msgid "Handymenu Configuration"
+msgstr ""
+
+#: handymenu-configuration.py:73
+msgid ""
+"<b>Handymenu</b>\n"
+"\n"
+"version : {0}\n"
+"author : {1}\n"
+"licence : {2}\n"
+"homepage : <a href=\"{3}\" title=\"HandyMenu homepage\">{3}</a>"
+msgstr ""
+
+#: handymenu-configuration.py:91
+msgid "I click here because I love handylinux"
+msgstr ""
+
+#: handymenu-configuration.py:162
+msgid "Choose an icon"
+msgstr "Выберите значок"
+
+#: handymenu-configuration.py:167
+msgid "Images"
+msgstr "Просмотр изображений"
+
+#: handymenu-configuration.py:175
+msgid "Closed, no files selected"
+msgstr "Закрыт, файлы не выбран"
+
+#: handymenu-configuration.py:243
+msgid "Edit the launcher"
+msgstr "Редактировать пусковой"
+
+#: handymenu-configuration.py:249
+msgid "Change"
+msgstr "Изменить"
+
+#: handymenu-configuration.py:260
+msgid "Change the label"
+msgstr "Изменить метку"
+
+#: handymenu-configuration.py:265
+msgid "Change icon"
+msgstr "Изменить значок"
+
+#: handymenu-configuration.py:272
+msgid "Change the application icon"
+msgstr "Изменить значок приложения"
+
+#: handymenu-configuration.py:277
+msgid "Move up"
+msgstr "вверх"
+
+#: handymenu-configuration.py:278
+msgid "Move down"
+msgstr "вниз"
+
+#: handymenu-configuration.py:300
+msgid "Move this app"
+msgstr "Перемещение это приложение"
+
+#: handymenu-configuration.py:305
+msgid "Delete"
+msgstr "Удалить"
+
+#: handymenu-configuration.py:308
+msgid "Delete this launcher"
+msgstr "Удалить эту пусковую"
+
+#: handymenu-configuration.py:345
+msgid "Delete this section"
+msgstr "Удалить этот раздел"
+
+#: handymenu-configuration.py:348
+msgid "Search for applications"
+msgstr "Поиск приложений"
+
+#: handymenu-configuration.py:355
+msgid "Move section up"
+msgstr "Перемещение раздела на"
+
+#: handymenu-configuration.py:359
+msgid "Move section down"
+msgstr "Перемещение раздела вниз"
+
+#: handymenu-configuration.py:365
+msgid "To add an application, Drag and drop it below"
+msgstr ""
+
+#: handymenu-configuration.py:392
+msgid "Name of the new section: "
+msgstr "Название нового раздела:"
+
+#: handymenu-configuration.py:398
+msgid "More"
+msgstr "Больше"
+
+#: handymenu-configuration.py:406
+msgid "Add a section"
+msgstr "Добавить раздел"
+
+#: handymenu-configuration.py:442
+msgid "Modules"
+msgstr "Модули"
+
+#: handymenu-configuration.py:446 handymenu-configuration.py:447
+msgid "Show recent files"
+msgstr "Показать последние файлы"
+
+#: handymenu-configuration.py:468
+msgid "Position of modules in menu"
+msgstr "Положение модулей в меню"
+
+#: handymenu-configuration.py:481
+msgid "Reset"
+msgstr "Сброс"
+
+#: handymenu-configuration.py:488
+msgid "View config"
+msgstr ""
+
+#: handymenu-configuration.py:492
+msgid "Quit"
+msgstr "близко"
+
+#: handymenu.py:82
+msgid ""
+"Error at launching {}\n"
+"\n"
+"Do you want to install it?"
+msgstr ""
+
+#: handymenu.py:197
+msgid "This menu is still empty"
+msgstr "Это меню все еще пуст"
+
+#: handymenu.py:229
+msgid "About"
+msgstr "относительно"
+
+#: handymenu.py:250
+msgid "Close"
+msgstr "близко"
+
+#: handymenu.py:259
+msgid "Configure"
+msgstr "Персонализация"
+
+#: handymenu.py:265
+msgid "Close after execution"
+msgstr "закрыть после выполнения"
+
+#: hm-config-transition.py:64 hm_utils.py:459
+msgid "My Pictures"
+msgstr "Мои изображения"
+
+#: hm-config-transition.py:65 hm_utils.py:460
+msgid "Browse my images folder"
+msgstr "открыть папку изображений"
+
+#: hm-config-transition.py:70 hm_utils.py:465
+msgid "My Documents"
+msgstr "Мои документы"
+
+#: hm-config-transition.py:71 hm_utils.py:466
+msgid "Browse my documents"
+msgstr "открыть папку документов"
+
+#: hm-config-transition.py:76 hm_utils.py:471
+msgid "My Music"
+msgstr "Моя музыка"
+
+#: hm-config-transition.py:77 hm_utils.py:472
+msgid "Browse my music folder"
+msgstr "открыть папку аудиозаписей"
+
+#: hm-config-transition.py:82 hm_utils.py:477
+msgid "My Videos"
+msgstr "Мои видеофайлы"
+
+#: hm-config-transition.py:83 hm_utils.py:478
+msgid "Browse my videos"
+msgstr "открыть папку видеозаписей"
+
+#: hm-config-transition.py:88 hm_utils.py:483
+msgid "Downloads"
+msgstr "Мои загрузки"
+
+#: hm-config-transition.py:89 hm_utils.py:484
+msgid "Check my downloaded files"
+msgstr "просмотреть список загруженных файлов"
+
+#: hm-config-transition.py:94 hm-config-transition.py:117 hm_utils.py:392
+#: hm_utils.py:489
+msgid "Personal folder"
+msgstr "Моя домашняя папка"
+
+#: hm-config-transition.py:95 hm-config-transition.py:118 hm_utils.py:393
+#: hm_utils.py:490
+msgid "Browse my personal directory"
+msgstr "открыть свою личную папку"
+
+#: hm-config-transition.py:99 hm_utils.py:494
+msgid "Check the trash"
+msgstr "Очистить корзину"
+
+#: hm-config-transition.py:100 hm_utils.py:495
+msgid "Check and empty trash"
+msgstr "проверить и удалить содержимое корзины"
+
+#: hm-config-transition.py:104 hm_utils.py:499
+msgid "Files help"
+msgstr "Помощь по менеджеру файлов"
+
+#: hm-config-transition.py:105 hm_utils.py:500
+msgid "Get some help about file management"
+msgstr "получить помощь по работе с папками и файлами"
+
+#: hm-config-transition.py:112 hm_utils.py:387
+msgid "Web browser"
+msgstr "Браузер"
+
+#: hm-config-transition.py:113 hm_utils.py:388
+msgid "Surf the web"
+msgstr "просматривать веб-страницы"
+
+#: hm-config-transition.py:122 hm_utils.py:397
+msgid "Framasoft"
+msgstr "Framasoft Услуги"
+
+#: hm-config-transition.py:123 hm_utils.py:398 hm_utils.py:439
+msgid "Acces to free (as in freedom) Framasoft services"
+msgstr "Доступ к бесплатному услуг Framasoft"
+
+#: hm-config-transition.py:127 hm_utils.py:402
+msgid "HandyLinux Help Center"
+msgstr ""
+
+#: hm-config-transition.py:128 hm_utils.py:403
+msgid "Open HandyLinux Help Tool"
+msgstr ""
+
+#: hm-config-transition.py:132 hm_utils.py:407 hm_utils.py:628
+msgid "Applications list"
+msgstr "Список приложений"
+
+#: hm-config-transition.py:133 hm_utils.py:408 hm_utils.py:629
+msgid "Access to all installed applications"
+msgstr "просмотреть полный перечень установленных приложений"
+
+#: hm-config-transition.py:137 hm_utils.py:412 hm_utils.py:525
+msgid "Office suite"
+msgstr "Офисный пакет"
+
+#: hm-config-transition.py:138 hm_utils.py:413 hm_utils.py:526
+msgid "Full LibreOffice suite"
+msgstr "Полный набор LibreOffice"
+
+#: hm_utils.py:189
+msgid "Recent files"
+msgstr "Недавние файлы"
+
+#: hm_utils.py:384
+msgid "Latest"
+msgstr "недавний"
+
+#: hm_utils.py:420
+msgid "Internet"
+msgstr "Интернет"
+
+#: hm_utils.py:423
+msgid "Surf the Web"
+msgstr "просматривать веб-страницы"
+
+#: hm_utils.py:424
+msgid "Browse the internet"
+msgstr "Помощь по веб-приложениям"
+
+#: hm_utils.py:428
+msgid "Read or write emails"
+msgstr "Почта"
+
+#: hm_utils.py:429
+msgid "Consult or edit emails"
+msgstr "обмениваться сообщениями по электронной почте"
+
+#: hm_utils.py:433
+#, fuzzy
+msgid "Communicate"
+msgstr "Общение по Skype"
+
+#: hm_utils.py:434
+msgid "Audio/Video chat"
+msgstr ""
+
+#: hm_utils.py:438
+msgid "Framasoft Services"
+msgstr "Framasoft Услуги"
+
+#: hm_utils.py:443
+msgid "P2P torrent client"
+msgstr "торрент-клиент"
+
+#: hm_utils.py:444
+msgid "Share datas with P2P"
+msgstr "обмен данными P2P"
+
+#: hm_utils.py:448
+msgid "Internet help"
+msgstr "Интернет помощь"
+
+#: hm_utils.py:449
+msgid "Get some help about internet applications"
+msgstr "получить помощь по приложениям, работающим в сети Интернет"
+
+#: hm_utils.py:456
+msgid "Files"
+msgstr "Файлы и папки"
+
+#: hm_utils.py:507
+msgid "Office"
+msgstr "Офис"
+
+#: hm_utils.py:510
+msgid "Text editor"
+msgstr "Текстовый редактор"
+
+#: hm_utils.py:511
+msgid "Consult or edit text files"
+msgstr "читать или редактировать текстовые файлы без форматирования"
+
+#: hm_utils.py:515
+msgid "Take notes"
+msgstr "Записная книжка"
+
+#: hm_utils.py:516
+msgid "Minimalist reminder"
+msgstr "быстро сделать заметку"
+
+#: hm_utils.py:520
+msgid "Calculator"
+msgstr "Калькулятор"
+
+#: hm_utils.py:521
+msgid "Perform mathematical calculations"
+msgstr "выполнять математические вычисления"
+
+#: hm_utils.py:530
+msgid "Scan documents"
+msgstr "Сканер"
+
+#: hm_utils.py:531
+msgid "Simply scan a document"
+msgstr "оцифровать документ(ы)"
+
+#: hm_utils.py:535
+msgid "Office help"
+msgstr "Помощь по офисным приложениям"
+
+#: hm_utils.py:536
+msgid "Get some help about office applications"
+msgstr "получить помощь по работе с офисным ПО"
+
+#: hm_utils.py:543
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: hm_utils.py:546
+msgid "Multimedia player"
+msgstr "Мультимедиа-проигрыватель"
+
+#: hm_utils.py:547
+msgid "Watch video, DVD ou play music"
+msgstr "просмотреть видеофайл или фильм с DVD-диска, прослушать аудиозапись"
+
+#: hm_utils.py:551
+msgid "Images viewer"
+msgstr "Просмотр изображений"
+
+#: hm_utils.py:552
+msgid "Watch your favorite pictures and photos"
+msgstr "просматривать картинки и фотографии"
+
+#: hm_utils.py:556
+msgid "Music player"
+msgstr "Аудиопроигрыватель"
+
+#: hm_utils.py:557
+msgid "Play music, playlist or radio"
+msgstr "слушать аудиозаписи или интернет-радио, создавать свои плей-листы"
+
+#: hm_utils.py:561
+msgid "CD/DVD burner"
+msgstr "Запись CD/DVD-дисков"
+
+#: hm_utils.py:562
+msgid "Backup datas on CD ou DVD"
+msgstr "записать данные на CD- или DVD-диск"
+
+#: hm_utils.py:566
+msgid "Volume control"
+msgstr "Регулировка звука"
+
+#: hm_utils.py:567
+msgid "Adjust computer sound level"
+msgstr "настроить громкость звука"
+
+#: hm_utils.py:571
+msgid "Multimedia help"
+msgstr "Мультимедиа Помощь"
+
+#: hm_utils.py:572
+msgid "Get some help about multimedia applications"
+msgstr "получить помощь по мультимедийному ПО"
+
+#: hm_utils.py:579
+msgid "Games"
+msgstr "Игры"
+
+#: hm_utils.py:582
+msgid "Play sudoku"
+msgstr "Судоку"
+
+#: hm_utils.py:583
+msgid "Numbers puzzle"
+msgstr "Головоломки чисел"
+
+#: hm_utils.py:587
+msgid "Play bricks"
+msgstr "Играть кирпичи"
+
+#: hm_utils.py:588
+msgid "Play a Tetris clone"
+msgstr "Играя с клоном Тетриса"
+
+#: hm_utils.py:592 hm_utils.py:593
+msgid "Play cards"
+msgstr "карточные игры"
+
+#: hm_utils.py:597
+msgid "Brain training"
+msgstr "Головоломки"
+
+#: hm_utils.py:598
+msgid "GBrainy games suite"
+msgstr "пакет игр GBrainy"
+
+#: hm_utils.py:602
+msgid "Board game"
+msgstr "Настольные игры"
+
+#: hm_utils.py:603
+msgid "Play Mahjong"
+msgstr "маджонг"
+
+#: hm_utils.py:607
+msgid "Play with bubbles"
+msgstr "Играть пузырьки"
+
+#: hm_utils.py:608
+msgid "Align colored bubbles"
+msgstr "Совместите цветные пузырьки"
+
+#: hm_utils.py:615
+msgid "Adventurers"
+msgstr "Авантюристы"
+
+#: hm_utils.py:618
+msgid "Open a terminal"
+msgstr "Открыть терминал"
+
+#: hm_utils.py:619
+msgid "Get access to the command line"
+msgstr "получить доступ к командной строке"
+
+#: hm_utils.py:623
+msgid "Software Library"
+msgstr "библиотека программ"
+
+#: hm_utils.py:624
+msgid "Software management"
+msgstr "установить или удалить приложение из коллекции программ Debian"
+
+#: hm_utils.py:633
+msgid "Network configuration"
+msgstr "конфигурация сети"
+
+#: hm_utils.py:634
+msgid "Configure your network connection"
+msgstr "настроить сетевые соединения"
+
+#: hm_utils.py:638
+msgid "Printer configuration"
+msgstr "Настройка принтера"
+
+#: hm_utils.py:639
+msgid "Add and configure a printer"
+msgstr "добавить и настроить принтер"
+
+#: hm_utils.py:643
+msgid "Detailed configuration"
+msgstr "Расширенная конфигурация"
+
+#: hm_utils.py:644
+msgid "Configure each part of HandyLinux"
+msgstr "получить доступ к расширенным настройкам HandyLinux"
+
+#~ msgid "Communicate freely with the NSA"
+#~ msgstr "Связь бесплатно АНБ"

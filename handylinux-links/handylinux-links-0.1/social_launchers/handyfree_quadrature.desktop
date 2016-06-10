@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=La Quadrature du Net
+Comment=Internet et Libertés
+Icon=quadrature
+Exec=x-www-browser https://www.laquadrature.net
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;

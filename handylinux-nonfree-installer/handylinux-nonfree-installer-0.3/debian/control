@@ -1,0 +1,17 @@
+Source: handylinux-nonfree-installer
+Section: x11
+Priority: optional
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: handylinux-nonfree-installer
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, gksu, wget, zenity, perl
+Description: scripts d'installation pour paquets non libres
+ handylinux-nonfree-installer contient des scripts d'installation non libres.
+ le paquet ne contient aucune application.
+ .
+ installer intégré :
+ .
+ - teamviewer

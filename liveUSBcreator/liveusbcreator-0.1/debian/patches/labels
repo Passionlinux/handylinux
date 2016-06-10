@@ -1,0 +1,102 @@
+Description: fix label and warning message
+ .
+ liveusbcreator (0.1-3) unstable; urgency=medium
+ .
+   * affichage de l'avertissement
+   * minor fix
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- liveusbcreator-0.1.orig/liveUSBcreator
++++ liveusbcreator-0.1/liveUSBcreator
+@@ -4,7 +4,7 @@
+ 
+ # Description : création simplifiée de live usb
+ # Usage : usbmaker </path/to/iso> (facultative)
+-# Depends : zenity, dd, pv
++# Depends : zenity, coreutils, pv
+ 
+ # 
+ ISO=""
+@@ -13,33 +13,35 @@ USB=""
+ # messages
+ CHOICE="Choice"
+ DEVICE="Device"
+-APPNAME="Handy live usb creator"
+-ISOMSG="Where is the iso of the live system?"
++APPNAME="Handy live USB creator"
++ISOMSG="Where is the .iso file ?"
+ WARN="⚠ Don't do it if you're not sure ⚠"
+-USBMSG="Which one is your usb stick?\n$WARN"
+-COPYMSG="Preparing live usb. Please wait"
+-SUCCESS="The live usb is ready"
+-FAIL="An error occured"
++USBTITLE="Where is the USB key ?"
++USBMSG="Which one is your USB stick?\n$WARN"
++COPYMSG="Copying ISO to USB. Please wait."
++SUCCESS="The live USB is ready."
++FAIL="An error occured."
+ CHOICE="Choice"
+ MODEL="Model"
+ SIZEMSG="Size"
+-CAREFUL="WARNING!\nThis tool will erase the entire selected disk.\n Choose wisely"
++CAREFUL="WARNING!\nThis tool will erase the entire selected disk.\n Don't forget to make a backup."
+ 
+ case $LANG in
+ 	fr*)
+-        APPNAME="Handy live usb creator"
++        APPNAME="Handy live USB creator"
+         ISOMSG="Où est l'image .iso?"
+-        WARN="⚠ Ne faîtes rien en cas de doute ⚠"
+-        USBMSG="Quel est le disque correspondant à la clé usb?\n$WARN"
+-        COPYMSG="Préparation de la clé usb. Veuillez patienter."
+-        SUCCESS="La clé est prête"
++        WARN="⚠ Ne faites rien en cas de doute ⚠"
++        USBTITLE="Où est la clé USB ?"
++        USBMSG="Quel disque correspond à la clé USB ?\n$WARN"
++        COPYMSG="Transfert de l'ISO sur l'USB. Veuillez patienter."
++        SUCCESS="L'ISO est bien copiée sur la clé."
+         FAIL="Une erreur est survenue."
+         CHOICE="Choix"
+         MODEL="Modèle"
+         SIZEMSG="Taille"
+-        CAREFUL="ATTENTION!\nCet outil efface intégralement un disque pour y coller une ISO\nVeillez à bien choisir votre clé usb et non votre disque dur."
++        CAREFUL="ATTENTION!\nCet outil va intégralement effacer votre clé USB.\n N'oubliez pas de sauvegarder vos données."
+         ;;
+-        nl*)
++    nl*)
+         APPNAME="Handy live usb creator"
+         ISOMSG="Waar is de .iso bestand ?"
+         WARN="⚠ Niet iets te doen in geval van twijfel ⚠"
+@@ -70,7 +72,9 @@ copytousb() {
+     fi
+ }
+ 
+-zenity --info --title="LiveUSBcreator" --text="$CAREFUL"
++if [ "$(whoami)" != "root" ]; then
++    zenity --info --title="LiveUSBcreator" --text="$CAREFUL"
++fi
+ 
+ if [ -z "$1" ]; then
+     ISO="$(zenity --title="$ISOMSG" --file-selection --file-filter="Disc Image *.iso | *.iso")"
+@@ -100,7 +104,7 @@ if [ -z "$2" ]; then
+         )
+ 
+ 
+-    USB="/dev/$(zenity --width=350 --list  --text "$USBMSG"  --radiolist \
++    USB="/dev/$(zenity --width=350 --list --title "$USBTITLE" --text "$USBMSG"  --radiolist \
+         --column="$CHOICE" --column="USB-Key" --column="$MODEL" --column="$SIZEMSG" \
+         $USBLIST | cut -d' ' -f2)"
+ else

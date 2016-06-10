@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Fri, 10 Jun 2016 01:13:43 +0200
+Source: handylinux-nonfree-installer
+Binary: handylinux-nonfree-installer
+Architecture: source all
+Version: 0.3-1
+Distribution: jessie
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handylinux-nonfree-installer - scripts d'installation pour paquets non libres
+Changes:
+ handylinux-nonfree-installer (0.3-1) jessie; urgency=medium
+ .
+   * fix description & maintainer
+   * update teamviewer path to generic 'teamviewer-latest'
+Checksums-Sha1:
+ 79c71acc1fe91633014ea96958ff1b0c846ef404 1461 handylinux-nonfree-installer_0.3-1.dsc
+ 7abf82eb9230b3e1122d532019cfb560fb33e410 4472 handylinux-nonfree-installer_0.3.orig.tar.xz
+ de3cb4f526ee3c041caf2064072a87be387b6deb 2708 handylinux-nonfree-installer_0.3-1.debian.tar.xz
+ 4199f064e16f97bf04bef485793f24dfd574724d 4816 handylinux-nonfree-installer_0.3-1_all.deb
+Checksums-Sha256:
+ e68edb3d75d0cd78c80e266c5be28a803adb39dcdd2b96ce689dc5f4ba639eac 1461 handylinux-nonfree-installer_0.3-1.dsc
+ a7d525c19adc058dd58b7a7cd15f0619552c8d5a66a1670e91ae08003e6014a3 4472 handylinux-nonfree-installer_0.3.orig.tar.xz
+ 2f094e225cb248895a6246e0209198896b8b6dbefe2ed4c18e0ee6e9109f32da 2708 handylinux-nonfree-installer_0.3-1.debian.tar.xz
+ 97637e72dbd4da1be0a936db3745fbab5ab0b18744c34e7b4093d7b6360648f1 4816 handylinux-nonfree-installer_0.3-1_all.deb
+Files:
+ 6b5461fc5d22a0922817f4afa7fcfb2b 1461 x11 optional handylinux-nonfree-installer_0.3-1.dsc
+ 52468d58473fc3093d36c3a71882e1d0 4472 x11 optional handylinux-nonfree-installer_0.3.orig.tar.xz
+ b4862f8a7927a16fda406218b3b6fc75 2708 x11 optional handylinux-nonfree-installer_0.3-1.debian.tar.xz
+ f33088c9f0fa09b2f7d7a4f4552f7628 4816 x11 optional handylinux-nonfree-installer_0.3-1_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXWfsiAAoJELOLTsK+RB/P0IAIAKwv6DMqMOeVFikKKYe0NWnv
+c+zxXA4vv/XL3H+rThVO2RFvWQS8ux7V7eHP00JILYdcpJeoAzvNrf4nSt9UAw7z
+LEvk4X3ZRPpSQ/RF/yF4kVbJ2byZ08P1JMsCAsLHARNJpCIlftPmVbII07IC/uIf
+oo/SU5tp3As9t8kio7ZAcg7x06xkA+Tg7aBbwAVQY6LiNj8CdREWrNH6qzl5Y6tm
+6Z4lKxJJ9ut4pCAXGAeVor11x2A7fb6B8pt+CNEVMYAOLiCfYBDhu3ASgqfHNeQD
+Pv3YPUpO4RtDxTRtyGeI86Z6JEsVs+0Iyg3JHUKZH/AEpQKkP4TSj5P/lYAxiXo=
+=ZhvK
+-----END PGP SIGNATURE-----

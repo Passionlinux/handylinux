@@ -1,0 +1,75 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package cyclope
+dpkg-buildpackage: source version 1.5-5
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by arnault perret <arpinux@member.fsf.org>
+ dpkg-source --before-build cyclope-1.5
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b cyclope-1.5
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building cyclope using existing ./cyclope_1.5.orig.tar.xz
+dpkg-source: info: building cyclope in cyclope_1.5-5.debian.tar.xz
+dpkg-source: info: building cyclope in cyclope_1.5-5.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/cyclope/cyclope-1.5'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/cyclope/cyclope-1.5'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/cyclope/cyclope-1.5'
+# mise en place des dossiers
+install -d -m 755 -o root -g root /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/man/man1
+install -d -m 755 -o root -g root /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/locale
+install -d -m 755 -o root -g root /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/pixmaps
+# copie des fichiers
+install -m 755 -o root -g root cyclope /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/bin
+install -m 644 -o root -g root cyclope.1 /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/man/man1
+install -m 644 -o root -g root cyclope_icon.png /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/pixmaps
+install -m 644 -o root -g root cyclope.desktop /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/applications
+# mise en place des traductions
+cp -a locale/* /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/locale/
+chown -R root:root /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/locale
+# nettoyage des traductions
+find /home/arp/debdev/cyclope/cyclope-1.5/debian/cyclope/usr/share/locale -name "cyclope.po*" -exec rm {} \;
+make[1]: Leaving directory '/home/arp/debdev/cyclope/cyclope-1.5'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `cyclope' in `../cyclope_1.5-5_all.deb'.
+ dpkg-genchanges  >../cyclope_1.5-5_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build cyclope-1.5
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile cyclope_1.5-5.dsc arnault perret <arpinux@member.fsf.org>
+gpg: skipped "arnault perret <arpinux@member.fsf.org>": secret key not available
+gpg: /tmp/debsign.qob9cmqs/cyclope_1.5-5.dsc: clearsign failed: secret key not available
+debsign: gpg error occurred!  Aborting....

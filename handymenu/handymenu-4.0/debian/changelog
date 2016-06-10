@@ -1,0 +1,464 @@
+handymenu (4.0-32) unstable; urgency=medium
+
+  * Use hello icon
+
+ -- team handylinux <dev@handylinux.org>  Tue, 05 Apr 2016 19:39:19 +0200
+
+handymenu (4.0-31) unstable; urgency=medium
+
+  * fix typo. thx fibi.
+
+ -- team handylinux <dev@handylinux.org>  Tue, 05 Apr 2016 18:31:22 +0200
+
+handymenu (4.0-30) unstable; urgency=medium
+
+  * skype sucks! No longer in the menu
+
+ -- team handylinux <dev@handylinux.org>  Tue, 15 Mar 2016 16:58:41 +0100
+
+handymenu (4.0-29) unstable; urgency=medium
+
+  * iceweasel -> firefox in default config
+
+ -- team handylinux <dev@handylinux.org>  Sun, 13 Mar 2016 16:45:28 +0100
+
+handymenu (4.0-28) unstable; urgency=medium
+
+  * ajout de la gestion des profils
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 01 Feb 2016 19:19:39 +0100
+
+handymenu (4.0-27) unstable; urgency=medium
+
+  * increase window-size when more than 7 tabs
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 27 Jan 2016 22:04:55 +0100
+
+handymenu (4.0-26) unstable; urgency=medium
+
+  * ajout de python3-xdg as dep 
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 27 Jan 2016 13:21:08 +0100
+
+handymenu (4.0-25) unstable; urgency=medium
+
+  * déplacement du about dans la config
+  * lancement de myhandylinux au clic sur l'icöne
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 27 Jan 2016 13:18:21 +0100
+
+handymenu (4.0-24) unstable; urgency=medium
+
+  * fix lancement de fichiers avec espace dans le nom
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 19 Jan 2016 22:23:00 +0100
+
+handymenu (4.0-23) unstable; urgency=medium
+
+  * suppression du module des sites visités
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 Jan 2016 23:11:11 +0100
+
+handymenu (4.0-22) unstable; urgency=medium
+
+  * fix handysoft install popup
+  * minor trad fix
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 Jan 2016 18:43:36 +0100
+
+handymenu (4.0-21) unstable; urgency=medium
+
+  * minor form fix for close option case
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 10 Jan 2016 17:19:51 +0100
+
+handymenu (4.0-20) unstable; urgency=medium
+
+  * options d'accessibilité passées au thème GTK
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 10 Jan 2016 16:22:44 +0100
+
+handymenu (4.0-19) unstable; urgency=medium
+
+  * boutons tous de même taille
+  * handymenu - large. Préparation pour accessibilité
+  * convertir aussi la partie sur les raccourcis dossiers
+  * Pas de floxbox. Navigation facilitée
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 19:58:19 +0100
+
+handymenu (4.0-18) unstable; urgency=medium
+
+  * same player, try again
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 13:54:55 +0100
+
+handymenu (4.0-17) unstable; urgency=medium
+
+  * fix debuild errors
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 13:51:34 +0100
+
+handymenu (4.0-16) unstable; urgency=medium
+
+  * ajout de python2.7 as dep
+  * fix postinstall script
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 13:47:15 +0100
+
+handymenu (4.0-15) unstable; urgency=medium
+
+  * restore fermeture après éxécution 
+  * éléments centrés dans le menu
+  * mouse scroll restored
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 13:08:28 +0100
+
+handymenu (4.0-14) unstable; urgency=medium
+
+  * conversion de la configuration v3 en v4
+  * abandon des easter eggs
+  * minor fix
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 08 Jan 2016 21:37:27 +0100
+
+handymenu (4.0-13) unstable; urgency=medium
+
+  * installation proposée si appli absente
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 05 Jan 2016 22:39:23 +0100
+
+handymenu (4.0-12) unstable; urgency=medium
+
+  * la fenêtre ne clignote plus aux modifs. Merci wlourf
+  * repartition + homogène, comme avant
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 04 Jan 2016 21:35:49 +0100
+
+handymenu (4.0-11) unstable; urgency=medium
+
+  * add mnemonic pour onglets
+  * use flowbow. thx Starsheep
+  * largeur de fenêtre adaptée
+  * maximum d'onglets comprend les modules
+  * help for drag and drop
+  * pas à resélectionner la section. Merci wlourf
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 03 Jan 2016 14:23:16 +0100
+
+handymenu (4.0-10) unstable; urgency=medium
+
+  * ajout de xdg-utils as dep
+  * ajout de deux lanceurs pour la première slide
+  * fix la taille des lanceurs
+  * fix traduction
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 01 Jan 2016 18:11:42 +0100
+
+handymenu (4.0-9) unstable; urgency=medium
+
+  * fix HandyLinux-1.x compatibility 
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 30 Dec 2015 22:03:58 +0100
+
+handymenu (4.0-8) unstable; urgency=medium
+
+  * ajout de xdg-user-dirs as dep
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 30 Dec 2015 14:30:36 +0100
+
+handymenu (4.0-7) unstable; urgency=medium
+
+  * ajout de l'affichage de la conf
+  * fix largeur
+  * fix formatage
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 30 Dec 2015 14:27:42 +0100
+
+handymenu (4.0-6) unstable; urgency=medium
+
+  * set patch content
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 29 Dec 2015 23:21:00 +0100
+
+handymenu (4.0-5) unstable; urgency=medium
+
+  * fix home folder launcher
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 29 Dec 2015 23:19:34 +0100
+
+handymenu (4.0-4) unstable; urgency=medium
+
+  * retour du controle clavier pour les onglets
+  * fix gtk3/gtk2 minor bug
+  * fix modules
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 29 Dec 2015 23:08:57 +0100
+
+handymenu (4.0-3) unstable; urgency=medium
+
+  * ne pas montrer les applications désinstallées
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 29 Dec 2015 15:22:51 +0100
+
+handymenu (4.0-2) unstable; urgency=medium
+
+  * set trad
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 09 Dec 2015 02:24:22 +0100
+
+handymenu (4.0-1) unstable; urgency=medium
+
+  * passage en gtk3 par thuban
+  * ajout des modules
+  * améliorations multiples
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 08 Dec 2015 14:16:42 +0100
+
+handymenu (3.2-6) unstable; urgency=medium
+
+  * mémoire de l'option "ne pas fermer"
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 18 Sep 2015 16:18:59 +0200
+
+handymenu (3.2-5) unstable; urgency=medium
+
+  * retour du about
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 13 Sep 2015 18:46:35 +0200
+
+handymenu (3.2-4) unstable; urgency=medium
+
+  * activation du déplacement du menu au clic-maintenu
+  * suppression du lien du titre
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 13 Sep 2015 18:15:18 +0200
+
+handymenu (3.2-3) unstable; urgency=medium
+
+  * ajout de la possibilité de changer l'icône d'un lanceur par thuban
+  * ajout de la traduction allemande par arpinux
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 04 Sep 2015 15:13:27 +0200
+
+handymenu (3.2-2) unstable; urgency=medium
+
+  * replace exo-open --launch WebBrowser by iceweasel
+  * set https links
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 27 Aug 2015 19:07:24 +0200
+
+handymenu (3.2-1) unstable; urgency=medium
+
+  * ajout de l'option déplacer le lanceur
+  * ajout de la couleur pour l'onglet sélectionné
+  * mise à jour de la traduction
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 23 Aug 2015 22:15:54 +0200
+
+handymenu (3.1-1) unstable; urgency=medium
+
+  * minor fixes
+  * stabilisation
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 22 Jun 2015 15:17:01 +0200
+
+handymenu (3.0-26) unstable; urgency=medium
+
+  * add icon for 'add section' button 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 20 Jun 2015 20:22:38 +0200
+
+handymenu (3.0-25) unstable; urgency=medium
+
+  * fix add section appearance 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 20 Jun 2015 17:13:23 +0200
+
+handymenu (3.0-24) unstable; urgency=medium
+
+  * change "add section" to stock button (ask by chalu)
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 20 Jun 2015 16:25:59 +0200
+
+handymenu (3.0-23) unstable; urgency=medium
+
+  * enable web links by drag and drop 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 20 Jun 2015 12:07:52 +0200
+
+handymenu (3.0-22) unstable; urgency=medium
+
+  * fix .desktop file reading if icon address includes ext. 
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 18 Jun 2015 22:48:42 +0200
+
+handymenu (3.0-21) unstable; urgency=medium
+
+  * support directories/files shortcuts
+
+ -- Thuban <xcartron@april.org>  Wed, 17 Jun 2015 15:16:04 +0200
+
+handymenu (3.0-20) unstable; urgency=medium
+
+  * intégration dans les dépôts
+  * numéro de version simple
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 15 Jun 2015 00:18:47 +0200
+
+handymenu (3.0-19) unstable; urgency=medium
+
+  * fix translation for es/eo/nl and ru 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 14 Jun 2015 18:52:23 +0200
+
+handymenu (3.0-18) unstable; urgency=medium
+
+  * fix translation : rewrote all scripts in english
+  * fix english and french translation files
+  * merge changes for es/eo/nl/ru ... waiting for translation
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 14 Jun 2015 04:33:40 +0200
+
+handymenu (3.0-17) unstable; urgency=medium
+
+  * fix translation 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 14 Jun 2015 02:24:21 +0200
+
+handymenu (3.0-16) unstable; urgency=medium
+
+  * change Upstream Name
+  * fix about/credits window
+  * prepare for repository integration
+  * fix translations en/es/eo/nl/ru
+  * set conflict and replace properties against handy-menu (v2)
+  * fix makefile to remove lang*files during uninstallation
+  * remove social launchers
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 13 Jun 2015 18:10:02 +0200
+
+handy-menu (3.0-15) unstable; urgency=medium
+
+  * Texte de titre + gros
+  * code nettoyé
+
+ -- Thuban <xcartron@april.org>  Sat, 13 Jun 2015 14:42:59 +0200
+
+handy-menu (3.0-14) unstable; urgency=medium
+
+  * remove bottom buttons
+  * move buttons to top right corner
+  * remove banner, replaced by simple text
+
+ -- Thuban <xcartron@april.org>  Sat, 13 Jun 2015 12:17:52 +0200
+
+handy-menu (3.0-13) unstable; urgency=medium
+
+  * Seul entree ferme la fenêtre avec le bouton 
+  * Les boutons d'edition de section sont en haut
+
+ -- Thuban <xcartron@april.org>  Fri, 12 Jun 2015 17:22:16 +0200
+
+handy-menu (3.0-12) unstable; urgency=medium
+
+  * restore close button and remove decoration
+  * add small black border
+  * cPickle to pickle to increase start time
+  * killall at startup to avoid zombie process
+
+ -- Thuban <xcartron@april.org>  Fri, 12 Jun 2015 16:28:20 +0200
+
+handy-menu (3.0-11) unstable; urgency=medium
+
+  * retore window decoration
+  * disable resizing
+  * remove close button
+
+ -- Thuban <xcartron@april.org>  Fri, 12 Jun 2015 14:57:44 +0200
+
+handy-menu (3.0-10) unstable; urgency=medium
+
+  * remove window decoration
+  * fix uri button centering
+  * fix tab width if lesser than 7
+  * fix reset button name
+  * fix icon size warning
+
+ -- Thuban <xcartron@april.org>  Fri, 12 Jun 2015 10:20:05 +0200
+
+handy-menu (3.0-9) unstable; urgency=medium
+
+  * delete about button
+  * editable launchers
+  * fix translations
+  * fix tabs size
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 12 Jun 2015 02:02:21 +0200
+
+handy-menu (3.0-8) unstable; urgency=medium
+
+  * fix posinst script
+  * set "about" button
+  * fix preferences window size
+  * fix button size
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 09 Jun 2015 22:04:18 +0200
+
+handy-menu (3.0-7) unstable; urgency=medium
+
+  * fix window size
+  * disable wraping tabs
+  * fix Enter press action
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 07 Jun 2015 14:17:40 +0200
+
+handy-menu (3.0-6) unstable; urgency=medium
+
+  * meilleur support de la langue pour rechercher le nom de l'appli ajoutée
+  * boutons pilotables au clavier
+  * une seule instance
+  * compilation des .py
+  * changement de la bannière
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 07 Jun 2015 01:00:48 +0200
+
+handy-menu (3.0-5) unstable; urgency=medium
+
+  * fix button padding & margin
+  * auto restart menu after configuration
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 05 Jun 2015 22:51:11 +0200
+
+handy-menu (3.0-4) unstable; urgency=medium
+
+  * minor edit : fix addapps window size
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 05 Jun 2015 19:56:33 +0200
+
+handy-menu (3.0-3) unstable; urgency=medium
+
+  * fix start menu path
+  * fix row & columns
+  * fix icons size
+  * fix .desktop used names
+  * set latest tab default apps
+  * cleaning
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 05 Jun 2015 19:16:07 +0200
+
+handy-menu (3.0-2) unstable; urgency=medium
+
+  * move locale files to regular /usr/share/locale directory
+  * fix hover behaviour
+  * fix en translation
+  * png optimization
+  * set icons size to 64px 
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 05 Jun 2015 15:03:54 +0200
+
+handy-menu (3.0-1) unstable; urgency=low
+
+  * handymenu rewrite from scratch by thuban
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 05 Jun 2015 06:00:06 +0200

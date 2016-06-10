@@ -1,0 +1,22 @@
+## Tron2
+## xfwm theme created by daman
+## free to alter, amend, use, etc...
+
+inactive_text_color=#f3cb3f
+## active_text_color=#ebb022
+## active_text_color=#c9b581
+active_text_shadow_color=#000000
+active_text_color=#7ddced
+inactive_text_shadow_color=#37362E
+shadow_delta_height=2
+shadow_delta_width=2
+shadow_delta_x=2
+shadow_delta_y=2
+button_offset=0
+button_spacing=0
+full_width_title=false
+title_horizontal_offset=0
+title_vertical_offset_active=3
+title_vertical_offset_inactive=2
+title_shadow_active=false
+title_shadow_inactive=false

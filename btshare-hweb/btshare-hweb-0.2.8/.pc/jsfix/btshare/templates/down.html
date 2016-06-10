@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<title>BTshare</title>
+<link rel="icon" href=" {{ url_for('static', filename='btshare.png') }}" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',
+filename='style.css') }} ">
+
+</head>
+
+
+<body>
+<div class="header">
+    <h1>Partages dans {{ sharedir }}</h1> 
+    <div id="infos"><span id=sessinfos>{{ sessinfos|safe }}</span> </div>
+</div>
+
+<div class="menu">
+    <form action="{{ url_for('chgdir') }}" method="post">
+            <div id="fileselect">Changer le répertoire partagé: 
+                <input type="textinput" name="filename">
+                <input type="submit" value="Ok">
+            </div>
+    </form>
+    <div class="menu">
+        <span class="btn"><a href="/helpme">Aide</a></span>
+        <span class="btn"><a href="/shutdown">Arrêter BTshare</a></span>
+    </div>
+
+    <div class="retour">{{ retour }}</div>
+</div>
+
+<div id="main">
+    <span class="tabup" style="background-color:#DDD;"><a href=" {{ url_for('up') }}">Envois</a></span>
+    <span class="tabdl" style="font-weight:bold;border:1px solid #41B1FF;">Réception</span>
+    <div id="dl">
+        <div class="menu">
+            <div>
+            <form action="/_newmagnet" method="post">
+                        Ajouter un lien magnet
+                        <input type="textinput" name="magnetlink">
+                        <input type="submit" value="Ok">
+            </form>
+            <form action="/_newtorrent" method="post" enctype="multipart/form-data">
+                        ou un fichier torrent
+                        <input type="file" name="torrentfile">
+                        <input type="submit" value="Ok">
+            </form>
+            </div>
+        </div>
+
+        <span id="dlinfos">{{ dlinfos|safe }}</span>
+    </div>
+
+</div>
+
+
+<div id="footer">
+<a href="http://yeuxdelibad.net/Programmation/BTshare.html">BTshare</a>
+</div>
+
+
+
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script type=text/javascript src="http://v2.handylinux.org/js/jquery.js"></script>
+
+<script type="text/javascript">
+function copyToClipboard(text) {
+  window.prompt("Copier: Ctrl+C, Entrée", text);
+}
+</script> 
+
+<script type="text/javascript">
+function update_values() {
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+            $.getJSON($SCRIPT_ROOT+"/_getdlinfos",
+                function(data) {
+                    $("#dlinfos").html(data.dlinfos);
+                    $("#sessinfos").text(data.sessinfos);
+                });
+
+        }
+setInterval("update_values();", 1000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+#!/bin/sh
+# requiert curl
+
+# trads
+IMGSENT="Video uploaded"
+ERROR="Error when uploading "
+TOOBIG="The video is too big"
+
+case $LANG in
+	fr*)
+        LOADED="Vidéo chargée"
+        ERROR="Erreur lors de l'envoi de"
+        TOOBIG="La vidéo est trop lourde"
+        ;;
+    de*)
+        IMGSENT = "Video hochgeladen"
+        ERROR = "Fehler beim Hochladen"
+        TOOBIG = "Das Video ist zu groß"
+        ;;
+    es*)
+        IMGSENT = "Video subido"
+        ERROR = "Error al cargar"
+        TOOBIG = "El vídeo es demasiado grande"
+        ;;
+esac
+
+TMP=$(mktemp)
+
+upload() {
+    URL=$(curl --progress-bar -F"api=1" -F"videoFile=@\"$1\"" http://videobin.org/add 2> $TMP)
+    if [ $? -eq 0 ]; then
+        echo $URL | grep -Eo "http://.*?/.*?\.html"
+        if [ $? -eq 0 ]; then #format du retour indique que l'upload a marché
+            x-www-browser "$URL" &
+            notify-send "$LOADED : $URL"
+        else
+            notify-send "$ERROR $1"
+        fi
+    fi
+}
+
+# la vidéo doit faire moins de 500MB
+SIZE=$(stat -c%s "$1")
+if [ $SIZE -gt 500000000 ]; then
+    notify-send "$TOOBIG"
+    exit 1
+fi
+
+upload "$1" &
+
+P=$(tail -n1 $TMP |grep -Eo "[0-9].?.?,[0-9]" |cut -d',' -f1 |tail -n1)
+(while [ "$P" != "100" ]; do
+    echo $P
+    echo "# $P %"
+    sleep 1
+    P=$(tail -n1 $TMP |grep -Eo "[0-9].?.?,[0-9]" |cut -d',' -f1 |tail -n1)
+done) | zenity --title "Upload $(basename "$1")" --progress --percentage=0 --auto-close --no-cancel
+
+# on nettoie le /tmp
+rm $TMP
+exit 0

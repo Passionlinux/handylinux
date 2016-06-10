@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=HandyMenu
+Comment=Minimalist menu for HandyLinux
+Comment[fr]=Menu simplifié pour HandyLinux
+Exec=/usr/bin/handymenu
+Icon=handymenu_icon
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=X-XFCE;Utility;

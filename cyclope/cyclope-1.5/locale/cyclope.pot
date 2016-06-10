@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-12-13 18:18+CET\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: cyclope:52
+msgid ""
+"Error while opening this file. Sorry \n"
+" {}"
+msgstr ""
+
+#: cyclope:60
+msgid "Open a picture"
+msgstr ""
+
+#: cyclope:64
+msgid "Images"
+msgstr ""
+
+#: cyclope:80
+msgid "Closed, no files selected"
+msgstr ""
+
+#: cyclope:332
+msgid "Fullscreen"
+msgstr ""
+
+#: cyclope:343
+msgid "Restore screen"
+msgstr ""
+
+#: cyclope:416
+msgid "Rotate right"
+msgstr ""
+
+#: cyclope:421
+msgid "Rotate left"
+msgstr ""
+
+#: cyclope:427
+msgid "Disable zoom"
+msgstr ""
+
+#: cyclope:430
+msgid "Zoom"
+msgstr ""
+
+#: cyclope:436
+msgid "Disable slideshow"
+msgstr ""
+
+#: cyclope:439
+msgid "Enable slideshow"
+msgstr ""
+
+#: cyclope:446
+msgid "Edit with {}"
+msgstr ""
+
+#: cyclope:500
+msgid ""
+"<b>{}</b>\n"
+"version : {}\n"
+"author : {}\n"
+"licence : {}\n"
+"homepage : {}\n"
+"---\n"
+"usage :\n"
+"Use arrows, b and n keys to change image\n"
+"Double click or press f key to enlarge the window\n"
+"Press o to open a new image\n"
+"Press d or g to turn the image\n"
+"Press z to toggle zoom mode\n"
+"Press = to restore the image\n"
+"Press p to start slideshow mode\n"
+"Press m or right click to show the menu\n"
+"Press Escape or q to quit"
+msgstr ""
+

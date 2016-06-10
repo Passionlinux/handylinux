@@ -1,0 +1,52 @@
+Description: identification des devs
+ .
+ liveusbcreator (0.1-8) unstable; urgency=medium
+ .
+   * revert persistence
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- liveusbcreator-0.1.orig/liveUSBcreator
++++ liveusbcreator-0.1/liveUSBcreator
+@@ -87,21 +87,21 @@ fi
+ 
+ if [ -z "$2" ]; then
+     USBKEYS=$(
+-    grep -Hv ^0$ /sys/block/*/removable |
+-    sed s/removable:.*$/device\\/uevent/ |
+-    xargs grep -H ^DRIVER=sd |
+-    sed s/device.uevent.*$/size/ |
+-    xargs grep -Hv ^0$ |
+-    cut -d / -f 4
++        grep -Hv ^0$ /sys/block/*/removable |
++        sed s/removable:.*$/device\\/uevent/ |
++        xargs grep -H ^DRIVER=sd |
++        sed s/device.uevent.*$/size/ |
++        xargs grep -Hv ^0$ |
++        cut -d / -f 4
+     )
+ 
+     USBLIST=$(
+         for dev in ${USBKEYS}; do
+             KEY=$(sed -e s/\ *$//g </sys/block/${dev}/device/model | sed -e 's/ /_/g')
+-            SIZE=$(lsblk -n /dev/${dev} -x SIZE |grep disk |awk '{print $4}' | uniq)
++            SIZE=$(lsblk /dev/${dev} -x SIZE |awk '/disk/{print $4}')
+             echo "list" ${dev} ${KEY} ${SIZE}
+         done
+-        )
++    )
+ 
+ 
+     USB="/dev/$(zenity --width=350 --list --title "$USBTITLE" --text "$USBMSG"  --radiolist \

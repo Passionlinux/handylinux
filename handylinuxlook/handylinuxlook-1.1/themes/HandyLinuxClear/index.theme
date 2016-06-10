@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=HandyLinuxClear
+Comment=A smooth and soft theme based on Albatros and Ambiance Flat
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=HandyLinuxClear
+MetacityTheme=HandyLinuxClear
+CursorTheme=DMZ-Black
+ButtonLayout=:minimize,maximize,close

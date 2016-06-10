@@ -1,0 +1,33 @@
+Description: set .mo* trad files
+ .
+ handymenu (4.0-1) unstable; urgency=medium
+ .
+   * passage en gtk3 par thuban
+   * ajout des modules
+   * améliorations multiples
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/locale/handymenu.pot
++++ handymenu-4.0/locale/handymenu.pot
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: PACKAGE VERSION\n"
+-"POT-Creation-Date: 2015-12-08 14:10+CET\n"
++"POT-Creation-Date: 2015-12-09 02:21+CET\n"
+ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+ "Language-Team: LANGUAGE <LL@li.org>\n"

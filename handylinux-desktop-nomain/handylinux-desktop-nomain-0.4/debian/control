@@ -1,0 +1,21 @@
+Source: handylinux-desktop-nomain
+Section: x11
+Priority: extra
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org
+
+Package: handylinux-desktop-nomain
+Architecture: all
+Depends: ${misc:Depends}, handylinux-nonfree-installer, 
+ flashplugin-nonfree | pepperflashplugin-nonfree, firmware-b43-installer, firmware-b43legacy-installer,
+ b43-fwcutter, firmware-linux, firmware-linux-nonfree, firmware-ralink, alsa-firmware-loaders,
+ intel-microcode, iucode-tool, ttf-mscorefonts-installer, ttf-xfree86-nonfree, unrar
+Description: Méta-paquet contrib et nonfree pour HandyLinux
+ HandyLinux est une distribution basée sur Debian 
+ et orientée vers les grands débutants.
+ .
+ Ce méta-paquet rassemble les éléments contrib et nonfree 
+ pour construire HandyLinux: le player flash, les firmwares nonfree 
+ et autres joyeusetés.

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=jamendo
+Comment=discover jamendo
+Comment[fr]=découvrez jamendo
+Icon=jamendo
+Exec=x-www-browser http://jamendo.org
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;AudioVideo
+GenericName=jamendo

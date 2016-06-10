@@ -1,0 +1,487 @@
+Description: fixes sur la forme et le fond
+ .
+ handymenu (4.0-14) unstable; urgency=medium
+ .
+   * conversion de la configuration v3 en v4
+   * abandon des easter eggs
+   * minor fix
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/handymenu.py
++++ handymenu-4.0/handymenu.py
+@@ -50,7 +50,7 @@ class Handymenu():
+ 
+     def about(self, wid=None, data=None):
+         # fenêtre à propos.
+-        m = Gtk.MessageDialog()
++        m = Gtk.MessageDialog(parent=self.window)
+         m.add_buttons(Gtk.STOCK_CLOSE, Gtk.ResponseType.CLOSE)
+         m.set_markup(_('<b>Handymenu</b>\n\n\
+ version : {0}\n\
+@@ -103,13 +103,14 @@ homepage : <a href="{3}" title="HandyMen
+         elif event.type == Gdk.EventType.KEY_PRESS: 
+             if event.keyval == Gdk.KEY_Return:
+                 exe = True
++
+         if exe:
+             appname, icon, cmd= data['name'], data['icon'], data['cmd']
+-            GObject.idle_add(self.window.hide)
+             res = open_cmd("{}".format(cmd.strip()))
+             if res:
+                 self.add_recent(data)
+                 if self.closeafterrun:
++                    GObject.idle_add(self.window.hide)
+                     Gtk.main_quit()
+             else:
+                 m = Gtk.MessageDialog(self.window, 0, Gtk.MessageType.QUESTION, \
+@@ -161,7 +162,7 @@ homepage : <a href="{3}" title="HandyMen
+ 
+         if len(s['apps']) > 0:
+             page = Gtk.FlowBox()
+-            page.set_valign(Gtk.Align.START)
++            page.set_valign(Gtk.Align.CENTER)
+             page.set_selection_mode(Gtk.SelectionMode.NONE)
+             if len(s['apps']) % 3 == 0:
+                 page.set_max_children_per_line(3)
+@@ -222,15 +223,15 @@ homepage : <a href="{3}" title="HandyMen
+             label = Gtk.Label(_("This menu is still empty"))
+ 
+         return(page, label)
+-                
+ 
+     def close_after(self, widget):
+         self.closeafterrun = widget.get_active()
+         if not self.closeafterrun: #on enregistre de ne pas fermer
+             with open(noclose,'w') as n:
+                 n.write('Thuban veut un câlin :P')
+-        elif os.path.isfile(noclose): #on ferme la prochiane fois
+-            os.remove(noclose)
++        else:
++            if os.path.isfile(noclose): #on ferme la prochiane fois
++                os.remove(noclose)
+             
+     def make_menu(self):
+         """build the menu"""
+@@ -307,13 +308,23 @@ homepage : <a href="{3}" title="HandyMen
+         self.onglets = Gtk.Notebook()
+         self.onglets.set_tab_pos(Gtk.PositionType.TOP)
+         self.onglets.set_show_border(False)
+-        
++        self.onglets.add_events(Gdk.EventMask.SCROLL_MASK |\
++                                 Gdk.EventMask.SMOOTH_SCROLL_MASK)
++        self.onglets.connect('scroll-event', self.scroll_tab)
++
+         vbox.pack_start(self.onglets, True, True, 0)
+         
+         # Catégories
+         self.create_tabs() 
+         self.window.show_all()
+ 
++    def scroll_tab(self, widget, event):
++        if event.get_scroll_deltas()[2] < 0:
++            self.onglets.prev_page()
++        else:
++            self.onglets.next_page()
++        
++
+     def move_win(self, widget, event):
+         """move window with a simple click"""
+         self.window.begin_move_drag(event.button, int(event.x_root), int(event.y_root), event.time)
+--- handymenu-4.0.orig/locale/de/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/de/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: 2015-09-04 15:09+0200\n"
+ "Last-Translator: arpinux <arp@nakedev>\n"
+ "Language-Team: German <contact@handylinux.org>\n"
+@@ -156,30 +156,30 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+ "Do you want to install it?"
+ msgstr ""
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr "Dieses Menü ist noch leer"
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr "über"
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr "Close"
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr "konfigurieren"
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr "Close nach der Ausführung"
+ 
+--- handymenu-4.0.orig/locale/en/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/en/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: 2015-06-13 18:45+CEST\n"
+ "Last-Translator: Xavier Cartron <thuban@yeuxdelibad.net>, arnault perret "
+ "<arpinux@member.fsf.org>\n"
+@@ -151,30 +151,30 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+ "Do you want to install it?"
+ msgstr ""
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr ""
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr ""
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr ""
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr ""
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr ""
+ 
+--- handymenu-4.0.orig/locale/eo/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/eo/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: 2015-06-14 16:25+CEST\n"
+ "Last-Translator: firepowi <contact@powi.fr>, Fredrick Brennan <admin@8chan."
+ "co>, arpinux\n"
+@@ -157,30 +157,30 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+ "Do you want to install it?"
+ msgstr ""
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr "Ĉi tiu menuo estas malplena"
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr "Pri ni"
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr "Fermi"
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr "Personecigi"
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr "Malfermi post ekzekuto"
+ 
+--- handymenu-4.0.orig/locale/es/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/es/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: 2015-06-14 15:10+CEST\n"
+ "Last-Translator: rouzigalos guantas arpinux <contact@handylinux.org>\n"
+ "Language-Team: Spanish <contact@handylinux.org>\n"
+@@ -156,30 +156,30 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+ "Do you want to install it?"
+ msgstr ""
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr "Este menú está vacía por ahora"
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr "Acerca de"
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr "Salir"
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr "Personalizar"
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr "Cerca después de la ejecución"
+ 
+--- handymenu-4.0.orig/locale/fr/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/fr/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: 2015-06-13 18:38+CEST\n"
+ "Last-Translator: Xavier Cartron <thuban@yeuxdelibad.net>, arpinux\n"
+ "Language-Team: French <contact@handylinux.org>\n"
+@@ -156,7 +156,7 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+@@ -166,23 +166,23 @@ msgstr ""
+ "\n"
+ "Voulez-vous l'installer ?"
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr "Ce menu est vide"
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr "À propos"
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr "Fermer"
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr "Personnaliser"
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr "Fermer après exécution"
+ 
+--- handymenu-4.0.orig/locale/handymenu.pot
++++ handymenu-4.0/locale/handymenu.pot
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: PACKAGE VERSION\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+ "Language-Team: LANGUAGE <LL@li.org>\n"
+@@ -149,30 +149,30 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+ "Do you want to install it?"
+ msgstr ""
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr ""
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr ""
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr ""
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr ""
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr ""
+ 
+--- handymenu-4.0.orig/locale/nl/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/nl/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: 2015-06-14 17:37+CEST\n"
+ "Last-Translator: coyotus <http://coyotus.com>\n"
+ "Language-Team: Nederlands <contact@handylinux.org>\n"
+@@ -156,30 +156,30 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+ "Do you want to install it?"
+ msgstr ""
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr "Dit menu is voor het moment leeg"
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr "Ongeveer"
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr "Sluit"
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr "Personaliseren"
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr "Sluiten na executie"
+ 
+--- handymenu-4.0.orig/locale/ru/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/ru/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-08 21:33+CET\n"
++"POT-Creation-Date: 2016-01-09 13:05+CET\n"
+ "PO-Revision-Date: 2015-06-13 20:37+CEST\n"
+ "Last-Translator: Flor de azucena, arpinux\n"
+ "Language-Team: Russian\n"
+@@ -150,30 +150,30 @@ msgstr ""
+ msgid "I click here because I love handylinux"
+ msgstr ""
+ 
+-#: handymenu.py:117
++#: handymenu.py:118
+ msgid ""
+ "Error at launching {}\n"
+ "\n"
+ "Do you want to install it?"
+ msgstr ""
+ 
+-#: handymenu.py:221 handymenu.py:222
++#: handymenu.py:222 handymenu.py:223
+ msgid "This menu is still empty"
+ msgstr "Это меню все еще пуст"
+ 
+-#: handymenu.py:254
++#: handymenu.py:255
+ msgid "About"
+ msgstr "относительно"
+ 
+-#: handymenu.py:275
++#: handymenu.py:276
+ msgid "Close"
+ msgstr "близко"
+ 
+-#: handymenu.py:284
++#: handymenu.py:285
+ msgid "Configure"
+ msgstr "Персонализация"
+ 
+-#: handymenu.py:290
++#: handymenu.py:291
+ msgid "Close after execution"
+ msgstr "закрыть после выполнения"
+ 

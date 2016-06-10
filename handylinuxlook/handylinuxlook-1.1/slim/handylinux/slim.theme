@@ -1,0 +1,34 @@
+# messages (ie: shutdown, session options, etc)
+msg_color               #dedede
+msg_font                Droid Sans:size=18:dpi=96
+msg_x                   50%
+msg_y                   40%
+
+# valid values: stretch, tile
+background_style        stretch
+background_color        #404040
+
+# input box controls
+input_font          	Droid Sans:size=16:dpi=96
+input_fgcolor           #404040
+
+# panel location
+input_panel_x           50%
+input_panel_y           50%
+input_name_x            402
+input_name_y            307
+
+# force single input box (gdm style)
+input_pass_x            -1
+input_pass_y            -1
+
+# username / password request (actual text)
+username_font          	Droid Sans:size=18:dpi=96
+username_color        	#dedede
+username_x              400
+username_y              270
+password_x              400
+password_y              270
+username_msg            Identifiant / Login :
+password_msg            Mot de passe / Password :
+

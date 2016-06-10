@@ -1,0 +1,42 @@
+Description: forgot icon for md5 check
+ .
+ handylinux-thunar-actions (0.3-4.1) unstable; urgency=medium
+ .
+   * md5sum check
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml
++++ handylinux-thunar-actions-0.3/uca/uca.xml
+@@ -94,7 +94,7 @@
+ 	<video-files/>
+ </action>
+ <action>
+-	<icon></icon>
++    <icon>dialog-question</icon>
+ 	<name>Vérifier le md5</name>
+     <unique-id>1456843190812647-1</unique-id>
+ 	<command>zenity --info --text=&quot;md5 : $(md5sum %f |cut -d&apos; &apos; -f1)&quot;</command>
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml.en
++++ handylinux-thunar-actions-0.3/uca/uca.xml.en
+@@ -94,7 +94,7 @@
+ 	<video-files/>
+ </action>
+ <action>
+-	<icon></icon>
++    <icon>dialog-question</icon>
+ 	<name>Check md5</name>
+     <unique-id>1456843190812647-1</unique-id>
+ 	<command>zenity --info --text=&quot;md5 : $(md5sum %f |cut -d&apos; &apos; -f1)&quot;</command>

@@ -1,0 +1,52 @@
+#!/bin/sh
+# nécessite curl
+
+v_=$IFS
+IFS="
+"
+# trads
+IMGSENT="Image sent"
+ERROR="Error. Check file name"
+
+case $LANG in
+	fr*)
+        IMGSENT="Image envoyée"
+        ERROR="Erreur à l'envoi d'image. Vérifiez le nom du fichier"
+        ;;
+    de*)
+        IMGSENT = "Bild geschickt"
+        ERROR = "Fehler. Überprüfen Sie den Dateinamen"
+        ;;
+    es*)
+        IMGSENT = "Imagen enviada"
+        ERROR = "Error. Compruebe el nombre de archivo"
+        ;;
+esac
+
+for i in $@; do
+    TYPE="$(file --mime-type -b $i)"
+    EXT="${i##*.}"
+
+    # premier essai sur toile-libre
+    URL=$(curl -L --progress-bar -F "MAX_FILE_SIZE=15360000" \
+        -F "img=@$i;type=$TYPE;filename=$(basename \"$i\")" \
+        "http://pix.toile-libre.org/?action=upload" |grep -E -o "http://pix.toile-libre.org/\?img=[^<]*.$EXT" |head -n1)
+
+    if [ $? -ne 0 ]; then
+        #echec avec toile-libre, on essaie framapic
+        URL=$(curl -F "file=@$i" -F "format=$TYPE"\
+            -F "delete-day=0" -F "first-view=0"\
+            "https://framapic.org" |grep "View link" | grep -Eo "https://framapic.org/(.*?)" | cut -d'"' -f1)
+    fi
+
+    if [ $? -eq 0 ]; then
+        notify-send "$IMGSENT : $i" &
+        x-www-browser $URL &
+    else
+        notify-send "$ERROR" &
+    fi
+
+done
+
+IFS=$v_
+exit 0

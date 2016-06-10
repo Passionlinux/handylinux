@@ -1,0 +1,387 @@
+Description: access features passed to theme
+ .
+ handymenu (4.0-19) unstable; urgency=medium
+ .
+   * boutons tous de même taille
+   * handymenu - large. Préparation pour accessibilité
+   * convertir aussi la partie sur les raccourcis dossiers
+   * Pas de floxbox. Navigation facilitée
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/TODO.md
++++ handymenu-4.0/TODO.md
+@@ -1,3 +1,3 @@
+ todo.list
+ ---------
+-- finir la traduction ru
++- check all trads but fr
+--- handymenu-4.0.orig/handymenu-configuration.py
++++ handymenu-4.0/handymenu-configuration.py
+@@ -454,21 +454,6 @@ class HandymenuConfig():
+                 lambda x: set_modules_position(self.modules_position.get_value_as_int()))
+         modulesbox.pack_start(self.modules_position, False, False,1)
+ 
+-        # coche accessiblité
+-        accessbtn = Gtk.CheckButton()
+-        accessbtn.connect("toggled", self.access_colors)
+-        accessbtn.set_tooltip_text(_("Make colors more accessible"))
+-
+-        accesslbl = Gtk.Label(_("Make colors more accessible"))
+-
+-        accessbox = Gtk.HBox(False, 5)
+-        accessbox.pack_start(accesslbl, False, False, 5)
+-        accessbox.pack_start(accessbtn, False, False, 5)
+-
+-        accessframe = Gtk.Frame(label = _("Accessibility"))
+-        accessframe.add(accessbox)
+-        extrabox.pack_start(accessframe, False, False, 0)
+-
+         # conteneur pour les boutons
+         btnbox = Gtk.HBox(True, 2)
+         self.mainbox.pack_start(btnbox, False, False, 0)
+@@ -496,15 +481,6 @@ class HandymenuConfig():
+         self.config = load_config()
+         self.make_menu()
+ 
+-    def access_colors(self, widget):
+-        makeaccess = widget.get_active()
+-        if makeaccess: 
+-            with open(makeaccessfile,'w') as n:
+-                n.write('May the force = m.a')
+-        else:
+-            if os.path.isfile(makeaccessfile): #on ferme la prochiane fois
+-                os.remove(makeaccessfile)
+-
+ def main():
+     menu = HandymenuConfig()
+     Gtk.main()
+--- handymenu-4.0.orig/handymenu.py
++++ handymenu-4.0/handymenu.py
+@@ -347,10 +347,6 @@ homepage : <a href="{3}" title="HandyMen
+         self.window.begin_move_drag(event.button, int(event.x_root), int(event.y_root), event.time)
+ 
+     def get_theme_colors(self):
+-        if os.path.isfile(makeaccessfile):
+-            self.bg_color = Gdk.color_parse("#eeeeee")
+-            self.selected_bg_color = Gdk.color_parse("#00FF00")
+-            return
+ 
+         style_context = self.window.get_style_context()
+         bg_color = style_context.lookup_color('bg_color')
+--- handymenu-4.0.orig/locale/de/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/de/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: 2015-09-04 15:09+0200\n"
+ "Last-Translator: arpinux <arp@nakedev>\n"
+ "Language-Team: German <contact@handylinux.org>\n"
+@@ -124,23 +124,15 @@ msgstr "Show am meisten besuchten uri"
+ msgid "Position of modules in menu"
+ msgstr "Position der Module im Menü"
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr ""
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr ""
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr "Zurücksetzen"
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr "verlassen"
+ 
+--- handymenu-4.0.orig/locale/en/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/en/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: 2015-06-13 18:45+CEST\n"
+ "Last-Translator: Xavier Cartron <thuban@yeuxdelibad.net>, arnault perret "
+ "<arpinux@member.fsf.org>\n"
+@@ -125,23 +125,15 @@ msgstr ""
+ msgid "Position of modules in menu"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr ""
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr ""
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr ""
+ 
+--- handymenu-4.0.orig/locale/eo/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/eo/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: 2015-06-14 16:25+CEST\n"
+ "Last-Translator: firepowi <contact@powi.fr>, Fredrick Brennan <admin@8chan."
+ "co>, arpinux\n"
+@@ -125,23 +125,15 @@ msgstr "Montru plej vizititaj uri"
+ msgid "Position of modules in menu"
+ msgstr "Pozicio de moduloj en menuo"
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr ""
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr ""
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr "Restarigi"
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr "Ĉesu"
+ 
+--- handymenu-4.0.orig/locale/es/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/es/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: 2015-06-14 15:10+CEST\n"
+ "Last-Translator: rouzigalos guantas arpinux <contact@handylinux.org>\n"
+ "Language-Team: Spanish <contact@handylinux.org>\n"
+@@ -124,23 +124,15 @@ msgstr "Mostrar uri más visitados"
+ msgid "Position of modules in menu"
+ msgstr "Posición de los módulos en el menú"
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr ""
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr ""
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr "Reinicializar"
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr "Salir"
+ 
+--- handymenu-4.0.orig/locale/fr/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/fr/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: 2015-06-13 18:38+CEST\n"
+ "Last-Translator: Xavier Cartron <thuban@yeuxdelibad.net>, arpinux\n"
+ "Language-Team: French <contact@handylinux.org>\n"
+@@ -124,23 +124,15 @@ msgstr "Montrer les sites les plus vus"
+ msgid "Position of modules in menu"
+ msgstr "Position des modules dans le menu"
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr "Changer les couleurs"
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr "Accessibilité"
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr "Réinitialiser"
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr "Afficher la configuration"
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr "Quitter"
+ 
+--- handymenu-4.0.orig/locale/handymenu.pot
++++ handymenu-4.0/locale/handymenu.pot
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: PACKAGE VERSION\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+ "Language-Team: LANGUAGE <LL@li.org>\n"
+@@ -123,23 +123,15 @@ msgstr ""
+ msgid "Position of modules in menu"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr ""
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr ""
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr ""
+ 
+--- handymenu-4.0.orig/locale/nl/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/nl/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: 2015-06-14 17:37+CEST\n"
+ "Last-Translator: coyotus <http://coyotus.com>\n"
+ "Language-Team: Nederlands <contact@handylinux.org>\n"
+@@ -124,23 +124,15 @@ msgstr "Toon meest bezochte uri "
+ msgid "Position of modules in menu"
+ msgstr "Positie van de modules in het menu"
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr ""
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr ""
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr "Sluit"
+ 
+--- handymenu-4.0.orig/locale/ru/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/ru/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2016-01-09 19:54+CET\n"
++"POT-Creation-Date: 2016-01-10 16:19+CET\n"
+ "PO-Revision-Date: 2015-06-13 20:37+CEST\n"
+ "Last-Translator: Flor de azucena, arpinux\n"
+ "Language-Team: Russian\n"
+@@ -124,23 +124,15 @@ msgstr "Показать самых по
+ msgid "Position of modules in menu"
+ msgstr "Положение модулей в меню"
+ 
+-#: handymenu-configuration.py:460 handymenu-configuration.py:462
+-msgid "Make colors more accessible"
+-msgstr ""
+-
+-#: handymenu-configuration.py:468
+-msgid "Accessibility"
+-msgstr ""
+-
+-#: handymenu-configuration.py:476
++#: handymenu-configuration.py:461
+ msgid "Reset"
+ msgstr "Сброс"
+ 
+-#: handymenu-configuration.py:483
++#: handymenu-configuration.py:468
+ msgid "View config"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:487
++#: handymenu-configuration.py:472
+ msgid "Quit"
+ msgstr "близко"
+ 

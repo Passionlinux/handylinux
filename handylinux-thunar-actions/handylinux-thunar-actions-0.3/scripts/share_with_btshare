@@ -1,0 +1,8 @@
+#!/bin/bash
+###########
+if [ ! -d ~/Public ]; then
+    mkdir -p ~/Public
+fi
+cp "$1" ~/Public/
+btshare-web &
+exit 0

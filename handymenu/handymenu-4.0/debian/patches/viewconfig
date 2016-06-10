@@ -1,0 +1,1724 @@
+Description: option to view config + minor fix
+ .
+ handymenu (4.0-6) unstable; urgency=medium
+ .
+   * set patch content
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/handymenu-configuration.py
++++ handymenu-4.0/handymenu-configuration.py
+@@ -52,7 +52,42 @@ def get_info_desktop(desktopfile):
+                     icon = os.path.splitext(l.replace('Icon=', '').strip())[0]
+     return(name, cmd, icon, generic)
+ 
++class ViewHMConfig(Gtk.Dialog):
++
++    def __init__(self, parent, config):
++        Gtk.Dialog.__init__(self, _("Handymenu Configuration"), parent, 0) 
++        self.set_border_width(10)
++        self.set_default_size(450, 300)
++        
++        scrolledwindow = Gtk.ScrolledWindow()
++        scrolledwindow.set_hexpand(True)
++        scrolledwindow.set_vexpand(True)
++
++        self.textview = Gtk.TextView()
++        self.textbuffer = self.textview.get_buffer()
++        
++        configuration = ""
++        for s in config:
++            configuration += str(s['name']) + "\n"
++            for app in s['apps']:
++                configuration += "      {}\n".format(str(app))
++        
++        self.textbuffer.set_text(configuration)
++        scrolledwindow.add(self.textview)
++        
++        # on récupère la zone de stockage du dialogue
++        box = self.get_content_area()
++        box.add(scrolledwindow)
++
++        self.show_all()
++
+ class HandymenuConfig():
++    def view_config(self):
++        m = ViewHMConfig(self.window, self.config)
++        ret = m.run()
++        GObject.idle_add(m.hide)
++        GObject.idle_add(m.destroy)
++    
+     def close_application(self, widget, event, data=None):
+         open_cmd("handymenu --force &")
+         Gtk.main_quit()
+@@ -421,6 +456,10 @@ class HandymenuConfig():
+         defaultbtn.set_image(resetimg)
+         defaultbtn.connect_object("clicked", self.back_to_default, self.window )
+         btnbox.pack_start(defaultbtn, False, False,0)
++        
++        viewbtn = Gtk.Button(label = _("View config"))
++        viewbtn.connect("clicked", lambda x: self.view_config())
++        btnbox.pack_start(viewbtn, False, False, 0)
+ 
+         savebtn = Gtk.Button(label = _("Quit"), stock=Gtk.STOCK_CLOSE)
+         savebtn.connect_object("clicked", self.close_application, self.window, None )
+--- handymenu-4.0.orig/handymenu.py
++++ handymenu-4.0/handymenu.py
+@@ -155,17 +155,17 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+         for s in self.config:
+             self.add_button(s)
+ 
++        if len(self.config) > maxonglets: # dyp il aime pas :P
++            self.onglets.set_scrollable(True)# dyp y veut pas :P
++
+     def add_button(self,s):
+         # Description du bouton
+         label = Gtk.Label(s['name'])
+         label.set_width_chars(onglet_width) # pour avoir des onglets uniformes
+ 
+         r = 2 # 2 lignes par défaut
+-        # onglet coloré
+-
+         n = len(s['apps']) # number of apps to show
+         if n > 0:
+-
+             r = ceil(n/3)
+             if r > 2:
+                 r -= 1
+@@ -178,7 +178,7 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+             page.set_col_spacings(10)
+             page.show()
+ 
+-            cur = [0,0]
++            x, y = 0, 0
+             for a in s['apps']:
+                 appname, icon, cmd, generic = a['name'], a['icon'], a['cmd'], a['generic']
+                     
+@@ -187,12 +187,16 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                 image.show()
+                 filename, ext = os.path.splitext(icon)
+                 if ext.lower() in ['.png', '.jpg', '.jpeg', '.gif'] :
+-                    if os.path.isfile(icon):
+-                        pixbuf = Pixbuf.new_from_file(icon)
+-                        scaled_buf = pixbuf.scale_simple(iconsize,iconsize,InterpType.BILINEAR)
+-                        image.set_from_pixbuf(scaled_buf)
+-                    else:
++                    try:
++                        if os.path.isfile(icon):
++                            pixbuf = Pixbuf.new_from_file(icon)
++                            scaled_buf = pixbuf.scale_simple(iconsize,iconsize,InterpType.BILINEAR)
++                            image.set_from_pixbuf(scaled_buf)
++                        else:
++                            image.set_from_icon_name("image-missing", Gtk.IconSize.DIALOG)
++                    except:
+                         image.set_from_icon_name("image-missing", Gtk.IconSize.DIALOG)
++                        
+                 elif ext == ".ico":
+                     if os.path.isfile(icon):
+                         pixbuf = Pixbuf.new_from_file(icon)
+@@ -200,14 +204,16 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                         image.set_from_pixbuf(scaled_buf)
+                     else:
+                         image.set_from_icon_name("applications-internet", Gtk.IconSize.DIALOG)
+-                    image.set_pixel_size(iconsize)
++                    
+                 elif len(icon.split('/')) == 2: # mimetype?
+                     icon = content_type_get_icon(icon)
+                     image.set_from_gicon(icon, Gtk.IconSize.DIALOG)
+-                    image.set_pixel_size(iconsize)
++                    
+                 else:
+                     image.set_from_icon_name(icon, Gtk.IconSize.DIALOG)
+-                    image.set_pixel_size(iconsize)
++                
++                image.set_pixel_size(iconsize)
++                    
+                 # nom de l'appli
+                 appname = fill(appname, button_width)
+                 bapp = Gtk.Button.new_with_mnemonic('_{}'.format(appname))
+@@ -219,28 +225,29 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                 # apparence du bouton
+                 bapp.set_relief(Gtk.ReliefStyle.NONE)
+                 bapp.set_alignment(0.5, 0.5)
+-                #blab.props.wrap = True
+-                #blab.props.width_chars = 20
+                 # lancement au clic ou avec entrée
+                 bapp.connect("button_release_event", self.exec_app, a)
+                 bapp.connect("key_press_event", self.exec_app, a)
+                 bapp.set_tooltip_text(generic)
+ 
+-                page.attach(bapp, cur[0], cur[0]+1, cur[1], cur[1]+1,\
++                page.attach(bapp, x, x+1, y, y+1,\
+                     xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL,\
+                     yoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL,\
+                     xpadding=1, ypadding=1)
+-                if cur[0] < c:
+-                    cur[0] +=1
+-                elif cur[0] == c:
+-                    cur[0] = 0
+-                    cur[1] += 1
++                    
++                if x < c:
++                    x +=1
++                elif x == c:
++                    x = 0
++                    y += 1
+ 
+-            self.onglets.append_page(page, label)
+         else:
+-            desc = Gtk.Label(_("This menu is still empty"))
+-            desc.show()
+-            self.onglets.append_page(desc, desc)
++            page = Gtk.Label(_("This menu is still empty"))
++            label = Gtk.Label(_("This menu is still empty"))
++            page.show()
++            label.show()
++            
++        self.onglets.append_page(page, label)
+                 
+ 
+     def close_after(self, widget):
+@@ -329,8 +336,6 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+         
+         vbox.pack_start(self.onglets, True, True, 0)
+         
+-        
+-        
+         # Catégories
+         self.create_tabs() 
+         self.window.show_all()
+--- handymenu-4.0.orig/hm_utils.py
++++ handymenu-4.0/hm_utils.py
+@@ -204,7 +204,7 @@ def get_recently_used(max):
+             if os.path.isfile(path):
+                 name = os.path.basename(path)
+                 generic = name 
+-                cmd = "xdg-open \"{}\"".format(path)
++                cmd = "xdg-open {}".format(path)
+                 #mimetype = mimetypes.guess_type(path)[0]
+                 #if mimetype:
+                 #    icon = mimetype.replace('/','-')
+--- handymenu-4.0.orig/locale/de/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/de/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: 2015-09-04 15:09+0200\n"
+ "Last-Translator: arpinux <arp@nakedev>\n"
+ "Language-Team: German <contact@handylinux.org>\n"
+@@ -16,111 +16,120 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++#, fuzzy
++msgid "Handymenu Configuration"
++msgstr "Druckerkonfiguration"
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr "Wählen Sie ein Symbol"
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr "Bilder"
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr "Geschlossen ist, ausgewählt keine Dateien"
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr "Bearbeiten Sie das Startprogramm"
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr "Ändern"
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr "Ändern Sie den Etiketten"
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr "Ändern Sie das Symbol"
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr "Ändern Sie das Anwendungssymbol"
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr "rücken"
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr "Nach unten"
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr "Bewegen Sie diese Anwendung"
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr "löschen"
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr "Löschen Werfer"
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr "Löschen Sie diesen Abschnitt"
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr "Suche nach Anwendungen"
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr "Nach oben Abschnitt"
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr "Setzen Teil ab"
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr "Name des neuen Abschnitt :"
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr "Mehr"
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr "Fügen Sie einen Abschnitt"
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr "Neueste Dateien anzeigen"
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr "Die meisten besuchten"
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr "Show am meisten besuchten uri"
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr "Position der Module im Menü"
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr "Zurücksetzen"
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr ""
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr "verlassen"
+ 
+@@ -147,23 +156,23 @@ msgid ""
+ "Is it still installed?"
+ msgstr ""
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr "Dieses Menü ist noch leer"
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr "über"
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr "Close"
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr "konfigurieren"
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr "Close nach der Ausführung"
+ 
+--- handymenu-4.0.orig/locale/en/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/en/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: 2015-06-13 18:45+CEST\n"
+ "Last-Translator: Xavier Cartron <thuban@yeuxdelibad.net>, arnault perret "
+ "<arpinux@member.fsf.org>\n"
+@@ -17,111 +17,119 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++msgid "Handymenu Configuration"
++msgstr ""
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr ""
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr ""
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr ""
+ 
+@@ -142,23 +150,23 @@ msgid ""
+ "Is it still installed?"
+ msgstr ""
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr ""
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr ""
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr ""
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr ""
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr ""
+ 
+--- handymenu-4.0.orig/locale/eo/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/eo/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: 2015-06-14 16:25+CEST\n"
+ "Last-Translator: firepowi <contact@powi.fr>, Fredrick Brennan <admin@8chan."
+ "co>, arpinux\n"
+@@ -17,111 +17,120 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++#, fuzzy
++msgid "Handymenu Configuration"
++msgstr "Agordi la Printilojn"
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr "elektis piktogramon"
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr "bildoj"
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr "fermita, neniu dosiero elektita"
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr "Redaktu la lanzador"
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr "Ŝanĝu"
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr "Ŝanĝu la nomon"
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr "ŝanĝo ikono"
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr "ŝanĝi la apliko ikono"
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr "movi supren"
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr "movi malsupren"
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr "movi ĉi lanĉilo"
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr "Forigi"
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr "Forigi ĉi lanzador"
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr "Forigu la sekcion"
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr "Trovi apliko"
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr "Movu supren sekcio"
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr "Moviĝu sekcio malsupren"
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr "Nomo de la nova sekcio : "
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr "Pli"
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr "Aldoni sekcio"
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr "moduloj"
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr "Montru freŝdatan dosieron"
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr "plej vizitis"
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr "Montru plej vizititaj uri"
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr "Pozicio de moduloj en menuo"
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr "Restarigi"
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr ""
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr "Ĉesu"
+ 
+@@ -148,23 +157,23 @@ msgid ""
+ "Is it still installed?"
+ msgstr ""
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr "Ĉi tiu menuo estas malplena"
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr "Pri ni"
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr "Fermi"
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr "Personecigi"
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr "Malfermi post ekzekuto"
+ 
+--- handymenu-4.0.orig/locale/es/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/es/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: 2015-06-14 15:10+CEST\n"
+ "Last-Translator: rouzigalos guantas arpinux <contact@handylinux.org>\n"
+ "Language-Team: Spanish <contact@handylinux.org>\n"
+@@ -16,111 +16,120 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++#, fuzzy
++msgid "Handymenu Configuration"
++msgstr "Configurar una impresora"
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr "Elija un icono"
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr "icerrado, no hay ningún archivo seleccionado"
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr "Edite el lanzador"
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr "Cambiar"
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr "Cambiar el nombre"
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr "Cambiar icono"
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr "cambiar el icono de la aplicación"
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr "ascender"
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr "mover hacia abajo"
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr "mover este lanzador"
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr "Eliminar"
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr "Eliminar esta lanzador"
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr "Eliminar esta sección"
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr "Encontrar aplicación"
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr "Subir sección"
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr "Sección Mover hacia abajo"
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr "Nombre de la nueva sección"
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr "Más"
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr "Añadir Sección"
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr "Módulos"
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr "Mostrar archivos recientes"
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr "Más visitados"
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr "Mostrar uri más visitados"
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr "Posición de los módulos en el menú"
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr "Reinicializar"
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr ""
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr "Salir"
+ 
+@@ -147,23 +156,23 @@ msgid ""
+ "Is it still installed?"
+ msgstr ""
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr "Este menú está vacía por ahora"
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr "Acerca de"
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr "Salir"
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr "Personalizar"
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr "Cerca después de la ejecución"
+ 
+--- handymenu-4.0.orig/locale/fr/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/fr/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: 2015-06-13 18:38+CEST\n"
+ "Last-Translator: Xavier Cartron <thuban@yeuxdelibad.net>, arpinux\n"
+ "Language-Team: French <contact@handylinux.org>\n"
+@@ -16,111 +16,119 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++msgid "Handymenu Configuration"
++msgstr "Configurer le HandyMenu"
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr "Choisir une icône"
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr "Fermeture, pas de fichiers sélectionnés"
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr "Éditer le lanceur"
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr "Changer"
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr "Changer le nom"
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr "Changer l'icône"
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr "Changer l'icône de l'application"
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr "Monter"
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr "Descendre"
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr "Déplacer ce lanceur"
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr "Supprimer"
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr "Supprimer ce lanceur"
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr "Supprimer cette section"
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr "Trouver une application"
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr "Monter la section"
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr "Descendre la section"
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr "Nom de la nouvelle section : "
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr "Plus"
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr "Ajouter une section"
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr "Montrer les fichiers récents"
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr "Sites les plus vus"
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr "Montrer les sites les plus vus"
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr "Position des modules dans le menu"
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr "Réinitialiser"
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr "Afficher la configuration"
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr "Quitter"
+ 
+@@ -146,24 +154,27 @@ msgid ""
+ "\n"
+ "Is it still installed?"
+ msgstr ""
++"<b>Erreur au lancement de {}</b>\n"
++"\n"
++"Est-il encore installé ?"
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr "Ce menu est vide pour l'instant"
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr "À propos"
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr "Fermer"
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr "Personnaliser"
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr "Fermer après exécution"
+ 
+@@ -542,6 +553,3 @@ msgstr "Configuration détaillée"
+ #: hm_utils.py:542
+ msgid "Configure each part of HandyLinux"
+ msgstr "Accéder à la configuration détaillée d'HandyLinux"
+-
+-#~ msgid "Toggle between categories"
+-#~ msgstr "Changer de catégorie"
+--- handymenu-4.0.orig/locale/handymenu.pot
++++ handymenu-4.0/locale/handymenu.pot
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: PACKAGE VERSION\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+ "Language-Team: LANGUAGE <LL@li.org>\n"
+@@ -15,111 +15,119 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ 
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++msgid "Handymenu Configuration"
++msgstr ""
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr ""
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr ""
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr ""
+ 
+@@ -140,23 +148,23 @@ msgid ""
+ "Is it still installed?"
+ msgstr ""
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr ""
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr ""
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr ""
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr ""
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr ""
+ 
+--- handymenu-4.0.orig/locale/nl/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/nl/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: 2015-06-14 17:37+CEST\n"
+ "Last-Translator: coyotus <http://coyotus.com>\n"
+ "Language-Team: Nederlands <contact@handylinux.org>\n"
+@@ -16,111 +16,120 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++#, fuzzy
++msgid "Handymenu Configuration"
++msgstr "Stel een printer in"
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr "Kies een icoon"
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr "gesloten, geen file-selectie"
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr "Bewerk de launcher"
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr "Verander"
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr "Verander de naam"
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr "Ander pictogram"
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr "verander het pictogram van de toepassing"
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr "omhoog"
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr "omlaag"
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr "bewegen deze launcher"
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr "Verwijder"
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr "Verwijder dit launcher"
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr "Verwijder deze sectie"
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr "Toepassing Zoeken"
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr "Move up sectie"
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr "Move gedeelte neer"
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr "Naam van de nieuwe sectie : "
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr "Meer"
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr "Toevoegen sectie"
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr "Tonen recente bestanden"
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr "Meest bezocht"
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr "Toon meest bezochte uri "
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr "Positie van de modules in het menu"
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr ""
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr ""
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr "Sluit"
+ 
+@@ -147,23 +156,23 @@ msgid ""
+ "Is it still installed?"
+ msgstr ""
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr "Dit menu is voor het moment leeg"
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr "Ongeveer"
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr "Sluit"
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr "Personaliseren"
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr "Sluiten na executie"
+ 
+--- handymenu-4.0.orig/locale/ru/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/ru/LC_MESSAGES/handymenu.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: handymenu-3.2\n"
+-"POT-Creation-Date: 2015-12-29 23:02+CET\n"
++"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+ "PO-Revision-Date: 2015-06-13 20:37+CEST\n"
+ "Last-Translator: Flor de azucena, arpinux\n"
+ "Language-Team: Russian\n"
+@@ -16,111 +16,120 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: handymenu-configuration.py:111
++#: handymenu-configuration.py:58
++#, fuzzy
++msgid "Handymenu Configuration"
++msgstr "Настройка принтера"
++
++#: handymenu-configuration.py:146
+ msgid "Choose an icon"
+ msgstr "Выберите значок"
+ 
+-#: handymenu-configuration.py:116
++#: handymenu-configuration.py:151
+ msgid "Images"
+ msgstr "Просмотр изображений"
+ 
+-#: handymenu-configuration.py:124
++#: handymenu-configuration.py:159
+ msgid "Closed, no files selected"
+ msgstr "Закрыт, файлы не выбран"
+ 
+-#: handymenu-configuration.py:192
++#: handymenu-configuration.py:227
+ msgid "Edit the launcher"
+ msgstr "Редактировать пусковой"
+ 
+-#: handymenu-configuration.py:198
++#: handymenu-configuration.py:233
+ msgid "Change"
+ msgstr "Изменить"
+ 
+-#: handymenu-configuration.py:209
++#: handymenu-configuration.py:244
+ msgid "Change the label"
+ msgstr "Изменить метку"
+ 
+-#: handymenu-configuration.py:214
++#: handymenu-configuration.py:249
+ msgid "Change icon"
+ msgstr "Изменить значок"
+ 
+-#: handymenu-configuration.py:221
++#: handymenu-configuration.py:256
+ msgid "Change the application icon"
+ msgstr "Изменить значок приложения"
+ 
+-#: handymenu-configuration.py:226
++#: handymenu-configuration.py:261
+ msgid "Move up"
+ msgstr "вверх"
+ 
+-#: handymenu-configuration.py:227
++#: handymenu-configuration.py:262
+ msgid "Move down"
+ msgstr "вниз"
+ 
+-#: handymenu-configuration.py:249
++#: handymenu-configuration.py:284
+ msgid "Move this app"
+ msgstr "Перемещение это приложение"
+ 
+-#: handymenu-configuration.py:254
++#: handymenu-configuration.py:289
+ msgid "Delete"
+ msgstr "Удалить"
+ 
+-#: handymenu-configuration.py:257
++#: handymenu-configuration.py:292
+ msgid "Delete this launcher"
+ msgstr "Удалить эту пусковую"
+ 
+-#: handymenu-configuration.py:294
++#: handymenu-configuration.py:329
+ msgid "Delete this section"
+ msgstr "Удалить этот раздел"
+ 
+-#: handymenu-configuration.py:297
++#: handymenu-configuration.py:332
+ msgid "Search for applications"
+ msgstr "Поиск приложений"
+ 
+-#: handymenu-configuration.py:304
++#: handymenu-configuration.py:339
+ msgid "Move section up"
+ msgstr "Перемещение раздела на"
+ 
+-#: handymenu-configuration.py:308
++#: handymenu-configuration.py:343
+ msgid "Move section down"
+ msgstr "Перемещение раздела вниз"
+ 
+-#: handymenu-configuration.py:340
++#: handymenu-configuration.py:375
+ msgid "Name of the new section: "
+ msgstr "Название нового раздела:"
+ 
+-#: handymenu-configuration.py:346
++#: handymenu-configuration.py:381
+ msgid "More"
+ msgstr "Больше"
+ 
+-#: handymenu-configuration.py:354
++#: handymenu-configuration.py:389
+ msgid "Add a section"
+ msgstr "Добавить раздел"
+ 
+-#: handymenu-configuration.py:382
++#: handymenu-configuration.py:417
+ msgid "Modules"
+ msgstr "Модули"
+ 
+-#: handymenu-configuration.py:387 handymenu-configuration.py:388
++#: handymenu-configuration.py:422 handymenu-configuration.py:423
+ msgid "Show recent files"
+ msgstr "Показать последние файлы"
+ 
+-#: handymenu-configuration.py:395 hm_utils.py:254
++#: handymenu-configuration.py:430 hm_utils.py:254
+ msgid "Most visited"
+ msgstr "Самый посещаемый"
+ 
+-#: handymenu-configuration.py:396
++#: handymenu-configuration.py:431
+ msgid "Show most visited uri"
+ msgstr "Показать самых посещаемых URI"
+ 
+-#: handymenu-configuration.py:409
++#: handymenu-configuration.py:444
+ msgid "Position of modules in menu"
+ msgstr "Положение модулей в меню"
+ 
+-#: handymenu-configuration.py:418
++#: handymenu-configuration.py:453
+ msgid "Reset"
+ msgstr "Сброс"
+ 
+-#: handymenu-configuration.py:425
++#: handymenu-configuration.py:460
++msgid "View config"
++msgstr ""
++
++#: handymenu-configuration.py:464
+ msgid "Quit"
+ msgstr "близко"
+ 
+@@ -141,23 +150,23 @@ msgid ""
+ "Is it still installed?"
+ msgstr ""
+ 
+-#: handymenu.py:241
++#: handymenu.py:245 handymenu.py:246
+ msgid "This menu is still empty"
+ msgstr "Это меню все еще пуст"
+ 
+-#: handymenu.py:273
++#: handymenu.py:280
+ msgid "About"
+ msgstr "относительно"
+ 
+-#: handymenu.py:294
++#: handymenu.py:301
+ msgid "Close"
+ msgstr "близко"
+ 
+-#: handymenu.py:303
++#: handymenu.py:310
+ msgid "Configure"
+ msgstr "Персонализация"
+ 
+-#: handymenu.py:309
++#: handymenu.py:316
+ msgid "Close after execution"
+ msgstr "закрыть после выполнения"
+ 

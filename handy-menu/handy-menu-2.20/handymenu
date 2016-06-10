@@ -1,0 +1,10 @@
+#!/bin/bash
+# simple script to launch handymenu
+
+cd /usr/share/handy-menu
+
+killall handymenu.py
+
+./handymenu.py &
+
+exit 0

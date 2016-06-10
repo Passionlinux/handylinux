@@ -1,0 +1,120 @@
+#!/bin/sh
+#Auteur :      thuban <thuban@yeuxdelibad.net>
+#licence :     GNU General Public Licence v3
+
+# Description : regroupe des solutions pour se dépanner
+# Dependances :  zenity, info4forum, pastemyterm, handylinux-doc-(fr/en)
+#               pixup et imagemagick pour la capture d'écran (normalement déjà par défaut sur HL)
+
+TITLE="Help Handylinux"
+
+MAINTXT="A problem ? Don't worry, you're not alone ☺"
+QUESTION="What do you want to do?"
+INIT="Access the simplified computer initiation"
+DOKU="Search a solution in the online documentation"
+LOCALDOKU="Search a solution in the system's documentation"
+FORUM="Ask on the forum"
+TERMINAL="One told me to run a command, open a terminal"
+INFO4FORUM="One asked for info4forum return, go there"
+SHOT="Take a screenshot of my problem immediately"
+SHOTMSG="The screenshot will be uploaded. Copy the adress to the forum"
+INDEX="Read the glossary of informatic expressions"
+FAQ="Look at the Frequently Asked Questions"
+
+# trads
+case $LANG in
+	fr*)
+        TITLE="Aide Handylinux"
+        MAINTXT="Un problème ? Pas de soucis, vous n'êtes pas seul(e)s ☺"
+        QUESTION="Que voulez-vous faire?."
+        INIT="Lire l'initiation simplifiée à l'informatique"
+        DOKU="Chercher une solution dans la documentation en ligne."
+        LOCALDOKU="Lire la documentation sur l'ordinateur."
+        FORUM="Demander de l'aide sur le forum."
+        TERMINAL="On m'a dit de taper une commande dans le terminal, j'y vais."
+        INFO4FORUM="On m'a demandé les informations de info4forum."
+        SHOT="Prendre une capture d'écran de mon problème tout de suite."
+        SHOTMSG="La capture d'écran va être chargée pour que vous puissiez copier son adresse sur le forum."
+        INDEX="Consulter le glossaire des termes informatiques."
+        FAQ="Accéder à la Foire Aux Questions."
+        ;;
+esac
+
+# pour arpi
+#cvlc "http://soundfox.me/audio/michael_jackson_-_you_are_not_alone_www.dinamik.az.mp3" > /dev/null 2>&1 &
+
+#PID=$!
+
+
+REP=$(zenity --title="$TITLE" --text="$MAINTXT" --window-icon="question" --width=500 --height=350\
+    --list --hide-header --print-column=1 --hide-column=1 \
+    --column "" --column "$QUESTION"\
+    "init" "$INIT"\
+    "doku" "$DOKU"\
+    "localdoku" "$LOCALDOKU" \
+    "forum" "$FORUM" \
+    "terminal" "$TERMINAL" \
+    "infoforforum" "$INFO4FORUM" \
+    "shot" "$SHOT" \
+    "index" "$INDEX" \
+    "faq" "$FAQ" \
+    )
+
+#kill $PID
+
+case $REP in 
+    "init")
+        case $LANG in
+            fr*) x-www-browser "file:///usr/share/handylinux/guide.html" ;;
+            *) x-www-browser "file:///usr/share/handylinux/guide-en.html" ;;
+        esac
+        ;;
+
+    "doku")
+        case $LANG in
+            fr*) x-www-browser "https://handylinux.org/wiki/doku.php/fr/start" ;;
+            *) x-www-browser "https://handylinux.org/wiki/doku.php/en/start" ;;
+        esac
+        ;;
+
+    "localdoku")
+        exo-open --launch FileManager "$(xdg-user-dir DOCUMENTS)/Documentation"
+        ;;
+
+    "forum")
+        x-www-browser "https://handylinux.org/forum/index.php"
+        ;;
+
+    "terminal")
+        pastemyterm
+        ;;
+
+    "infoforforum")
+        gksudo info4forum
+        ;;
+
+    "index")
+        case $LANG in
+            fr*) x-www-browser "https://handylinux.org/wiki/doku.php/fr/glossaire_simple" ;;
+            *) x-www-browser "https://handylinux.org/wiki/doku.php/en/glossaire_simple" ;;
+        esac
+        ;;
+
+    "faq")
+        case $LANG in
+            fr*) x-www-browser "https://handylinux.org/wiki/doku.php/fr/faq#apres_l_installation" ;;
+            *) x-www-browser "https://handylinux.org/wiki/doku.php/en/faq#after_installation" ;;
+        esac
+        ;;
+
+    "shot")
+        notify-send -t 10000 -i "gnome-screenshot" "$SHOTMSG"
+        sleep 3
+        import -window root /tmp/ausecours.png
+        pixup /tmp/ausecours.png
+        rm /tmp/ausecours.png
+        ;;
+esac
+
+exit  0
+

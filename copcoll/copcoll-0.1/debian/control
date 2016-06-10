@@ -1,0 +1,13 @@
+Source: copcoll
+Section: x11
+Priority: optional
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+#Vcs-Git: git://anonscm.debian.org/collab-maint/copcoll.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/copcoll.git;a=summary
+
+Package: copcoll
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, python, python-gtk2
+Description: small tool to copy and paste recurrent snippets

@@ -1,0 +1,307 @@
+handylinux-desktop (2.5.1-1) jessie; urgency=medium
+
+  * handylinux-2.5.1
+  * mise à jour de la base : Debian 8.5
+  * mise à jour de firefox - v47
+  * mise en place du service d'hébergement d'images
+  * mise à jour du handysoft par thuban
+  * ajout des traductions pour handysoft par l'équipe Emmabuntüs
+  * ajout du theme Xfwm4 Tron2 par Millie
+  * mise à jour des actions personnalisées Thunar :
+    prise en compte du service d'hébergement d'images handylinux
+  * correction du bug de priorité DNS unbound par thuban
+  * suppression de unoconv : conversion pdf assurée par libreoffice
+  * refonte de la documentation fr intégrée :
+    manuel d'installation + manuel de l'utilisateur.
+
+ -- team handylinux <dev@handylinux.org>  Fri, 10 Jun 2016 00:29:25 +0200
+
+handylinux-desktop (2.4.2-1) jessie; urgency=medium
+
+  * handylinux-2.4.2 : fix unbond DNS server
+
+ -- team handylinux <dev@handylinux.org>  Tue, 17 May 2016 16:12:15 +0200
+
+handylinux-desktop (2.4.1-1) jessie; urgency=medium
+
+  * handylinux-2.4
+
+ -- team handylinux <dev@handylinux.org>  Sun, 10 Apr 2016 04:34:20 +0200
+
+handylinux-desktop (2.3.3-1) jessie; urgency=medium
+
+  * remove xscreensaver from depends
+
+ -- team handylinux <dev@handylinux.org>  Sat, 02 Apr 2016 21:15:14 +0200
+
+handylinux-desktop (2.3.2-1) jessie; urgency=medium
+
+  * replace iceweasel by firefox
+  * add iceweasel2firefox tool
+  * set team handylinux as package maintainer
+
+ -- team handylinux <dev@handylinux.org>  Sun, 13 Mar 2016 02:44:36 +0100
+
+handylinux-desktop (2.3.1-1) jessie; urgency=medium
+
+  * suppression de l'entrée IRC
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 28 Jan 2016 19:33:12 +0100
+
+handylinux-desktop (2.3-6) jessie; urgency=medium
+
+  * et on va aller jusqu'où comme ça ?
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 28 Jan 2016 19:20:14 +0100
+
+handylinux-desktop (2.3-5) jessie; urgency=medium
+
+  * qsuel boulet ce arpi
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 28 Jan 2016 19:17:18 +0100
+
+handylinux-desktop (2.3-4) jessie; urgency=medium
+
+  * try again
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 28 Jan 2016 19:14:10 +0100
+
+handylinux-desktop (2.3-3) jessie; urgency=medium
+
+  * delete IRC entry in ausecours
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 28 Jan 2016 18:58:26 +0100
+
+handylinux-desktop (2.3-2) jessie; urgency=medium
+
+  * cleanup files
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 22 Jan 2016 06:05:38 +0100
+
+handylinux-desktop (2.3-1) jessie; urgency=medium
+
+  * upgrade to handylinux-2.3
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 22 Jan 2016 05:50:24 +0100
+
+handylinux-desktop (2.2-12) jessie; urgency=medium
+
+  * restore jessie release
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 14 Jan 2016 22:04:36 +0100
+
+handylinux-desktop (2.2-11) unstable; urgency=medium
+
+  * ajout du networkcheck
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 14 Jan 2016 22:02:32 +0100
+
+handylinux-desktop (2.2-10) jessie; urgency=medium
+
+  * avoid gksudo use in .desktop launcher (thx thuban)
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 13 Jan 2016 21:15:56 +0100
+
+handylinux-desktop (2.2-9) jessie; urgency=medium
+
+  * update myhandylinux : thx ideefixe ;)
+  * minor edition fix
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 11 Jan 2016 21:48:01 +0100
+
+handylinux-desktop (2.2-8) unstable; urgency=medium
+
+  * mise à jour de myhandylinux
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 16:55:22 +0100
+
+handylinux-desktop (2.2-7) unstable; urgency=medium
+
+  * intégration de l'initiation dans le paquet
+  * minor fix sur ausecours
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 09 Dec 2015 16:23:43 +0100
+
+handylinux-desktop (2.2-6) unstable; urgency=medium
+
+  * minor fix on handylinux sprecific apps detection
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 09 Dec 2015 01:13:07 +0100
+
+handylinux-desktop (2.2-5) unstable; urgency=medium
+
+  * ajout du script ausecours par thuban
+  * ajout du script pastemyterm par thuban
+  * mise à jour des icônes et des lanceurs
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 09 Dec 2015 00:09:18 +0100
+
+handylinux-desktop (2.2-4) unstable; urgency=medium
+
+  * ajout de pciutils en dépendances (merci coyotus)
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 26 Oct 2015 08:48:02 +0100
+
+handylinux-desktop (2.2-3) unstable; urgency=medium
+
+  * ajout de info4forum
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Sep 2015 12:19:42 +0200
+
+handylinux-desktop (2.2-2) unstable; urgency=medium
+
+  * fix arpinux website
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Sep 2015 00:01:00 +0200
+
+handylinux-desktop (2.2-1) unstable; urgency=medium
+
+  * suppression de menu et menu-libre
+  * ajout de handylinux-thunar-actions
+  * ajout de cyclope
+  * passage à HandyLinux-2.2
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 04 Sep 2015 23:46:15 +0200
+
+handylinux-desktop (2.1.1-2) unstable; urgency=medium
+
+  * fix window default size
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 23 Jun 2015 21:26:29 +0200
+
+handylinux-desktop (2.1.1-1) unstable; urgency=medium
+
+  * réécriture complète de myhandylinux en python par thuban et coyotus 
+  * fix copyright file
+  * add python as dep
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 14 Jun 2015 23:31:07 +0200
+
+handylinux-desktop (2.1-2) unstable; urgency=medium
+
+  * add handymenu as alternative dependency 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 13 Jun 2015 23:36:22 +0200
+
+handylinux-desktop (2.1-1) unstable; urgency=medium
+
+  * update to HandyLinux-2.1
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 08 Jun 2015 12:45:32 +0200
+
+handylinux-desktop (2.0-2) unstable; urgency=medium
+
+  * add xdg-user-dirs as dep for handymenu3
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 05 Jun 2015 13:52:29 +0200
+
+handylinux-desktop (2.0-1) unstable; urgency=medium
+
+  * add handy-update-notifier as dep 
+  * synchronise handylinux release and handylinux-desktop version
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 03 Jun 2015 01:29:04 +0200
+
+handylinux-desktop (1.7) unstable; urgency=low
+
+  * add postinstall to fix experimental repository
+  * add pkg-mozilla-archive-keyring as dep
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 May 2015 13:48:04 +0200
+
+handylinux-desktop (1.6) unstable; urgency=low
+
+  * handylinux-2.0
+  * ajout de btshare-hweb
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 15 May 2015 01:02:10 +0200
+
+handylinux-desktop (1.5) unstable; urgency=low
+
+  * ajout de menulibre + menu
+  * nettoyage des dépendances inutiles
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 14 Apr 2015 21:43:57 +0200
+
+handylinux-desktop (1.4) unstable; urgency=low
+
+  * remplacer gnome-searchtool par catfish
+  * passage en RC
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 11 Apr 2015 17:36:42 +0200
+
+handylinux-desktop (1.3) unstable; urgency=low
+
+  * passage en beta1
+  * ajout d'handylinuxlook en dependance
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 23 Feb 2015 23:06:11 +0100
+
+handylinux-desktop (1.2) unstable; urgency=low
+
+  * suppression de slingscold-launcher 
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 13 Feb 2015 02:36:55 +0100
+
+handylinux-desktop (1.1) unstable; urgency=low
+
+  * adding dtrx
+  * replace file-roller by xarchiver
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 01 Feb 2015 15:03:10 +0100
+
+handylinux-desktop (1.0) unstable; urgency=low
+
+  * passage en version handylinux-2.0
+  * nettoyage des dépendances
+  * inauguration du dépôt "jessie"
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 29 Jan 2015 03:23:28 +0100
+
+handylinux-desktop (0.8) unstable; urgency=low
+
+  * suppression de la dépendance hal 
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 28 Jan 2015 03:42:25 +0100
+
+handylinux-desktop (0.7) unstable; urgency=low
+
+  * nettoyage des dépendances
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 16 Jan 2015 01:55:30 +0100
+
+handylinux-desktop (0.6) unstable; urgency=low
+
+  * passage en version 1.8 
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 16 Jan 2015 01:26:02 +0100
+
+handylinux-desktop (0.5) unstable; urgency=low
+
+  * passage en version 1.7
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 19 Oct 2014 00:27:09 +0200
+
+handylinux-desktop (0.4) unstable; urgency=low
+
+  * nettoyage + passage en version 1.6.1 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 10 Aug 2014 01:45:50 +0200
+
+handylinux-desktop (0.3) unstable; urgency=low
+
+  * fix control file
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 18 Jul 2014 18:35:59 +0200
+
+handylinux-desktop (0.2) unstable; urgency=low
+
+  * passage en version HandyLinux-1.6
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 13 Jul 2014 18:20:05 +0200
+
+handylinux-desktop (0.1) unstable; urgency=low
+
+  * Initial release
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 11 May 2014 01:56:31 +0200

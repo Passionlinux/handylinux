@@ -1,0 +1,57 @@
+Description: md5sum support
+ simple md5sum check
+ .
+ handylinux-thunar-actions (0.3-4) unstable; urgency=medium
+ .
+   * ajout du support d'impression pour imagemod par thuban
+   * ajout de photoprint en dépendance
+   * mise à jour des fichiers Debian
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml
++++ handylinux-thunar-actions-0.3/uca/uca.xml
+@@ -93,4 +93,14 @@
+ 	<startup-notify/>
+ 	<video-files/>
+ </action>
++<action>
++	<icon></icon>
++	<name>Vérifier le md5</name>
++    <unique-id>1456843190812647-1</unique-id>
++	<command>zenity --info --text=&quot;md5 : $(md5sum %f |cut -d&apos; &apos; -f1)&quot;</command>
++	<description>Vérifier la somme de contrôle de l&apos;image</description>
++	<patterns>*.iso;*.ISO</patterns>
++	<startup-notify/>
++	<other-files/>
++</action>
+ </actions>
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml.en
++++ handylinux-thunar-actions-0.3/uca/uca.xml.en
+@@ -93,4 +93,14 @@
+ 	<startup-notify/>
+ 	<video-files/>
+ </action>
++<action>
++	<icon></icon>
++	<name>Check md5</name>
++    <unique-id>1456843190812647-1</unique-id>
++	<command>zenity --info --text=&quot;md5 : $(md5sum %f |cut -d&apos; &apos; -f1)&quot;</command>
++	<description>Check md5 sum</description>
++	<patterns>*.iso;*.ISO</patterns>
++	<startup-notify/>
++	<other-files/>
++</action>
+ </actions>

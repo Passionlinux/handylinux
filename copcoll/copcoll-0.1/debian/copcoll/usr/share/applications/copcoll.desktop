@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=CopColl
+GenericName=copcoll
+Comment=Copy and paste snippets
+Comment[fr]=Copier/coller facilement les mêmes textes
+Icon=edit-copy
+Exec=/usr/bin/copcoll
+Terminal=false
+StartupNotify=false
+Categories=Application;Utility;System;

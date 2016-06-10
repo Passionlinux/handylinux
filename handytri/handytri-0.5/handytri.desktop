@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Handytri
+GenericName=handytri
+Comment=automatic file sorting tool
+Comment[fr]=tri automatique des fichiers
+Icon=handytri
+Exec=/usr/bin/handytri
+Terminal=false
+StartupNotify=false
+Categories=Application;Utility;

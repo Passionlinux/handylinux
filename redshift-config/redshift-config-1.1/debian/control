@@ -1,0 +1,17 @@
+Source: redshift-config
+Section: x11
+Priority: extra
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://handylinux.org
+
+Package: redshift-config
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, gtk-redshift
+Conflicts: redshift-config-en
+Replaces: redshift-config-en
+Description: outil de configuration du filtre redshift
+ Reshift-config est un outil qui récupère automatiquement
+ vos coordonnées géographique afin qu'elles puissent
+ être utilisées par le filtre d'écran redshift.

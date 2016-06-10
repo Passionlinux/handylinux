@@ -1,0 +1,30 @@
+Description: minor fix for close case
+ .
+ handymenu (4.0-20) unstable; urgency=medium
+ .
+   * options d'accessibilité passées au thème GTK
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/handymenu.py
++++ handymenu-4.0/handymenu.py
+@@ -306,6 +306,7 @@ homepage : <a href="{3}" title="HandyMen
+         closeafterbtn.connect("toggled", self.close_after)
+         closeafterbtn.set_active(self.closeafterrun)
+         closeafterbtn.set_tooltip_text(_("Close after execution"))
++        closeafterbtn.set_halign(Gtk.Align.CENTER)
+ 
+         # boite à boutons 
+         btnbox = Gtk.VBox(False,0)

@@ -1,0 +1,121 @@
+Name: HandyLinuxLook
+Summary: Desktop Suite for HandyLinux based on Albatross theme.
+
+URL: https://handylinux.org
+Contributors:
+    * arpinux
+    * Starsheep
+    * thuban
+    * Péhä
+    * Millie
+
+included:
+    * HandyLinuxClear GTK2/3 xfwm4 theme
+    * HandyLinuxClearBorder xfwm4 theme (thx dyp)
+    * HandyLinuxDark GTK2/3 xfwm4 theme
+    * extra theme sor your desktop
+    * flat walls by Starsheep
+    * extra walls by Péhä CC-BY-CA
+    * HandyTheme to rule them all
+    * Slim theme v1/2
+    * Lightdm default background
+    * avatars for lightdm
+    * tron mods by Millie
+
+--------------------------------------------------------------------------------------------
+
+Albatross infos {
+	URL: http://shimmerproject.org/projects/albatross/
+	
+	Copyright 2009–2012 James Schriver, Steve Dodier, Pasi Lallinaho, Mads Rosendahl Hansen
+	Albatross is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
+	
+	Contributors:
+		* Satyajit Sahoo
+		* Simon Steinbeiß
+	Desktop Suite for Xfce.
+	The Albatross desktop suite includes:
+		– GTK+2/3 theme
+		– Xfwm4 theme
+		– Metacity/Mutter theme
+}
+
+--------------------------------------------------------------------------------------------
+
+Author: Péhä
+Type: Artwork, wallpaper
+Contact: Lesdessinsdepeha@laposte.net
+         https://lesptitsdessinsdepeha.wordpress.com/
+
+This artwork was made for Handylinux release 2.3 name "Ian" of january 2016.
+
+
+Hello dear user,
+
+All these creative works are under the Creative Commons licence 4.0 CC-BY-SA international(https://creativecommons.org/licenses/by-sa/4.0/):
+
+-You are free to share, copy, distribute it in any medium or format.
+
+-You are free to adapt, remix, transform, and build upon the material
+for any purpose, even commercially. 
+
+You just have to mention the author (you can provide a link to my site or my e-mail adress) and indicate if changes were made.
+
+Then, if you modificate it, just distribute your contribution under the same licence as the original.
+
+Thanks to spent time to see my work, now it's yours too, so enjoy.
+
+
+Share is Love.
+
+Péhä.
+
+********************
+
+Softwares used:
+-simplescan
+-Gimp 2.8
+-Krita 29.3
+
+
+********************
+
+Thanks:
+
+-All the Handylinux Team
+-Arpinux and Dyp, so long and thank you for all the fish.
+
+
+Well, this is a little bit special.
+
+ People always represent superheroes with a cape, lazer eyes and strong muscles, ready to help ladys in danger.
+
+ This time the superheroe has only a computer and an idea, create a collective gnu/linux distribution to provide an operating system of high quality for every users "whether they paid to obtain it or not".
+
+ This Artwork is dedicated to the memory of Ian Murdock ( 1973-2015 ) an anonym superheroe, father of the Debian Gnu/linux distribution that help millions people all over the world. thanks to him.
+
+
+
+                   `-:/+//::-.`                   
+               `./syyyyyyyyyyyyooo:.              
+             `/syyyyy+::-...-:/oyyyyo-            
+            :yyyyo-.`           `/yyyyo`          
+         . /yys:`                 `oyyys.         
+         `oys:`          `..`       +ys:-         
+        .oyy-         `//:-....`    `yy+.         
+        :yy:         -+.             oyo          
+        :ys         `s`         .    oys`         
+        :y+         -s`        ``    sy:`         
+        :y+         `y:     `  .   `+y:.          
+        :yo         .:o/`   `    `-oo.``          
+        .yy.        `--/o+:...-:+o+-              
+         +yo-`         `-/:///:-.`                
+         `syy/             ``                     
+          `oys.                                   
+           `+ys.                                  
+             :os/`                                
+              `-oo+.                              
+                 ./o//.                           
+                    .-:--.`              
+
+

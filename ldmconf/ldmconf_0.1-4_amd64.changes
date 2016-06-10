@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Wed, 27 Jan 2016 12:27:49 +0100
+Source: ldmconf
+Binary: ldmconf
+Architecture: source all
+Version: 0.1-4
+Distribution: jessie
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ ldmconf    - Outil de configuration pour LightDM
+Changes:
+ ldmconf (0.1-4) jessie; urgency=medium
+ .
+   * ajout du support numlockX
+Checksums-Sha1:
+ 75fc7b531585595d81f581ef438c97ade4da57eb 1327 ldmconf_0.1-4.dsc
+ 767251945758fb3f8ecb06227f0547e4d53f6f35 7484 ldmconf_0.1-4.debian.tar.xz
+ 77e0bc9a1a40ce6b4619373df6ee169b0d4a1e9d 6276 ldmconf_0.1-4_all.deb
+Checksums-Sha256:
+ dc7de6a0fc5bd6d6f00e9ecdd361e81c9ee331c3d9cdd315c6d21412a680771b 1327 ldmconf_0.1-4.dsc
+ b277d05d83c87b84ce868f7838a68812f438698b52dbe0e2cedd75c46a9281e7 7484 ldmconf_0.1-4.debian.tar.xz
+ 0d448ca6849ae8bcad2aedf1b79051f6d856c3b98a88252309ae246779987408 6276 ldmconf_0.1-4_all.deb
+Files:
+ 39ffd5db3387bb3732feb85230ea8c47 1327 admin optional ldmconf_0.1-4.dsc
+ 5909824c3851719b4bb50bbf1f786cab 7484 admin optional ldmconf_0.1-4.debian.tar.xz
+ b3ccd864fc385f6407f50f70d4bcb56e 6276 admin optional ldmconf_0.1-4_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJWqKnmAAoJELOLTsK+RB/PEnsH/iAhY88UxPR6OlyTTX+gG4qe
+a2PHZ2Ey+KskMhZBJ6KtwkWdUUFFV9RsOsNaK1gp9P2bS8gC1/iatYu1HpllBXdf
+MSmalKZQNsR8WthBcLnOlytDjjbYupkxAXujtGYYcvRb4cSeJrZKWGx7KWtOkjzX
+TXSPxXnKZHHdltJBypXIfY7qI64dRVT9FV9Dndm+s+GsLssy7QXento37ZQ8ccds
+VI0xn5keOvaQ61wqRI7dTr6EAUl7Xc+Eco6bbGc5gcwhg5VZ+KGM+kNDxCurJEYF
+V+w8+iB9D2AtVFS6Z6ZFd2rQYqZwYFj7192z/pdA0gErNaDmUDRuFUnDTkXqJ6Y=
+=PkOL
+-----END PGP SIGNATURE-----

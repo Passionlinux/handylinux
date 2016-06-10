@@ -1,0 +1,194 @@
+# Italian translations for handysoft package.
+# Copyright (C) 2015 ORGANIZATION
+# arpinux <arp@nakedev>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: handysoft 0.42\n"
+"POT-Creation-Date: 2016-05-20 21:14+CEST\n"
+"PO-Revision-Date: 2015-11-29 01:31+0100\n"
+"Last-Translator: arpinux <arp@nakedev>\n"
+"Language-Team: English (British)\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: handysoft.py:88
+msgid "Package informations"
+msgstr "Informazioni pacchetto"
+
+#: handysoft.py:127
+msgid "Remove this package"
+msgstr "Rimuovi questo pacchetto"
+
+#: handysoft.py:128
+msgid "This package is installed"
+msgstr "Questo pacchetto è installato"
+
+#: handysoft.py:131
+msgid "Install this package"
+msgstr "Installare questo pacchetto"
+
+#: handysoft.py:132
+msgid "This package is not installed"
+msgstr "Questo pacchetto non è installato"
+
+#: handysoft.py:150
+msgid "Downloading screenshot..."
+msgstr "Screenshot in Download..."
+
+#: handysoft.py:158
+msgid "Right click to add a screenshot"
+msgstr "Tasto destro del mouse per aggiungere uno screenshot"
+
+#: handysoft.py:171 handysoft.py:718
+msgid "To add a screenshot for {}, click here : "
+msgstr ""
+
+#: handysoft.py:172 handysoft.py:719
+msgid "Click here to upload a screenshot"
+msgstr "Clicca qui per caricare uno screenshot"
+
+#: handysoft.py:207
+msgid "Search package"
+msgstr "Cerca il pacchetto"
+
+#: handysoft.py:208
+msgid "Enter your research here (regexp are allowed)"
+msgstr "Inserisci la tua ricerca qui"
+
+#: handysoft.py:213
+msgid "Click to start searching"
+msgstr "Fare clic per avviare la ricerca"
+
+#: handysoft.py:221
+msgid "Search also in description"
+msgstr "Cerca anche nella descrizione"
+
+#: handysoft.py:223
+msgid "Search in description"
+msgstr "Ricerca nella descrizione"
+
+#: handysoft.py:254
+msgid "Search"
+msgstr "Ricerca"
+
+#: handysoft.py:254
+msgid "Search packages"
+msgstr "Cerca pacchetti"
+
+#: handysoft.py:255
+msgid "Softwares"
+msgstr "Softwares"
+
+#: handysoft.py:259
+msgid "Toggle between packages search or packages list"
+msgstr "Alterna tra pacchetti di ricerca o un elenco dei pacchetti"
+
+#: handysoft.py:266
+msgid "About"
+msgstr "Informazioni su"
+
+#: handysoft.py:323
+msgid "Opening cache"
+msgstr "Aprendo la cache"
+
+#: handysoft.py:383
+msgid ""
+"\n"
+"{} lets you install common applications easily\n"
+"\n"
+"\n"
+"For a full list of available packages in Debian and Handylinux "
+"repositories, \n"
+"you must use the Synaptic Package Manager.\n"
+"                "
+msgstr ""
+"\n"
+"{} Consente di installare applicazioni comuni facilmente\n"
+"\n"
+"\n"
+"Per un elenco completo dei pacchetti disponibili in Debian repository, \n"
+"È necessario utilizzare il Gestore pacchetti Synaptic.\n"
+"                "
+
+#: handysoft.py:390
+msgid "I'm an expert, open synaptic"
+msgstr "Sono un esperto, apri Synaptic"
+
+#: handysoft.py:416 handysoft.py:634
+msgid "Installed"
+msgstr "Installato"
+
+#: handysoft.py:423 handysoft.py:640
+msgid "Package name"
+msgstr "Nome del pacchetto"
+
+#: handysoft.py:430 handysoft.py:646
+msgid "Description"
+msgstr "Descrizione"
+
+#: handysoft.py:515
+msgid "Searching in packages..."
+msgstr "Cercando tra i pacchetti..."
+
+#: handysoft.py:786
+msgid ""
+"<b>{0}</b>\n"
+"\n"
+"From {2} for handylinux community with love.\n"
+"version : {1}\n"
+"licence : {3}\n"
+"homepage : <a href=\"{4}\" title=\"handysoft homepage\">{4}</a>"
+msgstr ""
+
+#: handysoft_utils.py:35
+msgid "Games"
+msgstr "Giochi"
+
+#: handysoft_utils.py:36
+msgid "Education"
+msgstr "Istruzione"
+
+#: handysoft_utils.py:37
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: handysoft_utils.py:38
+msgid "Internet"
+msgstr "Internet"
+
+#: handysoft_utils.py:39
+msgid "Office"
+msgstr "Office"
+
+#: handysoft_utils.py:40
+msgid "Graphics"
+msgstr "Grafica"
+
+#: handysoft_utils.py:41
+msgid "Tools and others"
+msgstr "Strumenti ed altri"
+
+#: handysoft_utils.py:42
+msgid "Expert"
+msgstr "Esperti"
+
+#: handysoft_utils.py:249
+msgid "Installing a new package : "
+msgstr "Installando un nuovo pacchetto : "
+
+#: handysoft_utils.py:257
+msgid "Removing a package : "
+msgstr "Rimuovendo un pacchetto : "
+
+#: soft_install.py:94
+msgid "<span size='large'>☺ All changes applied with success</span>"
+msgstr "<span size='large'>☺ Tutte le modifiche applicate con successo</span>"
+
+#: soft_install.py:96
+msgid "<span size='large'>☹ An Error Occurred!</span>"
+msgstr "<span size='large'>☹ si è verificato un errore!</span>"

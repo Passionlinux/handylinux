@@ -1,0 +1,43 @@
+Description: fix pixup
+ .
+ handylinux-thunar-actions (0.3-2) unstable; urgency=medium
+ .
+   * add frmapic as alternative image uploader server thx thuban & ragamatrix
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-thunar-actions-0.3.orig/scripts/pixup
++++ handylinux-thunar-actions-0.3/scripts/pixup
+@@ -32,16 +32,16 @@ for i in $@; do
+         -F "img=@$i;type=$TYPE;filename=$(basename \"$i\")" \
+         "http://pix.toile-libre.org/?action=upload" |grep -E -o "http://pix.toile-libre.org/\?img=[^<]*.$EXT" |head -n1)
+ 
+-    if [ $? -ne 0 ]; then
++    if [ $? -ne 0  -o -z "$URL" ]; then
+         #echec avec toile-libre, on essaie framapic
+         URL=$(curl -F "file=@$i" -F "format=$TYPE"\
+             -F "delete-day=0" -F "first-view=0"\
+-            "https://framapic.org" |grep "View link" | grep -Eo "https://framapic.org/(.*?)" | cut -d'"' -f1)
++            "https://framapic.org" | grep -Eo "https://framapic.org/(.*?).$EXT" | head -n1 | cut -d'"' -f1)
+     fi
+ 
+-    if [ $? -eq 0 ]; then
++    if [ $? -eq 0 -a -n "$URL" ]; then
+         notify-send "$IMGSENT : $i" &
+-        x-www-browser $URL &
++        x-www-browser "$URL" &
+     else
+         notify-send "$ERROR" &
+     fi

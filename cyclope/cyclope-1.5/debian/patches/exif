@@ -1,0 +1,41 @@
+Description: prise en compte des données exif
+ .
+ cyclope (1.5-1) unstable; urgency=medium
+ .
+   * setup zoom mode
+   * clean up
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- cyclope-1.5.orig/cyclope
++++ cyclope-1.5/cyclope
+@@ -282,7 +282,7 @@ class Cyclope():
+             if pix.is_static_image():
+                 self.imginfo = { 'path': '', 'pixbuf': '', 'is_static': True, 'width':0, 'height':0 }
+                 self.imginfo['path'] = img
+-                self.imginfo['pixbuf'] = pix.get_static_image()
++                self.imginfo['pixbuf'] = pix.get_static_image().apply_embedded_orientation()
+                 self.imginfo['is_static'] = True
+             else:
+                 self.imginfo['path'] = img
+@@ -290,7 +290,7 @@ class Cyclope():
+                 self.imginfo['is_static'] = False
+         else:
+             self.imginfo['path'] = img
+-            self.imginfo['pixbuf'] = gdk.pixbuf_new_from_file(img)
++            self.imginfo['pixbuf'] = gdk.pixbuf_new_from_file(img).apply_embedded_orientation()
+             self.imginfo['is_static'] = True
+ 
+         self.imginfo['width'] = self.imginfo['pixbuf'].get_width()

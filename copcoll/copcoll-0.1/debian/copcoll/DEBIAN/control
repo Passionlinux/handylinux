@@ -1,0 +1,9 @@
+Package: copcoll
+Version: 0.1-1
+Architecture: all
+Maintainer: team handylinux <dev@handylinux.org>
+Installed-Size: 41
+Depends: python, python-gtk2
+Section: x11
+Priority: optional
+Description: small tool to copy and paste recurrent snippets

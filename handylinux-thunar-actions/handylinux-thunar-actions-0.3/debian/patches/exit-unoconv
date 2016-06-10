@@ -1,0 +1,46 @@
+Description: use libreoffice to pdf conversion
+ .
+ handylinux-thunar-actions (0.3-6) unstable; urgency=medium
+ .
+   * ouverture des liens dans firefox par thuban
+   * fix scripts properties in sources
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml
++++ handylinux-thunar-actions-0.3/uca/uca.xml
+@@ -27,7 +27,7 @@
+ 	<icon>acroread</icon>
+ 	<name>Convertir en PDF</name>
+ 	<unique-id>1430681789008349-7</unique-id>
+-	<command>unoconv -f pdf %f</command>
++	<command>libreoffice --headless --convert-to pdf %f</command>
+ 	<description>exporte le fchier au format PDF dans le répertoire courant</description>
+ 	<patterns>*.odt;*.odp;*.ods</patterns>
+ 	<other-files/>
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml.en
++++ handylinux-thunar-actions-0.3/uca/uca.xml.en
+@@ -27,9 +27,9 @@
+ 	<icon>acroread</icon>
+ 	<name>Convert in PDF</name>
+ 	<unique-id>1430681789008349-7</unique-id>
+-	<command>unoconv -f pdf %f</command>
++	<command>libreoffice --headless --convert-to pdf %f</command>
+ 	<description>export this file in PDF in the current directory</description>
+-	<patterns>*</patterns>
++	<patterns>*.odt;*.odp;*.ods</patterns>
+ 	<other-files/>
+ 	<text-files/>
+ </action>

@@ -1,0 +1,184 @@
+html,body {
+min-height:100%;
+width:100%;
+margin:0;
+}
+
+body {
+background-color:#DDDDDD;
+color:#aaa;
+font-family:sans-serif;
+margin:0;
+padding:0;
+}
+
+a {
+color:#41B1FF;
+text-decoration:none;
+}
+
+a:hover {
+text-decoration:underline;
+}
+
+.header {
+background-color:#EEEEEE;
+color:#41B1FF;
+border:0;
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+padding:.5em;
+border-bottom: solid 1px #41B1FF;
+}
+
+.header #infos {
+    font-size:1.1em;
+}
+
+#main {
+color:#444444;
+background-color:#EEEEEE;
+font-family:serif;
+text-align:left;
+margin-left:auto;
+margin-right:auto;
+width:65%;
+min-width:65%;
+border:solid 1px #41B1FF;
+padding:1em 2em;
+margin-top: 20px; /*footer height*/
+margin-bottom: 30px; /*footer height*/
+}
+
+#share, #dl {
+margin-top: 60px; /*space for tabs*/
+}
+
+.tabup, .tabdl {
+margin-bottom:10px;
+text-align:center;
+font-size:1.3em;
+padding:5px;
+width:45%;
+display: inline-block;
+}
+
+h1 {
+text-align:center;
+font-size:2em;
+color:#222222;
+margin:0px .5em 0px 0ex;
+}
+
+h2 {
+color:#2365BB;
+margin:5px .5em 0px 0ex;
+}
+
+#footer {
+height:20px;
+background-color:#ddd;
+color:#222;
+text-align:center;
+position:fixed;
+bottom:0px;
+margin:0 auto;
+padding:.2em;
+width:100%;
+}
+
+.torrentdl {
+    padding : 5px;
+    margin:5px;
+    width:100%;
+    background: linear-gradient(to right, rgba(65,177,255,1), rgba(65,177,255,1) );
+    background-repeat : no-repeat;
+}
+
+.torrent {
+    padding : 5px;
+    margin:5px;
+}
+
+.torname {
+    font-size: 1.2em;
+    color:#444;
+    display:inline;
+}
+
+.magnet {
+    font-family:monospace;
+}
+
+.progress{
+    background-color:green;
+}
+
+
+form, form div { display: inline; }
+
+
+input, textarea {
+    border: 1px solid #41B1FF;
+}
+
+hr {
+    color:#41B1FF;
+    background-color:#41B1FF;
+    height:1px;
+    border:0;
+    width:25%;
+}
+
+.btn {
+    display:inline;
+    border: 1px solid #41B1FF;
+    cursor:pointer;
+    color:#444444;
+    background-color:#EEEEEE;
+    font-family:sans-serif;
+    padding:2px;
+    font-size:0.9em;
+}
+
+.btn:hover { 
+    background-color:#41B1FF;
+}
+
+.btn a:hover {
+    text-decoration:none;
+    background-color:#41B1FF;
+}
+
+.btn a {
+    color:#444444;
+}
+
+input[type=submit] {
+    cursor:pointer;
+    color:#444444;
+    background-color:#EEEEEE;
+}
+input[type=submit]:hover {
+    background-color:#41B1FF;
+}
+
+.menu{
+    background-color:#DDDDDD;
+    font-size:0.9em;
+    padding:2px;
+    margin:2px;
+    color:#444444;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.retour{
+    color:red;
+    font-size:2em;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}

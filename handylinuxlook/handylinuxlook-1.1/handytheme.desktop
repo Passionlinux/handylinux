@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=HandyTheme
+Comment=Minimalist theme switcher for HandyLinux
+Comment[fr]=Changeur de thème rapide pour HandyLinux
+Exec=/usr/bin/handytheme
+Icon=handytheme
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=X-XFCE;Utility;

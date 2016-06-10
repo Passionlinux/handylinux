@@ -1,0 +1,40 @@
+Description: lintianfix
+ .
+ ldmconf (0.1-1) jessie; urgency=medium
+ .
+   * intégration depuis les sources de thuban
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- ldmconf-0.1.orig/Makefile
++++ ldmconf-0.1/Makefile
+@@ -19,7 +19,7 @@ install:
+ 	install -m 755 -o root -g root ldmconf $(DESTDIR)$(BINDIR)
+ 	install -m 644 -o root -g root ldmconf.1 $(DESTDIR)$(MANDIR)
+ 	install -m 755 -o root -g root *.py $(DESTDIR)$(DATADIR)
+-	install -m 755 -o root -g root *.gif $(DESTDIR)$(DATADIR)
++	install -m 644 -o root -g root *.gif $(DESTDIR)$(DATADIR)
+ 	install -m 644 -o root -g root ldmconf.desktop $(DESTDIR)$(APPDIR)
+ 
+ uninstall:
+--- ldmconf-0.1.orig/ldmconf.1
++++ ldmconf-0.1/ldmconf.1
+@@ -1,5 +1,5 @@
+ .
+-.TH ldmconf 18 "January 2016" "" "Configure lightDM"
++.TH ldmconf 1 "18 January 2016" "" "Configure lightDM"
+ .SH NAME
+ ldmconf \- Login configuration
+ .

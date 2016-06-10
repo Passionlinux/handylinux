@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Get wallpapers
+Name[fr]=Trouver des fonds d'écran
+Comment=visit our gallery
+Comment[fr]=visitez la galerie HandyLinux
+Icon=preferences-desktop-display
+Exec=x-www-browser http://wallpapers.handylinux.org
+Terminal=false
+StartupNotify=false
+Categories=Application;GTK;Settings;DesktopSettings;Network;
+GenericName=wallpapers

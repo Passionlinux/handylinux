@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Fri, 23 May 2014 01:30:16 +0200
+Source: mpartage-en
+Binary: mpartage-en
+Architecture: source all
+Version: 1.9
+Distribution: unstable
+Urgency: low
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description: 
+ mpartage-en - transitional package for mpartage
+Changes: 
+ mpartage-en (1.9) unstable; urgency=low
+ .
+   * fix config name
+Checksums-Sha1: 
+ 66f87595724a5b612f7a48e01268ce330fffd54d 813 mpartage-en_1.9.dsc
+ d8b5a15c70ddfb87551031d7b048ab8c273660cc 15203 mpartage-en_1.9.orig.tar.gz
+ 9b75c43d718f68c3fe488629aad82184fd01eeaf 2349 mpartage-en_1.9.debian.tar.gz
+ fbc1e760f08f9a4cc141889b62f0ea9149b7b65b 15992 mpartage-en_1.9_all.deb
+Checksums-Sha256: 
+ 336c07e1a74a1a671a1970d59b9ad542531c79e49305df10cf138acd462df3b2 813 mpartage-en_1.9.dsc
+ 8b63de6e0d1fa7ea3ae7576a1341053e3967e9353f137ce70366024f3044d086 15203 mpartage-en_1.9.orig.tar.gz
+ 02f983b43259506aa5c8ccde179d52d4a605ff941e5be4050e930c3a69f7fdb8 2349 mpartage-en_1.9.debian.tar.gz
+ 2816fc76c8bd8423c02391e07cb17cbfcd54153782cbbf65f1e9b10aea9f4eb7 15992 mpartage-en_1.9_all.deb
+Files: 
+ e55c434350583d0e3d215814b58fb8c5 813 x11 extra mpartage-en_1.9.dsc
+ 9f8150f852205810852b1dc4b2e2de97 15203 x11 extra mpartage-en_1.9.orig.tar.gz
+ 2a92e51c855ce8fbe1a977c3029913a0 2349 x11 extra mpartage-en_1.9.debian.tar.gz
+ 90554cdfca2aa64adaca3ee813d735c1 15992 x11 extra mpartage-en_1.9_all.deb

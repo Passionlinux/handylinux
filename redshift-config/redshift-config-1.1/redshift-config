@@ -1,0 +1,163 @@
+#!/usr/bin/env python
+# -*-coding:utf-8-*-
+
+#####################################
+#  redshift config python release   #
+# by manon <http://shovel-crew.org> #
+#     <3 manon 13 09 2014 <3        #
+#####################################
+
+import pygtk
+pygtk.require("2.0")
+import gtk, re, urllib, os
+import ConfigParser
+import locale
+
+URL = "http://ipinfodb.com/"
+HOME_FOLDER = os.path.expanduser('~')
+
+LANG = locale.setlocale(locale.LC_ALL, "")[0:2]
+
+if os.path.isdir("/usr/share/redshift-config/lang/" + LANG) == True:
+    FICHIER_CONF = "/usr/share/redshift-config/lang/" + LANG + "/redshift.conf"
+else:
+    FICHIER_CONF = "/usr/share/redshift-config/lang/en/redshift-config.conf"
+    print "translation missing"
+
+config = ConfigParser.RawConfigParser()
+config.read(FICHIER_CONF)
+
+def localisation_auto():
+	html = urllib.urlopen(URL).read()
+	lat = re.findall(r'Latitude : ' + r'\d+' + r'.' + r'\d+', html)[0].split(': ')[1]
+	lon = re.findall(r'Longitude : ' + r'\d+' + r'.' + r'\d+', html)[0].split(': ')[1]
+	config = lat + ':' + lon
+	fichierConfig = open(HOME_FOLDER+"/.redshift_location", 'w')
+	print >> fichierConfig, '{}'.format(config)
+	fichierConfig.close()
+
+class Manual_Conf:
+
+	def __init__(self):
+		self.dialog = gtk.Window(gtk.WINDOW_TOPLEVEL)
+		self.dialog.set_title(config.get('conf', 'dialog_title'))
+		self.dialog.set_modal(True)
+		self.dialog.set_default_size(400,200)
+
+		popvbox = gtk.VBox()
+
+		label_lat = gtk.Label("Latitude")
+		label_lon = gtk.Label("Longitude")
+		self.spin_lat = gtk.SpinButton(gtk.Adjustment(0, -90, 90, 0.01),0,2)
+		self.spin_lat.set_value(48.51)
+		self.spin_lon = gtk.SpinButton(gtk.Adjustment(0, -180, 180, 0.01),0,2)
+		self.spin_lon.set_value(2.19)
+
+		popsep = gtk.HSeparator()
+		
+		popok = gtk.Button("Validate", stock = gtk.STOCK_APPLY)
+
+		popvbox.add(label_lat)
+		popvbox.add(self.spin_lat)
+		popvbox.add(label_lon)
+		popvbox.add(self.spin_lon)
+		popvbox.add(popsep)
+		popvbox.add(popok)
+
+		self.dialog.add(popvbox)
+
+		popok.connect("clicked", self.localisation_manual)
+
+		self.dialog.show_all()
+
+	def localisation_manual(self,widget):
+		config = str(self.spin_lat.get_value()) + ':' + str(self.spin_lon.get_value())
+		fichierConfig = open(HOME_FOLDER+"/.redshift_location", 'w')
+		print >> fichierConfig, '{}'.format(config)
+		fichierConfig.close()
+		self.dialog.destroy()
+
+	
+class Main:
+	
+	def Quitter(self, widget):
+		gtk.main_quit()
+		
+	def start_redshift(self, widget):
+		os.system('killall redshift &' )
+		os.system('killall redshift-gtk &' )
+		os.system("sleep 2s && redshift-gtk -l `cat /home/$USER/.redshift_location` &")
+		
+	def stop_redshift(self, widget):
+		os.system('killall redshift &' )
+		os.system('killall redshift-gtk &' )
+		self.boutonStop.set_label(config.get('conf', 'filter_disabled'))
+		
+	def configuration_auto(self, widget):
+		self.boutonConfiguration.set_label(config.get('conf', 'city_configured'))
+
+	def configuration(self, widget):
+		Manual_Conf()
+
+	def __init__(self):
+		window = gtk.Window()
+		window.set_title("Redshift-config")
+		window.connect("destroy", self.Quitter)
+		window.set_default_size(450, 250)
+		
+		separateur = gtk.HSeparator()
+		separateur.set_size_request(150, 3)
+		
+		vBox = gtk.VBox()
+		
+		self.label = gtk.Label(config.get('conf', 'redprez_ln1') + "\n" + config.get('conf', 'redprez_ln2'))
+		
+		separateur2 = gtk.HSeparator()
+		separateur2.set_size_request(150, 4)
+
+		separateur3 = gtk.HSeparator()
+		separateur3.set_size_request(150, 4)
+
+		boutonLancer = gtk.ToggleButton(config.get('conf', 'on_refresh'))
+		boutonLancer.connect("clicked", self.start_redshift)
+		
+		try:
+			localisation_auto()
+			self.label_config = gtk.Label(config.get('conf', 'redprez_auto'))
+			self.boutonConfiguration = gtk.ToggleButton(label = config.get('conf', 'autoconfig'))
+			self.boutonConfiguration.connect("clicked", self.configuration_auto)
+		except:
+			self.label_config = gtk.Label(config.get('conf', 'redprez_manu'))
+			self.boutonConfiguration = gtk.ToggleButton(label = config.get('conf', 'manualconfig'))
+			self.boutonConfiguration.connect("clicked", self.configuration)		
+
+		self.boutonStop = gtk.ToggleButton(label = config.get('conf', 'filteroff'))
+		self.boutonStop.connect("clicked", self.stop_redshift)
+		
+		separateur4 = gtk.HSeparator()
+		separateur4.set_size_request(150, 4)
+		
+		boutonQuitter = gtk.Button("Quit", stock = gtk.STOCK_QUIT)
+		boutonQuitter.connect("clicked", self.Quitter)
+		
+		vBox.add(separateur)
+		vBox.add(self.label)
+		vBox.add(separateur2)
+		vBox.add(self.label_config)
+		vBox.add(separateur3)
+		vBox.add(boutonLancer)
+		vBox.add(self.boutonConfiguration)
+		vBox.add(self.boutonStop)
+		vBox.add(separateur4)
+		vBox.pack_end(boutonQuitter, False, False, 2)
+		
+		window.add(vBox)
+		window.show_all()
+		
+		
+if __name__ == "__main__":
+	Main()
+	gtk.main()
+		
+		
+	    

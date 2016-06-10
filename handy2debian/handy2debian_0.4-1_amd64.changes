@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Fri, 10 Jun 2016 00:59:29 +0200
+Source: handy2debian
+Binary: handy2debian
+Architecture: source all
+Version: 0.4-1
+Distribution: jessie
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handy2debian - Passer à Debian classic depuis HandyLinux
+Changes:
+ handy2debian (0.4-1) jessie; urgency=medium
+ .
+   * update icon
+   * handylinux was here as last command
+Checksums-Sha1:
+ 5cbf46a554c3f25a45594b6170da420e0dd88219 1433 handy2debian_0.4-1.dsc
+ f4aff19258ab3e968949b87c1bee67d2f5c7a6f6 26288 handy2debian_0.4.orig.tar.xz
+ 43f420e6c710e33f506ac346adaf5e5222d4abac 1964 handy2debian_0.4-1.debian.tar.xz
+ ca69b719e10105ec89bcdf73421deebdf1015299 27236 handy2debian_0.4-1_all.deb
+Checksums-Sha256:
+ fb653f363a4260f17c5468220a7bd56807838dc3f4753f36943b5c23de7514af 1433 handy2debian_0.4-1.dsc
+ 9913543f3170212461c434ccb83327732a8f8f4323b62734e47545fa038508cf 26288 handy2debian_0.4.orig.tar.xz
+ a8f984f94bfdd20a3f9c9574c0d819064158ff271c59b7bcd1e1decc9b77f4e1 1964 handy2debian_0.4-1.debian.tar.xz
+ 5cef1ac464c403be016c83c321c3423dcc869fae11562b8f57343667f786ad09 27236 handy2debian_0.4-1_all.deb
+Files:
+ 907e76e16eca55885b86882b699f30dd 1433 x11 extra handy2debian_0.4-1.dsc
+ 29cd583ee8ee6ad1f7e6783949ba591f 26288 x11 extra handy2debian_0.4.orig.tar.xz
+ 9e55f7a3ce947b6e8d69559241ae3aee 1964 x11 extra handy2debian_0.4-1.debian.tar.xz
+ 929899ad059613e4f981af032f5b5232 27236 x11 extra handy2debian_0.4-1_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXWfVHAAoJELOLTsK+RB/PDi8IAKzkBTpwehYOCqutOP7xpgWF
+OJjYfMeW/XPz3LYzf+dMYbcN2QvW1z7A9WCxitcykL7maXGIYGOO5G/pV8HMQsCN
+io6ec1+Bcjv5OdwJmpsAHctukfqozwAGHPNPbJsjWjCc8Lrdyw8yXmzgPC6ZqU7Z
+jaZSNTbvUOfZmz+ej8+pgbX5bQeNfR/udXRy+Tr5JlwSOzdlIPAndNG1VPeEmcnb
+nkM3h7n6Bna++B9fSS2tHGALL1QTp3ZczQHzdyL/ROlOxP+kOjO3PCsSBRTE85sX
+7E83OnKFNc1aBswIxFReLiaOsRMpRc584ltbdmAa4UsQvuIgzMBNAB+QXDEAgZU=
+=5bgT
+-----END PGP SIGNATURE-----

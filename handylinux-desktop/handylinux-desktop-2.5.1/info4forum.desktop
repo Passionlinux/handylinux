@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=info4forum
+Name[fr]=info4forum
+Comment=Get informations about your hardware and copy it for forums
+Comment[fr]=Obtenir des informations sur votre machine et les copier pour le forum
+Exec=/usr/bin/info4forum
+Icon=handyinfo
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=X-XFCE;Utility;

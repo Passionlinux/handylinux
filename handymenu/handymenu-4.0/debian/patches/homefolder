@@ -1,0 +1,31 @@
+Description: fix home folder launcher
+ .
+ handymenu (4.0-5) unstable; urgency=medium
+ .
+   * fix home folder launcher
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/hm_utils.py
++++ handymenu-4.0/hm_utils.py
+@@ -300,7 +300,7 @@ hm_default_sections = \
+         {'name' : _("Personal folder"),\
+         'generic': _("Browse my personal directory"),\
+         'icon' : "/usr/share/handymenu/icons/file_home.png",\
+-        'cmd' : "exo-open --launch FileManager ~"\
++        'cmd' : "exo-open --launch FileManager {}".format(os.path.expanduser("~"))\
+         },\
+         {'name' : _("Framasoft"),\
+         'generic': _("Acces to free (as in freedom) Framasoft services"),\

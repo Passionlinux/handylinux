@@ -1,0 +1,99 @@
+#!/bin/bash
+########################################################################
+#  handytri - automatic sorting script
+#  
+#  2014 arpinux <arpinux@member.fsf.org>
+#  2014 valdur55 <valdur55@gmail.com>
+########################################################################
+
+## mise en place et vérifications ######################################
+# détection de la langue
+TRAD=`echo "${LANG:0:2}"`
+# choix du dossier à trier
+if [ "${TRAD}" == "fr" ]; then
+    SORTPLACE=`zenity --file-selection --directory --title "choix du dossier à trier"`
+else
+    SORTPLACE=`zenity --file-selection --directory --title "chose a folder to sort"`
+fi
+# si le choix est vide : exit
+if [ -z "$SORTPLACE" ]; then
+    if [ "${TRAD}" == "fr" ]; then
+        zenity --info --text "Aucune sélection - tri annulé." --timeout "3"
+    else
+        zenity --info --text "No selection - script avorted." --timeout "3"
+    fi
+    exit 0
+fi
+
+## lancement du script #################################################
+# on se place dans le dossier à trier
+cd $SORTPLACE
+# sélection des types de fichiers à trier
+if [ "${TRAD}" == "fr" ]; then
+    CHOICE=`zenity --height "360" --list --checklist --title "Tri automatique des fichiers" --text " Vous allez trier les fichiers de votre dossier\n $SORTPLACE .\n Veuillez indiquer le(s) type(s) de fichier à trier.\n\n !! note !!\nle tri n'est effectif que sur les fichiers\nles dossiers ne sont pas pris en compte.\n => ce script n'écrase aucun fichier." --column "trier" --column "type de fichiers" FALSE "Textes et documents" FALSE "Images et photos" FALSE "Fichiers audio" FALSE "Films et vidéos" FALSE "Archives et paquets" --separator "\n"`
+else
+    CHOICE=`zenity --height "360" --list --checklist --title "Automatic file sorting" --text "You are going to sort files from your\n $SORTPLACE folder.\n Please select file type to sort.\n\n !! note !!\nsorting only affects files.\nthis script doesn't sort directories\n => this script doesn't delete files." --column "sort" --column "file type" FALSE "Documents and text files" FALSE "Pictures and photos" FALSE "Audio files" FALSE "Videos and movies" FALSE "Archives and packages" --separator "\n"`
+fi
+# si le choix est vide : exit
+if [ -z "$CHOICE" ]; then
+    if [ "${TRAD}" == "fr" ]; then
+        zenity --info --text "Aucune sélection - tri annulé." --timeout "3"
+    else
+        zenity --info --text "No selection - script avorted." --timeout "3"
+    fi
+    exit 0
+fi
+# choix validé : envoi du choix dans un fichier tmp
+echo "$CHOICE" > $HOME/.atrier
+# prise en compte des dossiers par défaut XDG
+source $HOME/.config/user-dirs.dirs
+# ne pas respecter la casse
+shopt -s nocaseglob
+
+## définition des fonctions ############################################
+bougetext ()
+{
+    mkdir -p $XDG_DOCUMENTS_DIR/autotri
+    mv -n *.txt *.py *.sh *.pl *.rb *.css *.pdf *.php *.odb *.odc *.odf *.odg *.odp *.ods *.odt *.ott *.otg *.oth *.otp *.ots *.sxw *.stw *.stc *.fodt *.uot *.doc *.docx *.docm *.dot *.dotm *.dotx *.xml *.pdb *.psw *.ppt *.pps *.xhtml *.html *.htm *.rtf *.ini *.xls *.xslx *.abw *.c *.cc *.cp *.cpp *.cs *.csv *.cfg *.h *.info *.js *.jav *.java *.latex *.log *.old *.ps *.rc *.rdf *.epub *.asm *.asx *.aspx *.cfm *.chm *.fob *.fodg *.fodp *.fods *.fodt $XDG_DOCUMENTS_DIR/autotri
+}
+bougeimage ()
+{
+    mkdir -p $XDG_PICTURES_DIR/autotri
+    mv -n *.jpeg *.jpg *.png *.gif *.xcf *.svg *.bmp *.xpm *.psd *.psp *.tif *.tiff *.ai *.aac *.ico *.ppm *.xbm $XDG_PICTURES_DIR/autotri
+}
+bougeaudio ()
+{
+    mkdir -p $XDG_MUSIC_DIR/autotri
+    mv -n *.mp3 *.m4a *.wma *.ogg *.wav *.mid *.ac3 *.aif *.aifc *.aiff *.flac *.m3u *.ra $XDG_MUSIC_DIR/autotri
+}
+bougevideo ()
+{
+    mkdir -p $XDG_VIDEOS_DIR/autotri
+    mv -n *.avi *.flv *.mp4 *.m4v *.mpg *.mpeg *.mov *.mkv *.webm *.ogv *.ogm *.wmv *.divx *.rv *.vob *.srt $XDG_VIDEOS_DIR/autotri
+}
+bougearchive ()
+{
+    mkdir -p $XDG_DOCUMENTS_DIR/autotri
+    mv -n *.zip *.bzip *.gz *.tar *.tar.gz *.tgz *.rar *.bz2 *.7z *.txz *.cbr *.ttf *.deb *.rpm *.arj *.cab *.dpa *.ja *.jar $XDG_DOCUMENTS_DIR/autotri
+}
+
+## déplacement des fichiers ############################################
+if [ "${TRAD}" == "fr" ]; then
+    if grep -q Textes $HOME/.atrier; then bougetext; zenity --info --text "textes et documents déplacés dans\n $XDG_DOCUMENTS_DIR/autotri." --timeout "3"; fi
+    if grep -q vidéos $HOME/.atrier; then bougevideo; zenity --info --text "fichiers vidéos déplacés dans\n $XDG_VIDEOS_DIR/autotri." --timeout "3"; fi
+    if grep -q Images $HOME/.atrier; then bougeimage; zenity --info --text "fichiers images déplacés dans\n $XDG_PICTURES_DIR/autotri." --timeout "3"; fi
+    if grep -q audio $HOME/.atrier; then bougeaudio; zenity --info --text "fichiers audios déplacés dans\n $XDG_MUSIC_DIR/autotri." --timeout "3"; fi
+    if grep -q paquets $HOME/.atrier; then bougearchive; zenity --info --text "archives et paquets déplacés dans\n $XDG_DOCUMENTS_DIR/autotri." --timeout "3"; fi
+else
+    if grep -q text $HOME/.atrier; then bougetext; zenity --info --text "text and documents moved to\n $XDG_DOCUMENTS_DIR/autotri." --timeout "3"; fi
+    if grep -q Videos $HOME/.atrier; then bougevideo; zenity --info --text "videos files moved to\n $XDG_VIDEOS_DIR/autotri." --timeout "3"; fi
+    if grep -q Pictures $HOME/.atrier; then bougeimage; zenity --info --text "pictures files moved to\n $XDG_PICTURES_DIR/autotri." --timeout "3"; fi
+    if grep -q Audio $HOME/.atrier; then bougeaudio; zenity --info --text "audio files moved to\n $XDG_MUSIC_DIR/autotri." --timeout "3"; fi
+    if grep -q packages $HOME/.atrier; then bougearchive; zenity --info --text "archives and packages moved to\n $XDG_DOCUMENTS_DIR/autotri." --timeout "3"; fi
+fi
+# nettoyage
+rm $HOME/.atrier
+
+exit 0
+
+## EOF #################################################################

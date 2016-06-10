@@ -1,0 +1,75 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handysoft
+dpkg-buildpackage: source version 1.1-2
+dpkg-buildpackage: source distribution jessie
+dpkg-buildpackage: source changed by team handylinux <dev@handylinux.org>
+ dpkg-source --before-build handysoft-1.1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --with python3
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handysoft-1.1
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handysoft using existing ./handysoft_1.1.orig.tar.xz
+dpkg-source: info: building handysoft in handysoft_1.1-2.debian.tar.xz
+dpkg-source: info: building handysoft in handysoft_1.1-2.dsc
+ debian/rules build
+dh build --with python3
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/handysoft/handysoft-1.1'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handysoft/handysoft-1.1'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary --with python3
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/handysoft/handysoft-1.1'
+install -d -m 755 -o root -g root /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/man/man1
+install -d -m 755 -o root -g root /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/handysoft
+install -d -m 755 -o root -g root /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/locale
+install -d -m 755 -o root -g root /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/pixmaps
+install -m 755 -o root -g root handysoft /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/bin
+install -m 644 -o root -g root *.py /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/handysoft
+install -m 644 -o root -g root handysoft.png /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/pixmaps
+install -m 644 -o root -g root handysoft.desktop /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/applications
+install -m 644 -o root -g root handysoft.1 /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/man/man1
+cp -a locale/* /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/locale/
+find /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/locale -name "handysoft.po*" -exec rm {} \;
+chown -R root:root /home/arp/debdev/handysoft/handysoft-1.1/debian/handysoft/usr/share/locale
+make[1]: Leaving directory '/home/arp/debdev/handysoft/handysoft-1.1'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_python3
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: package handysoft: unused substitution variable ${python3:Depends}
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `handysoft' in `../handysoft_1.1-2_all.deb'.
+ dpkg-genchanges  >../handysoft_1.1-2_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build handysoft-1.1
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handysoft_1.1-2.dsc BE441FCF
+
+ signfile handysoft_1.1-2_amd64.changes BE441FCF
+
+Successfully signed dsc and changes files

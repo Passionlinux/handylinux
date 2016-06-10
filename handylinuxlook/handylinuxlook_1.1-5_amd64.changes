@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Mon, 23 May 2016 16:38:43 +0200
+Source: handylinuxlook
+Binary: handylinuxlook
+Architecture: source all
+Version: 1.1-5
+Distribution: unstable
+Urgency: medium
+Maintainer: Team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handylinuxlook - Themes & walls for HandyLinux desktop
+Changes:
+ handylinuxlook (1.1-5) unstable; urgency=medium
+ .
+   * ajout du thème tron v2 par Millie
+Checksums-Sha1:
+ fe39741a24d8d683de5c18dabb8be78f9c73ffa0 1375 handylinuxlook_1.1-5.dsc
+ 86db8074830ad9e6e223c7d8eb050aed9001e080 40812 handylinuxlook_1.1-5.debian.tar.xz
+ 7aa90bc677223f95cff2bedd0a3bdb07b5ef726d 8126780 handylinuxlook_1.1-5_all.deb
+Checksums-Sha256:
+ 18dd1b6372f065f87f2a5eb4b15af1d34001a68e85bb3468c497f4d74e7f06a5 1375 handylinuxlook_1.1-5.dsc
+ 093ec0abdb53b600f6bb76d84a7f3e2d8504e2499b0e1236131f5e9866dc91a9 40812 handylinuxlook_1.1-5.debian.tar.xz
+ 510a0448c5eeef08c7c5a0aca5f9b0c98a48ae13314db024ca7f5c3b4b7be2d6 8126780 handylinuxlook_1.1-5_all.deb
+Files:
+ 2ef4713c09a4eb4d4e8c63e682a65805 1375 x11 optional handylinuxlook_1.1-5.dsc
+ d986b1ae0911e2715e6e8a86ec45bf9a 40812 x11 optional handylinuxlook_1.1-5.debian.tar.xz
+ 64ef711abf4309cb88cbee6d572eed2e 8126780 x11 optional handylinuxlook_1.1-5_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXQxYlAAoJELOLTsK+RB/Ph/4H+wVxsQljpmYSc3KMB/so+Dkb
+2RYeSn2EF9+G/Um4Xsrnv9RX/vGC8x2ZGZUCjRoTk0GKyHJRo8VUqzRkCF/Huk9+
+bMyYvBLapm1BGGUCjRKTbXMMp+YG++cPQL5+GRwnGKQmqvbXQqbgYmUDCCmt4M2r
+/nV4IzqPSpBnFwzIL5lKzn8KU435WLM2AmSnAxpILa2pd5nA8Orl0RGfj91qwtZS
+aM6MjtHhWcZCwKvLo82DIfCLKwJWTAnsKCi4rAUM+sKBLF+XH+Q/yUb487fVE55S
+IeS0jpgDsF2yjSxIiY0HYom7Lpyw2ZlWQ5sE01cjCjbcXMsENdkRiKZx1ujB9vE=
+=PEDA
+-----END PGP SIGNATURE-----

@@ -1,0 +1,74 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handy-update-notifier
+dpkg-buildpackage: source version 0.3-1
+dpkg-buildpackage: source distribution jessie
+dpkg-buildpackage: source changed by team handylinux <dev@handylinux.org>
+ dpkg-source --before-build handy-update-notifier-0.3
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handy-update-notifier-0.3
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handy-update-notifier using existing ./handy-update-notifier_0.3.orig.tar.xz
+dpkg-source: info: building handy-update-notifier in handy-update-notifier_0.3-1.debian.tar.xz
+dpkg-source: info: building handy-update-notifier in handy-update-notifier_0.3-1.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3'
+install -d -m 755 -o root -g root /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/etc/apt/apt.conf.d
+install -d -m 755 -o root -g root /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/share/pixmaps
+install -d -m 755 -o root -g root /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/share/man/man1
+install -m 755 -o root -g root handy-update-notifier /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/bin
+install -m 755 -o root -g root handy-update-checker /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/bin
+install -m 755 -o root -g root handy-upgrade-manager /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/bin
+install -m 644 -o root -g root handy-update-checker.desktop /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/share/applications
+install -m 644 -o root -g root handy-update-checker.png /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/share/pixmaps
+install -m 644 -o root -g root 00recommends /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/etc/apt/apt.conf.d
+install -m 644 -o root -g root 00trustcdrom /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/etc/apt/apt.conf.d
+install -m 644 -o root -g root 02periodic /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/etc/apt/apt.conf.d
+install -m 644 -o root -g root 99synaptic /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/etc/apt/apt.conf.d
+install -m 644 -o root -g root *.1 /home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3/debian/handy-update-notifier/usr/share/man/man1
+make[1]: Leaving directory '/home/arp/debdev/handy-update-notifier/handy-update-notifier-0.3'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `handy-update-notifier' in `../handy-update-notifier_0.3-1_all.deb'.
+ dpkg-genchanges  >../handy-update-notifier_0.3-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build handy-update-notifier-0.3
+dpkg-buildpackage: full upload (original source is included)
+Now running lintian...
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handy-update-notifier_0.3-1.dsc BE441FCF
+
+ signfile handy-update-notifier_0.3-1_amd64.changes BE441FCF
+
+Successfully signed dsc and changes files

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=mpartage
+Name[fr]=mpartage
+Comment=Easy sharing
+Comment[fr]=Partager ses données
+Exec=/usr/bin/m_partage
+Icon=/usr/share/icons/m_partage.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Network;

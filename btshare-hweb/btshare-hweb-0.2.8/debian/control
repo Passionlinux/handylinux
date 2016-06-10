@@ -1,0 +1,16 @@
+Source: btshare-hweb
+Section: misc
+Priority: extra
+Maintainer: arnault perret <arpinux@member.fsf.org>
+XSBC-Original-Maintainer: Thuban <thuban@yeuxdelibad.net>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: http://git.yeuxdelibad.net/btshare/
+
+Package: btshare-hweb
+Architecture: all
+Depends: python3, python3-flask, python3-libtorrent
+Description: Partager vos données via P2P
+ BTshare vous permet de partager des données via BitTorrent.
+ BTshare liste les fichiers d'un dossier et vous donne un lien magnet.
+ Partagez ce lien pour partager vos fichiers.

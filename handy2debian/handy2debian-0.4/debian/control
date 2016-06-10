@@ -1,0 +1,14 @@
+Source: handy2debian
+Section: x11
+Priority: extra
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9), python (>= 2.7), dh-python
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/evolution#handy2debianle_plus_radical
+
+Package: handy2debian
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python (>= 2.7), zenity
+Description: Passer à Debian classic depuis HandyLinux
+ handy2debian vous permet d'éliminer la configuration et 
+ les outils handylinux afin de passer à Debian en version classique.

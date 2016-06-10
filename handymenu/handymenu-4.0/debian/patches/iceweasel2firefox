@@ -1,0 +1,98 @@
+Description: change iceweasel to firefox in default config
+ .
+ handymenu (4.0-28) unstable; urgency=medium
+ .
+   * ajout de la gestion des profils
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/hm_utils.py
++++ handymenu-4.0/hm_utils.py
+@@ -386,8 +386,8 @@ hm_default_sections = \
+     'apps': [\
+         {'name' : _("Web browser"),\
+         'generic': _("Surf the web"),\
+-        'icon' : "iceweasel",\
+-        'cmd' : "iceweasel"\
++        'icon' : "firefox",\
++        'cmd' : "firefox"\
+         },\
+         {'name' : _("Personal folder"),\
+         'generic': _("Browse my personal directory"),\
+@@ -397,7 +397,7 @@ hm_default_sections = \
+         {'name' : _("Framasoft"),\
+         'generic': _("Acces to free (as in freedom) Framasoft services"),\
+         'icon' : "/usr/share/handymenu/icons/internet_framasoft.png",\
+-        'cmd' : "iceweasel http://www.framasoft.net/#topPgCloud"\
++        'cmd' : "firefox http://www.framasoft.net/#topPgCloud"\
+         },\
+         {'name' : _("HandyLinux Help Center"),\
+         'generic': _("Open HandyLinux Help Tool"),\
+@@ -422,8 +422,8 @@ hm_default_sections = \
+     'apps': [\
+         {'name' : _("Surf the Web"),\
+         'generic': _("Browse the internet"),\
+-        'icon' : "iceweasel",\
+-        'cmd' : "iceweasel"\
++        'icon' : "firefox",\
++        'cmd' : "firefox"\
+         },\
+         {'name' : _("Read or write emails"),\
+         'generic': _("Consult or edit emails"),\
+@@ -438,7 +438,7 @@ hm_default_sections = \
+         {'name' : _("Framasoft Services"),\
+         'generic': _("Acces to free (as in freedom) Framasoft services"),\
+         'icon' : "/usr/share/handymenu/icons/internet_framasoft.png",\
+-        'cmd' : "iceweasel http://www.framasoft.net/#topPgCloud"\
++        'cmd' : "firefox http://www.framasoft.net/#topPgCloud"\
+         },\
+         {'name' : _("P2P torrent client"),\
+         'generic': _("Share datas with P2P"),\
+@@ -448,7 +448,7 @@ hm_default_sections = \
+         {'name' : _("Internet help"),\
+         'generic': _("Get some help about internet applications"),\
+         'icon' : "/usr/share/handymenu/icons/help.png",\
+-        'cmd' : "iceweasel https://handylinux.org/wiki/doku.php/fr/internet"\
++        'cmd' : "firefox https://handylinux.org/wiki/doku.php/fr/internet"\
+         },\
+     ]\
+     },\
+@@ -499,7 +499,7 @@ hm_default_sections = \
+         {'name' : _("Files help"),\
+         'generic': _("Get some help about file management"),\
+         'icon' : "/usr/share/handymenu/icons/help.png",\
+-        'cmd' : "iceweasel https://handylinux.org/wiki/doku.php/fr/fichiers"\
++        'cmd' : "firefox https://handylinux.org/wiki/doku.php/fr/fichiers"\
+         },\
+     ]\
+     },\
+@@ -535,7 +535,7 @@ hm_default_sections = \
+         {'name' : _("Office help"),\
+         'generic': _("Get some help about office applications"),\
+         'icon' : "/usr/share/handymenu/icons/help.png",\
+-        'cmd' : "iceweasel https://handylinux.org/wiki/doku.php/fr/office"\
++        'cmd' : "firefox https://handylinux.org/wiki/doku.php/fr/office"\
+         },\
+     ]\
+     },\
+@@ -571,7 +571,7 @@ hm_default_sections = \
+         {'name' : _("Multimedia help"),\
+         'generic': _("Get some help about multimedia applications"),\
+         'icon' : "/usr/share/handymenu/icons/help.png",\
+-        'cmd' : "iceweasel https://handylinux.org/wiki/doku.php/fr/media"\
++        'cmd' : "firefox https://handylinux.org/wiki/doku.php/fr/media"\
+         },\
+     ]\
+     },\

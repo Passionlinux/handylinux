@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Fri, 22 Jan 2016 05:37:56 +0100
+Source: handylinux-doc-en
+Binary: handylinux-doc-en
+Architecture: source all
+Version: 0.1-2
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ handylinux-doc-en - Documentation HandyLinux en/us
+Changes:
+ handylinux-doc-en (0.1-2) unstable; urgency=medium
+ .
+   * update to handylinux-2.3
+Checksums-Sha1:
+ baf5f7a6d2d8c40184fe583405a576442db2c053 1423 handylinux-doc-en_0.1-2.dsc
+ e69161f458b58730e6e5da2b4bede1ac2a63847b 30129248 handylinux-doc-en_0.1-2.debian.tar.xz
+ 223e4ed285009e3e0c600fddafa09c98a40b6d69 30999028 handylinux-doc-en_0.1-2_all.deb
+Checksums-Sha256:
+ 445773a3310a09367317c4a751463b9649fcafb818936f5d165b1de09d690815 1423 handylinux-doc-en_0.1-2.dsc
+ 313dba76ea80b626bb776a191679c3c54b72ef6c4932709ba555ce01afa11c8e 30129248 handylinux-doc-en_0.1-2.debian.tar.xz
+ ae2f596479e6dfd5e3ffe816f61f2a88034726a49cde6a85bc3ce0a9a4b31b64 30999028 handylinux-doc-en_0.1-2_all.deb
+Files:
+ b79f0fd96ffffa8c37ab8a9dc1265745 1423 misc optional handylinux-doc-en_0.1-2.dsc
+ 80d0dbf7eaddc54d53872da30ec38d62 30129248 misc optional handylinux-doc-en_0.1-2.debian.tar.xz
+ ba21d613d0b2c861bed9a5a2dee60cce 30999028 misc optional handylinux-doc-en_0.1-2_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXWKvUAAoJELOLTsK+RB/PHWgH/A3LURoFswu1R7/3PKgmq9TP
+LHth06gHfmHKZVjce4o6eS/q9v5PvhdNOHENup9oPENk6gOTcEp+bGC38/0rgmFi
+G0OT6LVbDcm64u82Yrpw8AO1Jonk1rQL8iJvQLtUeQVmBDYMoaujc6rk7/IPk6GZ
+ctQ6h6+QSnfhdDb9MMMSurSClNig8tBabGt5y8l094SFZ18/rLQWTZIIK1OXBnmb
+WgRkQSozzWF/ZJpG+olXQrleomcm3psrCehpq/YGlK9z8F0YZXoTevF0RV6E3wgh
+QdG7ETsTJWZX00VGjz8NL0SjdGfAQ+uG8BeygSZ2noO+6LosJTksvt3GEuWKUNE=
+=XnFC
+-----END PGP SIGNATURE-----

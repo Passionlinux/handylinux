@@ -1,0 +1,20 @@
+# Pour générer les traductions : 
+pygettext -o locale/cyclope.pot cyclope.py
+cd locale
+
+msginit -i cyclope.pot -o fr/LC_MESSAGES/cyclope.po
+...
+
+# il faut éditer le .po et traduire
+# puis dans le dossier contenant le .po traduit : 
+msgfmt cyclope.po -o cyclope.mo
+
+#-------------------------------------------------
+
+# mise à jour de la traduction
+# création d'un nouveau pot
+pygettext -o locale/cyclope.pot cyclope.py
+
+# mise à jour des fichiers de traductions
+cd locale
+msgmerge --update  fr/cyclope.po cyclope.pot

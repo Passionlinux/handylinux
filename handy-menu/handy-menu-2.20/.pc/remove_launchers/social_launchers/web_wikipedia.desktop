@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Wikipédia
+Comment=visit Wikipedia page
+Comment[fr]=rejoindre le site Wikipédia
+Icon=wikipedia
+Exec=x-www-browser http://www.wikipedia.org
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;
+GenericName=wikpedia

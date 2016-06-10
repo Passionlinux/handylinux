@@ -1,0 +1,80 @@
+handylinux-nonfree-installer (0.3-1) jessie; urgency=medium
+
+  * fix description & maintainer
+  * update teamviewer path to generic 'teamviewer-latest'
+
+ -- team handylinux <dev@handylinux.org>  Fri, 10 Jun 2016 01:13:43 +0200
+
+handylinux-nonfree-installer (0.2-9) unstable; urgency=medium
+
+  * add postinst to remove skype-installer.desktop
+
+ -- team handylinux <dev@handylinux.org>  Tue, 15 Mar 2016 21:46:13 +0100
+
+handylinux-nonfree-installer (0.2-8) unstable; urgency=medium
+
+  * Remove skype installer
+
+ -- team handylinux <dev@handylinux.org>  Tue, 15 Mar 2016 19:44:06 +0100
+
+handylinux-nonfree-installer (0.2-7) unstable; urgency=medium
+
+  * update teamviewer installer to get the v11
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 02 Dec 2015 13:11:21 +0100
+
+handylinux-nonfree-installer (0.2-6) unstable; urgency=medium
+
+  * cosmetic
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 22 Nov 2015 13:50:15 +0100
+
+handylinux-nonfree-installer (0.2-5) unstable; urgency=medium
+
+  * arpi == boulet
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 22 Nov 2015 13:12:10 +0100
+
+handylinux-nonfree-installer (0.2-4) unstable; urgency=medium
+
+  * switch to uname to detect architecture
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 22 Nov 2015 12:59:14 +0100
+
+handylinux-nonfree-installer (0.2-3) unstable; urgency=medium
+
+  * peaufinage 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 22 Nov 2015 00:54:56 +0100
+
+handylinux-nonfree-installer (0.2-2) unstable; urgency=medium
+
+  * fix aechitecture detection
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 22 Nov 2015 00:36:21 +0100
+
+handylinux-nonfree-installer (0.2-1) unstable; urgency=medium
+
+  * rewrote by thuban
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 21 Nov 2015 22:49:10 +0100
+
+handylinux-nonfree-installer (0.1-3) unstable; urgency=medium
+
+  * meilleur support multiarch
+  * fix both scripts
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 21 Nov 2015 13:54:16 +0100
+
+handylinux-nonfree-installer (0.1-2) unstable; urgency=medium
+
+  * ajout du support multiarch
+  * fix skype installer
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 21 Nov 2015 12:15:08 +0100
+
+handylinux-nonfree-installer (0.1-1) unstable; urgency=low
+
+  * Intégration des scripts de thuban & coyotus : skype et teamviewer
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 20 Nov 2015 23:19:49 +0100

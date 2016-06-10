@@ -1,0 +1,76 @@
+#!/bin/bash
+
+if [ `whoami` != root ]; then
+		gksudo -D "Update checker" $0
+	exit 1
+fi
+
+UPCHECK=" Updating repositories. Please wait..."
+ERROR=" Could not check updates."
+NONE=" Your system is up-to-date."
+
+case $LANG in
+	de*)
+        UPCHECK=" Aktualisieren von Repositories. Warten Sie mal..."
+        ERROR=" Überprüfung unmöglich ☹ ."
+        NONE=" Ihr System ist auf dem neuesten Stand ☺ ."
+        ;;
+	eo*)
+        UPCHECK=" Ĝisdatiganta deponejoj. Bonvolu atendi..."
+        ERROR=" konfirmo neebla ☹ ."
+        NONE=" via sistemo estas ĝisdata ☺ ."
+        ;;
+	es*)
+        UPCHECK=" La actualización de los repositorios. por favor espera..."
+        ERROR=" verificación imposible ☹ ."
+        NONE=" Tu sistema esta actualizado ☺ ."
+        ;;
+	fr*)
+        UPCHECK=" Mise à jour des dépôts. Merci de patienter..."
+        ERROR=" Vérification impossible ☹ ."
+        NONE=" Votre système est à jour ☺ ."
+        ;;
+	it*)
+        UPCHECK=" Aggiornamento repository. attendere prego..."
+        ERROR=" verifica impossibile ☹ ."
+        NONE=" il sistema è aggiornato ☺ ."
+        ;;
+	nl*)
+        UPCHECK=" Updaten van repositories. Even geduld aub..."
+        ERROR=" verificatie onmogelijk ☹ ."
+        NONE=" uw systeem up-to-date ☺ ."
+        ;;
+	pt*)
+        UPCHECK=" Atualizando repositórios. Por favor, espere..."
+        ERROR=" verificação impossível ☹ ."
+        NONE=" o seu sistema está atualizado ☺ ."
+        ;;
+	ru*)
+        UPCHECK=" Обновление репозиториев. пожалуйста, подождите..."
+        ERROR=" проверка невозможно ☹ ."
+        NONE=" ваша система находится в актуальном состоянии ☺ ."
+        ;;
+esac
+
+networkcheck
+if [ $? -ne 0 ]; then
+    zenity --error --text="$ERROR"
+    exit 1
+fi
+
+apt-get update | zenity --progress \
+    --pulsate \
+    --title="Update checker" \
+    --text="$UPCHECK" \
+    --auto-close
+
+#NUMOFUPDATES=$(aptitude search "~U" | wc -l)
+NUMOFUPDATES=$(apt-get upgrade -s | grep Inst | wc -l)
+
+if [ "$NUMOFUPDATES" == "0" ]; then
+    zenity --info --text="$NONE" --timeout 7
+else
+    handy-upgrade-manager
+fi
+
+exit 0 

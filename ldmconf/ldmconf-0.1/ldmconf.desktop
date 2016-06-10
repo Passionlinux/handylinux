@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=LDMconf
+Comment=LightDM configuration tool
+Comment[fr]=Configurer votre écran de connexion
+Icon=xfce4-session
+Exec=/usr/bin/ldmconf
+Terminal=false
+StartupNotify=false
+Categories=Application;X-XFCE;System;Settings;

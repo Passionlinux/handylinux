@@ -1,0 +1,109 @@
+# Cyclope trad.
+# Copyright GPLv3 2015 HandyLinux
+# arpinux <arpinux@member.fsf.org>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cyclope-1.5\n"
+"POT-Creation-Date: 2015-12-13 18:18+CET\n"
+"PO-Revision-Date: 2015-07-19 16:56+0200\n"
+"Last-Translator: arpinux <arpinux@member.fsf.org>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cyclope:52
+msgid ""
+"Error while opening this file. Sorry \n"
+" {}"
+msgstr ""
+"Oops, une erreur s'est produite \n"
+" {}"
+
+#: cyclope:60
+msgid "Open a picture"
+msgstr "Ouvrez une image"
+
+#: cyclope:64
+msgid "Images"
+msgstr ""
+
+#: cyclope:80
+msgid "Closed, no files selected"
+msgstr "pas de sélection : annulation"
+
+#: cyclope:332
+msgid "Fullscreen"
+msgstr "Plein écran"
+
+#: cyclope:343
+msgid "Restore screen"
+msgstr "Quitter le plein écran"
+
+#: cyclope:416
+msgid "Rotate right"
+msgstr "Pivoter à droite"
+
+#: cyclope:421
+msgid "Rotate left"
+msgstr "Pivoter à gauche"
+
+#: cyclope:427
+msgid "Disable zoom"
+msgstr "Désactiver le Zoom"
+
+#: cyclope:430
+msgid "Zoom"
+msgstr "Activer le Zoom"
+
+#: cyclope:436
+msgid "Disable slideshow"
+msgstr "Stopper le diaporama"
+
+#: cyclope:439
+msgid "Enable slideshow"
+msgstr "Lancer le Diaporama"
+
+#: cyclope:446
+msgid "Edit with {}"
+msgstr "Éditer avec {}"
+
+#: cyclope:500
+msgid ""
+"<b>{}</b>\n"
+"version : {}\n"
+"author : {}\n"
+"licence : {}\n"
+"homepage : {}\n"
+"---\n"
+"usage :\n"
+"Use arrows, b and n keys to change image\n"
+"Double click or press f key to enlarge the window\n"
+"Press o to open a new image\n"
+"Press d or g to turn the image\n"
+"Press z to toggle zoom mode\n"
+"Press = to restore the image\n"
+"Press p to start slideshow mode\n"
+"Press m or right click to show the menu\n"
+"Press Escape or q to quit"
+msgstr ""
+"<b>{}</b>\n"
+"version : {}\n"
+"auteur : {}\n"
+"licence : {}\n"
+"page d'accueil : {}\n"
+"---\n"
+"Raccourcis :\n"
+"- b, n ou les flêches pour changer d'image\n"
+"- Double-clic ou f pour passer en plein écran\n"
+"- d(roite) ou g(auche) pour pivoter l'image\n"
+"- o pour ouvrir une nouvelle image\n"
+"- m ou le clic-droit pour ouvrir le menu\n"
+"- z pour activer le mode zoom\n"
+"- = pour désactiver le mode zoom\n"
+"- p pour lancer le diaporama\n"
+"- Escape ou q pour quitter"

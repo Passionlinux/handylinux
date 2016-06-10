@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=StylishDark
+Comment=A modern flat theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=StylishDark
+MetacityTheme=StylishDark
+ButtonLayout=:minimize,maximize,close

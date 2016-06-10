@@ -1,0 +1,88 @@
+style "toolbar"
+{ 
+   fg[NORMAL]       	 = "#1279fa" # Metacity and mouseover, Most text
+  fg[ACTIVE]       	 = "#1279fa" # Texto en pestañas sin foco, botones tambien
+  fg[PRELIGHT]     	 = "#1279fa" # Texto en botones hover
+  fg[SELECTED]     	 = "#1279fa" # Texto seleccionado en listas
+  fg[INSENSITIVE]  	 = "#a8a9ad" # Texto deshabilitado menu
+   text[NORMAL]	 	 = "#1279fa" # Texto en ventanas
+  text[INSENSITIVE]	 = "#a8a9ad" # Texto insensitivo ventana
+  text[SELECTED]   	 = "#1279fa" # Texto seleccionado
+  text[ACTIVE]     	 = "#1279fa" # Texto activo en ventana inactiva
+  text[PRELIGHT]   	 = "#1279fa"
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-light.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbuttons" 
+{
+  fg[NORMAL]       	 = "#1279fa" # Metacity and mouseover, Most text
+  fg[ACTIVE]       	 = "#1279fa" # Texto en pestañas sin foco, botones tambien
+  fg[PRELIGHT]     	 = "#1279fa" # Texto en botones hover
+  fg[SELECTED]     	 = "#1279fa" # Texto seleccionado en listas
+  fg[INSENSITIVE]  	 = "#a8a9ad" # Texto deshabilitado menu
+   text[NORMAL]	 	 = "#1279fa" # Texto en ventanas
+  text[INSENSITIVE]	 = "#a8a9ad" # Texto insensitivo ventana
+  text[SELECTED]   	 = "#1279fa" # Texto seleccionado
+  text[ACTIVE]     	 = "#1279fa" # Texto activo en ventana inactiva
+  text[PRELIGHT]   	 = "#1279fa"
+
+	engine "pixmap" {
+      
+	image
+		{
+			function        		= BOX
+			recolorable     		= TRUE
+			state					= NORMAL
+			file            			= "Toolbar/toolbutton-normal.png"
+			border          		= { 4, 4, 4, 4 }
+			stretch         		= TRUE
+		}
+	image
+		{
+			function        		= BOX
+			recolorable     		= TRUE
+			state					= PRELIGHT
+			file            			= "Toolbar/toolbutton-prelight.png"
+			border          		= { 4, 4, 4, 4 }
+			stretch         		= TRUE
+		}
+	image
+		{
+			function        		= BOX
+			recolorable     		= TRUE
+			state					= ACTIVE
+			file            			= "Toolbar/toolbutton-pressed.png"
+			border          		= { 4, 4, 4, 4 }
+			stretch         		= TRUE
+		}  
+	image
+		{
+			function        		= BOX
+			recolorable     		= TRUE
+			state					= INSENSITIVE
+			file            			= "Toolbar/toolbutton-normal.png"
+			border          		= { 4, 4, 4, 4 }
+			stretch         		= TRUE
+		}
+
+
+    image
+    {
+      function		= FOCUS
+      recolorable	= TRUE
+      file            	= "Toolbar/toolbutton-focus.png"
+      border          	= { 4, 4, 4, 4 }
+      stretch			= TRUE
+    }
+  }
+}

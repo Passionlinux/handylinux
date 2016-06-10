@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=loupy
+Comment=a simple passive magnifier
+Comment[fr]=simple loupe passive
+Exec=/usr/bin/loupy
+Icon=loupy_icon
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=X-XFCE;Utility;

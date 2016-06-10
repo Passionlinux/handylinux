@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Fri, 13 Feb 2015 13:01:10 +0100
+Source: mpartage
+Binary: mpartage
+Architecture: source all
+Version: 2.0
+Distribution: unstable
+Urgency: low
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description: 
+ mpartage   - Partage de données facile
+Changes: 
+ mpartage (2.0) unstable; urgency=low
+ .
+   * passage en version HandyLinux-2
+Checksums-Sha1: 
+ 58a64300473de8427697530e5f30634a08322ce6 786 mpartage_2.0.dsc
+ 51d6efe7ba0126d7f8f5d44de663644b4506fc41 15187 mpartage_2.0.orig.tar.gz
+ b8132a60480445a71313fe68d22f9fb93eeb5b5d 2352 mpartage_2.0.debian.tar.gz
+ 2b31554856c13c8878f70ba33444c3e7ad9a8640 16016 mpartage_2.0_all.deb
+Checksums-Sha256: 
+ 525cd7e39332c34799be9dfe6a4e6317ecd462a93270c49aca9b0300558d301d 786 mpartage_2.0.dsc
+ c853dd724a65e8d0295913c408c97928b0d5f0d2272e9947681cb4f0529ec118 15187 mpartage_2.0.orig.tar.gz
+ 4e7a31e98ca217d7b9334be4e0b8ec842ba5ea43d247a0712d02308535a60789 2352 mpartage_2.0.debian.tar.gz
+ 984a4df8eb6a46a88c716b0751fed0870efe465bf2c237afe303e96144eb1742 16016 mpartage_2.0_all.deb
+Files: 
+ 9dbdafc3ee91d644d5cbcd8a76647b7b 786 x11 extra mpartage_2.0.dsc
+ 57e9b397acf82464f9bcbadbe4ade01e 15187 x11 extra mpartage_2.0.orig.tar.gz
+ 9814d0fee4edadb55c74cb6183ac058c 2352 x11 extra mpartage_2.0.debian.tar.gz
+ 9282cffcfded70b9a1af03d9e037db74 16016 x11 extra mpartage_2.0_all.deb

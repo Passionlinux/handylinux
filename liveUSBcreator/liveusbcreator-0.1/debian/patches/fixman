@@ -1,0 +1,41 @@
+Description: fix le man
+ .
+ liveusbcreator (0.1-4) unstable; urgency=medium
+ .
+   * correction des messages
+   * fix le double avertissement
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- liveusbcreator-0.1.orig/liveUSBcreator.1
++++ liveusbcreator-0.1/liveUSBcreator.1
+@@ -21,7 +21,7 @@
+ liveusbcreator \- utilitaire de transfert pour live USB
+ .SH SYNOPSIS
+ .B liveusbcreator
+-.RI "image.iso" "/path_to_usb_device" ...
++.RI "image.iso " "/path_to_usb_device "
+ .br
+ .SH DESCRIPTION
+ .PP
+@@ -30,7 +30,7 @@ liveusbcreator \- utilitaire de transfer
+ .\" respectively.
+ \fBliveusbcreator\fP vous permet de transférer facilement une image de type ISO sur un support amovible USB
+ .SH OPTIONS
+-Vous pouvez spécifier l'image ISO et le /dev de la clé USB en arguments
++Vous pouvez spécifier l'emplacement de l'image ISO ainsi que l'emplacement de la clé USB (ex : /dev/sdx) en arguments.
+ .TP
+ .B liveUSBcreator /path_to_ISO /dev/sdx
+ va transférer l'ISO sur /dev/sdx

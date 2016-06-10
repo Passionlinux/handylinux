@@ -1,0 +1,196 @@
+handy-menu (2.20-4) unstable; urgency=medium
+
+  * fix copyright
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 23 Nov 2015 01:28:45 +0100
+
+handy-menu (2.20-3) unstable; urgency=medium
+
+  * fix Debian package config files
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 23 Nov 2015 01:26:39 +0100
+
+handy-menu (2.20-2) unstable; urgency=medium
+
+  * remove social launchers handled by handylinux-links
+  * solve conflict with handylinuxlook
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 23 Nov 2015 01:16:40 +0100
+
+handy-menu (2.20-1) unstable; urgency=medium
+
+  * switche from exo-open to x-www commands
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 11 Jul 2015 15:26:30 +0200
+
+handy-menu (2.19) unstable; urgency=low
+
+  * mise à jour de l'icône par défaut
+  * fix skype launcher
+  * fix default banner for dark theme
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 02 May 2015 03:51:05 +0200
+
+handy-menu (2.18) unstable; urgency=low
+
+  * remplacement de minitube par transmission 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 26 Apr 2015 03:31:43 +0200
+
+handy-menu (2.17) unstable; urgency=low
+
+  * suppression de l'option de placement 
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 06 Apr 2015 17:11:43 +0200
+
+handy-menu (2.16) unstable; urgency=low
+
+  * replace shotwell by ristretto
+  * replace quodlibet by clementine
+  * update links
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 14 Mar 2015 18:15:16 +0100
+
+handy-menu (2.15) unstable; urgency=low
+
+  * fix flat icons pack by arpinux 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 28 Feb 2015 04:53:35 +0100
+
+handy-menu (2.14) unstable; urgency=low
+
+  * update banners by Starsheep & arpinux 
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 26 Feb 2015 21:07:15 +0100
+
+handy-menu (2.13) unstable; urgency=low
+
+  * replacer leafpad par mousepad 
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 24 Feb 2015 00:32:21 +0100
+
+handy-menu (2.12) unstable; urgency=low
+
+  * update mail icon
+  * add NObanner
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 21 Feb 2015 00:11:07 +0100
+
+handy-menu (2.11) unstable; urgency=low
+
+  * remplacement de xpad par xfce4-notes
+  * mise à jour de l'icone de menu
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 12 Feb 2015 01:55:06 +0100
+
+handy-menu (2.10) unstable; urgency=low
+
+  * update launchers
+  * fix jeux > jeu (merci dyp)
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 05 Feb 2015 03:06:03 +0100
+
+handy-menu (2.9) unstable; urgency=low
+
+  * fix wikiaccess.desktop
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 04 Feb 2015 02:41:44 +0100
+
+handy-menu (2.8) unstable; urgency=low
+
+  * fix calc & board launchers
+  * add wiki-access link
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 04 Feb 2015 02:22:25 +0100
+
+handy-menu (2.7) unstable; urgency=low
+
+  * fix flat icons theme
+  * set flat icon theme as default
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 02 Feb 2015 22:34:33 +0100
+
+handy-menu (2.6) unstable; urgency=low
+
+  * remplacement du software-center par gnome-packagekit
+  * remplacement de skype par son lanceur d'installation
+  * ajout du thème d'icônes Flat
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 02 Feb 2015 20:36:30 +0100
+
+handy-menu (2.5) unstable; urgency=low
+
+  * ajout de <3 manon
+  * ajout des liens wikipédia et wallpapers
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 10 Jan 2015 16:42:12 +0100
+
+handy-menu (2.4) unstable; urgency=low
+
+  * mise à jour de l'icône framasoft sur le thème Jambalak + coquilles
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 08 Nov 2014 00:47:23 +0100
+
+handy-menu (2.3) unstable; urgency=low
+
+  * exit facebook - ajout du lanceur framasoft et des social_launchers
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 16 Oct 2014 00:22:20 +0200
+
+handy-menu (2.2) unstable; urgency=low
+
+  * ajout de la réponse au clavier par manon 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 02 Aug 2014 02:34:36 +0200
+
+handy-menu (2.1) unstable; urgency=low
+
+  * ajout de la dépendance python-imaging 
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 17 Jul 2014 06:01:43 +0200
+
+handy-menu (2.0) unstable; urgency=low
+
+  * ajout des traductions et de l'outil de configuration des boutons
+    modification du handymenu.py par manon
+    traduction du fichier de configuration par la communauté
+    harmonisation des noms des fichiers
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 21 May 2014 14:21:26 +0200
+
+handy-menu (1.8.2) unstable; urgency=low
+
+  * nettoyage par manon à partir des modification de milouse
+    passage aux normes freedesktop
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 15 Apr 2014 23:54:46 +0200
+
+handy-menu (1.8) unstable; urgency=low
+
+  * correction du script de post-installation 
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 01 Apr 2014 03:13:17 +0200
+
+handy-menu (1.7) unstable; urgency=low
+
+  * correction du handymenu.py - correction de l'adresse du fichier .glade 
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 01 Apr 2014 02:56:47 +0200
+
+handy-menu (1.6) unstable; urgency=low
+
+  * fix handy-menu post-installation process
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 01 Apr 2014 02:22:29 +0200
+
+handy-menu (1.5) unstable; urgency=low
+
+  * fix handymenu.py and Debian package, set user config path
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 29 Mar 2014 23:27:39 +0100
+
+handy-menu (1.4.6) unstable; urgency=low
+
+  * Initial release
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 29 Mar 2014 23:08:11 +0100

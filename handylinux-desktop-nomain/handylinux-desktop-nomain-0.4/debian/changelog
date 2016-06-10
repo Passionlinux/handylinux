@@ -1,0 +1,23 @@
+handylinux-desktop-nomain (0.4-1) unstable; urgency=medium
+
+  * ajout de handylinux-nonfree-installer 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 22 Nov 2015 14:25:51 +0100
+
+handylinux-desktop-nomain (0.3) unstable; urgency=low
+
+  * ajout du firmware-ralink
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 01 Sep 2014 01:32:30 +0200
+
+handylinux-desktop-nomain (0.2) unstable; urgency=low
+
+  * fix debian/control pour les dépendances flash et la description.
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 13 Aug 2014 00:44:54 +0200
+
+handylinux-desktop-nomain (0.1) unstable; urgency=low
+
+  * Initial release
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 11 May 2014 01:58:31 +0200

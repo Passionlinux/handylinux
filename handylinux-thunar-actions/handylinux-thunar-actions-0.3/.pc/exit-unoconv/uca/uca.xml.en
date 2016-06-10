@@ -1,0 +1,106 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open a terminal here</name>
+	<unique-id>1430681774901975-6</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>launch a terminal in the current directory</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>btshare</icon>
+	<name>Share with BTshare</name>
+	<unique-id>1430664757361524-1</unique-id>
+	<command>/usr/bin/share_with_btshare %f</command>
+	<description>share this file through P2P</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>acroread</icon>
+	<name>Convert in PDF</name>
+	<unique-id>1430681789008349-7</unique-id>
+	<command>unoconv -f pdf %f</command>
+	<description>export this file in PDF in the current directory</description>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon>browser</icon>
+	<name>Send to ToileLibre</name>
+	<unique-id>1430680843463192-5</unique-id>
+	<command>/usr/bin/pixup %F</command>
+	<description>upload this image to ToileLibre.org then share it</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<image-files/>
+</action>
+<action>
+	<icon>catfish</icon>
+	<name>Search</name>
+	<unique-id>1430701366296475-16</unique-id>
+	<command>/usr/bin/catfish --path=%f</command>
+	<description>launch Catfish search-tool in the current directory</description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
+<action>
+	<icon>edit-redo</icon>
+	<name>Convert to MP3</name>
+	<unique-id>1440699644074923-1</unique-id>
+	<command>/usr/bin/convert2mp3 %F</command>
+	<description>encode file to audio mp3 format</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<audio-files/>
+</action>
+<action>
+	<icon>document-send</icon>
+	<name>Convert to OGG</name>
+	<unique-id>1440699835461617-2</unique-id>
+	<command>/usr/bin/convert2ogg %F</command>
+	<description>encode file to free ogg-vorbis audio format</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<audio-files/>
+</action>
+<action>
+	<icon>edit</icon>
+	<name>Modify image</name>
+	<unique-id>1440701060510825-4</unique-id>
+	<command>/usr/bin/imagemod-hl %F</command>
+	<description>rotate, scale, convert or print an image</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<image-files/>
+</action>
+<action>
+	<icon>mail-send-receive</icon>
+	<name>Share on VidéoBin</name>
+	<unique-id>1440701881058536-5</unique-id>
+	<command>/usr/bin/upload_sur_VideoBin %f</command>
+	<description>upload a video then get the link</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<video-files/>
+</action>
+<action>
+    <icon>dialog-question</icon>
+	<name>Check md5</name>
+    <unique-id>1456843190812647-1</unique-id>
+	<command>zenity --info --text=&quot;md5 : $(md5sum %f |cut -d&apos; &apos; -f1)&quot;</command>
+	<description>Check md5 sum</description>
+	<patterns>*.iso;*.ISO</patterns>
+	<startup-notify/>
+	<other-files/>
+</action>
+</actions>

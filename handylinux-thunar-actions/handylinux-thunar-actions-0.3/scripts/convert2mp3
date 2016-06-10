@@ -1,0 +1,18 @@
+#!/bin/sh
+#Script pour convertir des fichiers audios en mp3
+# requiert sox et lame
+
+#Dans Thunar, choisir Edition > Configurer les actions personnalisées >
+# > Ajoutez une nouvelles entrée
+# Nom : Convert2mp3
+# Commande : /chemin/vers/le/script %F
+# Cocher "Fichiers audio" 
+#(Thunar reconnaît les ogg comme video)
+v_=$IFS
+IFS='
+'
+for i in $@; do
+   j="${i%.*}"
+   sox "$i" "$j.wav" && lame "$j.wav" "$j.mp3" && rm -f "$j.wav" && echo "$i réencodé en MP3."
+done
+IFS=v_

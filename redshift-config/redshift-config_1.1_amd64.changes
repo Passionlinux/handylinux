@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Fri, 13 Feb 2015 13:25:28 +0100
+Source: redshift-config
+Binary: redshift-config
+Architecture: source all
+Version: 1.1
+Distribution: unstable
+Urgency: low
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description: 
+ redshift-config - outil de configuration du filtre redshift
+Changes: 
+ redshift-config (1.1) unstable; urgency=low
+ .
+   * passage en version HandyLinux-2
+   * fix binary name : gtk-redshift > redshift-gtk
+Checksums-Sha1: 
+ a116dd05389b9cbce50c1c174e3724cdf1c29ed8 846 redshift-config_1.1.dsc
+ 3ec1faee83a29ceab79cfe749cee090698fddf58 4605 redshift-config_1.1.orig.tar.gz
+ 99a5e7f183176020abc20e2a3a7792dc0e65aceb 1932 redshift-config_1.1.debian.tar.gz
+ ba3f8cc67ded3a690b87d3feabfe6793829c2b96 5158 redshift-config_1.1_all.deb
+Checksums-Sha256: 
+ 0d2f4b680fdee25685641ef601a94a5f5ed5c592b2c6482db34e62741a149e67 846 redshift-config_1.1.dsc
+ 2cbc6cde18c72f1177089f411a3b65e856da5159a672e3cbc7df9c304235d89e 4605 redshift-config_1.1.orig.tar.gz
+ 723bf6ed045922e208fa8ac21081bf49bff1f8976462a988719a3671576bacf2 1932 redshift-config_1.1.debian.tar.gz
+ d087f66b285acdc329cc39211e2f9c5a0a2ed0064e2630c7aa40910b34458d31 5158 redshift-config_1.1_all.deb
+Files: 
+ 4d0c0946e55fee399a480b9ba5d18afe 846 x11 extra redshift-config_1.1.dsc
+ 6bebed66e8834527bbf624610c8fff69 4605 x11 extra redshift-config_1.1.orig.tar.gz
+ 0aa7f12820132bf0967ba90f0fa9895a 1932 x11 extra redshift-config_1.1.debian.tar.gz
+ edfc1ea8f87f5a3f08314e7309a9f15c 5158 x11 extra redshift-config_1.1_all.deb

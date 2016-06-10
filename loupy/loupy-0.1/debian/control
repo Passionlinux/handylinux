@@ -1,0 +1,15 @@
+Source: loupy
+Section: x11
+Priority: optional
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/access#loupe_d_ecran
+
+Package: loupy
+Architecture: all
+Depends: ${misc:Depends}, python (>= 2.7), python-gtk2
+Description: Une simple loupe passive
+ Loupy est une loupe passive minimale pour HandyLinux.
+ .
+ Loupy agrandit simplement une partie de l'écran.

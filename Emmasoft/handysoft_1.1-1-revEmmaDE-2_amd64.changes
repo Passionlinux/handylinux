@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Thu, 09 Jun 2016 15:50:28 +0200
+Source: handysoft
+Binary: handysoft
+Architecture: source all
+Version: 1.1-1-revEmmaDE-2
+Distribution: unstable
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handysoft  - Gestionnaire de logiciels simplifié
+Changes:
+ handysoft (1.1-1-revEmmaDE-2) unstable; urgency=medium
+ .
+   * suppression de l'appel au terminal externe
+Checksums-Sha1:
+ b66abdb9d59a9d3537e1b5e57ec0d268162f6a28 1471 handysoft_1.1-1-revEmmaDE-2.dsc
+ d6675adc6f85c170f4668161b5513ad5e7f330be 4492 handysoft_1.1-1-revEmmaDE-2.debian.tar.xz
+ 814dd4ba6fccc5c3ddf4332ff89d4dd95a146226 179440 handysoft_1.1-1-revEmmaDE-2_all.deb
+Checksums-Sha256:
+ 7465e8fb855f16153f6d95f004c1acfa1802f896c7b34de5295f6833ee133b4a 1471 handysoft_1.1-1-revEmmaDE-2.dsc
+ db3b2e34980e0f5c5b437afc325baaa24e34ee9dcc945f140c24c69fb08d4b63 4492 handysoft_1.1-1-revEmmaDE-2.debian.tar.xz
+ 7cabbe234efd49de868139febacad45608d1677b3a18f5f63d357f64bacf7d34 179440 handysoft_1.1-1-revEmmaDE-2_all.deb
+Files:
+ 6dff68a73eec852bdfae0866219ee3a0 1471 admin optional handysoft_1.1-1-revEmmaDE-2.dsc
+ 7bd22e27b56b6e627345eae299e32515 4492 admin optional handysoft_1.1-1-revEmmaDE-2.debian.tar.xz
+ d81992a9b51bebdd6938efb9e633c1a6 179440 admin optional handysoft_1.1-1-revEmmaDE-2_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXWXRSAAoJELOLTsK+RB/P4r4IAI525bG2PfIm3n5rN9AsGiTZ
+3qc6icZ1z3Ecefae6jcLGcQvLZyX8+yNYoBJtpI+QX73bbNRQ53mkshBdHpUIDSE
++RpAb4ZRV1icRoCu96c1sV945c+KUoUBsQmXytTTsTix5N4S9kWX0vXaLbNmtCH+
+6AICXZVngKFcT1o9tlJBk+gjh+9be4Q4H2E0coL6MwBOqomvres+XQOM1moumA33
+BQSTATJWzL4UrnPUBa3MMpOtWCQdLi51mAd8TFIWt/4H49C9NKsdw08z91OQ/Ivo
+Sa4l0igqHdNuLWXzQAjb4neQJwIO2ua8JRLK/fU4u0UhAz1ggQFSh4Z3xsPQWtI=
+=ohWN
+-----END PGP SIGNATURE-----

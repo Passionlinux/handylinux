@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ -z "$(ps axo comm |grep loupy.py)" ]; then
+    cd "/usr/share/loupy"
+    ./loupy.py
+else
+    echo "loupy est déjà lancé"
+    killall loupy.py
+    cd "/usr/share/loupy"
+    ./loupy.py
+fi
+
+exit 0

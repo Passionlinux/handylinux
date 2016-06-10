@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 06 Jan 2016 01:43:11 +0100
+Source: loupy
+Binary: loupy
+Architecture: source all
+Version: 0.1-3
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ loupy      - Une simple loupe passive
+Changes:
+ loupy (0.1-3) unstable; urgency=medium
+ .
+   * update description pour faciliter la recherche
+Checksums-Sha1:
+ 6a280aefaa1cdf0101f02c3e55d7514c2d361d45 810 loupy_0.1-3.dsc
+ 0c892582b12c855f3129cd428d6bb4ee42ebb9c3 1808 loupy_0.1-3.debian.tar.xz
+ 734e9dc3040980d7639c47e3e51a66343f940afb 24348 loupy_0.1-3_all.deb
+Checksums-Sha256:
+ 664acbaf0005fd23c397930dca29165f957f407dc3298d5af31c9d6d0f098182 810 loupy_0.1-3.dsc
+ 32dc164ddb67fff5e71b5a9835e3b0b043d4b6fd61aaa5f7f8c27675e970a249 1808 loupy_0.1-3.debian.tar.xz
+ f090d81f328669cbb4debf13152f0df098fd55ba7d43cb7c4f5b8d2d0bdceabb 24348 loupy_0.1-3_all.deb
+Files:
+ 7f051b1144439f999e49eeb8cebe93c1 810 x11 optional loupy_0.1-3.dsc
+ eccfbff60157c484a7accbc15b5f108d 1808 x11 optional loupy_0.1-3.debian.tar.xz
+ dce4130b174d837f37bb7dd09e2da702 24348 x11 optional loupy_0.1-3_all.deb

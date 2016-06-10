@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sat, 21 May 2016 22:19:55 +0200
+Source: handylinux-thunar-actions
+Binary: handylinux-thunar-actions
+Architecture: source all
+Version: 0.3-9
+Distribution: unstable
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handylinux-thunar-actions - Scripts pour les actions personnalisées de Thunar
+Changes:
+ handylinux-thunar-actions (0.3-9) unstable; urgency=medium
+ .
+   * fix uploaded filename
+Checksums-Sha1:
+ 1516fa0625da9442ab779bea693305e735e9f3b7 1468 handylinux-thunar-actions_0.3-9.dsc
+ f21deae7019a2f15eee0588c23d4f59f95cadda1 6312 handylinux-thunar-actions_0.3-9.debian.tar.xz
+ 3c15e7f3b2f4f72d7a5baec5018d92a6ae5a8e19 7558 handylinux-thunar-actions_0.3-9_all.deb
+Checksums-Sha256:
+ cc03d254a23bab8cf9a8b4bf060c87213e5251fa03019ffe991b6291e4dc32e8 1468 handylinux-thunar-actions_0.3-9.dsc
+ 072a43ffed427a217186cd1e38efb52a770da7a45974745db25ddfa1ec15788b 6312 handylinux-thunar-actions_0.3-9.debian.tar.xz
+ 3e841f3027cae4d93b5ac001ed77580f964ca07018131d651e2ff81a22a6425d 7558 handylinux-thunar-actions_0.3-9_all.deb
+Files:
+ 824dbb747b60464361c927f0a738dabb 1468 misc optional handylinux-thunar-actions_0.3-9.dsc
+ af0e6db3566611b2ffb252a92291404c 6312 misc optional handylinux-thunar-actions_0.3-9.debian.tar.xz
+ 9ace3691901728958c4aaa2b2f47e9a0 7558 misc optional handylinux-thunar-actions_0.3-9_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXQMMkAAoJELOLTsK+RB/P9OEH/0DciC4VHPZAeRHRGUBX+HLU
+MTKc6ZKd3tuyWOwjo1GJSeetMwUIzfsQFq2zutdyBNPmoSrOF+UCAWhK9JROI4kD
+U1ObwKXrDpiqJfz7Ayqqp4s4D2dZtdlZFRA4KXhvNHWarGvxMAOcNCu8CtNydw+U
+jGRHVHMB1yraAfsqNFTJFtHp91MOQhoDW3mRS4qGqemYWE6KN7o2U4gQJtKBDSx+
+0o0yAa/Ojjl+PUyesSG12V+vS/nYc3aDZbqI5N/8NPHB4k8v6Zv61PZ+3mtUVfvA
+/ozF2Prchk7JQ8ovDSYV368jKd1yOnxl3D3Q3p6b08D88KJFJ6EoAWFvk/7VQtI=
+=NhDJ
+-----END PGP SIGNATURE-----

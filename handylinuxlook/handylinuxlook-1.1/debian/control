@@ -1,0 +1,18 @@
+Source: handylinuxlook
+Section: x11
+Priority: optional
+Maintainer: Team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9), python (>= 2.7), dh-python
+Standards-Version: 3.9.6
+
+Package: handylinuxlook
+Architecture: all
+Depends: ${misc:Depends}, python (>= 2.7),
+ gtk2-engines-murrine (>= 0.98), fonts-droid
+Description: Themes & walls for HandyLinux desktop
+ HandyLinuxLook intègre quelques fonds d'écran et deux thèmes 
+ pour le bureau par défaut d'HandyLinux. 
+ .
+ Un outil de changement rapide est également intégré. 
+ .
+ Ces thèmes sont basés sur la suite "Albatross".

@@ -1,0 +1,42 @@
+handytri (0.5-3) unstable; urgency=medium
+
+  * update description pour faciliter la recherche
+  * ajout des misc_depends dans le Control Debian
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 06 Jan 2016 01:31:21 +0100
+
+handytri (0.5-2) unstable; urgency=medium
+
+  * update Homepage 
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 27 Nov 2015 15:12:35 +0100
+
+handytri (0.5-1) unstable; urgency=medium
+
+  * fix icon path in .desktop file
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 18 Jun 2015 23:23:37 +0200
+
+handytri (0.4) unstable; urgency=low
+
+  * ajout d'extensions 
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 14 Feb 2015 15:54:36 +0100
+
+handytri (0.3) unstable; urgency=low
+
+  * ajout de xslx + passage en version HandyLinux-2 
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 13 Feb 2015 12:17:02 +0100
+
+handytri (0.2) unstable; urgency=low
+
+  * fix script 
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 09 May 2014 13:47:24 +0200
+
+handytri (0.1) unstable; urgency=low
+
+  * Initial relase
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 9 May 2014 19:52:28 +0200

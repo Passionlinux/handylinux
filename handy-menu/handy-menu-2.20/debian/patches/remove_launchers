@@ -1,0 +1,175 @@
+Description: remove social launchers handled by handylinux-links
+ .
+ handy-menu (2.20-1) unstable; urgency=medium
+ .
+   * switche from exo-open to x-www commands
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handy-menu-2.20.orig/Makefile
++++ handy-menu-2.20/Makefile
+@@ -50,8 +50,6 @@ install:
+ 	install -m 644 -o root -g root handymenu_icon.png $(DESTDIR)$(ICONDIR)
+ 	install -m 644 -o root -g root handymenu_v1_icon.png $(DESTDIR)$(ICONDIR)
+ 	install -m 644 -o root -g root handymenu.desktop $(DESTDIR)$(APPDIR)
+-	install -m 644 -o root -g root social_launchers/*.desktop $(DESTDIR)$(APPDIR)
+-	install -m 644 -o root -g root social_launchers_icons/*.png $(DESTDIR)$(ICONDIR)
+ 	cp -a lang/* ${DESTDIR}${LANGDIR}/
+ 	chown -R root:root ${DESTDIR}${LANGDIR}
+ 
+@@ -59,6 +57,5 @@ uninstall:
+ 	rm -rf $(DESTDIR)$(MENUDIR)
+ 	rm $(DESTDIR)$(BINDIR)/handymenu
+ 	rm $(DESTDIR)$(APPDIR)/handymenu.desktop
+-	rm $(DESTDIR)$(APPDIR)/social*
+ 	rm $(DESTDIR)$(MANDIR)/handymenu.1
+ 
+--- handy-menu-2.20.orig/social_launchers/social_diaspora.desktop
++++ /dev/null
+@@ -1,12 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=diaspora*
+-Comment=discover diaspora
+-Comment[fr]=découvrez diaspora
+-Icon=diaspora
+-Exec=x-www-browser https://diasporafoundation.org/
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;Network;
+-GenericName=diaspora
+--- handy-menu-2.20.orig/social_launchers/social_facebook.desktop
++++ /dev/null
+@@ -1,12 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=facebook
+-Comment=visit facebook page
+-Comment[fr]=rejoindre votre page facebook
+-Icon=facebook
+-Exec=x-www-browser http://facebook.com
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;Network;
+-GenericName=facebook
+--- handy-menu-2.20.orig/social_launchers/social_google.desktop
++++ /dev/null
+@@ -1,12 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=google+
+-Comment=visit google plus page
+-Comment[fr]=rejoindre votre page google plus
+-Icon=googleplus
+-Exec=x-www-browser http://plus.google.com
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;Network;
+-GenericName=googleplus
+--- handy-menu-2.20.orig/social_launchers/social_linkedin.desktop
++++ /dev/null
+@@ -1,12 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=linkedin
+-Comment=visit linkedin page
+-Comment[fr]=rejoindre votre page linkedin
+-Icon=linkedin
+-Exec=x-www-browser https://www.linkedin.com/
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;Network;
+-GenericName=linkedin
+--- handy-menu-2.20.orig/social_launchers/social_twitter.desktop
++++ /dev/null
+@@ -1,12 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=twitter
+-Comment=visit twitter page
+-Comment[fr]=rejoindre votre page twitter
+-Icon=twitter
+-Exec=x-www-browser http://twitter.com
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;Network;
+-GenericName=twitter
+--- handy-menu-2.20.orig/social_launchers/web_jamendo.desktop
++++ /dev/null
+@@ -1,12 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=jamendo
+-Comment=discover jamendo
+-Comment[fr]=découvrez jamendo
+-Icon=jamendo
+-Exec=x-www-browser http://jamendo.org
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;Network;AudioVideo
+-GenericName=jamendo
+--- handy-menu-2.20.orig/social_launchers/web_wallpapers.desktop
++++ /dev/null
+@@ -1,13 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=Get wallpapers
+-Name[fr]=Trouver des fonds d'écran
+-Comment=visit our gallery
+-Comment[fr]=visitez la galerie HandyLinux
+-Icon=preferences-desktop-display
+-Exec=x-www-browser http://wallpapers.handylinux.org
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;GTK;Settings;DesktopSettings;Network;
+-GenericName=wallpapers
+--- handy-menu-2.20.orig/social_launchers/web_wikiaccess.desktop
++++ /dev/null
+@@ -1,13 +0,0 @@
+-[Desktop Entry]
+-Version=1.0
+-Type=Application
+-Name=Access Wiki
+-Name[fr]=Wiki Accessibilité
+-Comment=access documentation
+-Comment[fr]=aide à l'accessibilité
+-Exec=x-www-browser http://handylinux.org/documentation/doku.php/access
+-Icon=preferences-desktop-accessibility-symbolic
+-Path=
+-Terminal=false
+-StartupNotify=true
+-Categories=Application;Network;
+--- handy-menu-2.20.orig/social_launchers/web_wikipedia.desktop
++++ /dev/null
+@@ -1,12 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Encoding=UTF-8
+-Name=Wikipédia
+-Comment=visit Wikipedia page
+-Comment[fr]=rejoindre le site Wikipédia
+-Icon=wikipedia
+-Exec=x-www-browser http://www.wikipedia.org
+-Terminal=false
+-StartupNotify=false
+-Categories=Application;Network;
+-GenericName=wikpedia

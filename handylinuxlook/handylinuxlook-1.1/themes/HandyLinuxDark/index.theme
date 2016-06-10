@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=HandyLinuxDark
+Comment=A smooth and soft theme based on Albatros
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=HandyLinuxDark
+MetacityTheme=HandyLinuxDark
+CursorTheme=DMZ-White
+ButtonLayout=:minimize,maximize,close

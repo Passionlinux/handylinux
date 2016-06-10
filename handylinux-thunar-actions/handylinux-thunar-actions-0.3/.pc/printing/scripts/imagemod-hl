@@ -1,0 +1,107 @@
+#!/bin/sh
+# choose how to modify an image
+# requires zenity and imagemagick
+
+# action personnalisée dans thunar : 
+# imagemod-hl.sh %F
+
+OLDIFS=$IFS
+IFS='
+'
+
+# trads
+scaletitle="Scale image"
+scaletext="What do you want to do ?"
+scalemsg="Size to scale to <length>x<height>"
+TOJPG="Convert to JPG"
+TOPNG="Convert to PNG"
+TOGIF="Convert to GIF"
+RESIZE="Resize"
+TURNR="Turn right"
+TURNL="Turn left"
+
+case $LANG in
+	fr*)
+		scaletitle="Redimensionner une image"
+        scaletext="Que voulez-vous faire ?"
+		scalemsg="Taille de redimensionnement <largeur>x<hauteur>"
+        TOJPG="Convertir en JPG"
+        TOPNG="Convertir en PNG"
+        TOGIF="Convertir en GIF"
+        RESIZE="Redimensionner l'image"
+        TURNR="Tourner à droite"
+        TURNL="Tourner à gauche"
+        ;;
+    de*)
+		scaletitle="Stufenbild"
+        scaletext="Was möchten Sie tun ?"
+		scalemsg="Neue Größe <länge>x<höhe>"
+        TOJPG="Konvertieren JPG"
+        TOPNG="Konvertieren PNG"
+        TOGIF="Konvertieren GIF"
+        RESIZE="Größe ändern bild"
+        TURNR="Nach rechts drehen"
+        TURNL="Nach links drehen"
+        ;;
+    es*)
+        scaletitle="image Escala"
+        scaletext="Qué quieres hacer ?"
+        scalemsg="Tamaño de escalar a <longitud> x <altura>"
+        TOJPG="Convertir a JPG"
+        TOPNG="Convertir a PNG"
+        TOGIF="Convertir a GIF"
+        RESIZE="Redimensionar"
+        TURNR="Gire a la derecha"
+        TURNL="Gire a la izquierda"
+        ;;
+esac
+
+
+R=$(zenity --list --text "$scaletext"\
+    --radiolist --column "" --column "Action" --print-column=2 \
+    TRUE "1: $TOJPG" \
+    FALSE "2: $TOPNG" \
+    FALSE "3: $TOGIF" \
+    FALSE "4: $RESIZE" \
+    FALSE "5: $TURNR" \
+    FALSE "6: $TURNL"\
+    | cut -d':' -f1)
+
+case $R in 
+    1 ) 
+        for i in $@; do
+            convert -interlace line "$i" "${i%.*}.jpg"
+        done
+        ;;
+    2 ) 
+        for i in $@; do
+            convert -interlace line "$i" "${i%.*}.png"
+        done
+        ;;
+    3 ) 
+        for i in $@; do
+            convert -interlace line "$i" "${i%.*}.gif"
+        done
+        ;;
+    4 ) 
+        imgsize=$(zenity --title "$scaletitle" --entry --entry-text="100x100" --text="$scalemsg")
+        for i in $@; do
+            if [ -n "$imgsize" ]; then
+                convert -scale $imgsize "$i" "${i%.*}-$imgsize.${i##*.}" 
+            fi
+        done
+        ;;
+    5 ) 
+        for i in $@; do
+            convert -rotate 90 $i $i
+        done
+        ;;
+    6 ) 
+        for i in $@; do
+            convert -rotate -90 $i $i
+        done
+        ;;
+esac
+    
+IFS=$OLDIFS
+exit 0

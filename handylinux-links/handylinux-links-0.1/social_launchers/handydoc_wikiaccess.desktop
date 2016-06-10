@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Access Wiki
+Name[fr]=Wiki Accessibilité
+Comment=access documentation
+Comment[fr]=aide à l'accessibilité
+Exec=x-www-browser https://handylinux.org/wiki/doku.php/access
+Icon=preferences-desktop-accessibility-symbolic
+Terminal=false
+StartupNotify=true
+Categories=Application;Network;

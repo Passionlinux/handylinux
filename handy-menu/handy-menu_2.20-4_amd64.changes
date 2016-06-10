@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Mon, 23 Nov 2015 01:28:45 +0100
+Source: handy-menu
+Binary: handy-menu
+Architecture: source all
+Version: 2.20-4
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ handy-menu - Menu principal d'HandyLinux
+Changes:
+ handy-menu (2.20-4) unstable; urgency=medium
+ .
+   * fix copyright
+Checksums-Sha1:
+ 2ee916e39ee99c6a028bf04620ca2e728b94477a 852 handy-menu_2.20-4.dsc
+ f5291636772bdd1fe5e26913a885da57297de881 4260 handy-menu_2.20-4.debian.tar.xz
+ 4957fab2af8cc5f494f0950c6298074fcca36b8a 857960 handy-menu_2.20-4_all.deb
+Checksums-Sha256:
+ f0e8878415cc9b51b41c68dcc8ec2686f0903aec1a3b589c6dd6f3a9507ca154 852 handy-menu_2.20-4.dsc
+ d4ec986c66361a36e0da449a71b3c7a5f30d3218646f22c0834227761bdba84b 4260 handy-menu_2.20-4.debian.tar.xz
+ d3b8767e3debeda5db113e8fd0a6446f93d2cefa47dda8e927ff3966613e0057 857960 handy-menu_2.20-4_all.deb
+Files:
+ a35f827c3b238058bbfdce08a9724dee 852 x11 extra handy-menu_2.20-4.dsc
+ fedc977fe8695a3228ff11631314de8b 4260 x11 extra handy-menu_2.20-4.debian.tar.xz
+ bb54a7bbb605263edd33649c85b37cce 857960 x11 extra handy-menu_2.20-4_all.deb

@@ -1,0 +1,96 @@
+#!/bin/sh
+# nécessite curl
+
+v_=$IFS
+IFS="
+"
+LIMIT=2097152  # Taille maximale en octets de l'image pouvant être envoyée sur fotoo
+
+# trads
+IMGSENT="Image sent"
+ERROR="Error. Check file name"
+INTEGCODE="Copy this code to put the picture on the forum"
+IMGADD="Image URL"
+
+
+case $LANG in
+	fr*)
+        IMGSENT="Image envoyée"
+        ERROR="Erreur à l'envoi d'image. Vérifiez le nom du fichier"
+        INTEGCODE="Copier ce code pour insérer l'image dans le forum"
+        IMGADD="URL de l'image"
+        ;;
+    de*)
+        IMGSENT = "Bild geschickt"
+        ERROR = "Fehler. Überprüfen Sie den Dateinamen"
+        ;;
+    es*)
+        IMGSENT = "Imagen enviada"
+        ERROR = "Error. Compruebe el nombre de archivo"
+        ;;
+esac
+
+
+genhtml() {
+    # create an html page
+    TEMP=$(mktemp pixupXXX.html -p "/tmp")
+    echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">" >> $TEMP 
+    echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">' >> $TEMP
+    echo '<head>' >> $TEMP
+    echo '<meta charset="UTF-8">' >> $TEMP
+    echo '</head>' >> $TEMP
+    echo '<body>' >> $TEMP
+    
+    echo '<style type="text/css">' >> $TEMP
+    echo 'html, body {height: 100%;}' >> $TEMP
+    echo 'html {display: table;margin: auto;}' >> $TEMP
+    echo 'body {display: table-cell;vertical-align: middle; color:"#999"; background-color: #111; }' >> $TEMP
+    echo 'main { padding:1em; border:1px solid #666; 
+    color:#ddd; text-align:center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));}' >> $TEMP
+    echo 'img {border: 4px solid #eee; text-align:center;max-width:80%; margin-left:auto; margin-right:auto}' >> $TEMP
+        
+    echo '</style>' >> $TEMP
+    echo '<main>' >> $TEMP
+    echo "<img src=\"$1\">" >> $TEMP
+    echo "<p>$INTEGCODE :<input onfocus=\"this.select()\" class=\"text\" type=\"text\" value=\"[url=$1][img]$1[/img][/url]\" /></p>" >> $TEMP
+    echo "<p>$IMGADD : <input onfocus=\"this.select()\" class=\"text\" type=\"text\" value=\"$1\" /></p>" >> $TEMP
+
+    echo '</main></body></html>' >> $TEMP
+
+    echo "$TEMP"
+}
+
+
+for i in $@; do
+    TYPE="$(file --mime-type -b $i)"
+    EXT="${i##*.}"
+    if [ $(stat -c %s "$i") -gt $LIMIT ]; then
+        echo "Upload sur framapic"
+        # si taille supérieure à la limite de l'hébergeur handylinux, sur framapic
+        URL=$(curl -F "file=@$i" -F "format=$TYPE"\
+            -F "delete-day=0" -F "first-view=0"\
+            "https://framapic.org" | grep -Eo "https://framapic.org/(.*?).$EXT" | head -n1 | cut -d'"' -f1)
+
+        if [ $? -eq 0 -a -n "$URL" ]; then
+            LOCALHTML=$(genhtml "$URL")
+            notify-send "$IMGSENT : $i" &
+            x-www-browser "$LOCALHTML" &
+        else
+            notify-send "$ERROR" &
+        fi
+    else
+        echo "Upload sur l'hébergeur handylinux"
+        URL=$(curl -i -F name="$(whoami)-$i" -F private=0 -F "upload=@$i" "https://handylinux.org/fotoo/?upload" | grep '^Location' | sed 's/^Location: //')
+        if [ $? -eq 0 -a -n "$URL" ]; then
+            notify-send "$IMGSENT : $i" &
+            x-www-browser "$URL" &
+        else
+            notify-send "$ERROR" &
+        fi
+    fi
+
+done
+
+IFS=$v_
+exit 0

@@ -1,0 +1,71 @@
+Description: compatibilité avec HL-1.x
+ .
+ handymenu (4.0-8) unstable; urgency=medium
+ .
+   * ajout de xdg-user-dirs as dep
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/handymenu.py
++++ handymenu-4.0/handymenu.py
+@@ -174,8 +174,8 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                 c -= 1
+ 
+             page = Gtk.Table(rows=r, columns=c, homogeneous=True)
+-            page.set_row_spacings(10)
+-            page.set_col_spacings(10)
++            page.set_row_spacings(1)
++            page.set_col_spacings(1)
+             page.show()
+ 
+             x, y = 0, 0
+@@ -224,7 +224,6 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                 bapp.set_image_position(Gtk.PositionType.TOP)
+                 # apparence du bouton
+                 bapp.set_relief(Gtk.ReliefStyle.NONE)
+-                bapp.set_alignment(0.5, 0.5)
+                 # lancement au clic ou avec entrée
+                 bapp.connect("button_release_event", self.exec_app, a)
+                 bapp.connect("key_press_event", self.exec_app, a)
+@@ -380,14 +379,10 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+         for i in widget:
+             if type(i) == Gtk.Button: 
+                 self.change_focus_colors(i)
+-            elif type(i) == Gtk.StackSwitcher:
+-                self.change_focus_colors(i)
+             elif type(i) == Gtk.HBox:
+                 self.do_access(i)
+             elif type(i) == Gtk.VBox:
+                 self.do_access(i)
+-            elif type(i) == Gtk.Stack:
+-                self.do_access(i)
+             elif type(i) == Gtk.Alignment:
+                 self.do_access(i)
+             elif type(i) == Gtk.ScrolledWindow:
+@@ -398,6 +393,14 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                 self.do_access(i)
+             elif type(i) == Gtk.Table:
+                 self.do_access(i)
++            try: #HL-1.9
++                if type(i) == Gtk.StackSwitcher:
++                    self.change_focus_colors(i)
++                elif type(i) == Gtk.Stack:
++                    self.do_access(i)
++            except:
++                pass
++                
+ 
+     def start(self):
+         Gtk.main()

@@ -1,0 +1,14 @@
+Package: redshift-config-en
+Version: 0.7
+Architecture: all
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Installed-Size: 62
+Depends: python, gtk-redshift
+Conflicts: redshift-config
+Replaces: redshift-config
+Section: x11
+Priority: extra
+Homepage: http://handylinux.org
+Description: transitional package for redshift-config
+ Reshift-config allow you to auto-configure your location
+ to use with the redshift screen filter.

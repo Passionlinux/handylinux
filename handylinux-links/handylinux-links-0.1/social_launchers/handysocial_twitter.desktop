@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=twitter
+Comment=visit twitter page
+Comment[fr]=rejoindre votre page twitter
+Icon=twitter
+Exec=x-www-browser http://twitter.com
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;
+GenericName=twitter

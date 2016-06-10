@@ -1,0 +1,201 @@
+# Russian translations for handysoft package.
+# Copyright (C) 2015 ORGANIZATION
+# arpinux <contact@arpinux.org>, 2015, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: handysoft 0.42\n"
+"POT-Creation-Date: 2016-05-20 21:14+CEST\n"
+"PO-Revision-Date: 2016-05-13 22:24+0200\n"
+"Last-Translator: arpinux <contact@arpinux.org>\n"
+"Language-Team: French <>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: handysoft.py:88
+msgid "Package informations"
+msgstr "Данные пакета"
+
+#: handysoft.py:127
+msgid "Remove this package"
+msgstr "Удалить этот пакет"
+
+#: handysoft.py:128
+msgid "This package is installed"
+msgstr "Этот пакет установлен"
+
+#: handysoft.py:131
+msgid "Install this package"
+msgstr "Установить этот пакет"
+
+#: handysoft.py:132
+msgid "This package is not installed"
+msgstr "Этот пакет не установлен"
+
+#: handysoft.py:150
+msgid "Downloading screenshot..."
+msgstr "Загрузка скриншота..."
+
+#: handysoft.py:158
+msgid "Right click to add a screenshot"
+msgstr "Щелкните правой кнопкой мыши, чтобы добавить скриншот"
+
+#: handysoft.py:171 handysoft.py:718
+msgid "To add a screenshot for {}, click here : "
+msgstr "Чтобы добавить скриншот для {}, нажмите здесь : "
+
+#: handysoft.py:172 handysoft.py:719
+msgid "Click here to upload a screenshot"
+msgstr "Нажмите здесь, чтобы загрузить скриншот"
+
+#: handysoft.py:207
+msgid "Search package"
+msgstr "Поиск пакета"
+
+#: handysoft.py:208
+msgid "Enter your research here (regexp are allowed)"
+msgstr "Введите условия поиска здесь (допустимы регулярные выражения)"
+
+#: handysoft.py:213
+msgid "Click to start searching"
+msgstr "Нажмите, чтобы начать поиск"
+
+#: handysoft.py:221
+msgid "Search also in description"
+msgstr "Также искать в описании"
+
+#: handysoft.py:223
+msgid "Search in description"
+msgstr "Поиск в описании"
+
+#: handysoft.py:254
+msgid "Search"
+msgstr "Поиск"
+
+#: handysoft.py:254
+msgid "Search packages"
+msgstr "Поиск пакетов"
+
+#: handysoft.py:255
+msgid "Softwares"
+msgstr "Программное обеспечение"
+
+#: handysoft.py:259
+msgid "Toggle between packages search or packages list"
+msgstr "Переключение между поиском пакетов и списком пакетов"
+
+#: handysoft.py:266
+msgid "About"
+msgstr "Около"
+
+#: handysoft.py:323
+msgid "Opening cache"
+msgstr "Открытие кэша"
+
+#: handysoft.py:383
+msgid ""
+"\n"
+"{} lets you install common applications easily\n"
+"\n"
+"\n"
+"For a full list of available packages in Debian and Handylinux "
+"repositories, \n"
+"you must use the Synaptic Package Manager.\n"
+"                "
+msgstr ""
+"\n"
+"{} позволяет легко установить общие приложения\n"
+"\n"
+"\n"
+"Для полного списка доступных пакетов в репозитории Debian \n"
+"вы должны использовать Synaptic Package Manager.\n"
+"                "
+
+#: handysoft.py:390
+msgid "I'm an expert, open synaptic"
+msgstr "Я эксперт, открыть Synaptic"
+
+#: handysoft.py:416 handysoft.py:634
+msgid "Installed"
+msgstr "Установлен"
+
+#: handysoft.py:423 handysoft.py:640
+msgid "Package name"
+msgstr "Имя пакета"
+
+#: handysoft.py:430 handysoft.py:646
+msgid "Description"
+msgstr "Описание"
+
+#: handysoft.py:515
+msgid "Searching in packages..."
+msgstr "Поиск в пакетах..."
+
+#: handysoft.py:786
+msgid ""
+"<b>{0}</b>\n"
+"\n"
+"From {2} for handylinux community with love.\n"
+"version : {1}\n"
+"licence : {3}\n"
+"homepage : <a href=\"{4}\" title=\"handysoft homepage\">{4}</a>"
+msgstr ""
+"<b>{0}</b>\n"
+"\n"
+"From {2} for handylinux community with love.\n"
+"version : {1}\n"
+"licence : {3}\n"
+"homepage : <a href=\"{4}\" title=\"handysoft homepage\">{4}</a>"
+
+#: handysoft_utils.py:35
+msgid "Games"
+msgstr "Игры"
+
+#: handysoft_utils.py:36
+msgid "Education"
+msgstr "Образование"
+
+#: handysoft_utils.py:37
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: handysoft_utils.py:38
+msgid "Internet"
+msgstr "Интернет"
+
+#: handysoft_utils.py:39
+msgid "Office"
+msgstr "Офис"
+
+#: handysoft_utils.py:40
+msgid "Graphics"
+msgstr "Графика"
+
+#: handysoft_utils.py:41
+msgid "Tools and others"
+msgstr "Инструменты и прочее"
+
+#: handysoft_utils.py:42
+msgid "Expert"
+msgstr "Эксперт"
+
+#: handysoft_utils.py:249
+msgid "Installing a new package : "
+msgstr "Установка нового пакета : "
+
+#: handysoft_utils.py:257
+msgid "Removing a package : "
+msgstr "Удаление пакета : "
+
+#: soft_install.py:94
+msgid "<span size='large'>☺ All changes applied with success</span>"
+msgstr "<span size='large'>☺ Все изменения произведены успешно</span>"
+
+#: soft_install.py:96
+msgid "<span size='large'>☹ An Error Occurred!</span>"
+msgstr "<span size='large'>☹ Произошла ошибка!</span>"

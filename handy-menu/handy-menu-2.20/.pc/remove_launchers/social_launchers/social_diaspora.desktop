@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=diaspora*
+Comment=discover diaspora
+Comment[fr]=découvrez diaspora
+Icon=diaspora
+Exec=x-www-browser https://diasporafoundation.org/
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;
+GenericName=diaspora

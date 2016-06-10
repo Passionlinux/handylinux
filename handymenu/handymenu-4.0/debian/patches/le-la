@@ -1,0 +1,31 @@
+Description: fix small typo
+ .
+ handymenu (4.0-30) unstable; urgency=medium
+ .
+   * skype sucks! No longer in the menu
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/locale/fr/LC_MESSAGES/handymenu.po
++++ handymenu-4.0/locale/fr/LC_MESSAGES/handymenu.po
+@@ -110,7 +110,7 @@ msgstr "Descendre la section"
+ 
+ #: handymenu-configuration.py:365
+ msgid "To add an application, Drag and drop it below"
+-msgstr "Pour ajouter une application, glissez-la dans le liste."
++msgstr "Pour ajouter une application, glissez-la dans la liste."
+ 
+ #: handymenu-configuration.py:392
+ msgid "Name of the new section: "

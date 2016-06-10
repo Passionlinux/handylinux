@@ -1,0 +1,21 @@
+Source: handysoft
+Section: admin
+Priority: optional
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9), python3, dh-python
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/packages#handysoft
+
+Package: handysoft
+Architecture: all
+Depends: ${misc:Depends}, python3, python3-gi, python3-apt, gdebi,
+ gir1.2-vte-2.91, handy-update-notifier, synaptic
+Description: Gestionnaire de logiciels simplifié
+ HandySoft est développé par thuban pour HandyLinux. 
+ Il présente une interface simplifiée vous permettant 
+ de rechercher, d'installer ou supprimer des logiciels facilement.
+ .
+ HandySoft vous permet aussi de mettre à jour votre système.
+ .
+ Handysoft ne présente pas l'intégralité des logiciels disponibles. 
+ Pour une liste complète, utilisez Synaptic, aptitude ou apt-get.

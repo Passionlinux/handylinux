@@ -1,0 +1,19 @@
+Source: handy-update-notifier
+Section: admin
+Priority: optional
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/update
+
+Package: handy-update-notifier
+Architecture: all
+Depends: ${misc:Depends}, python (>= 2.7), python-apt, apt, gksu, zenity, gir1.2-vte-2.91
+Description: Vérifier, notifier et effectuer les mises à jour
+ handy-update-notifier est un outil simple de notification 
+ des mises à jour pour HandyLinux.
+ .
+ il contient handy-update-checker pour vérifier les mises à jour.
+ il contient handy-upgrade-manager qui sera appelé en cas de mise à jour.
+ .
+ il contient aussi les fichiers de configuration pour apt.

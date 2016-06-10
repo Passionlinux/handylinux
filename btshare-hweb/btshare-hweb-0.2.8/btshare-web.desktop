@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=BTshare
+Name[en_GB]=BTshare
+Name[fr]=BTshare
+GenericName=File share via BitTorrent
+X-GNOME-FullName=Tool to share files 
+Comment=Share files over BitTorrent simply
+Comment[fr]=Partagez vos données via P2P
+Exec=btshare-web %U
+Icon=btshare
+Terminal=false
+TryExec=btshare-web
+Type=Application
+StartupNotify=true
+MimeType=application/x-bittorrent;x-scheme-handler/magnet;
+Categories=Network;FileTransfer;P2P
+

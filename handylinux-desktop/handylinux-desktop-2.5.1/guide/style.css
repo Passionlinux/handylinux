@@ -1,0 +1,164 @@
+/*
+Author: arpinux http://arpinux.org
+css principal handylinux http://handylinux.org
+*/
+/* options -----------------------------------------------------------*/
+* { padding: 0; margin: 0; }
+a { color: #222; text-decoration: none; }
+a:hover { color: #005885; text-decoration: underline; }
+p { padding: 5px; }
+input { font: 18px sans-serif; padding: 2px; color: #005885; }
+ul,li { margin: 0 0 5px 20px; }
+li { padding: 5px 0; }
+.centree {
+    text-align: center;
+    padding: 10px auto;
+}
+hr { margin: 5px; }
+.notes {
+    font-family: "Droid Sans", sans-serif;
+    font-size: 16px;
+    font-style: italic;
+}
+.view { border-bottom: 1px solid #33B5E4; }
+.remarq {
+    border: 2px solid #33B5E4;
+    margin: 3px;
+}
+h2, h3, h4 {
+    padding: 5px;
+    margin: 10px 5px 5px 5px;
+}
+h2 { border-bottom: 5px solid #33B5E4; }
+h3 { border-bottom: 2px solid #33B5E4; }
+h4 { border-bottom: 1px solid #33B5E4; }
+/* body --------------------------------------------------------------*/
+body {
+    font-family: "Droid Sans",Verdana,Geneva,Arial,Helvetica,"Bitstream Vera Sans",sans-serif;
+	font-size: 18px;
+	color: #444;
+    background-color: #eee;
+    text-align: center;
+}
+/* nav ---------------------------------------------------------------*/
+#navbar {
+    position: fixed;
+    top: 140px;
+    right: 20px;
+    padding: 5px;
+    background-color: #eee;
+}
+#navbar img:hover {
+    background-color: #33B5E4;
+}
+/* common ------------------------------------------------------------*/
+#header, #footer, #navbar, input {
+    border: 2px solid #555;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+#header:hover, #footer:hover {
+    border: 2px solid #555;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+#header a, #footer a {
+    color: #eee;
+}
+#header a:hover, #footer a:hover {
+    color: #222222;
+}
+.chapitre, .chapitreyellow, .chapitreorange, .chapitrered, .chapitrepurple, .chapitregrey, .chapitrebraun {
+    background-color: #eee;
+    margin: 20px 15px;
+    padding: 15px;
+    border-radius : 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.chapitre:hover, .chapitreyellow:hover, .chapitreorange:hover, .chapitrered:hover,
+.chapitrepurple:hover, .chapitregrey:hover, .chapitrebraun:hover, .intro:hover {
+    border: 2px solid #33B5E4;
+}
+/* header ------------------------------------------------------------*/
+#header {
+    margin: 15px 20px;
+	padding: 10px 20px 15px 5px;
+    background: url(stock_images/handylinux_webicon_soft.png) top left no-repeat #33B5E4;
+}
+#header h1 {
+	font-size: 30px;
+    font-weight: bold;
+	text-align: right;
+    color: #eee;
+}
+span {
+	padding-right: 20px;
+    padding-left: 50px;
+    font-size: 18px;
+    color: #444;
+    float: left;
+}
+/* page --------------------------------------------------------------*/
+#page, #cleanpage {
+    color: #444;
+    min-width: 500px;
+    min-height: 260px;
+    margin: 5px 40px;
+    padding: 25px;
+    overflow: auto;
+}
+#page {
+    background: url(stock_images/handylinux_bigicon_softbump.png) center center no-repeat #E1E1E1;
+}
+#cleanpage {
+    background-color: #eee;
+}
+#page img, #cleanpage img {
+    margin-bottom: -6px;
+}
+/* intro -------------------------------------------------------------*/
+.intro {
+    background-color: #eee;
+    color: #444;
+    margin: 15px;
+    padding: 20px;
+    text-align: left;
+    border: 2px solid #99CC00;
+    border-radius : 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+/* chapitre ----------------------------------------------------------*/
+.chapitre {
+    border: 2px solid #99CC00;
+}
+.chapitreyellow {
+    border: 2px solid #DCDC2A;
+}
+.chapitreorange {
+    border: 2px solid #EC8C24;
+}
+.chapitrered {
+    border: 2px solid #EC2428;
+}
+.chapitrepurple {
+    border: 2px solid #9832CB;
+}
+.chapitregrey {
+    border: 2px solid #555;
+}
+.chapitrebraun {
+    border: 2px solid #8B6914;
+}
+/* footer ------------------------------------------------------------*/
+#footer {
+    margin: 40px 80px 10px 80px;
+	padding: 10px;
+	background-color: #33B5E4;
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+}

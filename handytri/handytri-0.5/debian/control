@@ -1,0 +1,15 @@
+Source: handytri
+Section: x11
+Priority: extra
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/tools#tri_automatique
+
+Package: handytri
+Architecture: all
+Depends: ${misc:Depends}, zenity
+Description: Tri automatique des fichiers.
+ Trier facilement vos fichiers sur HandyLinux. 
+ .
+ Le tri s'effectue en fonction de l'extension.

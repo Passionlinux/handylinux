@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2016-05-20 21:03+CEST\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: handysoft.py:89
+msgid "Package informations"
+msgstr ""
+
+#: handysoft.py:128
+msgid "Remove this package"
+msgstr ""
+
+#: handysoft.py:129
+msgid "This package is installed"
+msgstr ""
+
+#: handysoft.py:132
+msgid "Install this package"
+msgstr ""
+
+#: handysoft.py:133
+msgid "This package is not installed"
+msgstr ""
+
+#: handysoft.py:151
+msgid "Downloading screenshot..."
+msgstr ""
+
+#: handysoft.py:159
+msgid "Right click to add a screenshot"
+msgstr ""
+
+#: handysoft.py:172 handysoft.py:778
+msgid "To add a screenshot for {}, click here : "
+msgstr ""
+
+#: handysoft.py:173 handysoft.py:779
+msgid "Click here to upload a screenshot"
+msgstr ""
+
+#: handysoft.py:208
+msgid "Search package"
+msgstr ""
+
+#: handysoft.py:209
+msgid "Enter your research here (regexp are allowed)"
+msgstr ""
+
+#: handysoft.py:214
+msgid "Click to start searching"
+msgstr ""
+
+#: handysoft.py:222
+msgid "Search also in description"
+msgstr ""
+
+#: handysoft.py:224
+msgid "Search in description"
+msgstr ""
+
+#: handysoft.py:255
+msgid "Search"
+msgstr ""
+
+#: handysoft.py:255
+msgid "Search packages"
+msgstr ""
+
+#: handysoft.py:256
+msgid "Software"
+msgstr ""
+
+#: handysoft.py:260
+msgid "Toggle between packages search or packages list"
+msgstr ""
+
+#: handysoft.py:267
+msgid "About"
+msgstr ""
+
+#: handysoft.py:272 handysoft.py:273
+msgid "Check for updates"
+msgstr ""
+
+#: handysoft.py:331
+msgid "Opening cache"
+msgstr ""
+
+#: handysoft.py:391
+msgid ""
+"\n"
+"{} lets you install common applications easily\n"
+"\n"
+"\n"
+"For a full list of available packages in Debian and Handylinux repositories, \n"
+"you must use the Synaptic Package Manager.\n"
+"                "
+msgstr ""
+
+#: handysoft.py:398
+msgid "I'm an expert, open synaptic"
+msgstr ""
+
+#: handysoft.py:425 handysoft.py:471 handysoft.py:694
+msgid "Installed"
+msgstr ""
+
+#: handysoft.py:432 handysoft.py:478 handysoft.py:700
+msgid "Package name"
+msgstr ""
+
+#: handysoft.py:439 handysoft.py:485 handysoft.py:706
+msgid "Description"
+msgstr ""
+
+#: handysoft.py:446
+msgid "Screenshot"
+msgstr ""
+
+#: handysoft.py:575
+msgid "Searching in packages..."
+msgstr ""
+
+#: handysoft.py:846
+msgid ""
+"<b>{0}</b>\n"
+"\n"
+"From {2} for handylinux community with love.\n"
+"version : {1}\n"
+"licence : {3}\n"
+"homepage : <a href=\"{4}\" title=\"handysoft homepage\">{4}</a>"
+msgstr ""
+
+#: handysoft_utils.py:35
+msgid "Suggested"
+msgstr ""
+
+#: handysoft_utils.py:36
+msgid "Games"
+msgstr ""
+
+#: handysoft_utils.py:37
+msgid "Education"
+msgstr ""
+
+#: handysoft_utils.py:38
+msgid "Multimedia"
+msgstr ""
+
+#: handysoft_utils.py:39
+msgid "Internet"
+msgstr ""
+
+#: handysoft_utils.py:40
+msgid "Office"
+msgstr ""
+
+#: handysoft_utils.py:41
+msgid "Graphics"
+msgstr ""
+
+#: handysoft_utils.py:42
+msgid "Tools and others"
+msgstr ""
+
+#: handysoft_utils.py:43
+msgid "Expert"
+msgstr ""
+
+#: handysoft_utils.py:269
+msgid "Installing a new package : "
+msgstr ""
+
+#: handysoft_utils.py:277
+msgid "Removing a package : "
+msgstr ""
+
+#: hlfavs.py:12
+msgid "Graphical audio CD ripper and encoder"
+msgstr ""
+
+#: hlfavs.py:13 hlfavs.py:24
+msgid "Simple multi-page document viewer"
+msgstr ""
+
+#: hlfavs.py:14
+msgid "Cross-platform multi-track audio editor"
+msgstr ""
+
+#: hlfavs.py:15
+msgid "Free video editor"
+msgstr ""
+
+#: hlfavs.py:16
+msgid "E-book converter and library management"
+msgstr ""
+
+#: hlfavs.py:17
+msgid "File searching tool, configurable via the command line"
+msgstr ""
+
+#: hlfavs.py:18
+msgid "Tool to take pictures and videos from your webcam"
+msgstr ""
+
+#: hlfavs.py:19
+msgid "Modern music player and library organizer"
+msgstr ""
+
+#: hlfavs.py:20
+msgid "Highly configurable system monitor"
+msgstr ""
+
+#: hlfavs.py:21
+msgid "Minimalist images viewer"
+msgstr ""
+
+#: hlfavs.py:22
+msgid "Virtual lighttable and darkroom for photographers"
+msgstr ""
+
+#: hlfavs.py:23
+msgid "Intelligently extract multiple archive types"
+msgstr ""
+
+#: hlfavs.py:25
+msgid "Archive manager for GNOME"
+msgstr ""
+
+#: hlfavs.py:26
+msgid "Full-featured graphical FTP/FTPS/SFTP client"
+msgstr ""
+
+#: hlfavs.py:27
+msgid "Small and lightweight integrated development environment"
+msgstr ""
+
+#: hlfavs.py:28
+msgid "The GNU Image Manipulation Program"
+msgstr ""
+
+#: hlfavs.py:29
+msgid "GNOME partition editor"
+msgstr ""
+
+#: hlfavs.py:30
+msgid "Image viewer and browser"
+msgstr ""
+
+#: hlfavs.py:31
+msgid "Versatile DVD ripper and video transcoder"
+msgstr ""
+
+#: hlfavs.py:32
+msgid "Mail/news client with RSS and integrated spam filter support"
+msgstr ""
+
+#: hlfavs.py:33
+msgid "Web browser based on Firefox"
+msgstr ""
+
+#: hlfavs.py:34
+msgid "Vector-based drawing program"
+msgstr ""
+
+#: hlfavs.py:35
+msgid "Simple passive magnifier"
+msgstr ""
+
+#: hlfavs.py:36
+msgid "Convert media files to free formats"
+msgstr ""
+
+#: hlfavs.py:37
+msgid "Create and edit videos and movies"
+msgstr ""
+
+#: hlfavs.py:38
+msgid "Extremely fast and lightweight file manager"
+msgstr ""
+
+#: hlfavs.py:39
+msgid "Simple to use Photo Batch Processor"
+msgstr ""
+
+#: hlfavs.py:40
+msgid "Audio library manager and player for GTK3"
+msgstr ""
+
+#: hlfavs.py:41
+msgid "Online radio streaming player"
+msgstr ""
+
+#: hlfavs.py:42
+msgid "File manager with an ncurses frontend written in Python"
+msgstr ""
+
+#: hlfavs.py:43
+msgid "Lightweight picture-viewer for the Xfce desktop environment"
+msgstr ""
+
+#: hlfavs.py:44
+msgid "Digital photo organizer"
+msgstr ""
+
+#: hlfavs.py:45
+msgid "File Manager for Xfce"
+msgstr ""
+
+#: hlfavs.py:46
+msgid "Lightweight BitTorrent client"
+msgstr ""
+
+#: hlfavs.py:47
+msgid "Vi IMproved - enhanced vi editor"
+msgstr ""
+
+#: hlfavs.py:48
+msgid "Multimedia player and streamer"
+msgstr ""
+
+#: hlfavs.py:49
+msgid "Graphical video and audio batch converter"
+msgstr ""
+
+#: hlfavs.py:50
+msgid "GTK+ frontend for most used compression formats"
+msgstr ""
+
+#: hlfavs.py:51
+msgid "X Convert File Audio"
+msgstr ""
+
+#: soft_install.py:94
+msgid "<span size='large'>☺ All changes applied with success</span>"
+msgstr ""
+
+#: soft_install.py:96
+msgid "<span size='large'>☹ An Error Occurred!</span>"
+msgstr ""
+

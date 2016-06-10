@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=linkedin
+Comment=visit linkedin page
+Comment[fr]=rejoindre votre page linkedin
+Icon=linkedin
+Exec=x-www-browser https://www.linkedin.com/
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;
+GenericName=linkedin

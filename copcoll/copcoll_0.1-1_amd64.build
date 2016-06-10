@@ -1,0 +1,249 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc -I -i
+dpkg-buildpackage: paquet source copcoll
+dpkg-buildpackage: version source 0.1-1
+dpkg-buildpackage: distribution source unstable
+dpkg-buildpackage: source changé par team handylinux <dev@handylinux.org>
+ dpkg-source -I -i --before-build copcoll-0.1
+dpkg-buildpackage: architecture hôte amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -I -i -b copcoll-0.1
+dpkg-source: info: utilisation du format source « 3.0 (quilt) »
+dpkg-source: info: construction de copcoll en utilisant le ./copcoll_0.1.orig.tar.xz existant
+dpkg-source: info: construction de copcoll dans copcoll_0.1-1.debian.tar.xz
+dpkg-source: info: construction de copcoll dans copcoll_0.1-1.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1'
+install -d -m 755 -o root -g root /home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1/debian/copcoll/usr/bin
+install -d -m 755 -o root -g root /home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1/debian/copcoll/usr/share/applications
+install -m 755 -o root -g root copcoll /home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1/debian/copcoll/usr/bin
+install -m 644 -o root -g root copcoll.desktop /home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1/debian/copcoll/usr/share/applications
+make[1]: Leaving directory '/home/xavier/geek/handylinux/hldeb/sources/copcoll/copcoll-0.1'
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: avertissement: champ Depends du paquet copcoll : variable de substitution inconnue ${shlibs:Depends}
+dpkg-gencontrol: avertissement: Fichier::FcntlLock non disponible; utilisation de « flock » qui n'est pas sécurisé pour NFS
+   dh_md5sums
+   dh_builddeb
+dpkg-deb : construction du paquet « copcoll » dans « ../copcoll_0.1-1_all.deb ».
+ dpkg-genchanges  >../copcoll_0.1-1_amd64.changes
+dpkg-genchanges: inclusion du code source original dans l'envoi (« upload »)
+ dpkg-source -I -i --after-build copcoll-0.1
+dpkg-buildpackage: envoi complet (inclusion du code source d'origine)
+Now running lintian...
+W: copcoll source: ancient-standards-version 3.9.5 (current is 3.9.7)
+N: 
+N:    The source package refers to a Standards-Version that has been obsolete
+N:    for more than two years. Please update your package to latest Policy and
+N:    set this control field appropriately.
+N:    
+N:    If the package is already compliant with the current standards, you
+N:    don't have to re-upload the package just to adjust the Standards-Version
+N:    control field. However, please remember to update this field next time
+N:    you upload the package.
+N:    
+N:    See /usr/share/doc/debian-policy/upgrading-checklist.txt.gz in the
+N:    debian-policy package for a summary of changes in newer versions of
+N:    Policy.
+N:    
+N:    Refer to https://www.debian.org/doc/debian-policy/upgrading-checklist
+N:    for details.
+N:    
+N:    Severity: normal, Certainty: certain
+N:    
+N:    Check: standards-version, Type: source
+N: 
+I: copcoll source: debian-watch-file-is-missing
+N: 
+N:    This source package is not Debian-native but it does not have a
+N:    debian/watch file. This file is used for automatic detection of new
+N:    upstream versions by the Debian External Health Status project and other
+N:    project infrastructure. If this package is maintained upstream, please
+N:    consider adding a debian/watch file to detect new releases.
+N:    
+N:    If the package is not maintained upstream or if upstream uses a
+N:    distribution mechanism that cannot be meaningfully monitored by uscan
+N:    and the Debian External Health Status project, please consider adding a
+N:    debian/watch file containing only comments documenting the situation.
+N:    
+N:    Refer to Debian Policy Manual section 4.11 (Optional upstream source
+N:    location: debian/watch) and the uscan(1) manual page for details.
+N:    
+N:    Severity: wishlist, Certainty: certain
+N:    
+N:    Check: watch-file, Type: source
+N: 
+W: copcoll: new-package-should-close-itp-bug
+N: 
+N:    This package appears to be the first packaging of a new upstream
+N:    software package (there is only one changelog entry and the Debian
+N:    revision is 1), but it does not close any bugs. The initial upload of a
+N:    new package should close the corresponding ITP bug for that package.
+N:    
+N:    This warning can be ignored if the package is not intended for Debian or
+N:    if it is a split of an existing Debian package.
+N:    
+N:    Refer to Debian Developer's Reference section 5.1 (New packages) for
+N:    details.
+N:    
+N:    Severity: normal, Certainty: certain
+N:    
+N:    Check: changelog-file, Type: binary
+N: 
+W: copcoll: copyright-has-url-from-dh_make-boilerplate
+N: 
+N:    There is "url://example.com" in your copyright file. This was most
+N:    likely a remnant from the dh_make template.
+N:    
+N:    Make sure you include the real location where you obtained the upstream
+N:    sources (if any).
+N:    
+N:    Refer to Debian Policy Manual section 12.5 (Copyright information) for
+N:    details.
+N:    
+N:    Severity: normal, Certainty: certain
+N:    
+N:    Check: copyright-file, Type: binary
+N: 
+E: copcoll: copyright-contains-dh_make-todo-boilerplate
+N: 
+N:    The string "Please also look if..." appears in the copyright file, which
+N:    indicates that you either didn't check the whole source to find
+N:    additional copyright/license, or that you didn't remove that paragraph
+N:    after having done so.
+N:    
+N:    Refer to Debian Policy Manual section 12.5 (Copyright information) for
+N:    details.
+N:    
+N:    Severity: serious, Certainty: possible
+N:    
+N:    Check: copyright-file, Type: binary
+N: 
+W: copcoll: readme-debian-contains-debmake-template
+N: 
+N:    The README.Debian file installed by this package contains one of the
+N:    template phrases from the README.Debian provided by deb-make or dh_make:
+N:    
+N:     Comments regarding the package
+N:     So far nothing to say
+N:     <possible notes regarding this package - if none, delete this file>
+N:    
+N:    If there is real information in the file, please delete any generic
+N:    template phrases. If there is nothing to say in the file, it is best
+N:    removed.
+N:    
+N:    Severity: normal, Certainty: certain
+N:    
+N:    Check: debian-readme, Type: binary
+N: 
+E: copcoll: extended-description-is-empty
+N: 
+N:    The extended description (the lines after the first line of the
+N:    "Description:" field) is empty.
+N:    
+N:    Refer to Debian Policy Manual section 3.4 (The description of a package)
+N:    for details.
+N:    
+N:    Severity: serious, Certainty: certain
+N:    
+N:    Check: description, Type: binary, udeb
+N: 
+W: copcoll: binary-without-manpage usr/bin/copcoll
+N: 
+N:    Each binary in /usr/bin, /usr/sbin, /bin, /sbin or /usr/games should
+N:    have a manual page
+N:    
+N:    Note that though the man program has the capability to check for several
+N:    program names in the NAMES section, each of these programs should have
+N:    its own manual page (a symbolic link to the appropriate manual page is
+N:    sufficient) because other manual page viewers such as xman or tkman
+N:    don't support this.
+N:    
+N:    If the name of the man page differs from the binary by case, man may be
+N:    able to find it anyway; however, it is still best practice to make the
+N:    case of the man page match the case of the binary.
+N:    
+N:    If the man pages are provided by another package on which this package
+N:    depends, lintian may not be able to determine that man pages are
+N:    available. In this case, after confirming that all binaries do have man
+N:    pages after this package and its dependencies are installed, please add
+N:    a lintian override.
+N:    
+N:    Refer to Debian Policy Manual section 12.1 (Manual pages) for details.
+N:    
+N:    Severity: normal, Certainty: possible
+N:    
+N:    Check: manpages, Type: binary
+N: 
+I: copcoll: desktop-entry-contains-encoding-key usr/share/applications/copcoll.desktop:3 Encoding
+N: 
+N:    The Encoding key is now deprecated by the FreeDesktop standard and all
+N:    strings are required to be encoded in UTF-8. This desktop entry
+N:    explicitly specifies an Encoding of UTF-8, which is harmless but no
+N:    longer necessary.
+N:    
+N:    The desktop-file-validate tool in the desktop-file-utils package is
+N:    useful for checking the syntax of desktop entries.
+N:    
+N:    Refer to
+N:    http://standards.freedesktop.org/desktop-entry-spec/1.0/apc.html for
+N:    details.
+N:    
+N:    Severity: wishlist, Certainty: certain
+N:    
+N:    Check: menu-format, Type: binary
+N: 
+I: copcoll: desktop-entry-lacks-keywords-entry usr/share/applications/copcoll.desktop
+N: 
+N:    This .desktop file does either not contain a "Keywords" entry or it does
+N:    not contain any keywords not already present in the "Name" or
+N:    "GenericName" entries.
+N:    
+N:    .desktop files are organized in key/value pairs (similar to .ini files).
+N:    "Keywords" is the name of the entry/key in the .desktop file containing
+N:    keywords relevant for this .desktop file.
+N:    
+N:    The desktop-file-validate tool in the desktop-file-utils package is
+N:    useful for checking the syntax of desktop entries.
+N:    
+N:    Refer to
+N:    http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html,
+N:    https://bugs.debian.org/693918, and
+N:    https://wiki.gnome.org/Initiatives/GnomeGoals/DesktopFileKeywords for
+N:    details.
+N:    
+N:    Severity: wishlist, Certainty: certain
+N:    
+N:    Check: menu-format, Type: binary
+N: 
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile copcoll_0.1-1.dsc BE441FCF
+
+ signfile copcoll_0.1-1_amd64.changes BE441FCF
+
+Successfully signed dsc and changes files

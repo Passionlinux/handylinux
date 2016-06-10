@@ -1,0 +1,13 @@
+Source: handylinux-links
+Section: x11
+Priority: optional
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: handylinux-links
+Architecture: all
+Depends: ${misc:Depends}
+Description: Liens variés pour HandyLinux
+ Ce paquet contient une série de liens vers les réseaux sociaux 
+ classiques ainsi qu'une série de liens informatifs et/ou libres.

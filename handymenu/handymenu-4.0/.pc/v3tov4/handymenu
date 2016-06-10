@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ -z "$(pidof -sx hm-start.py)" ]; then
+    cd "/usr/share/handymenu"
+    ./hm-start.py $@
+else
+    echo "Handy-menu est déjà lancé"
+    killall hm-start.py
+    cd "/usr/share/handymenu"
+    ./hm-start.py $@
+fi
+
+exit 0

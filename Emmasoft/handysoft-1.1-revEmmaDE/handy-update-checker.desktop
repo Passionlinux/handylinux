@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Update Checker
+Name[fr]=Gestionnaire de mises à jour
+Comment=Check available updates
+Comment[fr]=Vérifier les mises à jour disponibles
+Icon=handy-update-checker
+Exec=/usr/bin/handy-update-checker
+Terminal=false
+StartupNotify=false
+Categories=Application;X-XFCE;System;

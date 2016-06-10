@@ -1,0 +1,101 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handy-menu
+dpkg-buildpackage: source version 2.5.1-1
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by arnault perret <arpinux@member.fsf.org>
+ dpkg-source --before-build handy-menu-2.5.1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handy-menu-2.5.1
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handy-menu using existing ./handy-menu_2.5.1.orig.tar.xz
+dpkg-source: info: building handy-menu in handy-menu_2.5.1-1.debian.tar.xz
+dpkg-source: info: building handy-menu in handy-menu_2.5.1-1.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/handy-menu/handy-menu-2.5.1'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handy-menu/handy-menu-2.5.1'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/handy-menu/handy-menu-2.5.1'
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/man/man1
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/lang
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/banniere
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/Faenza_icons
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/HandyLinux
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/HandyLinux_nocolor
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/Jamba_Blues_icons
+install -d -m 755 -o root -g root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/pixmaps
+install -m 755 -o root -g root handymenu /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/bin
+install -m 644 -o root -g root handymenu.1 /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/man/man1
+install -m 755 -o root -g root handymenu.py /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu
+install -m 644 -o root -g root handymenu.glade /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu
+install -m 644 -o root -g root handymenu_icon.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu
+install -m 644 -o root -g root themes/banniere/*.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/banniere
+install -m 644 -o root -g root themes/icons/Faenza_icons/*.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/Faenza_icons
+install -m 644 -o root -g root themes/icons/HandyLinux/*.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/HandyLinux
+install -m 644 -o root -g root themes/icons/HandyLinux_nocolor/*.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/HandyLinux_nocolor
+install -m 644 -o root -g root themes/icons/Jamba_Blues_icons/*.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/themes/icons/Jamba_Blues_icons
+install -m 644 -o root -g root handymenu_icon.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/pixmaps
+install -m 644 -o root -g root handymenu.desktop /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/applications
+install -m 644 -o root -g root social_launchers/*.desktop /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/applications
+install -m 644 -o root -g root social_launchers_icons/*.png /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/pixmaps
+cp -a lang/* /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/lang/
+chown -R root:root /home/arp/debdev/handy-menu/handy-menu-2.5.1/debian/handy-menu/usr/share/handy-menu/lang
+make[1]: Leaving directory '/home/arp/debdev/handy-menu/handy-menu-2.5.1'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_pysupport
+dh_pysupport: This program is deprecated, you should use dh_python2 instead. Migration guide: http://deb.li/dhs2p
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: package handy-menu: unused substitution variable ${python:Depends}
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `handy-menu' in `../handy-menu_2.5.1-1_all.deb'.
+ dpkg-genchanges  >../handy-menu_2.5.1-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build handy-menu-2.5.1
+dpkg-buildpackage: full upload (original source is included)
+Now running lintian...
+W: handy-menu source: debhelper-but-no-misc-depends handy-menu
+W: handy-menu source: missing-field-in-dep5-copyright license (paragraph at line 4)
+W: handy-menu source: ancient-standards-version 3.9.3 (current is 3.9.6)
+E: handy-menu: depends-on-obsolete-package depends: python-support (>= 0.90) => use dh_python2 instead
+W: handy-menu: desktop-command-not-in-package usr/share/applications/web_wikipedia.desktop x-www-browser
+W: handy-menu: desktop-command-not-in-package usr/share/applications/web_wallpapers.desktop x-www-browser
+W: handy-menu: desktop-command-not-in-package usr/share/applications/social_twitter.desktop x-www-browser
+W: handy-menu: desktop-command-not-in-package usr/share/applications/social_linkedin.desktop x-www-browser
+W: handy-menu: desktop-command-not-in-package usr/share/applications/social_google.desktop x-www-browser
+W: handy-menu: desktop-command-not-in-package usr/share/applications/social_facebook.desktop x-www-browser
+W: handy-menu: desktop-command-not-in-package usr/share/applications/social_diaspora.desktop x-www-browser
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handy-menu_2.5.1-1.dsc arnault perret <arpinux@member.fsf.org>
+gpg: skipped "arnault perret <arpinux@member.fsf.org>": secret key not available
+gpg: /tmp/debsign.2ZIuijCF/handy-menu_2.5.1-1.dsc: clearsign failed: secret key not available
+debsign: gpg error occurred!  Aborting....

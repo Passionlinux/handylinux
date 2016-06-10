@@ -1,0 +1,16 @@
+Source: redshift-config-en
+Section: x11
+Priority: extra
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://handylinux.org
+
+Package: redshift-config-en
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, gtk-redshift
+Conflicts: redshift-config
+Replaces: redshift-config
+Description: transitional package for redshift-config
+ Reshift-config allow you to auto-configure your location
+ to use with the redshift screen filter.

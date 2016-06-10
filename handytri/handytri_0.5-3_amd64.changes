@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Wed, 06 Jan 2016 01:31:21 +0100
+Source: handytri
+Binary: handytri
+Architecture: source all
+Version: 0.5-3
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ handytri   - Tri automatique des fichiers.
+Changes:
+ handytri (0.5-3) unstable; urgency=medium
+ .
+   * update description pour faciliter la recherche
+   * ajout des misc_depends dans le Control Debian
+Checksums-Sha1:
+ 125876cc726477981090bb1bc34d1eb1051b43f3 835 handytri_0.5-3.dsc
+ 6c4769c7d58c8ffd4cd72179a097433c9975a798 2232 handytri_0.5-3.debian.tar.xz
+ 3f971cda52a1335a1d8efe42587026b88ea529d4 44868 handytri_0.5-3_all.deb
+Checksums-Sha256:
+ 2a1526e968d08d005fb027bc087a5de5a554a0eadfdf8e3d2807d83b1b959938 835 handytri_0.5-3.dsc
+ e6ce60871d8604cfbd92e84f6167c3e7e3b838c602240397ccdaaddc3bd26b1e 2232 handytri_0.5-3.debian.tar.xz
+ faf7274c7f9fbe395f14e0555329c343e423cda46dd1c00b1c28fca316ce2f7f 44868 handytri_0.5-3_all.deb
+Files:
+ 37b89ded2847641246caa69e13e689f9 835 x11 extra handytri_0.5-3.dsc
+ 06c4e328b887736e21b5b0e496e7ff15 2232 x11 extra handytri_0.5-3.debian.tar.xz
+ 23d131b6d2960e68e2cb175bc9550c55 44868 x11 extra handytri_0.5-3_all.deb

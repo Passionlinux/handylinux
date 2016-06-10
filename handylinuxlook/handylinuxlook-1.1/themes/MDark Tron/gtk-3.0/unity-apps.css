@@ -1,0 +1,97 @@
+/********************************
+   Terminal unity (globalmenu) 
+********************************/
+
+TerminalWindow {
+    background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (shade (@theme_bg_dark_color, 0.53)),
+                                     to (shade(@theme_bg_dark_color, 0.53)));
+}
+
+TerminalWindow .notebook {
+    border-width: 1px 0px 0px 0px;
+	border-style: solid;
+	border-radius: 0px;
+	border-image: none;
+	border-top-color: shade(@theme_mdi_border_color, 1.05);
+	border-left-color: @transparent;
+	border-bottom-color: @transparent;
+	border-right-color: @transparent;
+	padding: 0px;
+    background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (shade (@theme_bg_dark_color, 0.53)),
+                                     to (shade(@theme_bg_dark_color, 0.53)));
+}
+
+TerminalWindow .notebook tab {
+	padding: 0px 4px;
+
+    background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (shade (@theme_bg_dark_color, 0.575)),
+                                     to (shade(@theme_bg_dark_color, 0.52)));
+	border-width: 1px;
+	border-style: solid;
+	border-image: none;
+
+	border-top-color: 		shade(@theme_bg_dark_color, 0.58);
+	border-left-color: 		shade(@theme_bg_dark_color, 0.52);
+	border-right-color: 	shade(@theme_bg_dark_color, 0.52);
+	border-bottom-color: 	shade(@theme_mdi_border_color, 1.05);
+
+	box-shadow: none;
+}
+
+
+TerminalWindow .notebook tab:active {
+    background-image: -gtk-gradient (linear,
+				     left top, left bottom,
+				     from (shade (@theme_bg_dark_color, 0.38)),
+			 		 color-stop (0.15, shade (@theme_bg_dark_color, 0.41) ),
+                     to (shade(@theme_bg_dark_color, 0.45)));
+
+    border-width: 1px 1px 1px 1px;
+    border-style: solid; 
+	border-radius: 3px;
+
+	border-top-color: 		shade(@theme_bg_dark_color, 0.30);
+	border-left-color: 		shade(@theme_bg_dark_color, 0.35);
+	border-right-color: 	shade(@theme_bg_dark_color, 0.35);
+	border-bottom-color: 	shade(@theme_bg_dark_color, 0.32);
+
+	box-shadow:	inset  0px  1px alpha(#000, 0.04),
+                inset  1px  0px alpha(#000, 0.04),
+                inset -1px  0px alpha(#000, 0.04);
+
+}
+
+GeditWindow GtkPaned {
+    background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (shade (@theme_bg_dark_color, 0.52)),
+                                     to   (shade (@theme_bg_dark_color, 0.48)));
+
+	box-shadow:	inset  0px  1px shade(@theme_bg_dark_color, 0.62);
+}
+
+GeditWindow .notebook tab {
+	padding: 2px 4px;
+
+    background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (shade (@theme_bg_dark_color, 0.52)),
+                                     to   (shade (@theme_bg_dark_color, 0.51)));
+
+    border-width: 1px 1px 0px 1px;
+	border-style: solid;
+	border-top-color: 		shade(@theme_bg_dark_color, 0.62);
+	border-left-color: 		@theme_mdi_border_color;
+	border-bottom-color: 	@theme_mdi_border_color;
+	border-right-color: 	@theme_mdi_border_color;
+	border-image: none;
+
+	box-shadow: none;
+
+}

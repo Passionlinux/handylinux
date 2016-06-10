@@ -1,0 +1,18 @@
+Source: cyclope
+Section: x11
+Priority: optional
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 9), python (>= 2.7)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/media#cyclope
+
+Package: cyclope
+Architecture: all
+Depends: ${misc:Depends}, python (>= 2.7), python-gtk2
+Description: Une visionneuse d'images minimale.
+ Cyclope vous permet de visionner, pivoter ou zoomer 
+ vos images simplement. 
+ Vous pouvez aussi lancer un diaporama ou envoyer vos 
+ images vers d'autres applications.
+ .
+ C'est la visionneuse rapide du bureau HandyLinux.

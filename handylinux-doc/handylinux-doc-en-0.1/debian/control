@@ -1,0 +1,13 @@
+Source: handylinux-doc-en
+Section: misc
+Priority: optional
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org
+
+Package: handylinux-doc-en
+Architecture: all
+Depends: ${misc:Depends}
+Description: Documentation HandyLinux en/us
+ this package contains Handylinux doc in PDF

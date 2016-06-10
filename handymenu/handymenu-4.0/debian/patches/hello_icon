@@ -1,0 +1,31 @@
+Description: use hello icon
+ .
+ handymenu (4.0-31) unstable; urgency=medium
+ .
+   * fix typo. thx fibi.
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/hm_utils.py
++++ handymenu-4.0/hm_utils.py
+@@ -432,7 +432,7 @@ hm_default_sections = \
+         },\
+         {'name' : _("Communicate"),\
+         'generic': _("Audio/Video chat"),\
+-        'icon' : "applications-internet-chat",\
++        'icon' : "hello",\
+         'cmd' : "firefox https://handylinux.org/wiki/doku.php/fr/internet#hello_vs_skype"\
+         },\
+         {'name' : _("Framasoft Services"),\

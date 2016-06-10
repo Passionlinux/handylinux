@@ -1,0 +1,18 @@
+Source: mpartage-en
+Section: x11
+Priority: extra
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://handylinux.org
+
+Package: mpartage-en
+Architecture: all
+Depends: ${python:Depends}, python-support (>= 0.90), python-lxml
+Conflicts: mpartage
+Replaces: mpartage
+Description: transitional package for mpartage
+ Manon nous livre ici un script simple permettant
+ de partager facilement vos données sur votre réseau
+ local ou distant depuis un navigateur internet.
+Homepage: http://shovel-crew.org/index.php?article18/partage-de-fichiers-facile

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=FSF
+Name[fr]=FSF
+Comment=Free Software Foundation
+Comment[fr]=Free Software Foundation
+Icon=fsf
+Exec=x-www-browser https://www.fsf.org/
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;

@@ -1,0 +1,42 @@
+Description: remove text shadow
+ .
+ handylinuxlook (1.1-1) unstable; urgency=medium
+ .
+   * clean for build
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinuxlook-1.1.orig/themes/HandyLinuxClear/gtk-3.0/apps/lightdm-gtk-greeter.css
++++ handylinuxlook-1.1/themes/HandyLinuxClear/gtk-3.0/apps/lightdm-gtk-greeter.css
+@@ -5,7 +5,7 @@
+     background-color: alpha (@bg_color, 0.9);
+     color: @fg_color;
+     font: bold;
+-    box-shadow: inset 0 -1px alpha (black, 0.5);
++    text-shadow: none;
+ }
+ 
+ #panel_window .menubar,
+--- handylinuxlook-1.1.orig/themes/HandyLinuxDark/gtk-3.0/apps/lightdm-gtk-greeter.css
++++ handylinuxlook-1.1/themes/HandyLinuxDark/gtk-3.0/apps/lightdm-gtk-greeter.css
+@@ -5,7 +5,7 @@
+     background-color: alpha (@bg_color, 0.9);
+     color: @fg_color;
+     font: bold;
+-    box-shadow: inset 0 -1px alpha (black, 0.5);
++    text-shadow: none;
+ }
+ 
+ #panel_window .menubar,

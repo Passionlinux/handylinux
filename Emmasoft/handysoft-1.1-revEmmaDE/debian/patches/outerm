@@ -1,0 +1,68 @@
+Description: disable external term launch
+ .
+ handysoft (1.1-1-revEmmaDE-1) unstable; urgency=medium
+ .
+   * passage en 1.1
+   * rétablissement des trads
+   * fix dep
+   * ajout du networkcheck
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handysoft-1.1-1-revEmmaDE.orig/handy-upgrade-manager
++++ handysoft-1.1-1-revEmmaDE/handy-upgrade-manager
+@@ -123,6 +123,8 @@ def list_upgradeables_pkg():
+     cache=apt.Cache()
+     cache.open(None)
+     pkglist = ["{}\n{} : {} → {} ".format(pkglist,i.name, i.installed.version, i.candidate.version) for i in cache if i.is_upgradable ]
++    #simplelist = [i.name for i in cache if i.is_upgradable ]
++    #return((pkglist, simplelist))
+     return(pkglist)
+     
+ class UpgradeMGR():
+@@ -252,12 +254,14 @@ def main():
+         status = subprocess.call('gksudo -m "{0}" {1}'.format(ask, os.path.realpath(__file__)), shell=True)
+     elif os.geteuid() == 0:
+         GObject.threads_init()
++        """
+         toupgrade = list_upgradeables_pkg()
+-        if "handy-update-notifier" in toupgrade :
++        if "handy-update-notifier" in toupgrade[1] :
+         # term upgrade
+             import subprocess
+             subprocess.call('gksudo -m {} exo-open --launch TerminalEmulator -e\
+                 apt-get -y install handy-update-notifier'.format(upgradeupgrader), shell=True)
++        """
+ 
+         toupgrade = list_upgradeables_pkg()
+         if len(toupgrade) > 0:
+--- handysoft-1.1-1-revEmmaDE.orig/soft_install.py
++++ handysoft-1.1-1-revEmmaDE/soft_install.py
+@@ -89,7 +89,6 @@ class Package_master():
+         self.terminal.copy_clipboard()
+ 
+     def end(self, term, exitstatus):
+-        self.progressbar.hide()
+         if exitstatus == 0:
+             self.titlelabel.set_markup(_("<span size='large'>☺ All changes applied with success</span>"))
+         else:
+@@ -100,6 +99,7 @@ class Package_master():
+         closebtn.connect("key_press_event", lambda x,y: Gtk.main_quit())
+         self.box.pack_start(closebtn, True, True, 5)
+         self.window.show_all()
++        self.progressbar.hide()
+ 
+ def main():
+     #print("usage : {} -m <message> -c <command>".format(sys.argv[0]))

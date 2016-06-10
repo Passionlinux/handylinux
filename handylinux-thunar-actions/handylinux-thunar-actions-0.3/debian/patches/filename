@@ -1,0 +1,53 @@
+Description: set uploaded filename
+ .
+ handylinux-thunar-actions (0.3-8) unstable; urgency=medium
+ .
+   * ajout du service d'hébergement handy par défaut
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-thunar-actions-0.3.orig/scripts/pixup
++++ handylinux-thunar-actions-0.3/scripts/pixup
+@@ -81,7 +81,7 @@ for i in $@; do
+         fi
+     else
+         echo "Upload sur l'hébergeur handylinux"
+-        URL=$(curl -i -F name="$(whoami)-$i" -F private=0 -F "upload=@$i" "https://handylinux.org/fotoo/?upload" | grep '^Location' | sed 's/^Location: //')
++        URL=$(curl -i -F name="shot-$(date +%y%m%d%H%M%S)" -F private=0 -F "upload=@$i" "https://handylinux.org/fotoo/?upload" | grep '^Location' | sed 's/^Location: //')
+         if [ $? -eq 0 -a -n "$URL" ]; then
+             notify-send "$IMGSENT : $i" &
+             x-www-browser "$URL" &
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml
++++ handylinux-thunar-actions-0.3/uca/uca.xml
+@@ -38,7 +38,7 @@
+ 	<name>Envoyer sur ToileLibre</name>
+ 	<unique-id>1430680843463192-5</unique-id>
+ 	<command>/usr/bin/pixup %F</command>
+-	<description>téléverser l&apos;image sur ToileLibre.org et partagez-la</description>
++	<description>téléverser l&apos;image sur la toile et partagez-la</description>
+ 	<patterns>*</patterns>
+ 	<startup-notify/>
+ 	<image-files/>
+--- handylinux-thunar-actions-0.3.orig/uca/uca.xml.en
++++ handylinux-thunar-actions-0.3/uca/uca.xml.en
+@@ -38,7 +38,7 @@
+ 	<name>Send to ToileLibre</name>
+ 	<unique-id>1430680843463192-5</unique-id>
+ 	<command>/usr/bin/pixup %F</command>
+-	<description>upload this image to ToileLibre.org then share it</description>
++	<description>upload this image to the web then share it</description>
+ 	<patterns>*</patterns>
+ 	<startup-notify/>
+ 	<image-files/>

@@ -1,0 +1,21 @@
+Source: handymenu
+Section: x11
+Priority: optional
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9), python (>= 2.7), python3 , dh-python
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/handymenu
+
+Package: handymenu
+Architecture: all
+Depends: ${misc:Depends}, python (>= 2.7), python3, python3-gi, python3-xdg, 
+ xdg-user-dirs, xdg-utils
+Conflicts: handy-menu, handy-menu-en
+Replaces: handy-menu, handy-menu-en
+Description: Menu principal v4 pour HandyLinux
+ Le HandyMenu présente les applications principales 
+ d'HandyLinux dans une interface claire organisée 
+ par thèmes et distribuée par onglets.
+ .
+ Le HandyMenu permet une configuration complète 
+ depuis le menu de préférences.

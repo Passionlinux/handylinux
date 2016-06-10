@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Handy2Debian
+Comment=Move to Debian classic easily
+Comment[fr]=Passer à Debian classic facilement
+Exec=/usr/bin/handy2debian
+Icon=handy2debian_icon
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=X-XFCE;Utility;System;Settings;

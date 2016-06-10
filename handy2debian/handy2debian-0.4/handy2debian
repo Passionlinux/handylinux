@@ -1,0 +1,24 @@
+#!/bin/bash
+#########################################################
+#  handy2debian - delete handylinux config and packages #
+#  this script launch the confirmation dialog fr/en     #
+#  2014 arpinux <arpinux@member.fsf.org>                #
+#########################################################
+
+TRAD=`echo "${LANG:0:2}"`
+
+if [ "${TRAD}" == "fr" ]; then
+    ## handy2debian ne se lance qu'une fois
+    if [ -e /etc/handylinux_was_here ]; then
+        zenity --info --text "Erreur : Handy2Debian a déjà été lancé" --timeout "3" & exit 0
+    fi
+    python /usr/share/handy2debian/confirm2debian-fr.py
+else
+    ## handy2debian ne se lance qu'une fois
+    if [ -e /etc/handylinux_was_here ]; then
+        zenity --info --text "Error : Handy2Debian has already been launched" --timeout "3" & exit 0
+    fi
+    python /usr/share/handy2debian/confirm2debian-en.py
+fi
+
+exit 0

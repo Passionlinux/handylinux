@@ -1,0 +1,351 @@
+Description: simplify loops & cleanup
+ .
+ cyclope (1.5-3) unstable; urgency=medium
+ .
+   * update Homepage
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- cyclope-1.5.orig/cyclope
++++ cyclope-1.5/cyclope
+@@ -40,10 +40,7 @@ gettext.textdomain(progname)
+ _ = gettext.gettext
+ 
+ def listFiles(directory):
+-    files = []
+-    for f in sorted(os.listdir(directory)):
+-        if os.path.splitext(f.lower())[1] in EXT:
+-            files.append(f)
++    files = [ f for f in sorted(os.listdir(directory)) if os.path.splitext(f.lower())[1] in EXT ]
+     return(files)
+ 
+ def help():
+@@ -65,19 +62,13 @@ def select_image():
+     chooser.set_current_folder(os.getcwd())
+     filter = gtk.FileFilter()
+     filter.set_name(_("Images"))
+-    filter.add_mime_type("image/png")
+-    filter.add_mime_type("image/jpeg")
+-    filter.add_mime_type("image/gif")
+-    filter.add_pattern("*.bmp")
+-    filter.add_pattern("*.ico")
+-    filter.add_pattern("*.gif")
+-    filter.add_pattern("*.jpg")
+-    filter.add_pattern("*.jpeg")
+-    filter.add_pattern("*.png")
+-    filter.add_pattern("*.svg")
+-    filter.add_pattern("*.svgz")
+-    filter.add_pattern("*.tif")
+-    filter.add_pattern("*.tiff")
++    mimes = ["image/png", "image/jpeg", "image/gif"]
++    for m in mimes:
++        filter.add_mime_type(m)
++    patterns = [ "*.bmp", "*.ico", "*.gif", "*.jpg", "*.jpeg", "*.png",\
++            "*.svg", "*.svgz", "*.tif", "*.tiff" ]
++    for p in patterns :
++        filter.add_pattern(p)
+     chooser.add_filter(filter)
+ 
+     response = chooser.run()
+@@ -85,7 +76,7 @@ def select_image():
+         i = chooser.get_filename()
+         chooser.destroy()
+         return(i)
+-    elif response == gtk.RESPONSE_CANCEL:
++    else:
+         print(_('Closed, no files selected'))
+         chooser.destroy()
+         return(None)
+@@ -93,7 +84,7 @@ def select_image():
+ class Cyclope():
+     def __init__(self, img):
+         # variables
+-        self.imginfo = { 'path': '', 'pixbuf': '', 'is_static': True, 'width':0, 'height':0 }
++        self.imginfo = { 'path': str(), 'pixbuf': str(), 'is_static': True, 'width':0, 'height':0 }
+         self.isfull = False # fullscreen or not
+         self.oldtime = 0
+         
+@@ -548,7 +539,6 @@ def main():
+     return 0
+ 
+ if __name__ == '__main__':
+-	main()
+-
++    main()
+ 
+ # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
+--- cyclope-1.5.orig/locale/cyclope.pot
++++ cyclope-1.5/locale/cyclope.pot
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: PACKAGE VERSION\n"
+-"POT-Creation-Date: 2015-09-08 15:44+CEST\n"
++"POT-Creation-Date: 2015-12-13 18:18+CET\n"
+ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+ "Language-Team: LANGUAGE <LL@li.org>\n"
+@@ -15,61 +15,61 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ 
+ 
+-#: cyclope:55
++#: cyclope:52
+ msgid ""
+ "Error while opening this file. Sorry \n"
+ " {}"
+ msgstr ""
+ 
+-#: cyclope:63
++#: cyclope:60
+ msgid "Open a picture"
+ msgstr ""
+ 
+-#: cyclope:67
++#: cyclope:64
+ msgid "Images"
+ msgstr ""
+ 
+-#: cyclope:89
++#: cyclope:80
+ msgid "Closed, no files selected"
+ msgstr ""
+ 
+-#: cyclope:341
++#: cyclope:332
+ msgid "Fullscreen"
+ msgstr ""
+ 
+-#: cyclope:352
++#: cyclope:343
+ msgid "Restore screen"
+ msgstr ""
+ 
+-#: cyclope:425
++#: cyclope:416
+ msgid "Rotate right"
+ msgstr ""
+ 
+-#: cyclope:430
++#: cyclope:421
+ msgid "Rotate left"
+ msgstr ""
+ 
+-#: cyclope:436
++#: cyclope:427
+ msgid "Disable zoom"
+ msgstr ""
+ 
+-#: cyclope:439
++#: cyclope:430
+ msgid "Zoom"
+ msgstr ""
+ 
+-#: cyclope:445
++#: cyclope:436
+ msgid "Disable slideshow"
+ msgstr ""
+ 
+-#: cyclope:448
++#: cyclope:439
+ msgid "Enable slideshow"
+ msgstr ""
+ 
+-#: cyclope:455
++#: cyclope:446
+ msgid "Edit with {}"
+ msgstr ""
+ 
+-#: cyclope:509
++#: cyclope:500
+ msgid ""
+ "<b>{}</b>\n"
+ "version : {}\n"
+--- cyclope-1.5.orig/locale/en/LC_MESSAGES/cyclope.po
++++ cyclope-1.5/locale/en/LC_MESSAGES/cyclope.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: cyclope-1.5\n"
+-"POT-Creation-Date: 2015-09-08 15:44+CEST\n"
++"POT-Creation-Date: 2015-12-13 18:18+CET\n"
+ "PO-Revision-Date: 2015-07-19 16:53+0200\n"
+ "Last-Translator: arpinux <arpinux@member.fsf.org>\n"
+ "Language-Team: English (British)\n"
+@@ -16,61 +16,61 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: cyclope:55
++#: cyclope:52
+ msgid ""
+ "Error while opening this file. Sorry \n"
+ " {}"
+ msgstr ""
+ 
+-#: cyclope:63
++#: cyclope:60
+ msgid "Open a picture"
+ msgstr ""
+ 
+-#: cyclope:67
++#: cyclope:64
+ msgid "Images"
+ msgstr ""
+ 
+-#: cyclope:89
++#: cyclope:80
+ msgid "Closed, no files selected"
+ msgstr ""
+ 
+-#: cyclope:341
++#: cyclope:332
+ msgid "Fullscreen"
+ msgstr ""
+ 
+-#: cyclope:352
++#: cyclope:343
+ msgid "Restore screen"
+ msgstr ""
+ 
+-#: cyclope:425
++#: cyclope:416
+ msgid "Rotate right"
+ msgstr ""
+ 
+-#: cyclope:430
++#: cyclope:421
+ msgid "Rotate left"
+ msgstr ""
+ 
+-#: cyclope:436
++#: cyclope:427
+ msgid "Disable zoom"
+ msgstr ""
+ 
+-#: cyclope:439
++#: cyclope:430
+ msgid "Zoom"
+ msgstr ""
+ 
+-#: cyclope:445
++#: cyclope:436
+ msgid "Disable slideshow"
+ msgstr ""
+ 
+-#: cyclope:448
++#: cyclope:439
+ msgid "Enable slideshow"
+ msgstr ""
+ 
+-#: cyclope:455
++#: cyclope:446
+ msgid "Edit with {}"
+ msgstr ""
+ 
+-#: cyclope:509
++#: cyclope:500
+ msgid ""
+ "<b>{}</b>\n"
+ "version : {}\n"
+--- cyclope-1.5.orig/locale/fr/LC_MESSAGES/cyclope.po
++++ cyclope-1.5/locale/fr/LC_MESSAGES/cyclope.po
+@@ -5,7 +5,7 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: cyclope-1.5\n"
+-"POT-Creation-Date: 2015-09-08 15:44+CEST\n"
++"POT-Creation-Date: 2015-12-13 18:18+CET\n"
+ "PO-Revision-Date: 2015-07-19 16:56+0200\n"
+ "Last-Translator: arpinux <arpinux@member.fsf.org>\n"
+ "Language-Team: French\n"
+@@ -16,7 +16,7 @@ msgstr ""
+ "Generated-By: pygettext.py 1.5\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+-#: cyclope:55
++#: cyclope:52
+ msgid ""
+ "Error while opening this file. Sorry \n"
+ " {}"
+@@ -24,55 +24,55 @@ msgstr ""
+ "Oops, une erreur s'est produite \n"
+ " {}"
+ 
+-#: cyclope:63
++#: cyclope:60
+ msgid "Open a picture"
+ msgstr "Ouvrez une image"
+ 
+-#: cyclope:67
++#: cyclope:64
+ msgid "Images"
+ msgstr ""
+ 
+-#: cyclope:89
++#: cyclope:80
+ msgid "Closed, no files selected"
+ msgstr "pas de sélection : annulation"
+ 
+-#: cyclope:341
++#: cyclope:332
+ msgid "Fullscreen"
+ msgstr "Plein écran"
+ 
+-#: cyclope:352
++#: cyclope:343
+ msgid "Restore screen"
+ msgstr "Quitter le plein écran"
+ 
+-#: cyclope:425
++#: cyclope:416
+ msgid "Rotate right"
+ msgstr "Pivoter à droite"
+ 
+-#: cyclope:430
++#: cyclope:421
+ msgid "Rotate left"
+ msgstr "Pivoter à gauche"
+ 
+-#: cyclope:436
++#: cyclope:427
+ msgid "Disable zoom"
+ msgstr "Désactiver le Zoom"
+ 
+-#: cyclope:439
++#: cyclope:430
+ msgid "Zoom"
+ msgstr "Activer le Zoom"
+ 
+-#: cyclope:445
++#: cyclope:436
+ msgid "Disable slideshow"
+ msgstr "Stopper le diaporama"
+ 
+-#: cyclope:448
++#: cyclope:439
+ msgid "Enable slideshow"
+ msgstr "Lancer le Diaporama"
+ 
+-#: cyclope:455
++#: cyclope:446
+ msgid "Edit with {}"
+ msgstr "Éditer avec {}"
+ 
+-#: cyclope:509
++#: cyclope:500
+ msgid ""
+ "<b>{}</b>\n"
+ "version : {}\n"

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Redshift-config
+Comment=apply a colored filter on your screen
+Comment[fr]=applique un filtre coloré à votre écran
+Exec=/usr/bin/redshift-config
+Icon=redshift
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupNotify=true

@@ -1,0 +1,137 @@
+Description: don't show unistalled apps
+ .
+ handymenu (4.0-2) unstable; urgency=medium
+ .
+   * set trad
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/handymenu.py
++++ handymenu-4.0/handymenu.py
+@@ -24,7 +24,6 @@ from gi.repository import Gtk, Gdk, GObj
+ from gi.repository.GdkPixbuf import Pixbuf, InterpType
+ from gi.repository.Gio import content_type_get_icon
+ from textwrap import fill
+-import threading
+ import gettext
+ from math import ceil
+ from hm_utils import *
+@@ -161,20 +160,31 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                 c -= 1
+ 
+             page = Gtk.Table(rows=r, columns=c, homogeneous=True)
+-            page.grab_focus()
++            #page.grab_focus()
+             page.show()
+ 
+             cur = [0,0]
+             for a in s['apps']:
+                 appname, icon, cmd, generic = a['name'], a['icon'], a['cmd'], a['generic']
++                if not cmd_exist(cmd): 
++                    # on ne montre pas l'application disparue mais on ne supprime pas 
++                    # totalement de la config tant qu'on fait des tests
++                    #del_app(self.config, s, a)
++                    #save_config(self.config)
++                    continue
++                    
+                 # image utilisée dans le bouton
+                 image = Gtk.Image()
+                 image.show()
+-                if icon.split('.')[-1] in ['png', 'jpg', 'jpeg', 'gif']:
+-                    pixbuf = Pixbuf.new_from_file(icon)
+-                    scaled_buf = pixbuf.scale_simple(iconsize,iconsize,InterpType.BILINEAR)
+-                    image.set_from_pixbuf(scaled_buf)
+-                elif icon.endswith('.ico'):
++                filename, ext = os.path.splitext(icon)
++                if ext.lower() in ['.png', '.jpg', '.jpeg', '.gif'] :
++                    if os.path.isfile(icon):
++                        pixbuf = Pixbuf.new_from_file(icon)
++                        scaled_buf = pixbuf.scale_simple(iconsize,iconsize,InterpType.BILINEAR)
++                        image.set_from_pixbuf(scaled_buf)
++                    else:
++                        image.set_from_icon_name("image-missing", Gtk.IconSize.DIALOG)
++                elif ext == ".ico":
+                     if os.path.isfile(icon):
+                         pixbuf = Pixbuf.new_from_file(icon)
+                         scaled_buf = pixbuf.scale_simple(iconsize,iconsize,InterpType.BILINEAR)
+@@ -218,11 +228,11 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+                     cur[1] += 1
+ 
+             #self.onglets.add_titled( page, s['name'], s['name'])
+-            GObject.idle_add(self.onglets.add_titled, page, s['name'], s['name'])
++            self.onglets.add_titled( page, s['name'], s['name'])
+         else:
+             desc = Gtk.Label(_("This menu is still empty"))
+             desc.show()
+-            GObject.idle_add(self.onglets.add_titled, desc, _("This menu is still empty"), _("This menu is still empty"))
++            self.onglets.add_titled( desc, _("This menu is still empty"), _("This menu is still empty"))
+                 
+ 
+     def close_after(self, widget):
+@@ -314,12 +324,11 @@ dGU6bW9kaWZ5ADIwMTUtMTItMDdUMjI6MTA6NDgr
+         stack_switcher.set_stack(self.onglets)
+         vbox.pack_start(stack_switcher, True, True, 0)
+         vbox.pack_start(self.onglets, True, True, 0)
+-
++        
++        
++        
+         # Catégories
+-        thread = threading.Thread(target=self.create_tabs) 
+-        thread.daemon = True
+-        thread.start()
+-
++        self.create_tabs() 
+         self.window.show_all()
+ 
+     def move_win(self, widget, event):
+--- handymenu-4.0.orig/hm_utils.py
++++ handymenu-4.0/hm_utils.py
+@@ -142,6 +142,14 @@ def open_cmd(cmd):
+     except:
+         print("Error at opening {}".format(cmd.strip()))
+         return(False)
++        
++def cmd_exist(cmd):
++    c = cmd.split(' ')[0] # on ne prend pas les arguments
++    for d in os.environ['PATH'].split(os.pathsep):
++        if os.path.exists(os.path.join(d, c)):
++            return True
++
++    return False
+ 
+ def save_modules(moduleslist):
+     # a modulelist is [index [module1, module2]]
+@@ -255,13 +263,16 @@ def get_most_ffox_viewed(max):
+     n = 0
+     for u in c2.fetchall():
+         c2.execute("SELECT data FROM moz_favicons WHERE id=?",(u[2],))
+-        with open('/tmp/hm-favicon-{}.ico'.format(u[2]), 'wb') as fav:
+-            fav.write(c2.fetchone()[0])
++        favicon = c2.fetchone()
++        if favicon:
++            with open('/tmp/hm-favicon-{}.ico'.format(u[2]), 'wb') as fav:
++                fav.write(favicon[0])
++            icon = "/tmp/hm-favicon-{}.ico".format(u[2])
++        else:
++            icon = 'text-html'
+         n += 1
+         name = os.path.basename(u[1])
+         generic = name 
+-        #icon = 'text-html'
+-        icon = "/tmp/hm-favicon-{}.ico".format(u[2])
+         cmd = "xdg-open {}".format(u[0])
+         app = {'name' : name, 'generic' : generic, 'icon' : icon, 'cmd':cmd}
+         most_view['apps'].append(app)

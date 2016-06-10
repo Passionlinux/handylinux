@@ -1,0 +1,11 @@
+handylinux-doc-en (0.1-2) unstable; urgency=medium
+
+  * update to handylinux-2.3 
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 22 Jan 2016 05:37:56 +0100
+
+handylinux-doc-en (0.1-1) unstable; urgency=low
+
+  * Initial release : import PDF files
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Sep 2015 06:00:06 +0200

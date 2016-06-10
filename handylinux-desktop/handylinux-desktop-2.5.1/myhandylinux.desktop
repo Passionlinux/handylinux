@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=About my HandyLinux
+Name[fr]=À propos de mon HandyLinux
+Comment=HandyLinux version and installation date
+Comment[fr]=Version et date d'installation d'HandyLinux
+Exec=/usr/bin/myhandylinux
+Icon=handylinux
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=X-XFCE;Utility;

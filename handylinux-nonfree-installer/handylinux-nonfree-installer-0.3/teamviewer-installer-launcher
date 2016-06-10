@@ -1,0 +1,17 @@
+#!/bin/bash
+# simple teamviewer installer for Debian
+
+# mise en place et vérification
+# détection de la langue
+TRAD=`echo "${LANG:0:2}"`
+# confirmation de l'installation
+if [ "${TRAD}" == "fr" ]; then
+    ACTION=`zenity --question --title "teamviewer-installer" --text " Voulez-vous installer TeamViewer ?\n Ce logiciel non-libre peut détruire la couche d'ozone et ne pas respecter vos données.\n Une connexion internet active est nécessaire\n votre mot de passe vous sera demandé."; ans=$? ; echo "$ans"`
+else
+    ACTION=`zenity --question --title "teamviewer-installer" --text " Do you want to install TeamViewer ?\n This software is non-free, use it with care.\nAn active internet connection is needed\n your password will be asked."; ans=$? ; echo "$ans"`
+fi
+# lancement de l'installation
+if [ "${ACTION}" == "0" ]; then
+    gksudo /usr/share/handylinux-nonfree/teamviewer-installer &
+fi
+exit 0

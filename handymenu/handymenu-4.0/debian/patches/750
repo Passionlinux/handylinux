@@ -1,0 +1,69 @@
+Description: increase max-width-size
+ .
+ handymenu (4.0-26) unstable; urgency=medium
+ .
+   * ajout de python3-xdg as dep
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/handymenu.py
++++ handymenu-4.0/handymenu.py
+@@ -103,8 +103,7 @@ class Handymenu():
+         for m in modlist[1]:
+             if m == "_recent_files_":
+                 recentfiles = get_recently_used(max)
+-                if recentfiles:
+-                    self.config.insert(index,recentfiles)
++                self.config.insert(index,recentfiles)
+                     
+         with ThreadPoolExecutor(max_workers=4) as executor:
+             for page, label in executor.map(self.add_button, self.config):
+@@ -196,7 +195,6 @@ class Handymenu():
+ 
+         else:
+             page = Gtk.Label(_("This menu is still empty"))
+-            label = Gtk.Label(_("This menu is still empty"))
+ 
+         return(page, label)
+ 
+--- handymenu-4.0.orig/hm_utils.py
++++ handymenu-4.0/hm_utils.py
+@@ -26,7 +26,7 @@ maxonglets = 7
+ max = 8     # maximum entry in recents
+ iconsize = 64
+ button_width = 22
+-win_max_width = 660
++win_max_width = 750
+ version = "4.1"
+ auteur = "thuban"
+ licence = "GPLv3"
+@@ -179,13 +179,15 @@ def get_recently_used(max):
+     only a number of max
+     """
+     f = os.path.expanduser("~/.local/share/recently-used.xbel")
+-    if not os.path.isfile(f):
+-        return(False)
+ 
+     recents = {}
+     recents['id'] = "_recent_files_"
+     recents['name'] = _("Recent files")
+     recents['apps'] = []
++
++    if not os.path.isfile(f):
++        return(recents)
++
+     n = 0
+     with open(f, 'r') as x:
+         xbel = x.readlines()

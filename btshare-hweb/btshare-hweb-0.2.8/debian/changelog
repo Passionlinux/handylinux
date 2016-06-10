@@ -1,0 +1,31 @@
+btshare-hweb (0.2.8-2) unstable; urgency=medium
+
+  * fix Debian files
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 10 Jan 2016 18:06:41 +0100
+
+btshare-hweb (0.2.8-1) unstable; urgency=medium
+
+  * correction de l'appel jquery
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 10 Jan 2016 17:52:45 +0100
+
+btshare-hweb (0.2.7) unstable; urgency=low
+
+  * fix config dir creation
+  * fix jquery.js call
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 15 May 2015 19:13:08 +0200
+
+btshare-hweb (0.2.6) unstable; urgency=low
+
+  * fix double-instance
+  * fix templates
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 15 May 2015 00:20:46 +0200
+
+btshare-hweb (0.2.5) unstable; urgency=low
+
+  * Import btshare-web from thuban sources <http://git.yeuxdelibad.net/btshare>
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 01 May 2015 19:27:20 +0200

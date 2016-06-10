@@ -1,0 +1,27 @@
+# Pour générer les traductions : 
+pygettext -o locale/loupy.pot loupy.py
+cd locale
+
+msginit -i loupy.pot -o fr/LC_MESSAGES/loupy.po
+msginit -i loupy.pot -o en/LC_MESSAGES/loupy.po
+...
+
+# il faut éditer le .po et traduire
+# puis dans le dossier contenant le .po traduit :
+# crétaion du .mo
+msgfmt loupy.po -o loupy.mo
+
+#-------------------------------------------------
+
+# mise à jour de la traduction
+# création d'un nouveau pot
+pygettext -o locale/loupy.pot loupy.py
+
+# mise à jour des fichiers de traductions
+cd locale
+msgmerge --update  fr/LC_MESSAGES/loupy.po loupy.pot
+msgmerge --update  en/LC_MESSAGES/loupy.po loupy.pot
+
+# puis recréer le .mo
+msgfmt fr/LC_MESSAGES/loupy.po -o fr/LC_MESSAGES/loupy.mo
+msgfmt en/LC_MESSAGES/loupy.po -o en/LC_MESSAGES/loupy.mo

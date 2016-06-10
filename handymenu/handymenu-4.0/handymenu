@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -e ~/.handymenu.conf ] && [ ! -d ~/.handymenu ]; then
+    echo "Converting old handymenu configuration for handymenu4"
+    python /usr/share/handymenu/hm-config-transition.py 1
+    python3 /usr/share/handymenu/hm-config-transition.py 2
+fi
+
+if [ -z "$(pidof -sx hm-start.py)" ]; then
+    cd "/usr/share/handymenu"
+    ./hm-start.py $@
+else
+    echo "Handy-menu est déjà lancé"
+    killall hm-start.py
+    cd "/usr/share/handymenu"
+    ./hm-start.py $@
+fi
+
+exit 0

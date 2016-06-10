@@ -1,0 +1,29 @@
+redshift-config-en (0.7) unstable; urgency=low
+
+  * fix postinst script
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 22 May 2014 22:03:47 +0200
+
+redshift-config-en (0.6) unstable; urgency=low
+
+  * intégration de la traduction 
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 22 May 2014 20:43:20 +0200
+
+redshift-config-en (0.5) unstable; urgency=low
+
+  * bug fix by manon 
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 14 Apr 2014 19:41:01 +0200
+
+redshift-config-en (0.4) unstable; urgency=low
+
+  * bugs fixes by manon 
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 02 Apr 2014 18:27:28 +0200
+
+redshift-config-en (0.3) unstable; urgency=low
+
+  * Initial release - Fix debian package
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 30 Mar 2014 17:08:51 +0200

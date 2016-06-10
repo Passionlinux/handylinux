@@ -1,0 +1,131 @@
+#!/bin/bash
+#Auteur :      coyotus, thuban 
+#licence :     GNU General Public Licence v3
+
+# Description : création simplifiée de live usb
+# Usage : usbmaker </path/to/iso> (facultative)
+# Depends : zenity, coreutils, pv
+
+# 
+ISO=""
+USB=""
+
+# messages
+CHOICE="Choice"
+DEVICE="Device"
+APPNAME="Handy live USB creator"
+ISOMSG="Where is the .iso file ?"
+WARN="⚠ Don't do it if you're not sure ⚠"
+USBTITLE="Where is the USB key ?"
+USBMSG="Which one is your USB stick?\n$WARN"
+COPYMSG="Copying ISO to USB. Please wait."
+SUCCESS="The live USB is ready."
+FAIL="An error occured."
+CHOICE="Choice"
+MODEL="Model"
+SIZEMSG="Size"
+CAREFUL="WARNING!\nThis tool will erase the entire selected disk.\n Don't forget to make a backup."
+
+case $LANG in
+	fr*)
+        APPNAME="Handy live USB creator"
+        ISOMSG="Où est l'image .iso?"
+        WARN="⚠ Ne faites rien en cas de doute ⚠"
+        USBTITLE="Où est la clé USB ?"
+        USBMSG="Quel disque correspond à la clé USB ?\n$WARN"
+        COPYMSG="Transfert de l'ISO sur l'USB. Veuillez patienter."
+        SUCCESS="L'ISO est bien copiée sur la clé."
+        FAIL="Une erreur est survenue."
+        CHOICE="Choix"
+        MODEL="Modèle"
+        SIZEMSG="Taille"
+        CAREFUL="ATTENTION!\nCet outil va intégralement effacer votre clé USB.\n N'oubliez pas de sauvegarder vos données."
+        ;;
+    nl*)
+        APPNAME="Handy live usb creator"
+        ISOMSG="Waar is de .iso bestand ?"
+        WARN="⚠ Niet iets te doen in geval van twijfel ⚠"
+        USBMSG="Wat is de drive overeenkomt met de USB-stick ?\n$WARN"
+        COPYMSG="Voorbereiden van de USB-stick. Even geduld aub."
+        SUCCESS="De USB-stick is klaar"
+        FAIL="Er is een fout opgetreden."
+        CHOICE="keuze"
+        MODEL="Model"
+        SIZEMSG="Maat"
+        ;;
+esac
+
+### end trads
+
+
+copytousb() {
+    # this is run as root
+    # $1 is iso path
+    # $2 is device path i.e. /dev/sda
+    ( pv -n "$1" |dd of="$2" bs=4M oflag=sync ) 2>&1 | zenity --title="$APPNAME" --text="$COPYMSG" --width 400 --progress --auto-close
+    RET=$?
+    sync # just to be sure
+    if [ $RET -eq 0 ]; then
+        zenity --info --title="$APPNAME" --text="$SUCCESS"
+    else
+        zenity --title="$APPNAME" --error --text="$FAIL"
+    fi
+}
+
+if [ "$(whoami)" != "root" ]; then
+    zenity --info --title="LiveUSBcreator" --text="$CAREFUL"
+fi
+
+if [ -z "$1" ]; then
+    ISO="$(zenity --title="$ISOMSG" --file-selection --file-filter="Disc Image *.iso | *.iso")"
+    if [ $? -ne 0 ]; then
+        exit 0
+    fi
+else
+    ISO="$1"
+fi
+
+if [ -z "$2" ]; then
+    USBKEYS=$(
+    grep -Hv ^0$ /sys/block/*/removable |
+    sed s/removable:.*$/device\\/uevent/ |
+    xargs grep -H ^DRIVER=sd |
+    sed s/device.uevent.*$/size/ |
+    xargs grep -Hv ^0$ |
+    cut -d / -f 4
+    )
+
+    USBLIST=$(
+        for dev in ${USBKEYS}; do
+            KEY=$(sed -e s/\ *$//g </sys/block/${dev}/device/model | sed -e 's/ /_/g')
+            SIZE=$(lsblk -n /dev/${dev} -x SIZE |grep disk |awk '{print $4}' | uniq)
+            echo "list" ${dev} ${KEY} ${SIZE}
+        done
+        )
+
+
+    USB="/dev/$(zenity --width=350 --list --title "$USBTITLE" --text "$USBMSG"  --radiolist \
+        --column="$CHOICE" --column="USB-Key" --column="$MODEL" --column="$SIZEMSG" \
+        $USBLIST | cut -d' ' -f2)"
+else
+    USB="$2"
+fi
+
+if [ -z "$ISO" ] || [ -z "$USB" ]; then
+    echo "arguments incohérents"
+    exit 1
+elif [ ! -b "$USB" ]; then
+    echo "le chemin vers la clé usb semble erroné"
+    exit 1
+elif [ ! -f "$ISO" ]; then
+    echo "l'image iso donnée n'existe pas"
+    exit 1
+elif [ "$(whoami)" == "root" ]; then
+    copytousb "$ISO" "$USB"
+    exit 0
+fi
+
+
+gksudo $0 "$ISO" "$USB"
+
+exit 0

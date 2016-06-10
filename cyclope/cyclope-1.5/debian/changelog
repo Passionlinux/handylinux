@@ -1,0 +1,117 @@
+cyclope (1.5-5) unstable; urgency=medium
+
+  * update description pour faciliter la recherche.
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 06 Jan 2016 01:15:55 +0100
+
+cyclope (1.5-4) unstable; urgency=medium
+
+  * simplify loops
+  * nettoyage
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 13 Dec 2015 18:25:29 +0100
+
+cyclope (1.5-3) unstable; urgency=medium
+
+  * update Homepage
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 27 Nov 2015 13:47:46 +0100
+
+cyclope (1.5-2) unstable; urgency=medium
+
+  * prise en compte des données exif 
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 09 Sep 2015 12:06:08 +0200
+
+cyclope (1.5-1) unstable; urgency=medium
+
+  * setup zoom mode
+  * clean up
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 08 Sep 2015 15:58:47 +0200
+
+cyclope (1.4-3) unstable; urgency=medium
+
+  * suppression du menu au hover
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 30 Aug 2015 14:56:27 +0200
+
+cyclope (1.4-2) unstable; urgency=medium
+
+  * coquille dans la trad fr, merci Mélanie
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 29 Aug 2015 22:45:02 +0200
+
+cyclope (1.4-1) unstable; urgency=medium
+
+  * enieme essai..... ça fonctionne maintenant.
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 28 Aug 2015 18:11:33 +0200
+
+cyclope (1.3-2) unstable; urgency=medium
+
+  * retour de l'aide dans le menu
+  * suppression des langues en attendant, reste en/fr
+  * fix centrage
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 28 Aug 2015 17:06:13 +0200
+
+cyclope (1.3-1) unstable; urgency=medium
+
+  * grand nettoyage
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 28 Aug 2015 15:42:57 +0200
+
+cyclope (1.2-1) unstable; urgency=medium
+
+  * nettoyage du lanceur
+  * divers fix
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 23 Aug 2015 21:03:49 +0200
+
+cyclope (1.1-2) unstable; urgency=medium
+
+  * remove zoom feature
+  * fix translation
+  * adding optional editor
+  * adding shortcuts
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 08 Aug 2015 17:30:58 +0200
+
+cyclope (1.1-1) unstable; urgency=medium
+
+  * update man
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 05 Aug 2015 16:57:51 +0200
+
+cyclope (1.0-5) unstable; urgency=medium
+
+  * fix trad Cc :P
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 05 Aug 2015 16:32:44 +0200
+
+cyclope (1.0-4) unstable; urgency=medium
+
+  * gestion des erreurs 
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 05 Aug 2015 14:20:34 +0200
+
+cyclope (1.0-3) unstable; urgency=medium
+
+  * gestion des dossiers
+  * image par défaut
+  * ouvrir une image dans le menu et en raccourcis
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 04 Aug 2015 17:14:51 +0200
+
+cyclope (1.0-2) unstable; urgency=medium
+
+  * image par défaut, possibilité d'ouvrir un dossier + minor fixes
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 04 Aug 2015 12:07:23 +0200
+
+cyclope (1.0-1) unstable; urgency=low
+
+  * nettoyage et adaptation du travail de mickyz par thuban
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 19 Jul 2015 16:09:45 +0200

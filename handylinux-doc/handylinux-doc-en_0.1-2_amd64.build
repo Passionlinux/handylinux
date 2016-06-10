@@ -1,0 +1,63 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handylinux-doc-en
+dpkg-buildpackage: source version 0.1-2
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by arnault perret <arpinux@member.fsf.org>
+ dpkg-source --before-build handylinux-doc-en-0.1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handylinux-doc-en-0.1
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handylinux-doc-en using existing ./handylinux-doc-en_0.1.orig.tar.xz
+dpkg-source: warning: ignoring deletion of file documentation HandyLinux (en)/handylinuxlight.pdf, use --include-removal to override
+dpkg-source: info: building handylinux-doc-en in handylinux-doc-en_0.1-2.debian.tar.xz
+dpkg-source: info: building handylinux-doc-en in handylinux-doc-en_0.1-2.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/handylinux-doc/handylinux-doc-en-0.1'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handylinux-doc/handylinux-doc-en-0.1'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/handylinux-doc/handylinux-doc-en-0.1'
+install -d -m 755 -o root -g root /home/arp/debdev/handylinux-doc/handylinux-doc-en-0.1/debian/handylinux-doc-en/usr/share/handylinux/HandyLinux_doc
+cp -R documentation\ HandyLinux\ \(en\) /home/arp/debdev/handylinux-doc/handylinux-doc-en-0.1/debian/handylinux-doc-en/usr/share/handylinux/HandyLinux_doc
+chmod -R 644 /home/arp/debdev/handylinux-doc/handylinux-doc-en-0.1/debian/handylinux-doc-en/usr/share/handylinux/HandyLinux_doc/*
+make[1]: Leaving directory '/home/arp/debdev/handylinux-doc/handylinux-doc-en-0.1'
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `handylinux-doc-en' in `../handylinux-doc-en_0.1-2_all.deb'.
+ dpkg-genchanges  >../handylinux-doc-en_0.1-2_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build handylinux-doc-en-0.1
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+W: handylinux-doc-en: non-standard-dir-perm usr/share/handylinux/HandyLinux_doc/documentation HandyLinux (en)/ 0655 != 0755
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handylinux-doc-en_0.1-2.dsc BE441FCF
+
+ signfile handylinux-doc-en_0.1-2_amd64.changes BE441FCF
+
+Successfully signed dsc and changes files

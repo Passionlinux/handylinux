@@ -1,0 +1,5 @@
+#!/bin/sh
+# start handysoft
+
+python3 /usr/share/handysoft/handysoft.py "$1"
+exit 0

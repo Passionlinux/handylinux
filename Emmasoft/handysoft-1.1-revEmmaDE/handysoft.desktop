@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Software Library
+Name[fr]=Logithèque Debian
+Comment=Find and install packages easily
+Comment[fr]=Rechercher, installer ou supprimer des logiciels simplement
+Exec=/usr/bin/handysoft
+Icon=handysoft
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=PackageManager;GTK;System;

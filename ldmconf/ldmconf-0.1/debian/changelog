@@ -1,0 +1,25 @@
+ldmconf (0.1-4) jessie; urgency=medium
+
+  * ajout du support numlockX
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 27 Jan 2016 12:27:49 +0100
+
+ldmconf (0.1-3) jessie; urgency=medium
+
+  * simplification du code
+  * élimination du lanceur
+  * changement de l'image d'application
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 Jan 2016 17:42:27 +0100
+
+ldmconf (0.1-2) jessie; urgency=medium
+
+  * fix lintian
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 Jan 2016 16:23:57 +0100
+
+ldmconf (0.1-1) jessie; urgency=medium
+
+  * intégration depuis les sources de thuban
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 Jan 2016 14:11:01 +0100

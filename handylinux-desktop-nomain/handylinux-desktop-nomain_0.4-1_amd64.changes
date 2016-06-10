@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sun, 22 Nov 2015 14:25:51 +0100
+Source: handylinux-desktop-nomain
+Binary: handylinux-desktop-nomain
+Architecture: source all
+Version: 0.4-1
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ handylinux-desktop-nomain - Méta-paquet contrib et nonfree pour HandyLinux
+Changes:
+ handylinux-desktop-nomain (0.4-1) unstable; urgency=medium
+ .
+   * ajout de handylinux-nonfree-installer
+Checksums-Sha1:
+ bf39bbb43631e8a2716bccc7615369d61221b545 950 handylinux-desktop-nomain_0.4-1.dsc
+ e1e02f401fdab40d76463789dab578d1a53eca1e 1768 handylinux-desktop-nomain_0.4.orig.tar.xz
+ c1f8e69bfb7bddfd6fdf4918011e96b8e87efca6 1744 handylinux-desktop-nomain_0.4-1.debian.tar.xz
+ 49395acfbc6935f0571bd1741a194c4de7d2707f 2138 handylinux-desktop-nomain_0.4-1_all.deb
+Checksums-Sha256:
+ ce41ba50c2e1644c49fb759d9992ac143d31e67a704a0d00b1353d4df51c6e77 950 handylinux-desktop-nomain_0.4-1.dsc
+ dc35adf2d438a8d14e0b6a737e52e93b7fc7aa36034f68faaef273b59bc77ed5 1768 handylinux-desktop-nomain_0.4.orig.tar.xz
+ 849034443d23d4cc9949c973db2b76e2bed74534ba9c8ac22020b325a2c1072c 1744 handylinux-desktop-nomain_0.4-1.debian.tar.xz
+ c957777dd6e5314a07356e18af1bc6a02b6c303e87fcf6b521c08da1e41f96a7 2138 handylinux-desktop-nomain_0.4-1_all.deb
+Files:
+ e9bcc533d751d4e230d1868e8a5e103e 950 x11 extra handylinux-desktop-nomain_0.4-1.dsc
+ acaacfb7df220d5a895b80cd388378b7 1768 x11 extra handylinux-desktop-nomain_0.4.orig.tar.xz
+ a50c24a98c81d90338bc675d4a2fc008 1744 x11 extra handylinux-desktop-nomain_0.4-1.debian.tar.xz
+ e649c73a42c20a2f9b4d7a001f167d62 2138 x11 extra handylinux-desktop-nomain_0.4-1_all.deb

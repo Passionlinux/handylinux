@@ -1,0 +1,143 @@
+#!/bin/bash
+##############################################################
+#  move2debian - rétablir la configuration Debian par défaut #
+#  2015 arpinux <arpinux@member.fsf.org>                     #
+##############################################################
+
+TRAD=`echo "${LANG:0:2}"`
+
+if [ "${TRAD}" == "fr" ]; then
+    ## handy2debian ne se lance qu'une fois
+    if [ -e /etc/handylinux_was_here ]; then
+        echo -e "Erreur : Handy2Debian a déjà été lancé"
+        sleep 2s
+        exit 0
+    fi
+    ## processus fr ####################################
+    echo -e "   -------------------------------------"
+    echo -e "   Bienvenue dans le script Handy2Debian"
+    echo -e "   -------------------------------------"
+    sleep 2s
+    echo -e "\n Votre session sera relancée automatiquement à la fin de ce script."
+    echo -e " Pensez à désinstaller Handy2Debian une fois votre système nettoyé."
+    sleep 2s
+    echo -e "\n Nettoyage du système"
+    echo -e " --------------------"
+    sleep 2s
+    echo -e "\n - désinstallation des méta-paquets HandyLinux*"
+    sleep 2s
+    sudo apt-get remove --purge -y handylinux-desktop handylinux-desktop-nomain handylinux-network handylinux-print handylinux-graphics handylinux-graphics-extra handylinux-media handylinux-office handylinux-nonfree-installer
+    echo -e "\n - suppression des dossiers systèmes HandyLinux*"
+    sleep 2s
+    sudo rm -Rf /usr/local/bin/welcome /usr/local/bin/welcome-en /usr/local/bin/welcome.sh /usr/local/bin/welcome2.sh /usr/local/bin/keyboard_selector /usr/local/bin/loupe_ecran.sh /usr/local/bin/orca-config-nb.sh /usr/local/bin/orca-config-pc.sh /usr/local/bin/orca-switch.sh
+    sudo rm -Rf /usr/share/handylinux
+    sudo rm /etc/handylinux_version /etc/handylinux_installation
+    echo -e "\n - remise à zéro de l'écran de connexion"
+    sleep 2s
+    if [ -e /etc/slim.conf ]; then
+        sudo mv -f /usr/share/handy2debian/slim.conf /etc/slim.conf
+        sudo rm -Rf /usr/share/slim/themes/handylinux
+    elif [ -e /etc/lightdm/lightdm.conf ]; then
+        sudo mv -f /usr/share/handy2debian/lightdm.conf /etc/lightdm/lightdm.conf
+        sudo mv -f /usr/share/handy2debian/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    fi
+    echo -e "\n - remise à zéro de la configuration de GRUB"
+    sleep 2s
+    sudo rm /usr/share/images/grub/handylinux.tga
+    sudo mv -f /usr/share/handy2debian/grub /etc/default/grub
+    sudo update-grub
+    echo -e "\n - remise à zéro de la version Debian"
+    sleep 2s
+    sudo mv -f /usr/share/handy2debian/issue /etc/issue
+    sudo mv -f /usr/share/handy2debian/issue.net /etc/issue.net
+    echo -e "\n - remise à zéro de l'utilisateur par défaut"
+    sleep 2s
+    sudo rm -Rf /etc/skel/*
+    sudo mv /usr/share/handy2debian/skel/.bashrc /etc/skel/.bashrc
+    sudo mv /usr/share/handy2debian/skel/.bash_logout /etc/skel/.bash_logout
+    sudo mv /usr/share/handy2debian/skel/.profile /etc/skel/.profile
+    echo -e "\n\n Nettoyage du dossier utilisateur"
+    echo -e " --------------------------------"
+    sleep 2s
+    echo -e "\n remise à zéro de la configuration utilisateur"
+    echo -e "   et déconnexion automatique de la session."
+    echo -e "\n Appuyez sur [Enter] pour finaliser le processus."
+    read anykey
+    rm /home/$USER/guide.desktop
+    rm -Rf /home/$USER/.config/xfce4 /home/$USER/.config/Terminal /home/$USER/.config/Thunar
+    rm /home/$USER/Documents/Documentation
+    rm /home/$USER/.bashrc /home/$USER/.bash_logout /home/$USER/.profile
+    cp /etc/skel/.bashrc /home/$USER/.bashrc
+    cp /etc/skel/.bash_logout /home/$USER/.bash_logout
+    cp /etc/skel/.profile /home/$USER/.profile
+    sudo touch /etc/handylinux_was_here
+    xfce4-session-logout --logout && exit 0
+else
+    ## handy2debian only runs once
+    if [ -e /etc/handylinux_was_here ]; then
+        echo -e "Error : Handy2Debian has already been launched"
+        sleep 2s
+        exit 0
+    fi
+    ## processus en ####################################
+    echo -e "   -----------------------"
+    echo -e "   Welcome to Handy2Debian"
+    echo -e "   -----------------------"
+    sleep 2s
+    echo -e "\n Your session will be relaunched after this script."
+    echo -e " Think to uninstall Handy2Debian once your Debian system is clean."
+    sleep 2s
+    echo -e "\n System cleaning"
+    echo -e " ---------------"
+    sleep 2s
+    echo -e "\n - uninstalling HandyLinux* meta-packages"
+    sleep 2s
+    sudo apt-get remove --purge -y handylinux-desktop handylinux-desktop-nomain handylinux-network handylinux-print handylinux-graphics handylinux-graphics-extra handylinux-media handylinux-office handylinux-nonfree-installer
+    echo -e "\n - delete HandyLinux* system files"
+    sleep 2s
+    sudo rm -Rf /usr/local/bin/welcome /usr/local/bin/welcome-en /usr/local/bin/welcome.sh /usr/local/bin/welcome2.sh /usr/local/bin/keyboard_selector /usr/local/bin/loupe_ecran.sh /usr/local/bin/orca-config-nb.sh /usr/local/bin/orca-config-pc.sh /usr/local/bin/orca-switch.sh
+    sudo rm -Rf /usr/share/handylinux
+    sudo rm /etc/handylinux_version /etc/handylinux_installation
+    echo -e "\n - login screen reset"
+    sleep 2s
+    if [ -e /etc/slim.conf ]; then
+        sudo mv -f /usr/share/handy2debian/slim.conf /etc/slim.conf
+        sudo rm -Rf /usr/share/slim/themes/handylinux
+    elif [ -e /etc/lightdm/lightdm.conf ]; then
+        sudo mv -f /usr/share/handy2debian/lightdm.conf /etc/lightdm/lightdm.conf
+        sudo mv -f /usr/share/handy2debian/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    fi
+    echo -e "\n - GRUB configuration reset"
+    sleep 2s
+    sudo rm /usr/share/images/grub/handylinux.tga
+    sudo mv -f /usr/share/handy2debian/grub /etc/default/grub
+    sudo update-grub
+    echo -e "\n - Debian version reset"
+    sleep 2s
+    sudo mv -f /usr/share/handy2debian/issue /etc/issue
+    sudo mv -f /usr/share/handy2debian/issue.net /etc/issue.net
+    echo -e "\n - default user configuration reset"
+    sleep 2s
+    sudo rm -Rf /etc/skel/*
+    sudo mv /usr/share/handy2debian/skel/.bashrc /etc/skel/.bashrc
+    sudo mv /usr/share/handy2debian/skel/.bash_logout /etc/skel/.bash_logout
+    sudo mv /usr/share/handy2debian/skel/.profile /etc/skel/.profile
+    echo -e "\n\n User folder cleaning"
+    echo -e " ----------------------"
+    sleep 2s
+    echo -e "\n user configuration reset"
+    echo -e "   and session automatic logout."
+    echo -e "\n Press [Enter] to finish the process."
+    read anykey
+    rm /home/$USER/guide.desktop
+    rm -Rf /home/$USER/.config/xfce4 /home/$USER/.config/Terminal /home/$USER/.config/Thunar
+    rm /home/$USER/Documents/Documentation
+    rm /home/$USER/.bashrc /home/$USER/.bash_logout /home/$USER/.profile
+    cp /etc/skel/.bashrc /home/$USER/.bashrc
+    cp /etc/skel/.bash_logout /home/$USER/.bash_logout
+    cp /etc/skel/.profile /home/$USER/.profile
+    sudo touch /etc/handylinux_was_here
+    xfce4-session-logout --logout && exit 0
+fi
+
+exit 0

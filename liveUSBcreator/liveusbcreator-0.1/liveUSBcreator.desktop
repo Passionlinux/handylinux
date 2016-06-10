@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=live USB creator
+GenericName=liveUSBcreator
+Comment=Live USB creation tool
+Comment[fr]=Outil de transfert pour live USB
+Icon=liveUSBcreator
+Exec=/usr/bin/liveUSBcreator
+Terminal=false
+StartupNotify=false
+Categories=Application;Utility;System;

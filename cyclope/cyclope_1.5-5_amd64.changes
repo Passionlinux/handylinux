@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 06 Jan 2016 01:15:55 +0100
+Source: cyclope
+Binary: cyclope
+Architecture: source all
+Version: 1.5-5
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ cyclope    - Une visionneuse d'images minimale.
+Changes:
+ cyclope (1.5-5) unstable; urgency=medium
+ .
+   * update description pour faciliter la recherche.
+Checksums-Sha1:
+ 202e464eaa9f345066eb5b31fcff3b4e80ed0d54 841 cyclope_1.5-5.dsc
+ 82c0b5c1bae55709141b42cd2821ef91aa98bf72 5228 cyclope_1.5-5.debian.tar.xz
+ 77e05226d4268a2c9c6d9d6998ef9174c3f6621a 20316 cyclope_1.5-5_all.deb
+Checksums-Sha256:
+ 674f292a16fb8c79e6801c4152a087f6e9822547eed794d6d6e948b6b51f4de1 841 cyclope_1.5-5.dsc
+ bc032b960657fd06ae9cffbf3048c1c9ce8faf4d01bbb06a0fd9f5b19d872ef2 5228 cyclope_1.5-5.debian.tar.xz
+ 831d115e33005b7056e5bffdec73ad7dde32f357630884212d4043a6a7454a79 20316 cyclope_1.5-5_all.deb
+Files:
+ 52bdd5810da2ab713882516a06c74c88 841 x11 optional cyclope_1.5-5.dsc
+ 9a83a651263b5516339bde85a58725bf 5228 x11 optional cyclope_1.5-5.debian.tar.xz
+ beebfd7cd94b32c51ecc798b066cf7cc 20316 x11 optional cyclope_1.5-5_all.deb

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=google+
+Comment=visit google plus page
+Comment[fr]=rejoindre votre page google plus
+Icon=googleplus
+Exec=x-www-browser http://plus.google.com
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;
+GenericName=googleplus

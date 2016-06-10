@@ -1,0 +1,556 @@
+# Fichier de configuration du HandyMenu.
+# Copyright GPL-v3 2015 HandyLinux
+# Xavier Cartron <thuban@yeuxdelibad.net>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: handymenu-3.2\n"
+"POT-Creation-Date: 2015-12-30 14:17+CET\n"
+"PO-Revision-Date: 2015-09-04 15:09+0200\n"
+"Last-Translator: arpinux <arp@nakedev>\n"
+"Language-Team: German <contact@handylinux.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: handymenu-configuration.py:58
+#, fuzzy
+msgid "Handymenu Configuration"
+msgstr "Druckerkonfiguration"
+
+#: handymenu-configuration.py:146
+msgid "Choose an icon"
+msgstr "Wählen Sie ein Symbol"
+
+#: handymenu-configuration.py:151
+msgid "Images"
+msgstr "Bilder"
+
+#: handymenu-configuration.py:159
+msgid "Closed, no files selected"
+msgstr "Geschlossen ist, ausgewählt keine Dateien"
+
+#: handymenu-configuration.py:227
+msgid "Edit the launcher"
+msgstr "Bearbeiten Sie das Startprogramm"
+
+#: handymenu-configuration.py:233
+msgid "Change"
+msgstr "Ändern"
+
+#: handymenu-configuration.py:244
+msgid "Change the label"
+msgstr "Ändern Sie den Etiketten"
+
+#: handymenu-configuration.py:249
+msgid "Change icon"
+msgstr "Ändern Sie das Symbol"
+
+#: handymenu-configuration.py:256
+msgid "Change the application icon"
+msgstr "Ändern Sie das Anwendungssymbol"
+
+#: handymenu-configuration.py:261
+msgid "Move up"
+msgstr "rücken"
+
+#: handymenu-configuration.py:262
+msgid "Move down"
+msgstr "Nach unten"
+
+#: handymenu-configuration.py:284
+msgid "Move this app"
+msgstr "Bewegen Sie diese Anwendung"
+
+#: handymenu-configuration.py:289
+msgid "Delete"
+msgstr "löschen"
+
+#: handymenu-configuration.py:292
+msgid "Delete this launcher"
+msgstr "Löschen Werfer"
+
+#: handymenu-configuration.py:329
+msgid "Delete this section"
+msgstr "Löschen Sie diesen Abschnitt"
+
+#: handymenu-configuration.py:332
+msgid "Search for applications"
+msgstr "Suche nach Anwendungen"
+
+#: handymenu-configuration.py:339
+msgid "Move section up"
+msgstr "Nach oben Abschnitt"
+
+#: handymenu-configuration.py:343
+msgid "Move section down"
+msgstr "Setzen Teil ab"
+
+#: handymenu-configuration.py:375
+msgid "Name of the new section: "
+msgstr "Name des neuen Abschnitt :"
+
+#: handymenu-configuration.py:381
+msgid "More"
+msgstr "Mehr"
+
+#: handymenu-configuration.py:389
+msgid "Add a section"
+msgstr "Fügen Sie einen Abschnitt"
+
+#: handymenu-configuration.py:417
+msgid "Modules"
+msgstr ""
+
+#: handymenu-configuration.py:422 handymenu-configuration.py:423
+msgid "Show recent files"
+msgstr "Neueste Dateien anzeigen"
+
+#: handymenu-configuration.py:430 hm_utils.py:254
+msgid "Most visited"
+msgstr "Die meisten besuchten"
+
+#: handymenu-configuration.py:431
+msgid "Show most visited uri"
+msgstr "Show am meisten besuchten uri"
+
+#: handymenu-configuration.py:444
+msgid "Position of modules in menu"
+msgstr "Position der Module im Menü"
+
+#: handymenu-configuration.py:453
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: handymenu-configuration.py:460
+msgid "View config"
+msgstr ""
+
+#: handymenu-configuration.py:464
+msgid "Quit"
+msgstr "verlassen"
+
+#: handymenu.py:54
+msgid ""
+"<b>Handymenu</b>\n"
+"\n"
+"version : {0}\n"
+"author : {1}\n"
+"licence : {2}\n"
+"homepage : <a href=\"{3}\" title=\"HandyMenu homepage\">{3}</a>"
+msgstr ""
+"<b>Handymenu</b>\n"
+"\n"
+"version : {0}\n"
+"verfasser : {1}\n"
+"lizenz : {2}\n"
+"startseite : <a href=\"{3}\" title=\"HandyMenu Startseite\">{3}</a>"
+
+#: handymenu.py:127
+msgid ""
+"<b>Error at launching {}</b>\n"
+"\n"
+"Is it still installed?"
+msgstr ""
+
+#: handymenu.py:245 handymenu.py:246
+msgid "This menu is still empty"
+msgstr "Dieses Menü ist noch leer"
+
+#: handymenu.py:280
+msgid "About"
+msgstr "über"
+
+#: handymenu.py:301
+msgid "Close"
+msgstr "Close"
+
+#: handymenu.py:310
+msgid "Configure"
+msgstr "konfigurieren"
+
+#: handymenu.py:316
+msgid "Close after execution"
+msgstr "Close nach der Ausführung"
+
+#: hm_utils.py:33
+msgid "HandyLinux Rocks!"
+msgstr ""
+
+#: hm_utils.py:34
+msgid "Come say hi to our forum"
+msgstr "Kommen Sie sagen hallo zu unserem Forum zu"
+
+#: hm_utils.py:36
+msgid "Computers for everyone"
+msgstr "Computer für alle"
+
+#: hm_utils.py:37
+msgid "My debian is handy"
+msgstr ""
+
+#: hm_utils.py:38
+msgid "All you need is handy"
+msgstr ""
+
+#: hm_utils.py:39
+msgid "Beware, bunnies everywhere"
+msgstr "Warnung, Hasen überall"
+
+#: hm_utils.py:191
+msgid "Recent files"
+msgstr "Neueste Dateien"
+
+#: hm_utils.py:292
+msgid "Latest"
+msgstr "Neueste"
+
+#: hm_utils.py:295
+msgid "Web browser"
+msgstr "Internetbrowser"
+
+#: hm_utils.py:296
+msgid "Surf the web"
+msgstr "Surfen Sie im Internet"
+
+#: hm_utils.py:300 hm_utils.py:387
+msgid "Personal folder"
+msgstr "persönliche Ordner"
+
+#: hm_utils.py:301 hm_utils.py:388
+msgid "Browse my personal directory"
+msgstr "Durchsuchen Sie meine persönliche Verzeichnis"
+
+#: hm_utils.py:305
+msgid "Framasoft"
+msgstr ""
+
+#: hm_utils.py:306 hm_utils.py:337
+msgid "Acces to free (as in freedom) Framasoft services"
+msgstr "Zugang zu frei (wie in Freiheit) Framasoft Dienstleistungen"
+
+#: hm_utils.py:310
+msgid "HandyLinux Help Center"
+msgstr "HandyLinux Hilfe"
+
+#: hm_utils.py:311
+msgid "Open HandyLinux Help Tool"
+msgstr "Offene HandyLinux Hilfe-Tool"
+
+#: hm_utils.py:318
+msgid "Internet"
+msgstr ""
+
+#: hm_utils.py:321
+msgid "Surf the Web"
+msgstr "Surfen Sie im Internet"
+
+#: hm_utils.py:322
+msgid "Browse the internet"
+msgstr "Durchsuchen Sie das Internet"
+
+#: hm_utils.py:326
+msgid "Read or write emails"
+msgstr "Lesen oder Schreiben von E-Mails"
+
+#: hm_utils.py:327
+msgid "Consult or edit emails"
+msgstr "Wenden Sie oder bearbeiten Sie E-Mails"
+
+#: hm_utils.py:331
+msgid "Communicate with skype"
+msgstr "Kommunizieren Sie mit skype"
+
+#: hm_utils.py:332
+msgid "Communicate freely with the NSA"
+msgstr "Frei kommunizieren mit der NSA"
+
+#: hm_utils.py:336
+msgid "Framasoft Services"
+msgstr ""
+
+#: hm_utils.py:341
+msgid "P2P torrent client"
+msgstr "P2P Torrent-Client"
+
+#: hm_utils.py:342
+msgid "Share datas with P2P"
+msgstr "Teilen Daten mit P2P"
+
+#: hm_utils.py:346
+msgid "Internet help"
+msgstr "Internet-Hilfe"
+
+#: hm_utils.py:347
+msgid "Get some help about internet applications"
+msgstr "Holen Sie sich Hilfe zu Internet-Anwendungen"
+
+#: hm_utils.py:354
+msgid "Files"
+msgstr "Dateien"
+
+#: hm_utils.py:357
+msgid "My Pictures"
+msgstr "Meine Bilder"
+
+#: hm_utils.py:358
+msgid "Browse my images folder"
+msgstr "Durchsuchen Sie meine Bilder Ordner"
+
+#: hm_utils.py:363
+msgid "My Documents"
+msgstr "Meine Dokumente"
+
+#: hm_utils.py:364
+msgid "Browse my documents"
+msgstr "Durchsuchen Sie meine Dokumente"
+
+#: hm_utils.py:369
+msgid "My Music"
+msgstr "Meine Musik"
+
+#: hm_utils.py:370
+msgid "Browse my music folder"
+msgstr "Grasen Sie meinen Musikordner"
+
+#: hm_utils.py:375
+msgid "My Videos"
+msgstr "Meine Videos"
+
+#: hm_utils.py:376
+msgid "Browse my videos"
+msgstr "Stöbern meine Videos"
+
+#: hm_utils.py:381
+msgid "Downloads"
+msgstr ""
+
+#: hm_utils.py:382
+msgid "Check my downloaded files"
+msgstr "Überprüfen Sie meine heruntergeladenen Dateien"
+
+#: hm_utils.py:392
+msgid "Check the trash"
+msgstr "Überprüfen Sie den Papierkorb"
+
+#: hm_utils.py:393
+msgid "Check and empty trash"
+msgstr "Prüfen und Papierkorb leeren"
+
+#: hm_utils.py:397
+msgid "Files help"
+msgstr "Hilfe-Dateien"
+
+#: hm_utils.py:398
+msgid "Get some help about file management"
+msgstr "Holen Sie sich Hilfe zu Dateimanagement"
+
+#: hm_utils.py:405
+msgid "Office"
+msgstr "Büro"
+
+#: hm_utils.py:408
+msgid "Text editor"
+msgstr "Text-Editor"
+
+#: hm_utils.py:409
+msgid "Consult or edit text files"
+msgstr "Wenden oder Textdateien bearbeiten"
+
+#: hm_utils.py:413
+msgid "Take notes"
+msgstr "Machen Sie sich Notizen"
+
+#: hm_utils.py:414
+msgid "Minimalist reminder"
+msgstr "Minimalistische Erinnerung"
+
+#: hm_utils.py:418
+msgid "Calculator"
+msgstr "Rechner"
+
+#: hm_utils.py:419
+msgid "Perform mathematical calculations"
+msgstr "Führen mathematische Berechnungen"
+
+#: hm_utils.py:423
+msgid "Office suite"
+msgstr "office-Suite"
+
+#: hm_utils.py:424
+msgid "Full LibreOffice suite"
+msgstr "Volle Libreoffice-Suite"
+
+#: hm_utils.py:428
+msgid "Scan documents"
+msgstr "Scannen von Dokumenten"
+
+#: hm_utils.py:429
+msgid "Simply scan a document"
+msgstr "Scannen Sie einfach ein Dokument"
+
+#: hm_utils.py:433
+msgid "Office help"
+msgstr "Büro-Hilfe"
+
+#: hm_utils.py:434
+msgid "Get some help about office applications"
+msgstr "Holen Sie sich Hilfe zu Office-Anwendungen"
+
+#: hm_utils.py:441
+msgid "Multimedia"
+msgstr ""
+
+#: hm_utils.py:444
+msgid "Multimedia player"
+msgstr "Multimedia-Player"
+
+#: hm_utils.py:445
+msgid "Watch video, DVD ou play music"
+msgstr "Schaut Video, DVD oder Musik"
+
+#: hm_utils.py:449
+msgid "Images viewer"
+msgstr "Bilder Betrachter"
+
+#: hm_utils.py:450
+msgid "Watch your favorite pictures and photos"
+msgstr "Sehen Sie Ihre Lieblingsbilder und Hotelfotos"
+
+#: hm_utils.py:454
+msgid "Music player"
+msgstr "Musik-Player"
+
+#: hm_utils.py:455
+msgid "Play music, playlist or radio"
+msgstr "Spielen Sie Musik, Playlist oder Radio"
+
+#: hm_utils.py:459
+msgid "CD/DVD burner"
+msgstr "CD / DVD Brenner"
+
+#: hm_utils.py:460
+msgid "Backup datas on CD ou DVD"
+msgstr "Backup-Daten auf CD ou DVD"
+
+#: hm_utils.py:464
+msgid "Volume control"
+msgstr "Lautstärkeregelung"
+
+#: hm_utils.py:465
+msgid "Adjust computer sound level"
+msgstr "Stellen Sie Computer Schallpegel"
+
+#: hm_utils.py:469
+msgid "Multimedia help"
+msgstr "Multimedia Hilfe"
+
+#: hm_utils.py:470
+msgid "Get some help about multimedia applications"
+msgstr "Holen Sie sich Hilfe zu Multimedia-Anwendungen"
+
+#: hm_utils.py:477
+msgid "Games"
+msgstr "Spiele"
+
+#: hm_utils.py:480
+msgid "Play sudoku"
+msgstr "spielen Sie Sudoku"
+
+#: hm_utils.py:481
+msgid "Numbers puzzle"
+msgstr "Zahlen Puzzle"
+
+#: hm_utils.py:485
+msgid "Play bricks"
+msgstr "Spielen Bricks"
+
+#: hm_utils.py:486
+msgid "Play a Tetris clone"
+msgstr "Spielen Sie ein Tetris-Klon"
+
+#: hm_utils.py:490 hm_utils.py:491
+msgid "Play cards"
+msgstr "Spielkarten"
+
+#: hm_utils.py:495
+msgid "Brain training"
+msgstr "Gehirntraining"
+
+#: hm_utils.py:496
+msgid "GBrainy games suite"
+msgstr "GBrainy Spiele suite"
+
+#: hm_utils.py:500
+msgid "Board game"
+msgstr "Brettspiel"
+
+#: hm_utils.py:501
+msgid "Play Mahjong"
+msgstr "spielen Mahjong"
+
+#: hm_utils.py:505
+msgid "Play with bubbles"
+msgstr "Spielen mit Blasen"
+
+#: hm_utils.py:506
+msgid "Align colored bubbles"
+msgstr "Richten Sie farbige Blasen"
+
+#: hm_utils.py:513
+msgid "Adventurers"
+msgstr "Abenteurer"
+
+#: hm_utils.py:516
+msgid "Open a terminal"
+msgstr "Öffnen Sie ein Terminal"
+
+#: hm_utils.py:517
+msgid "Get access to the command line"
+msgstr "Erhalten Sie Zugriff auf die Befehlszeile"
+
+#: hm_utils.py:521
+msgid "Software Library"
+msgstr "Softwarebibliothek"
+
+#: hm_utils.py:522
+msgid "Software management"
+msgstr "Softwaremanagement"
+
+#: hm_utils.py:526
+msgid "Applications list"
+msgstr "Liste Anwendungen"
+
+#: hm_utils.py:527
+msgid "Access to all installed applications"
+msgstr "Zugriff auf alle installierten Anwendungen"
+
+#: hm_utils.py:531
+msgid "Network configuration"
+msgstr "Netzwerkkonfiguration"
+
+#: hm_utils.py:532
+msgid "Configure your network connection"
+msgstr "Konfigurieren Sie Ihre Netzwerkverbindung"
+
+#: hm_utils.py:536
+msgid "Printer configuration"
+msgstr "Druckerkonfiguration"
+
+#: hm_utils.py:537
+msgid "Add and configure a printer"
+msgstr "Hinzufügen und Konfigurieren eines Druckers"
+
+#: hm_utils.py:541
+msgid "Detailed configuration"
+msgstr "ausführliche Konfigurations"
+
+#: hm_utils.py:542
+msgid "Configure each part of HandyLinux"
+msgstr "Konfigurieren Sie jeden Teil HandyLinux"
+
+#~ msgid "Toggle between categories"
+#~ msgstr "Toggle zwischen den Kategorien"

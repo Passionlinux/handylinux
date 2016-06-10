@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ ! -d ~/Public ]; then
+    mkdir -p ~/Public
+fi
+python3 -OO /usr/share/btshare/btshare-web.py ~/Public

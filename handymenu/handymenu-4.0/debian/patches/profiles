@@ -1,0 +1,42 @@
+Description: add profil feature
+ .
+ handymenu (4.0-27) unstable; urgency=medium
+ .
+   * increase window-size when more than 7 tabs
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handymenu-4.0.orig/hm_utils.py
++++ handymenu-4.0/hm_utils.py
+@@ -11,13 +11,17 @@ import subprocess
+ 
+ # options for handymenu
+ menuname = "HandyMenu"
+-configdir=os.path.expanduser('~/.handymenu')
++configdir = os.path.expanduser('~/.handymenu')
++profile = os.getenv('HANDYMENU_PROFILE')
++if profile:
++    configdir = os.path.join(configdir,profile)
++
+ configfile=os.path.join(configdir,'handymenu.conf')
+ noclose=os.path.join(configdir,'handymenu-noclose.conf')
+ makeaccessfile=os.path.join(configdir,'handymenu-access.conf')
+ modulesfile=os.path.join(configdir,'handymenu-modules.conf')
+ hmdir="/usr/share/handymenu"
+-configcmd="python3 {} &".format(os.path.join(hmdir,"handymenu-configuration.py")) 
++configcmd="python3 {} {} &".format(os.path.join(hmdir,"handymenu-configuration.py"), configdir)
+ handy_icons=os.path.join(hmdir,"icons")
+ handymenuicon=os.path.join(handy_icons,"handymenu_icon.png")
+ 

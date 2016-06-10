@@ -1,0 +1,201 @@
+# Nederland translations for handysoft package.
+# Copyright (C) 2015 ORGANIZATION
+# arpinux <contact@arpinux.org>, 2015, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: handysoft 0.42\n"
+"POT-Creation-Date: 2016-05-20 21:14+CEST\n"
+"PO-Revision-Date: 2016-05-13 22:23+0200\n"
+"Last-Translator: arpinux <contact@arpinux.org>\n"
+"Language-Team: French <>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: handysoft.py:88
+msgid "Package informations"
+msgstr "Pakket informatie"
+
+#: handysoft.py:127
+msgid "Remove this package"
+msgstr "Verwijder dit pakket"
+
+#: handysoft.py:128
+msgid "This package is installed"
+msgstr "Dit pakket is geïnstalleerd"
+
+#: handysoft.py:131
+msgid "Install this package"
+msgstr "Installeer dit pakket"
+
+#: handysoft.py:132
+msgid "This package is not installed"
+msgstr "Dit pakket is niet geïnstalleerd"
+
+#: handysoft.py:150
+msgid "Downloading screenshot..."
+msgstr "Schermafbeelding downloaden..."
+
+#: handysoft.py:158
+msgid "Right click to add a screenshot"
+msgstr "Klik met de rechtermuisknop om een schermafbeelding toe te voegen"
+
+#: handysoft.py:171 handysoft.py:718
+msgid "To add a screenshot for {}, click here : "
+msgstr "Om een schermafbeelding voor {} toe te voegen, klik hier"
+
+#: handysoft.py:172 handysoft.py:719
+msgid "Click here to upload a screenshot"
+msgstr "Klik hier om een schermafbeelding te uploaden"
+
+#: handysoft.py:207
+msgid "Search package"
+msgstr "Zoek pakket"
+
+#: handysoft.py:208
+msgid "Enter your research here (regexp are allowed)"
+msgstr "Vul uw zoekopdracht hier in"
+
+#: handysoft.py:213
+msgid "Click to start searching"
+msgstr "Klik om te zoeken"
+
+#: handysoft.py:221
+msgid "Search also in description"
+msgstr "Zoek ook in de beschrijving"
+
+#: handysoft.py:223
+msgid "Search in description"
+msgstr "Zoek in de beschrijving"
+
+#: handysoft.py:254
+msgid "Search"
+msgstr "Zoeken"
+
+#: handysoft.py:254
+msgid "Search packages"
+msgstr "Zoek pakketten"
+
+#: handysoft.py:255
+msgid "Softwares"
+msgstr "Software"
+
+#: handysoft.py:259
+msgid "Toggle between packages search or packages list"
+msgstr "Schakelen tussen pakketten zoeken of pakketten lijst"
+
+#: handysoft.py:266
+msgid "About"
+msgstr "Over"
+
+#: handysoft.py:323
+msgid "Opening cache"
+msgstr "Open cache"
+
+#: handysoft.py:383
+msgid ""
+"\n"
+"{} lets you install common applications easily\n"
+"\n"
+"\n"
+"For a full list of available packages in Debian and Handylinux "
+"repositories, \n"
+"you must use the Synaptic Package Manager.\n"
+"                "
+msgstr ""
+"\n"
+"{} Gangbare toepassingen eenvoudig installeren\n"
+"\n"
+"\n"
+"Volledige lijst van beschikbare pakketten in Debian repositories, \n"
+"Je moet de Synaptic Package Manager gebruiken.\n"
+"                "
+
+#: handysoft.py:390
+msgid "I'm an expert, open synaptic"
+msgstr "Ik ben een expert open Synaptic"
+
+#: handysoft.py:416 handysoft.py:634
+msgid "Installed"
+msgstr "Geïnstalleerd"
+
+#: handysoft.py:423 handysoft.py:640
+msgid "Package name"
+msgstr "Naam van het pakket"
+
+#: handysoft.py:430 handysoft.py:646
+msgid "Description"
+msgstr "Beschrijving"
+
+#: handysoft.py:515
+msgid "Searching in packages..."
+msgstr "Zoeken in pakketten..."
+
+#: handysoft.py:786
+msgid ""
+"<b>{0}</b>\n"
+"\n"
+"From {2} for handylinux community with love.\n"
+"version : {1}\n"
+"licence : {3}\n"
+"homepage : <a href=\"{4}\" title=\"handysoft homepage\">{4}</a>"
+msgstr ""
+"<b>{0}</b>\n"
+"\n"
+"From {2} for handylinux community with love.\n"
+"version : {1}\n"
+"licence : {3}\n"
+"homepage : <a href=\"{4}\" title=\"handysoft homepage\">{4}</a>"
+
+#: handysoft_utils.py:35
+msgid "Games"
+msgstr "Spelletjes"
+
+#: handysoft_utils.py:36
+msgid "Education"
+msgstr "Onderwijs"
+
+#: handysoft_utils.py:37
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: handysoft_utils.py:38
+msgid "Internet"
+msgstr "Internet"
+
+#: handysoft_utils.py:39
+msgid "Office"
+msgstr "Kantoor"
+
+#: handysoft_utils.py:40
+msgid "Graphics"
+msgstr "Grafisch"
+
+#: handysoft_utils.py:41
+msgid "Tools and others"
+msgstr "Tools en anderen"
+
+#: handysoft_utils.py:42
+msgid "Expert"
+msgstr "Expert"
+
+#: handysoft_utils.py:249
+msgid "Installing a new package : "
+msgstr "Installeren van een nieuw pakket : "
+
+#: handysoft_utils.py:257
+msgid "Removing a package : "
+msgstr "Verwijderen van een pakket : "
+
+#: soft_install.py:94
+msgid "<span size='large'>☺ All changes applied with success</span>"
+msgstr "<span size='large'>☺ Alle wijzigingen zijn gelukt</span>"
+
+#: soft_install.py:96
+msgid "<span size='large'>☹ An Error Occurred!</span>"
+msgstr "<span size='large'>☹ Er is een fout opgetreden!</span>"

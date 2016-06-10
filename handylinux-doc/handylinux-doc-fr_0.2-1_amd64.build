@@ -1,0 +1,61 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handylinux-doc-fr
+dpkg-buildpackage: source version 0.2-1
+dpkg-buildpackage: source distribution jessie
+dpkg-buildpackage: source changed by team handylinux <dev@handylinux.org>
+ dpkg-source --before-build handylinux-doc-fr-0.2
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handylinux-doc-fr-0.2
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handylinux-doc-fr using existing ./handylinux-doc-fr_0.2.orig.tar.xz
+dpkg-source: info: building handylinux-doc-fr in handylinux-doc-fr_0.2-1.debian.tar.xz
+dpkg-source: info: building handylinux-doc-fr in handylinux-doc-fr_0.2-1.dsc
+ debian/rules build
+dh build
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/handylinux-doc/handylinux-doc-fr-0.2'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handylinux-doc/handylinux-doc-fr-0.2'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/handylinux-doc/handylinux-doc-fr-0.2'
+install -d -m 755 -o root -g root /home/arp/debdev/handylinux-doc/handylinux-doc-fr-0.2/debian/handylinux-doc-fr/usr/share/handylinux/HandyLinux_doc
+install -m 644 -o root -g root handylinux-manuel_installation.pdf /home/arp/debdev/handylinux-doc/handylinux-doc-fr-0.2/debian/handylinux-doc-fr/usr/share/handylinux/HandyLinux_doc
+install -m 644 -o root -g root handylinux-manuel_utilisateur.pdf /home/arp/debdev/handylinux-doc/handylinux-doc-fr-0.2/debian/handylinux-doc-fr/usr/share/handylinux/HandyLinux_doc
+make[1]: Leaving directory '/home/arp/debdev/handylinux-doc/handylinux-doc-fr-0.2'
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `handylinux-doc-fr' in `../handylinux-doc-fr_0.2-1_all.deb'.
+ dpkg-genchanges  >../handylinux-doc-fr_0.2-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build handylinux-doc-fr-0.2
+dpkg-buildpackage: full upload (original source is included)
+Now running lintian...
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handylinux-doc-fr_0.2-1.dsc BE441FCF
+
+ signfile handylinux-doc-fr_0.2-1_amd64.changes BE441FCF
+
+Successfully signed dsc and changes files

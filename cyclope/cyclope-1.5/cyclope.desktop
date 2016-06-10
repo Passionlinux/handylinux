@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Cyclope
+Comment=Minimalist image viewer
+Comment[fr]=Visionneuse d'images minimaliste
+Exec=/usr/bin/cyclope
+Icon=cyclope_icon
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GTK;Graphics;Viewer;

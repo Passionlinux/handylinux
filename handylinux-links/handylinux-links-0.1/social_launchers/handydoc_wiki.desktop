@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=HandyLinux Wiki
+Comment=Main HandyLinux documentation
+Comment[fr]=Documentation en ligne HandyLinux
+Exec=x-www-browser https://handylinux.org/wiki
+Icon=handymenu_icon
+Terminal=false
+StartupNotify=true
+Categories=Application;Network;

@@ -1,0 +1,39 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" (C) Copyright 2016 arnault perret <arpinux@member.fsf.org>,
+.\"
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH LIVEUSBCREATOR 1 "January  6, 2016"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+liveusbcreator \- utilitaire de transfert pour live USB
+.SH SYNOPSIS
+.B liveusbcreator
+.RI "image.iso " "/path_to_usb_device "
+.br
+.SH DESCRIPTION
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+\fBliveusbcreator\fP vous permet de transférer facilement une image de type ISO sur un support amovible USB
+.SH OPTIONS
+Vous pouvez spécifier l'emplacement de l'image ISO ainsi que l'emplacement de la clé USB (ex : /dev/sdx) en arguments.
+.TP
+.B liveUSBcreator /path_to_ISO /dev/sdx
+va transférer l'ISO sur /dev/sdx
+.SH SEE ALSO
+.BR dd (1),
+.br

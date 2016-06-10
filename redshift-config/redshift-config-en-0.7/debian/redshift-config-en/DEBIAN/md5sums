@@ -1,0 +1,7 @@
+1168979cbb02829d8569de5f835e23f1  usr/bin/redshift-config
+7a06c65c6af81f8d4a1d1b8ed0ba42cd  usr/share/applications/redshift-config.desktop
+44b209e3a3022f9291c3295bf7a31fd9  usr/share/doc/redshift-config-en/changelog.gz
+2bc69c7854c289e1eeb4bb4684019871  usr/share/doc/redshift-config-en/copyright
+29f8fdf7d228e5d5062d6d8e9b37bc84  usr/share/man/man1/redshift-config.1.gz
+927dd510eb0cdf718d9194884ba32828  usr/share/redshift-config/lang/en/redshift.conf
+885aad435d2165e8c99de29e94b6c966  usr/share/redshift-config/lang/fr/redshift.conf

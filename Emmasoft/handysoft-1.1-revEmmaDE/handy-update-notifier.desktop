@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4
+Type=Application
+Name=Update notifier
+Comment=notify available updates
+Comment[fr]=notification des mises à jour disponibles
+Exec=/usr/bin/handy-update-notifier
+OnlyShowIn=XFCE;
+StartupNotify=false
+Terminal=false
+Hidden=false
+

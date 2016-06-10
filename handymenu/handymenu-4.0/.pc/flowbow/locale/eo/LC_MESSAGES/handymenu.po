@@ -1,0 +1,553 @@
+# Fichier de configuration du HandyMenu.
+# Copyright (C) GPL-v3 2015 HandyLinux
+# Xavier Cartron <thuban@yeuxdelibad.net>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: handymenu-3.2\n"
+"POT-Creation-Date: 2016-01-01 17:51+CET\n"
+"PO-Revision-Date: 2015-06-14 16:25+CEST\n"
+"Last-Translator: firepowi <contact@powi.fr>, Fredrick Brennan <admin@8chan."
+"co>, arpinux\n"
+"Language-Team: Esperanto <contact@handylinux.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: handymenu-configuration.py:58
+msgid "Handymenu Configuration"
+msgstr ""
+
+#: handymenu-configuration.py:146
+msgid "Choose an icon"
+msgstr "elektis piktogramon"
+
+#: handymenu-configuration.py:151
+msgid "Images"
+msgstr "bildoj"
+
+#: handymenu-configuration.py:159
+msgid "Closed, no files selected"
+msgstr "fermita, neniu dosiero elektita"
+
+#: handymenu-configuration.py:227
+msgid "Edit the launcher"
+msgstr "Redaktu la lanzador"
+
+#: handymenu-configuration.py:233
+msgid "Change"
+msgstr "Ŝanĝu"
+
+#: handymenu-configuration.py:244
+msgid "Change the label"
+msgstr "Ŝanĝu la nomon"
+
+#: handymenu-configuration.py:249
+msgid "Change icon"
+msgstr "ŝanĝo ikono"
+
+#: handymenu-configuration.py:256
+msgid "Change the application icon"
+msgstr "ŝanĝi la apliko ikono"
+
+#: handymenu-configuration.py:261
+msgid "Move up"
+msgstr "movi supren"
+
+#: handymenu-configuration.py:262
+msgid "Move down"
+msgstr "movi malsupren"
+
+#: handymenu-configuration.py:284
+msgid "Move this app"
+msgstr "movi ĉi lanĉilo"
+
+#: handymenu-configuration.py:289
+msgid "Delete"
+msgstr "Forigi"
+
+#: handymenu-configuration.py:292
+msgid "Delete this launcher"
+msgstr "Forigi ĉi lanzador"
+
+#: handymenu-configuration.py:329
+msgid "Delete this section"
+msgstr "Forigu la sekcion"
+
+#: handymenu-configuration.py:332
+msgid "Search for applications"
+msgstr "Trovi apliko"
+
+#: handymenu-configuration.py:339
+msgid "Move section up"
+msgstr "Movu supren sekcio"
+
+#: handymenu-configuration.py:343
+msgid "Move section down"
+msgstr "Moviĝu sekcio malsupren"
+
+#: handymenu-configuration.py:375
+msgid "Name of the new section: "
+msgstr "Nomo de la nova sekcio : "
+
+#: handymenu-configuration.py:381
+msgid "More"
+msgstr "Pli"
+
+#: handymenu-configuration.py:389
+msgid "Add a section"
+msgstr "Aldoni sekcio"
+
+#: handymenu-configuration.py:417
+msgid "Modules"
+msgstr "moduloj"
+
+#: handymenu-configuration.py:422 handymenu-configuration.py:423
+msgid "Show recent files"
+msgstr "Montru freŝdatan dosieron"
+
+#: handymenu-configuration.py:430 hm_utils.py:253
+msgid "Most visited"
+msgstr "plej vizitis"
+
+#: handymenu-configuration.py:431
+msgid "Show most visited uri"
+msgstr "Montru plej vizititaj uri"
+
+#: handymenu-configuration.py:444
+msgid "Position of modules in menu"
+msgstr "Pozicio de moduloj en menuo"
+
+#: handymenu-configuration.py:453
+msgid "Reset"
+msgstr "Restarigi"
+
+#: handymenu-configuration.py:460
+msgid "View config"
+msgstr ""
+
+#: handymenu-configuration.py:464
+msgid "Quit"
+msgstr "Ĉesu"
+
+#: handymenu.py:55
+msgid ""
+"<b>Handymenu</b>\n"
+"\n"
+"version : {0}\n"
+"author : {1}\n"
+"licence : {2}\n"
+"homepage : <a href=\"{3}\" title=\"HandyMenu homepage\">{3}</a>"
+msgstr ""
+"<b>Handymenu</b>\n"
+"\n"
+"versio : {0}\n"
+"aŭtoro : {1}\n"
+"licenco : {2}\n"
+"retpaĝo : <a href=\"{3}\" title=\"HandyMenu retpaĝo\">{3}</a>"
+
+#: handymenu.py:128
+msgid ""
+"<b>Error at launching {}</b>\n"
+"\n"
+"Is it installed?"
+msgstr ""
+
+#: handymenu.py:242 handymenu.py:243
+msgid "This menu is still empty"
+msgstr "Ĉi tiu menuo estas malplena"
+
+#: handymenu.py:275
+msgid "About"
+msgstr "Pri ni"
+
+#: handymenu.py:296
+msgid "Close"
+msgstr "Fermi"
+
+#: handymenu.py:305
+msgid "Configure"
+msgstr "Personecigi"
+
+#: handymenu.py:311
+msgid "Close after execution"
+msgstr "Malfermi post ekzekuto"
+
+#: hm_utils.py:33
+msgid "HandyLinux Rocks!"
+msgstr ""
+
+#: hm_utils.py:34
+msgid "Come say hi to our forum"
+msgstr "Venu saluti al nia forumo"
+
+#: hm_utils.py:36
+msgid "Computers for everyone"
+msgstr ""
+
+#: hm_utils.py:37
+msgid "My debian is handy"
+msgstr ""
+
+#: hm_utils.py:38
+msgid "All you need is handy"
+msgstr ""
+
+#: hm_utils.py:39
+msgid "Beware, bunnies everywhere"
+msgstr "Beware, kunikletoj ĉie"
+
+#: hm_utils.py:190
+msgid "Recent files"
+msgstr "Lastaj dosieroj"
+
+#: hm_utils.py:291
+msgid "Latest"
+msgstr "Lastaj"
+
+#: hm_utils.py:294
+msgid "Web browser"
+msgstr "Navegador retejo"
+
+#: hm_utils.py:295
+msgid "Surf the web"
+msgstr "Esploru la Interreton"
+
+#: hm_utils.py:299 hm_utils.py:396
+msgid "Personal folder"
+msgstr "Mia Dosierujo Persona"
+
+#: hm_utils.py:300 hm_utils.py:397
+msgid "Browse my personal directory"
+msgstr "Esplori miajn personajn dosierojn"
+
+#: hm_utils.py:304
+msgid "Framasoft"
+msgstr ""
+
+#: hm_utils.py:305 hm_utils.py:346
+msgid "Acces to free (as in freedom) Framasoft services"
+msgstr "Libera aliro servoj Framasoft"
+
+#: hm_utils.py:309
+msgid "HandyLinux Help Center"
+msgstr ""
+
+#: hm_utils.py:310
+msgid "Open HandyLinux Help Tool"
+msgstr ""
+
+#: hm_utils.py:314 hm_utils.py:535
+msgid "Applications list"
+msgstr "Listo de aplikaĵoj"
+
+#: hm_utils.py:315 hm_utils.py:536
+msgid "Access to all installed applications"
+msgstr "Aliri ĉiujn viajn aplikaĵojn"
+
+#: hm_utils.py:319 hm_utils.py:432
+msgid "Office suite"
+msgstr "Libreoffice"
+
+#: hm_utils.py:320 hm_utils.py:433
+msgid "Full LibreOffice suite"
+msgstr "Oficeja programaro tute senkosta"
+
+#: hm_utils.py:327
+msgid "Internet"
+msgstr "Interreto"
+
+#: hm_utils.py:330
+msgid "Surf the Web"
+msgstr "Esploru la Interreton"
+
+#: hm_utils.py:331
+msgid "Browse the internet"
+msgstr "Helpo de Internet"
+
+#: hm_utils.py:335
+msgid "Read or write emails"
+msgstr "Legi kaj skribi retmesaĝojn"
+
+#: hm_utils.py:336
+msgid "Consult or edit emails"
+msgstr "Konsulti aŭ skribi retletero"
+
+#: hm_utils.py:340
+msgid "Communicate with skype"
+msgstr "Komuniki per Skype"
+
+#: hm_utils.py:341
+msgid "Communicate freely with the NSA"
+msgstr "Komuniki senpage kun NSA"
+
+#: hm_utils.py:345
+msgid "Framasoft Services"
+msgstr "Framasoft liberaj servoj"
+
+#: hm_utils.py:350
+msgid "P2P torrent client"
+msgstr "Torrent kliento"
+
+#: hm_utils.py:351
+msgid "Share datas with P2P"
+msgstr "P2P datumoj sharing"
+
+#: hm_utils.py:355
+msgid "Internet help"
+msgstr "Helpo de Internet"
+
+#: hm_utils.py:356
+msgid "Get some help about internet applications"
+msgstr "Akiri helpon pri aplikaĵoj de interreto"
+
+#: hm_utils.py:363
+msgid "Files"
+msgstr "Lokoj"
+
+#: hm_utils.py:366
+msgid "My Pictures"
+msgstr "Miaj Fotoj"
+
+#: hm_utils.py:367
+msgid "Browse my images folder"
+msgstr "Esplori miajn fotojn"
+
+#: hm_utils.py:372
+msgid "My Documents"
+msgstr "Miaj Dokumentoj"
+
+#: hm_utils.py:373
+msgid "Browse my documents"
+msgstr "Esplori miajn dokumentojn"
+
+#: hm_utils.py:378
+msgid "My Music"
+msgstr "Mia muziko"
+
+#: hm_utils.py:379
+msgid "Browse my music folder"
+msgstr "Esplori mia muziko"
+
+#: hm_utils.py:384
+msgid "My Videos"
+msgstr "Miaj videoj"
+
+#: hm_utils.py:385
+msgid "Browse my videos"
+msgstr "Esplori miajn videojn"
+
+#: hm_utils.py:390
+msgid "Downloads"
+msgstr "Miaj Elŝutoj"
+
+#: hm_utils.py:391
+msgid "Check my downloaded files"
+msgstr "Esplori miajn dosierojn elŝutitajn"
+
+#: hm_utils.py:401
+msgid "Check the trash"
+msgstr "Kontroli la rubo"
+
+#: hm_utils.py:402
+msgid "Check and empty trash"
+msgstr "Kontroli kaj malplenigi la rubo"
+
+#: hm_utils.py:406
+msgid "Files help"
+msgstr "Helpo de dosieroj"
+
+#: hm_utils.py:407
+msgid "Get some help about file management"
+msgstr "Get helpo kun dosiero mastrumado"
+
+#: hm_utils.py:414
+msgid "Office"
+msgstr "Oficejo"
+
+#: hm_utils.py:417
+msgid "Text editor"
+msgstr "Teksta redaktilo"
+
+#: hm_utils.py:418
+msgid "Consult or edit text files"
+msgstr "Legi aŭ redakti teksta dosiero"
+
+#: hm_utils.py:422
+msgid "Take notes"
+msgstr "Notu"
+
+#: hm_utils.py:423
+msgid "Minimalist reminder"
+msgstr "Redaktilo minimumista"
+
+#: hm_utils.py:427
+msgid "Calculator"
+msgstr "Kalkulilo"
+
+#: hm_utils.py:428
+msgid "Perform mathematical calculations"
+msgstr "Plenumi matematikajn kalkulojn"
+
+#: hm_utils.py:437
+msgid "Scan documents"
+msgstr "Dokumento skanilo"
+
+#: hm_utils.py:438
+msgid "Simply scan a document"
+msgstr "Facile skani dokumentojn"
+
+#: hm_utils.py:442
+msgid "Office help"
+msgstr "Helpo de Oficejo"
+
+#: hm_utils.py:443
+msgid "Get some help about office applications"
+msgstr "Akiri helpon pri aplikaĵojn oficejajn"
+
+#: hm_utils.py:450
+msgid "Multimedia"
+msgstr "Plurmedio"
+
+#: hm_utils.py:453
+msgid "Multimedia player"
+msgstr "Plurmedia ludilo"
+
+#: hm_utils.py:454
+msgid "Watch video, DVD ou play music"
+msgstr "Aûskulti muzikon, spekti videojn aû viddiskojn"
+
+#: hm_utils.py:458
+msgid "Images viewer"
+msgstr "Vidigilo de fotoj"
+
+#: hm_utils.py:459
+msgid "Watch your favorite pictures and photos"
+msgstr "Vidi viajn ŝatatajn bildojn kaj fotojn"
+
+#: hm_utils.py:463
+msgid "Music player"
+msgstr "Sonaŭdigilo"
+
+#: hm_utils.py:464
+msgid "Play music, playlist or radio"
+msgstr "Aŭskulti muzikon, radiostaciojn kaj ludlistojn"
+
+#: hm_utils.py:468
+msgid "CD/DVD burner"
+msgstr "Registrilo de KD/DVD"
+
+#: hm_utils.py:469
+msgid "Backup datas on CD ou DVD"
+msgstr "Registri datumojn al KD/DVD"
+
+#: hm_utils.py:473
+msgid "Volume control"
+msgstr "Laŭtoregilo"
+
+#: hm_utils.py:474
+msgid "Adjust computer sound level"
+msgstr "Reguligi la laŭteco de la komputilo"
+
+#: hm_utils.py:478
+msgid "Multimedia help"
+msgstr "Helpo de plurmedio"
+
+#: hm_utils.py:479
+msgid "Get some help about multimedia applications"
+msgstr "Akiri helpon pri plurmedia aplikaĵoj"
+
+#: hm_utils.py:486
+msgid "Games"
+msgstr "Ludoj"
+
+#: hm_utils.py:489
+msgid "Play sudoku"
+msgstr "Ludi Sudoku-n"
+
+#: hm_utils.py:490
+msgid "Numbers puzzle"
+msgstr "Nombroj puzlo"
+
+#: hm_utils.py:494
+msgid "Play bricks"
+msgstr "Ludi brikoj"
+
+#: hm_utils.py:495
+msgid "Play a Tetris clone"
+msgstr "Ludi Tetris klono"
+
+#: hm_utils.py:499 hm_utils.py:500
+msgid "Play cards"
+msgstr "Ludi kartojn"
+
+#: hm_utils.py:504
+msgid "Brain training"
+msgstr "Cerbon Trejnado"
+
+#: hm_utils.py:505
+msgid "GBrainy games suite"
+msgstr "Progamaro de GBrainy"
+
+#: hm_utils.py:509
+msgid "Board game"
+msgstr "Ludi MahJong-n"
+
+#: hm_utils.py:510
+msgid "Play Mahjong"
+msgstr "Ludi Mahjong-n"
+
+#: hm_utils.py:514
+msgid "Play with bubbles"
+msgstr "Ludi Bobeloj"
+
+#: hm_utils.py:515
+msgid "Align colored bubbles"
+msgstr "Align koloraj bobeloj"
+
+#: hm_utils.py:522
+msgid "Adventurers"
+msgstr "Aventuristoj"
+
+#: hm_utils.py:525
+msgid "Open a terminal"
+msgstr "Malfermu terminalo"
+
+#: hm_utils.py:526
+msgid "Get access to the command line"
+msgstr "Aliri la komandan linion"
+
+#: hm_utils.py:530
+msgid "Software Library"
+msgstr "Programaro biblioteko"
+
+#: hm_utils.py:531
+msgid "Software management"
+msgstr "Instali kaj malinstali programarojn de la deponejoj de Debian"
+
+#: hm_utils.py:540
+msgid "Network configuration"
+msgstr "Reto agordo"
+
+#: hm_utils.py:541
+msgid "Configure your network connection"
+msgstr "Agordi la atributojn de via reto"
+
+#: hm_utils.py:545
+msgid "Printer configuration"
+msgstr "Agordi la Printilojn"
+
+#: hm_utils.py:546
+msgid "Add and configure a printer"
+msgstr "Aldoni kaj agordi la printilojn"
+
+#: hm_utils.py:550
+msgid "Detailed configuration"
+msgstr "Agordo detala"
+
+#: hm_utils.py:551
+msgid "Configure each part of HandyLinux"
+msgstr "Agordi ĉiujn aspektojn de HandyLinux"

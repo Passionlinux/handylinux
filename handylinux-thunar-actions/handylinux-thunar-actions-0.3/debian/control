@@ -1,0 +1,17 @@
+Source: handylinux-thunar-actions
+Section: misc
+Priority: optional
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org
+
+Package:handylinux-thunar-actions
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, imagemagick, sox, lame,
+ mpg321, curl, vorbis-tools, zenity, libnotify-bin, catfish,
+ thunar, exo-utils, btshare-hweb, file, photoprint
+Description: Scripts pour les actions personnalisées de Thunar
+ Ce paquet contient une série de scripts à utiliser avec Thunar sur HandyLinux.
+ .
+ Ce paquet embarque également le fichier des actions pré-configurées pour Thunar.

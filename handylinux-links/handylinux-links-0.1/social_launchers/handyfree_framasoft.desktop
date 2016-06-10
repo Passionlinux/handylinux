@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Framasoft
+Name[fr]=Framasoft
+Comment=la route est longue, mais la voie est libre
+Comment[fr]=la route est longue, mais la voie est libre
+Icon=framasoft
+Exec=x-www-browser http://framasoft.org/
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;

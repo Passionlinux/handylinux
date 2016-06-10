@@ -1,0 +1,43 @@
+Description: minor jquery address fix
+ .
+ btshare-hweb (0.2.7) unstable; urgency=low
+ .
+   * fix config dir creation
+   * fix jquery.js call
+Author: arnault perret <arpinux@member.fsf.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- btshare-hweb-0.2.7.orig/btshare/templates/down.html
++++ btshare-hweb-0.2.7/btshare/templates/down.html
+@@ -67,7 +67,7 @@ filename='style.css') }} ">
+   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+ </script>
+ 
+-<script type=text/javascript src="http://v2.handylinux.org/js/jquery.js"></script>
++<script type=text/javascript src="http://handylinux.org/js/jquery.js"></script>
+ 
+ <script type="text/javascript">
+ function copyToClipboard(text) {
+--- btshare-hweb-0.2.7.orig/btshare/templates/index.html
++++ btshare-hweb-0.2.7/btshare/templates/index.html
+@@ -52,7 +52,7 @@ filename='style.css') }} ">
+   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+ </script>
+ 
+-<script type=text/javascript src="http://v2.handylinux.org/js/jquery.js"></script>
++<script type=text/javascript src="http://handylinux.org/js/jquery.js"></script>
+ 
+ <script type="text/javascript">
+ function copyToClipboard(text) {

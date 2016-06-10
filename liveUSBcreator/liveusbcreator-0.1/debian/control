@@ -1,0 +1,16 @@
+Source: liveusbcreator
+Section: x11
+Priority: optional
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org/wiki/doku.php/fr/tools#liveusbcreator
+
+Package: liveusbcreator
+Architecture: all
+Depends: ${misc:Depends}, zenity, coreutils (>= 8.0), pv
+Description: Outil de création de live USB
+ liveUSBcreator vous permet de transférer facilement 
+ une image ISO sur un support amovible USB.
+ .
+ liveUSBcreator est une interface graphique pour dd.

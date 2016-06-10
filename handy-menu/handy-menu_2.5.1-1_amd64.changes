@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sat, 11 Jul 2015 16:57:20 +0200
+Source: handy-menu
+Binary: handy-menu
+Architecture: source all
+Version: 2.5.1-1
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ handy-menu - Menu principal d'HandyLinux
+Changes:
+ handy-menu (2.5.1-1) unstable; urgency=medium
+ .
+   * iswitch from exo-open to x-www commands
+Checksums-Sha1:
+ d92fb7075983766e719701b0b7a1906a71258a93 834 handy-menu_2.5.1-1.dsc
+ 99e094ac1e6abb7237ee8e6826524324fa32c5f4 731320 handy-menu_2.5.1.orig.tar.xz
+ d48b029e896e926cb1294c0f824a9e68197dfa70 2308 handy-menu_2.5.1-1.debian.tar.xz
+ d8909bc845f950825cb490063da3a169695042e0 737048 handy-menu_2.5.1-1_all.deb
+Checksums-Sha256:
+ 1aa1863689cb83fd539416083ed84e23510f3962e2a4ab0e2a1a58340341f6a9 834 handy-menu_2.5.1-1.dsc
+ 037642f6431a8dd08933eded188b29ff53048395958a638ec51efbd1a5ff1a03 731320 handy-menu_2.5.1.orig.tar.xz
+ 63d8558dc61fe71e14753afd5d7b416e83fdb4a85636e4d1c79f137963c452cc 2308 handy-menu_2.5.1-1.debian.tar.xz
+ 7d8d9670f64f18bdb8eae59578b3cd104f4ce6087aec1d9d11569ad74e9977ef 737048 handy-menu_2.5.1-1_all.deb
+Files:
+ cf534470c9d88ddfbfa6e0ade5a2fe83 834 x11 extra handy-menu_2.5.1-1.dsc
+ 271b987aed853c64ee84bdd07e7381fd 731320 x11 extra handy-menu_2.5.1.orig.tar.xz
+ 44ae2ab86d87f0c46bfd328cd6d2eb1e 2308 x11 extra handy-menu_2.5.1-1.debian.tar.xz
+ 37fa767a8b18aa638221fe19c6cfe2fe 737048 x11 extra handy-menu_2.5.1-1_all.deb

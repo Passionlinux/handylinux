@@ -1,0 +1,1155 @@
+<interface>
+  <requires lib="gtk+" version="2.18"/>
+  <!-- interface-naming-policy project-wide -->
+  <!-- interface-local-resource-path icons -->
+  <object class="GtkWindow" id="handy-menu">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="has_focus">False</property>
+    <property name="border_width">10</property>
+    <property name="title">Handy Linux Menu</property>
+    <property name="role">mainmenu</property>
+    <property name="receives_default">False</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="icon">handymenu_icon.png</property>
+    <property name="gravity">center</property>
+    <signal name="destroy-event" handler="on_mainWindow_destroy" swapped="no"/>
+    <signal name="delete-event" handler="on_mainWindow_destroy" swapped="no"/>
+    <child>
+      <object class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton" id="aide">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes">Handy Linux - cliquez pour acc&#233;der &#224; l'aide</property>
+            <property name="use_action_appearance">False</property>
+            <property name="image">handymenu_banner</property>
+            <property name="relief">none</property>
+            <property name="image_position">top</property>
+            <signal name="clicked" handler="on_aide_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="padding">14</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkNotebook" id="categories">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tab_border">0</property>
+            <property name="tab_hborder">11</property>
+            <property name="tab_vborder">5</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkTable" id="table_internet">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">3</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="web">
+                    <property name="label" translatable="yes">Naviguer sur Internet</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">naviguer sur internet</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">webbrowser</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_webbrowser_event" swapped="no"/>
+                    <signal name="key-press-event" handler="on_webbrowser_event" swapped="no"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="facebook">
+                    <property name="label" translatable="yes">Services Libres Framasoft</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">acc&#233;der aux services libres Framasoft</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">internet_facebook</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_facebook_event" swapped="no"/>
+                    <signal name="key-press-event" handler="on_facebook_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="icedove">
+                    <property name="label" translatable="yes">Lire et Ecrire des E-mails</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">consulter ou r&#233;diger des emails</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">internet_mail</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_icedove_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_icedove_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="transmission">
+                    <property name="label" translatable="yes">Lecteur Vid&#233;o Minitube</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">regarder des vid&#233;os sur YouTube</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">internet_transmission</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_transmission_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_transmission_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="skype">
+                    <property name="label" translatable="yes">Communiquer avec Skype</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">communiquer gratuitement sur internet avec skype</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">internet_skype</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_skype_event" swapped="no"/>
+                    <signal name="key-press-event" handler="on_skype_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="aide_internet">
+                    <property name="label" translatable="yes">Aide Internet</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">obtenir de l'aide sur les applications internet</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">internet_aide</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_aide_internet_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_aide_internet_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="internet">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">naviguer sur internet,
+lire et &#233;crire des emails,
+communiquer avec skype...</property>
+                <property name="label" translatable="yes">Internet</property>
+                <property name="use_underline">True</property>
+                <property name="mnemonic_widget">table_internet</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTable" id="table_files">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">4</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="fichier_images">
+                    <property name="label" translatable="yes">Mes Images</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">naviguer dans mes images avec Thunar</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">mes_images</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_mes_images_clicked" swapped="no"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="fichier_documents">
+                    <property name="label" translatable="yes">Mes Documents</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">naviguer dans mes documents avec Thunar</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">mes_documents</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_mes_documents_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="fichier_telechargements">
+                    <property name="label" translatable="yes">Mes T&#233;l&#233;chargements</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">v&#233;rifier mes fichiers t&#233;l&#233;charg&#233;s</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">mes_telechargement</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_mes_telechargements_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="dossier_personnel">
+                    <property name="label" translatable="yes">Mon Dossier Personnel</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">naviguer dans mon dossier personnel avec Thunar</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">mon_home</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_dossier_personnel_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="fichier_musique">
+                    <property name="label" translatable="yes">Ma Musique</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">naviguer dans ma musique avec Thunar</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">ma_musique</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_ma_musique_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="fichier_corbeille">
+                    <property name="label" translatable="yes">Vider la Corbeille</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">v&#233;rifier et vider la corbeille</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">vider_corbeille</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_vider_corbeille_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="fichier_videos">
+                    <property name="label" translatable="yes">Mes Vid&#233;os</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">naviguer dans mes vid&#233;os avec Thunar</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">mes_videos</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_mes_videos_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="right_attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="fichiers_aide">
+                    <property name="label" translatable="yes">Aide Fichiers</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">obtenir de l'aide sur la gestion des fichiers</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">aide_fichiers</property>
+                    <property name="image_position">top</property>
+                    <signal name="clicked" handler="on_aide_fichiers_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="right_attach">4</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="files">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">naviguer dans mes fichiers,
+vider la corbeille,
+v&#233;rifier mes t&#233;l&#233;chargements</property>
+                <property name="label" translatable="yes">Fichiers</property>
+                <property name="use_underline">True</property>
+                <property name="mnemonic_widget">table_files</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTable" id="table_media">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">3</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="vlc">
+                    <property name="label" translatable="yes">Lecteur MultiM&#233;dia</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">visionner un fichier vid&#233;o, un dvd ou un fichier audio</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">media_vlc</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_vlc_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_vlc_envent" swapped="no"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="xfburn">
+                    <property name="label" translatable="yes">Graveur de CD/DVD</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">graver vos donn&#233;es sur cd/dvd</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">media_xfburn</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_xfburn_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_xfburn_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="ristretto">
+                    <property name="label" translatable="yes">Visionneuse d'Images</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">visionner simplement vos images et photos</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">media_ristretto</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_ristretto_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_ristretto_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="mixer">
+                    <property name="label" translatable="yes">R&#233;glage du Volume</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">r&#233;gler le volume sonore</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">media_mixer</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_mixer_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_mixer_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="quodlibet">
+                    <property name="label" translatable="yes">Lecteur de Musique</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">&#233;couter de la musique, c&#233;er ses listes de lectures, &#233;couter la radio</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">media_quodlibet</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_quodlibet_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_quodlibet_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="aide_media">
+                    <property name="label" translatable="yes">Aide Multim&#233;dia</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">obtenir de l'aide sur les applications multim&#233;dia</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">media_aide</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_aide_media_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_aide_media_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="media">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">visionner des vid&#233;os, des photos,
+graver des disques,
+&#233;couter la musique...</property>
+                <property name="label" translatable="yes">MultiM&#233;dia</property>
+                <property name="use_underline">True</property>
+                <property name="mnemonic_widget">table_media</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">2</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTable" id="table_office">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">3</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="mousepad">
+                    <property name="label" translatable="yes">Editeur de Texte</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">consulter ou &#233;diter simplement un fichier texte</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">office_mousepad</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_mousepad_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_mousepad_envent" swapped="no"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="libreoffice">
+                    <property name="label" translatable="yes">Suite Bureautique</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">suite bureautique compl&#232;te:
+traitement de texte, tableur,
+pr&#233;sentation, impression.</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">office_libreoffice</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_libreoffice_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_libreoffice_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="xpad">
+                    <property name="label" translatable="yes">Prendre des Notes</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">simple pense-b&#234;te</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">office_notes</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_xpad_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_xpad_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="xsane">
+                    <property name="label" translatable="yes">Scanner un Document</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">num&#233;risation de documents</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">office_scan</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_xsane_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_xsane_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="xcalc">
+                    <property name="label" translatable="yes">Calculatrice</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">effectuer des calculs math&#233;matiques</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">office_calc</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_xcalc_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_xcalc_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="aide_office">
+                    <property name="label" translatable="yes">Aide Bureautique</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">obtenir de l'aide sur les applications bureautiques</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">office_aide</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_aide_office_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_aide_office_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="office">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">&#233;diter du texte, visionner des documents pdf,
+calculer, imprimer des documents...</property>
+                <property name="label" translatable="yes">Bureautique</property>
+                <property name="use_underline">True</property>
+                <property name="mnemonic_widget">table_office</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">3</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTable" id="table_jeux">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">2</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="sudoku">
+                    <property name="label" translatable="yes">Jouer au Sudoku</property>
+                    <property name="tooltip_text" translatable="yes">Jouer au Sudoku</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">jeux_sudoku</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_sudoku_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_sudoku_envent" swapped="no"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="cards">
+                    <property name="label" translatable="yes">Jouer aux Cartes</property>
+                    <property name="tooltip_text" translatable="yes">Jouer aux Cartes</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">jeux_cards</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_cards_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_cards_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="gbrainy">
+                    <property name="label" translatable="yes">Entrainement C&#233;r&#233;bral</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">suite de jeux GBrainy</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">game_gbrainy</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_gbrainy_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_gbrainy_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="boards">
+                    <property name="label" translatable="yes">Jeux de Plateau</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Jouer au MahJong</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">game_mahjong</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_boards_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_boards_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">4</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="jeux">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">passer le temps en s'amusant</property>
+                <property name="label" translatable="yes">Jeux</property>
+                <property name="use_underline">True</property>
+                <property name="mnemonic_widget">table_jeux</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">4</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkTable" id="table_dev">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">3</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="synaptic">
+                    <property name="label" translatable="yes">Logith&#232;que Debian</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">installer, desinstaller des logiciels
+depuis la logith&#232;que Debian</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">dev_packages</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_synaptic_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_synaptic_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="dev_prin">
+                    <property name="label" translatable="yes">Configurer une Imprimante</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">ajouter et configurer une imprimante</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">dev_print</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_dev_print_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_dev_print_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="appslist">
+                    <property name="label" translatable="yes">Liste des Applications</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">acc&#233;der &#224; la liste compl&#232;te des applications install&#233;es</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">dev_apps</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_appslist_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_appslist_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="devconfig">
+                    <property name="label" translatable="yes">Configuration d&#233;taill&#233;e</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">acc&#233;der &#224; la configuration d&#233;taill&#233;e de Handy Linux</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">dev_config</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_dev_config_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_dev_config_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="terminal">
+                    <property name="label" translatable="yes">Ouvrir un Terminal</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">acc&#233;der &#224; la ligne de commande</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">dev_term</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_terminal_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_terminal_envent" swapped="no"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="network">
+                    <property name="label" translatable="yes">Configuration R&#233;seau</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">configurer vos connexions r&#233;seaux</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="image">dev_network</property>
+                    <property name="image_position">top</property>
+                    <signal name="button-press-event" handler="on_network_envent" swapped="no"/>
+                    <signal name="key-press-event" handler="on_network_envent" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">5</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="dev">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">gestion des logiciels, du r&#233;seau,
+utilisation du terminal,
+configuration d&#233;taill&#233;e de Handy Linux</property>
+                <property name="label" translatable="yes">Aventuriers</property>
+                <property name="use_underline">True</property>
+                <property name="mnemonic_widget">table_dev</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">5</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHSeparator" id="hseparator1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">9</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="hbox1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkCheckButton" id="checkbutton1">
+                <property name="label" translatable="yes">fermer apr&#232;s l'execution</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">cocher pour fermer le handymenu une fois l'action ex&#233;cut&#233;e</property>
+                <property name="events">GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON1_MOTION_MASK | GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK | GDK_FOCUS_CHANGE_MASK | GDK_STRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK | GDK_VISIBILITY_NOTIFY_MASK | GDK_PROXIMITY_IN_MASK | GDK_PROXIMITY_OUT_MASK | GDK_SUBSTRUCTURE_MASK | GDK_SCROLL_MASK</property>
+                <property name="use_action_appearance">False</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <signal name="clicked" handler="on_check_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLinkButton" id="linkbutton1">
+                <property name="label" translatable="yes">http://handylinux.org </property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="has_tooltip">True</property>
+                <property name="use_action_appearance">False</property>
+                <property name="relief">none</property>
+                <property name="image_position">right</property>
+                <property name="uri">http://handylinux.org </property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="preferences">
+                <property name="label" translatable="yes">pr&#233;f&#233;rences</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">configurer l'apparence du handymenu</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="clicked" handler="on_preferences_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkImage" id="jeux_cards">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/jeux_cards.png</property>
+  </object>
+  <object class="GtkImage" id="jeux_sudoku">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/jeux_sudoku.png</property>
+  </object>
+  <object class="GtkImage" id="media_aide">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/media_aide.png</property>
+  </object>
+  <object class="GtkImage" id="media_mixer">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/media_mixer.png</property>
+  </object>
+  <object class="GtkImage" id="media_mixer1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/media_mixer.png</property>
+  </object>
+  <object class="GtkImage" id="media_quodlibet">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/media_quodlibet.png</property>
+  </object>
+  <object class="GtkImage" id="media_ristretto">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/media_ristretto.png</property>
+  </object>
+  <object class="GtkImage" id="media_vlc">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/media_vlc.png</property>
+  </object>
+  <object class="GtkImage" id="media_xfburn">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/media_xfburn.png</property>
+  </object>
+  <object class="GtkImage" id="office_aide">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/office_aide.png</property>
+  </object>
+  <object class="GtkImage" id="office_calc">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/office_calc.png</property>
+  </object>
+  <object class="GtkImage" id="office_libreoffice">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/office_libreoffice.png</property>
+  </object>
+  <object class="GtkImage" id="office_mousepad">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/office_mousepad.png</property>
+  </object>
+  <object class="GtkImage" id="office_notes">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/office_notes.png</property>
+  </object>
+  <object class="GtkImage" id="office_scan">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/office_scan.png</property>
+  </object>
+  <object class="GtkImage" id="internet_aide">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/internet_aide.png</property>
+  </object>
+  <object class="GtkImage" id="internet_facebook">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/internet_framasoft.png</property>
+  </object>
+  <object class="GtkImage" id="webbrowser">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/webbrowser.png</property>
+  </object>
+  <object class="GtkImage" id="internet_mail">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/internet_mail.png</property>
+  </object>
+  <object class="GtkImage" id="internet_transmission">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/internet_transmission.png</property>
+  </object>
+  <object class="GtkImage" id="internet_skype">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/internet_skype.png</property>
+  </object>
+  <object class="GtkImage" id="handymenu_banner">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/handymenu_banner.png</property>
+  </object>
+  <object class="GtkImage" id="config_full">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/config_full.png</property>
+  </object>
+  <object class="GtkImage" id="dev_apps">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/dev_apps.png</property>
+  </object>
+  <object class="GtkImage" id="dev_config">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/dev_config.png</property>
+  </object>
+  <object class="GtkImage" id="dev_network">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/dev_network.png</property>
+  </object>
+  <object class="GtkImage" id="dev_packages">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/dev_packages.png</property>
+  </object>
+  <object class="GtkImage" id="dev_print">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/dev_print.png</property>
+  </object>
+  <object class="GtkImage" id="dev_term">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/dev_term.png</property>
+  </object>
+  <object class="GtkImage" id="aide_fichiers">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/aide_fichiers.png</property>
+  </object>
+  <object class="GtkImage" id="vider_corbeille">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/vider_corbeille.png</property>
+  </object>
+  <object class="GtkImage" id="mes_documents">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/mes_documents.png</property>
+  </object>
+  <object class="GtkImage" id="mon_home">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/mon_home.png</property>
+  </object>
+  <object class="GtkImage" id="mes_images">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/mes_images.png</property>
+  </object>
+  <object class="GtkImage" id="ma_musique">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/ma_musique.png</property>
+  </object>
+  <object class="GtkImage" id="mes_telechargement">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/mes_telechargement.png</property>
+  </object>
+  <object class="GtkImage" id="mes_videos">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/mes_videos.png</property>
+  </object>
+  <object class="GtkImage" id="game_gbrainy">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/game_gbrainy.png</property>
+  </object>
+  <object class="GtkImage" id="game_mahjong">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">/usr/share/handy-menu/themes/icons/HandyLinux/game_mahjong.png</property>
+  </object>
+</interface>

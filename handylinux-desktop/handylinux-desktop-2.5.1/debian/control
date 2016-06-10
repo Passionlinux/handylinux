@@ -1,0 +1,32 @@
+Source: handylinux-desktop
+Section: x11
+Priority: extra
+Maintainer: team handylinux <dev@handylinux.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://handylinux.org
+
+Package: handylinux-desktop
+Architecture: all
+Depends: ${misc:Depends},
+ handy-menu (>= 2.19) | handymenu, handylinuxlook, handytri, handysoft, 
+ handy-update-notifier, redshift-config (>= 1.1), mpartage, btshare-hweb, 
+ handylinux-thunar-actions, cyclope, handylinux-doc-fr | handylinux-doc-en, 
+ xfce4, xfce4-terminal, xarchiver, eject, dtrx, zenity, bash-completion, 
+ pkg-mozilla-archive-keyring, 
+ xdg-utils, xdg-user-dirs, usbutils, exo-utils, pciutils, curl, 
+ dosfstools, ntfs-3g, mtools, gnome-disk-utility, gparted, 
+ gpart, sudo, gksu, synaptic, gnome-system-tools, 
+ python ( >= 2.7), python-apt, 
+ lsb-release, gnome-keyring, xcalib, catfish, mlocate, 
+ libunique-1.0-0, libgnome-menu2, 
+ xfce4-datetime-plugin, xfce4-volumed, xfce4-mount-plugin, 
+ xfce4-notifyd, xfce4-places-plugin, 
+ xfce4-sensors-plugin, xfce4-settings, xfce4-taskmanager,
+ thunar-archive-plugin, thunar-volman, tumbler
+Description: Méta-paquet principal pour HandyLinux
+ HandyLinux est une distribution basée sur Debian 
+ et orientée vers les grands débutants.
+ .
+ Ce méta-paquet rassemble les éléments "main" 
+ pour construire HandyLinux.

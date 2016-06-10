@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sun, 22 Nov 2015 22:56:59 +0100
+Source: handylinux-links
+Binary: handylinux-links
+Architecture: source all
+Version: 0.1-3
+Distribution: unstable
+Urgency: medium
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description:
+ handylinux-links - Liens variés pour HandyLinux
+Changes:
+ handylinux-links (0.1-3) unstable; urgency=medium
+ .
+   * remove uneeded framasoft icon provided by handylinuxlook
+Checksums-Sha1:
+ 6148c9779d9aa5bddc3739fc6fb8d038df518a5c 841 handylinux-links_0.1-3.dsc
+ 37629c82a141d17a77cd3e57b8698bfa4fbae910 1704 handylinux-links_0.1-3.debian.tar.xz
+ b725dd81ad6b0634807d73c70433f41a842699d7 102096 handylinux-links_0.1-3_all.deb
+Checksums-Sha256:
+ b9040f085ab55e65d67dc2dbf3c8507b6d281537a95cca3f3bb748ba7a97c17f 841 handylinux-links_0.1-3.dsc
+ de93c5ed0e2828c0075dd1ca90b8617bab10292325962782247845a3167ddddc 1704 handylinux-links_0.1-3.debian.tar.xz
+ 79c79b69267b751a5d6678b97c677f5999a09cf39801206bdb81062d215c0bb1 102096 handylinux-links_0.1-3_all.deb
+Files:
+ dfc20af1ff791651b1524873058ed540 841 x11 optional handylinux-links_0.1-3.dsc
+ 13c7a716581b4e68a9792a16badd1d87 1704 x11 optional handylinux-links_0.1-3.debian.tar.xz
+ ee3cb67f8c14926d216e3b00666386af 102096 x11 optional handylinux-links_0.1-3_all.deb

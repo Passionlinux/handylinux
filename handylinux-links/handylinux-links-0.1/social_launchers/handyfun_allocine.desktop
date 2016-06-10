@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=AlloCine
+Comment=French website about movies
+Comment[fr]=Site d'information cinéla, séries, tv
+Exec=x-www-browser http://www.allocine.fr/
+Icon=allocine
+Terminal=false
+StartupNotify=true
+Categories=Application;Network;AudioVideo;

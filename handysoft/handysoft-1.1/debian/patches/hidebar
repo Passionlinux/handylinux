@@ -1,0 +1,39 @@
+Description: hide progressbar after installation/remove
+ .
+ handysoft (1.1-1) jessie; urgency=medium
+ .
+   * set gir1.2-vte-2.91
+   * fix back button
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handysoft-1.1.orig/soft_install.py
++++ handysoft-1.1/soft_install.py
+@@ -89,7 +89,6 @@ class Package_master():
+         self.terminal.copy_clipboard()
+ 
+     def end(self, term, exitstatus):
+-        self.progressbar.hide()
+         if exitstatus == 0:
+             self.titlelabel.set_markup(_("<span size='large'>☺ All changes applied with success</span>"))
+         else:
+@@ -100,6 +99,7 @@ class Package_master():
+         closebtn.connect("key_press_event", lambda x,y: Gtk.main_quit())
+         self.box.pack_start(closebtn, True, True, 5)
+         self.window.show_all()
++        self.progressbar.hide()
+ 
+ def main():
+     #print("usage : {} -m <message> -c <command>".format(sys.argv[0]))

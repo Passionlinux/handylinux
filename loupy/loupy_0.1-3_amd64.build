@@ -1,0 +1,77 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package loupy
+dpkg-buildpackage: source version 0.1-3
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by arnault perret <arpinux@member.fsf.org>
+ dpkg-source --before-build loupy-0.1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b loupy-0.1
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building loupy using existing ./loupy_0.1.orig.tar.xz
+dpkg-source: info: building loupy in loupy_0.1-3.debian.tar.xz
+dpkg-source: info: building loupy in loupy_0.1-3.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/loupy/loupy-0.1'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/loupy/loupy-0.1'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/loupy/loupy-0.1'
+# mise en place des dossiers
+install -d -m 755 -o root -g root /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/man/man1
+install -d -m 755 -o root -g root /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/loupy
+install -d -m 755 -o root -g root /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/locale
+install -d -m 755 -o root -g root /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/pixmaps
+# copie des fichiers
+install -m 755 -o root -g root loupy /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/bin
+install -m 644 -o root -g root loupy.1 /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/man/man1
+install -m 755 -o root -g root loupy.py /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/loupy
+install -m 644 -o root -g root loupy_icon.png /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/pixmaps
+install -m 644 -o root -g root loupy.desktop /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/applications
+# mise en place des traductions
+cp -a locale/* /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/locale/
+chown -R root:root /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/locale
+# nettoyage des traductions
+find /home/arp/debdev/loupy/loupy-0.1/debian/loupy/usr/share/locale -name "loupy.po*" -exec rm {} \;
+make[1]: Leaving directory '/home/arp/debdev/loupy/loupy-0.1'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `loupy' in `../loupy_0.1-3_all.deb'.
+ dpkg-genchanges  >../loupy_0.1-3_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build loupy-0.1
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile loupy_0.1-3.dsc arnault perret <arpinux@member.fsf.org>
+gpg: skipped "arnault perret <arpinux@member.fsf.org>": secret key not available
+gpg: /tmp/debsign.tmTyHpPI/loupy_0.1-3.dsc: clearsign failed: secret key not available
+debsign: gpg error occurred!  Aborting....

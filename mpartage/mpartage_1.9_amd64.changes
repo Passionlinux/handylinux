@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Fri, 23 May 2014 01:30:43 +0200
+Source: mpartage
+Binary: mpartage
+Architecture: source all
+Version: 1.9
+Distribution: unstable
+Urgency: low
+Maintainer: arnault perret <arpinux@member.fsf.org>
+Changed-By: arnault perret <arpinux@member.fsf.org>
+Description: 
+ mpartage   - Partage de données facile
+Changes: 
+ mpartage (1.9) unstable; urgency=low
+ .
+   * fix config name
+Checksums-Sha1: 
+ 994c1234b19c5a641011af9e8eafec4bd2aa1075 786 mpartage_1.9.dsc
+ d56685213024d196a9b384f01b9c76191adbe477 15191 mpartage_1.9.orig.tar.gz
+ 310b5802a3a0efb54289ff1c78b83ef59fa8272f 2325 mpartage_1.9.debian.tar.gz
+ 38c28ebcc2f211d472257a17f6f57af741fab41a 15976 mpartage_1.9_all.deb
+Checksums-Sha256: 
+ 326d618f86f4ee4af03a7c1c081a448438706234b04f76d795b84033d230c005 786 mpartage_1.9.dsc
+ 7aa6233a8e6dd197707611f34ae5fcf90bad08d9a0a621be3449888c31eaf0bb 15191 mpartage_1.9.orig.tar.gz
+ 966f2727c1347c8075e0b26973999716e5d33f7515c9f5220010899dd7c3b128 2325 mpartage_1.9.debian.tar.gz
+ 257b5ae6691bb52df2617e52456f2730e60adc993ac4271b12956475dadcc8a0 15976 mpartage_1.9_all.deb
+Files: 
+ 1b7d5bb2a1c56b7c0eeb9fc0908b7d24 786 x11 extra mpartage_1.9.dsc
+ d3543b0aca4674cdd18d22fec75e8514 15191 x11 extra mpartage_1.9.orig.tar.gz
+ dc18627fd36dd1635e1d2fffa2317421 2325 x11 extra mpartage_1.9.debian.tar.gz
+ a158939f9cadea85f31106c502b53eb5 15976 x11 extra mpartage_1.9_all.deb

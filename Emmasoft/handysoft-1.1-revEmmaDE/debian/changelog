@@ -1,0 +1,288 @@
+handysoft (1.1-1-revEmmaDE-2) unstable; urgency=medium
+
+  * suppression de l'appel au terminal externe
+
+ -- team handylinux <dev@handylinux.org>  Thu, 09 Jun 2016 15:50:28 +0200
+
+handysoft (1.1-1-revEmmaDE-1) unstable; urgency=medium
+
+  * passage en 1.1
+  * rétablissement des trads
+  * fix dep
+  * ajout du networkcheck
+
+ -- team handylinux <dev@handylinux.org>  Wed, 08 Jun 2016 20:10:12 +0200
+
+handysoft (1.0-8-revEmmaDE-11) unstable; urgency=medium
+
+  * refonte vte
+
+ -- team handylinux <dev@handylinux.org>  Wed, 08 Jun 2016 19:21:17 +0200
+
+handysoft (1.0-8-revEmmaDE-10) unstable; urgency=medium
+
+  * fix dépendance gir1.2-vte-2.91 
+
+ -- team handylinux <dev@handylinux.org>  Tue, 07 Jun 2016 18:59:24 +0200
+
+handysoft (1.0-8-revEmmaDE-9) unstable; urgency=medium
+
+  * fix german trad
+
+ -- team handylinux <dev@handylinux.org>  Sun, 05 Jun 2016 13:02:54 +0200
+
+handysoft (1.0-8-revEmmaDE-8) unstable; urgency=medium
+
+  * fix trad
+  * fix name
+
+ -- team handylinux <dev@handylinux.org>  Mon, 23 May 2016 00:39:29 +0200
+
+handysoft (1.0-8-revEmmaDE-7) unstable; urgency=medium
+
+  * fix identation
+
+ -- team handylinux <dev@handylinux.org>  Sat, 21 May 2016 00:12:50 +0200
+
+handysoft (1.0-8-revEmmaDE-6) unstable; urgency=medium
+
+  * fix search filter by thuban
+  * fix science-education icon by patrick
+
+ -- team handylinux <dev@handylinux.org>  Fri, 20 May 2016 21:16:25 +0200
+
+handysoft (1.0-8-revEmmaDE-5) unstable; urgency=medium
+
+  * fix exit bug by thuban
+
+ -- team handylinux <dev@handylinux.org>  Tue, 17 May 2016 17:30:34 +0200
+
+handysoft (1.0-8-revEmmaDE-4) unstable; urgency=medium
+
+  * minor fixes
+
+ -- team handylinux <dev@handylinux.org>  Fri, 13 May 2016 22:37:21 +0200
+
+handysoft (1.0-8-revEmmaDE-3) unstable; urgency=medium
+
+  * fix trad files
+  * fix debian contril file
+
+ -- team handylinux <dev@handylinux.org>  Fri, 13 May 2016 22:25:52 +0200
+
+handysoft (1.0-8-revEmmaDE-2) unstable; urgency=medium
+
+  * intégration du gestionnaire de mise à jour
+  * intégration du notifier de mise à jour
+  * mise à jour des traductions
+
+ -- team handylinux <dev@handylinux.org>  Fri, 13 May 2016 21:41:09 +0200
+
+handysoft (1.0-8-revEmmaDE-1) unstable; urgency=medium
+
+  * adaptation à EmmaDE
+
+ -- team handylinux <dev@handylinux.org>  Thu, 05 May 2016 02:02:10 +0200
+
+handysoft (1.0-8) jessie; urgency=medium
+
+  * improve install gui by wlourf
+  * prepare for libhandy by thuban
+
+ -- team handylinux <dev@handylinux.org>  Tue, 01 Mar 2016 20:48:35 +0100
+
+handysoft (1.0-7) jessie; urgency=medium
+
+  * fix patch process.. my fault@arpinux
+
+ -- team handylinux <dev@handylinux.org>  Tue, 01 Mar 2016 20:20:51 +0100
+
+handysoft (1.0-6) jessie; urgency=medium
+
+  * fix french name by thuban 
+
+ -- team handylinux <dev@handylinux.org>  Tue, 01 Mar 2016 20:18:32 +0100
+
+handysoft (1.0-5) jessie; urgency=medium
+
+  * fini l'anniv@arpi
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 Jan 2016 17:15:06 +0100
+
+handysoft (1.0-4) jessie; urgency=medium
+
+  * minor fix on install end process button & label
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 18 Jan 2016 13:11:01 +0100
+
+handysoft (1.0-3) jessie; urgency=medium
+
+  * retour de gdebi dans les dépendances
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 16 Jan 2016 13:23:08 +0100
+
+handysoft (1.0-2) jessie; urgency=medium
+
+  * traduction allemande
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 11 Jan 2016 03:11:45 +0100
+
+handysoft (1.0-1) jessie; urgency=medium
+
+  * almost done, but trads :)
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 11 Jan 2016 01:48:22 +0100
+
+handysoft (0.42-24) unstable; urgency=medium
+
+  * traduction des suggestions en
+  * fin de la traduction fr
+  * set appname in hlfavs
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 11 Jan 2016 01:25:35 +0100
+
+handysoft (0.42-23) unstable; urgency=medium
+
+  * compléter les descriptions
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 19:16:31 +0100
+
+handysoft (0.42-22) unstable; urgency=medium
+
+  * descriptions personnalisées pour handysoft à tester
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 09 Jan 2016 18:51:53 +0100
+
+handysoft (0.42-21) unstable; urgency=medium
+
+  * affichage de la description du paquet au simple clic
+
+ -- arnault perret <arpinux@member.fsf.org>  Thu, 07 Jan 2016 00:27:56 +0100
+
+handysoft (0.42-20) unstable; urgency=medium
+
+  * recherche d'un paquet passé en argument
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 05 Jan 2016 22:51:22 +0100
+
+handysoft (0.42-19) unstable; urgency=medium
+
+  * ajout d'un message en fin de processus
+
+ -- arnault perret <arpinux@member.fsf.org>  Mon, 14 Dec 2015 21:21:47 +0100
+
+handysoft (0.42-18) unstable; urgency=medium
+
+  * minor fix in debian file
+
+ -- arnault perret <arpinux@member.fsf.org>  Wed, 09 Dec 2015 02:08:11 +0100
+
+handysoft (0.42-17) unstable; urgency=medium
+
+  * update icon
+  * add french Name in desktop file
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 08 Dec 2015 16:11:56 +0100
+
+handysoft (0.42-16) unstable; urgency=medium
+
+  * ajout de gdebi en dépendance
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 08 Dec 2015 15:43:58 +0100
+
+handysoft (0.42-15) unstable; urgency=medium
+
+  * passage de l'installation en mode externe sans terminal
+  * update trad
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 08 Dec 2015 13:31:23 +0100
+
+handysoft (0.42-14) unstable; urgency=medium
+
+  * activation du lien de la page d'accueil
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 06 Dec 2015 17:42:38 +0100
+
+handysoft (0.42-13) unstable; urgency=medium
+
+  * suppression de la case à cocher pour les aperçus
+  * nettoyage de la trad
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Dec 2015 22:41:58 +0100
+
+handysoft (0.42-12) unstable; urgency=medium
+
+  * replace spinner by text
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Dec 2015 17:27:16 +0100
+
+handysoft (0.42-11) unstable; urgency=medium
+
+  * reduce tab icon size
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Dec 2015 16:25:37 +0100
+
+handysoft (0.42-10) unstable; urgency=medium
+
+  * restore about popup decoration
+  * fix icon name in desktop file
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Dec 2015 15:08:25 +0100
+
+handysoft (0.42-9) unstable; urgency=medium
+
+  * affichage du texte pour les cases à cocher 
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 01 Dec 2015 22:06:49 +0100
+
+handysoft (0.42-8) unstable; urgency=medium
+
+  * dyp sfw
+
+ -- arnault perret <arpinux@member.fsf.org>  Tue, 01 Dec 2015 20:04:12 +0100
+
+handysoft (0.42-7) unstable; urgency=medium
+
+  * cacher la fenêtre pendant l'installation
+  * refresh de l'icône install/uninstall
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 29 Nov 2015 18:54:12 +0100
+
+handysoft (0.42-6) unstable; urgency=medium
+
+  * restaurer la recherche libreoffice
+  * message d'avertissement à l'installation/suppression de logiciel
+  * mise à jour de la traduction fr
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 29 Nov 2015 18:18:38 +0100
+
+handysoft (0.42-5) unstable; urgency=medium
+
+  * always center the window
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 29 Nov 2015 17:50:46 +0100
+
+handysoft (0.42-4) unstable; urgency=medium
+
+  * update icon
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 29 Nov 2015 17:26:17 +0100
+
+handysoft (0.42-3) unstable; urgency=medium
+
+  * traduction allemande
+  * minor fix
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 29 Nov 2015 15:44:23 +0100
+
+handysoft (0.42-2) unstable; urgency=medium
+
+  * fis trad fr
+
+ -- arnault perret <arpinux@member.fsf.org>  Sun, 29 Nov 2015 03:52:11 +0100
+
+handysoft (0.42-1) unstable; urgency=low
+
+  * intégration dans les dépôts HandyLinux from thuban work
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 28 Nov 2015 16:35:49 +0100

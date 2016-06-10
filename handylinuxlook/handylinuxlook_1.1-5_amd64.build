@@ -1,0 +1,141 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handylinuxlook
+dpkg-buildpackage: source version 1.1-5
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by team handylinux <dev@handylinux.org>
+ dpkg-source --before-build handylinuxlook-1.1
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --with python2 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+	rm -f debian/handylinuxlook.substvars
+	rm -f debian/handylinuxlook.*.debhelper
+	rm -rf debian/handylinuxlook/
+	rm -f debian/*.debhelper.log
+	rm -f debian/files
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+	rm -f *-stamp
+ dpkg-source -b handylinuxlook-1.1
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handylinuxlook using existing ./handylinuxlook_1.1.orig.tar.xz
+dpkg-source: info: building handylinuxlook in handylinuxlook_1.1-5.debian.tar.xz
+dpkg-source: info: building handylinuxlook in handylinuxlook_1.1-5.dsc
+ debian/rules build
+dh build --with python2 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+	make -j1
+make[1]: Entering directory '/home/arp/debdev/handylinuxlook/handylinuxlook-1.1'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handylinuxlook/handylinuxlook-1.1'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary --with python2 
+   dh_testroot
+   dh_prep
+	rm -f debian/handylinuxlook.substvars
+	rm -f debian/handylinuxlook.*.debhelper
+	rm -rf debian/handylinuxlook/
+   dh_auto_install
+	install -d debian/handylinuxlook
+	make -j1 install DESTDIR=/home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/home/arp/debdev/handylinuxlook/handylinuxlook-1.1'
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/themes
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/xfce4/backdrops
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/doc/handylinuxlook
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/handytheme
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/slim/themes
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/images/desktop-base
+install -d -m 755 -o root -g root /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/pixmaps
+install -m 755 -o root -g root handytheme /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/bin
+install -m 644 -o root -g root handytheme.desktop /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/applications
+install -m 644 -o root -g root handytheme.png /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/pixmaps
+install -m 644 -o root -g root pixmaps/*.png /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/pixmaps
+install -m 644 -o root -g root walls/*.png /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/xfce4/backdrops
+install -m 644 -o root -g root walls/*.jpg /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/xfce4/backdrops
+install -m 644 -o root -g root README /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/doc/handylinuxlook
+install -m 644 -o root -g root lightdm/handylinux2-lightdm.png /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/images/desktop-base
+cp -R themes/* /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/themes/
+cp -R HandyTheme/* /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/handytheme/
+cp -R slim/* /home/arp/debdev/handylinuxlook/handylinuxlook-1.1/debian/handylinuxlook/usr/share/slim/themes/
+make[1]: Leaving directory '/home/arp/debdev/handylinuxlook/handylinuxlook-1.1'
+   dh_installdocs
+	install -g 0 -o 0 -m 644 -p debian/copyright debian/handylinuxlook/usr/share/doc/handylinuxlook/copyright
+   dh_installchangelogs
+	install -o 0 -g 0 -p -m644 debian/changelog debian/handylinuxlook/usr/share/doc/handylinuxlook/changelog.Debian
+   dh_python2
+D: dh_python2 dh_python2:378: version: 1.20141111-2
+D: dh_python2 dh_python2:379: argv: ['/usr/share/dh-python/dh_python2']
+D: dh_python2 dh_python2:380: options: {'ignore_shebangs': False, 'guess_versions': True, 'guess_deps': True, 'suggests': None, 'no_shebang_rewrite': False, 'no_ext_rename': False, 'regexpr': None, 'no_package': None, 'verbose': False, 'skip_private': False, 'O': None, 'clean_pycentral': False, 'package': None, 'ignore_namespace': False, 'recommends': None, 'arch': None, 'vrange': None, 'clean_dbg_pkg': True, 'depends': None, 'requires': None, 'namespaces': None, 'compile_all': False, 'shebang': None}
+D: dh_python2 dh_python2:381: args: []
+D: dh_python2 dh_python2:383: supported Python versions: 2.7 (default=2.7)
+D: dh_python2 debhelper:98: source=handylinuxlook, binary packages=['handylinuxlook']
+D: dh_python2 dh_python2:400: processing package handylinuxlook...
+D: dh_python2 tools:93: fix_shebang (debian/handylinuxlook/usr/bin/handytheme): doesn't look like a shebang: #!/bin/bash
+D: dh_python2 fs:220: package handylinuxlook details = {'requires.txt': set(), 'ext_no_version': set(), 'egg-info': set(), 'shebangs': set(), 'compile': False, 'public_vers': set(), 'private_dirs': {}, 'ext_vers': set(), 'nsp.txt': set()}
+D: dh_python2 depends:107: generating dependencies for package handylinuxlook
+D: dh_python2 depends:242: D=set(); R=[]; S=[]; E=[], B=[]; RT=[]
+   dh_perl
+   dh_link
+   dh_compress
+	cd debian/handylinuxlook
+	chmod a-x usr/share/doc/handylinuxlook/changelog.Debian
+	gzip -9nf usr/share/doc/handylinuxlook/changelog.Debian
+	cd '/home/arp/debdev/handylinuxlook/handylinuxlook-1.1'
+   dh_fixperms
+	find debian/handylinuxlook  -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/handylinuxlook ! -type l  -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/handylinuxlook/usr/share/doc -type f  ! -regex 'debian/handylinuxlook/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/handylinuxlook/usr/share/doc -type d  -print0 2>/dev/null | xargs -0r chmod 755
+	find debian/handylinuxlook/usr/share/man debian/handylinuxlook/usr/man/ debian/handylinuxlook/usr/X11*/man/ -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/handylinuxlook -perm -5 -type f \( -name '*.so.*' -or -name '*.so' -or -name '*.la' -or -name '*.a' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/handylinuxlook/usr/include -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/handylinuxlook/usr/share/applications -type f  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/handylinuxlook -perm -5 -type f \( -name '*.cmxs' \)  -print0 2>/dev/null | xargs -0r chmod 644
+	find debian/handylinuxlook/usr/lib/x86_64-linux-gnu/perl5/5.20 debian/handylinuxlook/usr/share/perl5 -type f -perm -5 -name '*.pm'  -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/handylinuxlook/usr/bin -type f  -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/handylinuxlook/usr/lib -type f -name '*.ali'  -print0 2>/dev/null | xargs -0r chmod uga-w
+   dh_installdeb
+	install -o 0 -g 0 -d debian/handylinuxlook/DEBIAN
+   dh_gencontrol
+	echo misc:Depends= >> debian/handylinuxlook.substvars
+	dpkg-gencontrol -phandylinuxlook -ldebian/changelog -Tdebian/handylinuxlook.substvars -Pdebian/handylinuxlook
+	chmod 644 debian/handylinuxlook/DEBIAN/control
+	chown 0:0 debian/handylinuxlook/DEBIAN/control
+   dh_md5sums
+	(cd debian/handylinuxlook >/dev/null ; find . -type f  ! -regex './DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums) >/dev/null
+	chmod 644 debian/handylinuxlook/DEBIAN/md5sums
+	chown 0:0 debian/handylinuxlook/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --build debian/handylinuxlook ..
+dpkg-deb: building package `handylinuxlook' in `../handylinuxlook_1.1-5_all.deb'.
+ dpkg-genchanges  >../handylinuxlook_1.1-5_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build handylinuxlook-1.1
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+W: handylinuxlook source: changelog-should-mention-nmu
+W: handylinuxlook source: source-nmu-has-incorrect-version-number 1.1-5
+W: handylinuxlook: extra-license-file usr/share/themes/MC TRON V2/LICENSE
+W: handylinuxlook: binary-without-manpage usr/bin/handytheme
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handylinuxlook_1.1-5.dsc BE441FCF
+
+ signfile handylinuxlook_1.1-5_amd64.changes BE441FCF
+
+Successfully signed dsc and changes files

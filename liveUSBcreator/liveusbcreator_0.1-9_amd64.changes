@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sat, 20 Feb 2016 18:46:04 +0100
+Source: liveusbcreator
+Binary: liveusbcreator
+Architecture: source all
+Version: 0.1-9
+Distribution: unstable
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ liveusbcreator - Outil de création de live USB
+Changes:
+ liveusbcreator (0.1-9) unstable; urgency=medium
+ .
+   * identification des disques par coyotus
+Checksums-Sha1:
+ a031eb72e6ec2ca3cc381ab2619f3d30556f0018 1409 liveusbcreator_0.1-9.dsc
+ c5416c4b37eb7a652fe3f6537bcfbd06e9a76686 5512 liveusbcreator_0.1-9.debian.tar.xz
+ 54b3d0953afb2ad1129b039a88584f09dc979591 18646 liveusbcreator_0.1-9_all.deb
+Checksums-Sha256:
+ 5c53402112a3dd59ce26cef61f2e9c6cbdf26f2fbc97c64b87bab16fe6165dce 1409 liveusbcreator_0.1-9.dsc
+ b09b9e3304ae52b572e7784ff352c66f9fc132b1b21f179149b78ab0e65f8f2a 5512 liveusbcreator_0.1-9.debian.tar.xz
+ 6b971867c70f99d6a53ef136452681f03f9a618888c06a452e062fdfcfdbc8c2 18646 liveusbcreator_0.1-9_all.deb
+Files:
+ 32b51a59abfc2dd817d6790e9203eb15 1409 x11 optional liveusbcreator_0.1-9.dsc
+ 4228247a82b1d517b3ca09aaa5a701e5 5512 x11 optional liveusbcreator_0.1-9.debian.tar.xz
+ 3299f5067ba99b7bf6fec8f3cca1c1d3 18646 x11 optional liveusbcreator_0.1-9_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJWyKaSAAoJELOLTsK+RB/PWWQH/2AcaJBAM3Owd9gvylhoVY1n
+1fImfgK1Mj3mM+7Mmqau+VtMafED9ndQ8Qz8wnwHsJiEjncZmBoAhTIc2QAQOoxd
+uUR60gqH/AIoD6Pn/udyxfCuB95fp0Xqn/RMoaG++ueJOrKTYO4rVxCPTYXK7hi/
+T4efTy0f8meWxuQkpC3hGSsMfA9DDMX7kEB0Tc2vjraNs41hFcpQhisc/dzMF8x3
+QOAQ0b2YmKPFgGA4GNtgAf4pVO7pFMEaI1iQpwCEMF/isDClWAcvmRQDCvmhbekn
+4IWjQCRhmOy7l3PfeD0ncjJiPPVxN4yC9Udo3PjtrLTwPi7JFbpIhmrPDx5vQSw=
+=p5O1
+-----END PGP SIGNATURE-----

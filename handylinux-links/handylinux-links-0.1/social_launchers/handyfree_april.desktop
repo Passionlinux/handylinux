@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=April
+Name[fr]=April
+Comment=Promouvoir et défendre le logiciel libre
+Comment[fr]=Promouvoir et défendre le logiciel libre
+Icon=april
+Exec=x-www-browser https://www.april.org/
+Terminal=false
+StartupNotify=false
+Categories=Application;Network;
