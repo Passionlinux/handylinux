@@ -1,0 +1,50 @@
+# dossiers / fichiers à ignorer
+
+# handylinux-1
+__compiz-archives/**
+__compiz-deskmenu/**
+__emerald-theme-handylinux/**
+__handylinux-compiz/**
+__handylinux-compiz-session/**
+__handylinux-graphics/**
+__handylinux-graphics-extra/**
+__handylinux-media/**
+__handylinux-mozilla-installer/**
+__info4forum/**
+__magnifier-gui/**
+__slingscold-launcher/**
+__xl-wallpaper/**
+handy-menu/handy-menu-2.5.1/**
+handylinux-desktop/handylinux-desktop-0.10/**
+
+# archives des paquets
+btshare-hweb/archives/**
+copcoll/archives/**
+cyclope/archives/**
+handy2debian/archives/**
+handylinux-desktop/archives/**
+handylinux-desktop-nomain/archives/**
+handylinux-doc/archives/**
+handylinux-links/archives/**
+handylinuxlook/archives/**
+handylinux-nonfree-installer/archives/**
+handylinux-thunar-actions/archives/**
+handymenu/archives/**
+handy-menu/archives/**
+handysoft/archives/**
+handytri/archives/**
+handy-update-notifier/archives/**
+ldmconf/archives/**
+liveUSBcreator/archives/**
+loupy/archives/**
+mpartage/archives/**
+redshift-config/archives/**
+
+# paquets inutile
+vmg/**
+tespkg-0.1/**
+slimconf/**
+libdvdcss2/**
+
+# dépôt
+repo.new/**
