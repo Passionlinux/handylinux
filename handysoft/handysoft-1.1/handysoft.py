@@ -112,7 +112,7 @@ class DialogPackage(Gtk.Dialog):
                 url = Gtk.LinkButton(homepage, homepage)
                 self.infobox.pack_start(url, False, False, 1)
 
-        self.spinner = Gtk.Spinner() # affiche un sablier le temps que l'image soit trouvée
+        self.spinner = Gtk.Spinner() # affiche un sablier le temps que l'image soit trouvée
         self.dlimagelbl = Gtk.Label() # message indiquant qu'on télécharge l'image
         self.infobox.pack_start(self.spinner, True, True, 0)
         self.infobox.pack_start(self.dlimagelbl, True, True, 0)
@@ -122,7 +122,7 @@ class DialogPackage(Gtk.Dialog):
         thread.daemon = True
         thread.start()
         
-        # boutons de la fenêtre
+        # boutons de la fenêtre
         self.add_buttons(Gtk.STOCK_CLOSE, Gtk.ResponseType.CLOSE)
         if p.is_installed:
             self.add_buttons(_("Remove this package"), Gtk.ResponseType.OK)
@@ -133,7 +133,7 @@ class DialogPackage(Gtk.Dialog):
             status = Gtk.Label(_("This package is not installed"))
             self.infobox.pack_start(status, False, False, 15)
 
-        # on met tout dans une scrollwin pour avoir des barres de défilement
+        # on met tout dans une scrollwin pour avoir des barres de défilement
         scroll = Gtk.ScrolledWindow()
         scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         scroll.set_size_request(width, height)
@@ -327,7 +327,7 @@ class Logitheque(Gtk.Window):
             '''
 
     def open_cache(self):
-        # ouvre le cache apt
+        # ouvre le cache apt
         GObject.idle_add(self.iamsearching.set_text, _("Opening cache")) # indicateur d'activité
 
         self.cache = apt.Cache() 
@@ -346,7 +346,7 @@ class Logitheque(Gtk.Window):
         self.availthb = get_avail_thb()
 
     def cache_ready(self):
-        # permet d'attendre que le cache soit prêt
+        # permet d'attendre que le cache soit prêt
         while not self.cacheready:
             print('cache not ready yet')
             sleep(0.25)
@@ -749,7 +749,19 @@ you must use the Synaptic Package Manager.
                 GObject.idle_add(self.hide)
                 while Gtk.events_pending():
                     Gtk.main_iteration()
-                remove_pkg(pkg)
+				# On demande confirmation en affichant la simulation de la suppression
+                import subprocess
+                simulation = subprocess.check_output(["apt-get","-sqq", "remove", pkg]).decode('utf-8').strip()
+                m = Gtk.MessageDialog(self, 0, Gtk.MessageType.WARNING,
+                    Gtk.ButtonsType.OK_CANCEL, 
+                    _('This is a simulation of what\'s about to happen.\nMake sure there is no problem before proceed'))
+                m.format_secondary_text(simulation)
+                simdiag = m.run()
+                if simdiag == Gtk.ResponseType.CLOSE:
+                    pass
+                elif simdiag == Gtk.ResponseType.OK:
+                    remove_pkg(pkg)
+                m.destroy()
                 GObject.idle_add(self.show_all)
             else:
                 print('install {}'.format(pkg))
@@ -873,4 +885,3 @@ if __name__ == '__main__':
 
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
-
