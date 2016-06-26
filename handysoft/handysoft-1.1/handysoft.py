@@ -751,7 +751,11 @@ you must use the Synaptic Package Manager.
                     Gtk.main_iteration()
 				# On demande confirmation en affichant la simulation de la suppression
                 import subprocess
-                simulation = subprocess.check_output(["apt-get","-sqq", "remove", pkg]).decode('utf-8').strip()
+                simulation = subprocess.check_output(["apt-get","-sqq", "-o",
+                    "APT::Get::Show-User-Simulation-Note=false", "remove", pkg]).decode('utf-8').strip()
+                simulation = simulation.replace("Remv", _("Deleting"))
+                simulation = simulation.replace("Inst", _("Installing"))
+                simulation = simulation.replace("Conf", _("Configuring"))
                 m = Gtk.MessageDialog(self, 0, Gtk.MessageType.WARNING,
                     Gtk.ButtonsType.OK_CANCEL, 
                     _('This is a simulation of what\'s about to happen.\nMake sure there is no problem before proceed'))
