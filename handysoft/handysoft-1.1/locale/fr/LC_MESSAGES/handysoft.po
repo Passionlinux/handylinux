@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: handysoft 0.42\n"
-"POT-Creation-Date: 2016-05-20 21:03+CEST\n"
+"POT-Creation-Date: 2016-06-26 15:02+CEST\n"
 "PO-Revision-Date: 2015-11-29 01:31+0100\n"
 "Last-Translator: arpinux <arp@nakedev>\n"
 "Language-Team: English (British)\n"
@@ -44,11 +44,11 @@ msgstr "Téléchargement de l'aperçu..."
 msgid "Right click to add a screenshot"
 msgstr "Clic-droit pour ajouter un aperçu"
 
-#: handysoft.py:172 handysoft.py:778
+#: handysoft.py:172 handysoft.py:794
 msgid "To add a screenshot for {}, click here : "
 msgstr "Cliquez ici pour ajouter un aperçu à {} "
 
-#: handysoft.py:173 handysoft.py:779
+#: handysoft.py:173 handysoft.py:795
 msgid "Click here to upload a screenshot"
 msgstr "Mettre un aperçu en ligne"
 
@@ -144,7 +144,27 @@ msgstr "Aperçu"
 msgid "Searching in packages..."
 msgstr "Recherche dans les logiciels..."
 
-#: handysoft.py:846
+#: handysoft.py:756
+msgid "Deleting"
+msgstr "Suppression"
+
+#: handysoft.py:757
+msgid "Installing"
+msgstr "Installation"
+
+#: handysoft.py:758
+msgid "Configuring"
+msgstr "Configuration"
+
+#: handysoft.py:761
+msgid ""
+"This is a simulation of what's about to happen.\n"
+"Make sure there is no problem before proceed"
+msgstr ""
+"Récapitulatif des changements en attente.\n"
+"Vérifiez les opérations avant de valider."
+
+#: handysoft.py:862
 msgid ""
 "<b>{0}</b>\n"
 "\n"
@@ -360,10 +380,10 @@ msgstr "Gestionnaire d'archives pour XFCE"
 msgid "X Convert File Audio"
 msgstr "Extracteur et encodeur audio complet"
 
-#: soft_install.py:94
+#: soft_install.py:93
 msgid "<span size='large'>☺ All changes applied with success</span>"
 msgstr "<span size='large'>☺ Modifications appliquées avec succès.</span>"
 
-#: soft_install.py:96
+#: soft_install.py:95
 msgid "<span size='large'>☹ An Error Occurred!</span>"
 msgstr "<span size='large'>☹ Oops, une erreur est survenue !</span>"

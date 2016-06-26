@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sun, 26 Jun 2016 15:25:43 +0200
+Source: handysoft
+Binary: handysoft
+Architecture: source all
+Version: 1.1-4
+Distribution: jessie
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handysoft  - Gestionnaire de logiciels simplifié
+Changes:
+ handysoft (1.1-4) jessie; urgency=medium
+ .
+   * correction de l'avertissement
+Checksums-Sha1:
+ e1326f6e91009fa84b1f4579fb943b44a81e9d5d 1390 handysoft_1.1-4.dsc
+ 09238d9ba8b98266bafeeaa2ba69b0d0ffb64457 12976 handysoft_1.1-4.debian.tar.xz
+ 602587be4917553bba2f01bfaf7a352936debfd5 169852 handysoft_1.1-4_all.deb
+Checksums-Sha256:
+ 735e1ac38939c2b1200723d1e387be3910338fa07244af487919f4ad625ac1af 1390 handysoft_1.1-4.dsc
+ f9c14c5db373fe435ec9b615e179935b04c8356a2f55c6ac47b6f5b7173432ac 12976 handysoft_1.1-4.debian.tar.xz
+ 027504fd28b76eeba18c2ae6c9ab8973ff43b84222e7a82a061af6c4fd0ec88c 169852 handysoft_1.1-4_all.deb
+Files:
+ d0a0f66e7b7cf999ceb2d11ea608365a 1390 admin optional handysoft_1.1-4.dsc
+ 43747d160ecd604b8ec38429fa632343 12976 admin optional handysoft_1.1-4.debian.tar.xz
+ 959219d13320de0886b3cc5077eb8b66 169852 admin optional handysoft_1.1-4_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXb9gOAAoJELOLTsK+RB/PlOcH/1hqRNRey8NiCYWkZhUBz0jE
+AAcH4+2HbtQgtxSCR5AnQsTz8DCnbMw9BfG3XsTha6K6rtqu1ftonwwysTRucVtI
+OScf71B860KPA8hQsWuOTwTieehEFRmdEd5s3TRrfXsFD3IyhW8PGhepqhtBJCtX
+cp2rizt5DGG841zZ12Em3Lfg2D3nAnCGNn7cpo5M4t/+oXkKhwLXjhRlRPQvEjUv
+1Xg0AfqudFsDHIsUZF1LIFaINiYgr4kior9J6HSR+USn4F+DmrJHAoFbnZs4kiTO
+GEYUUg9aqMLf4h+nkmlWruKk7gC7MIKDnqnLGon5C7vdWh7KDvrMXPTqsxTJSAA=
+=3qiO
+-----END PGP SIGNATURE-----

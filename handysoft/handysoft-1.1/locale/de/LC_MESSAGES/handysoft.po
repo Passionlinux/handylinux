@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: handysoft 0.42\n"
-"POT-Creation-Date: 2016-05-20 21:03+CEST\n"
+"POT-Creation-Date: 2016-06-26 15:02+CEST\n"
 "PO-Revision-Date: 2016-01-11 03:07+0100\n"
 "Last-Translator: arpinux <arp@nakedev>\n"
 "Language-Team: English (British)\n"
@@ -40,11 +40,11 @@ msgstr "Herunterladen Screenshot"
 msgid "Right click to add a screenshot"
 msgstr "Rechtsklicken Sie auf einen Screenshot hinzufügen"
 
-#: handysoft.py:172 handysoft.py:778
+#: handysoft.py:172 handysoft.py:794
 msgid "To add a screenshot for {}, click here : "
 msgstr "Klicken Sie hier, um einen Screenshot hochladen"
 
-#: handysoft.py:173 handysoft.py:779
+#: handysoft.py:173 handysoft.py:795
 msgid "Click here to upload a screenshot"
 msgstr "Klicken Sie hier, um einen Screenshot hochladen"
 
@@ -140,7 +140,27 @@ msgstr "Bildschirmfoto"
 msgid "Searching in packages..."
 msgstr "Suche nach Paketen"
 
-#: handysoft.py:846
+#: handysoft.py:756
+msgid "Deleting"
+msgstr "Unterdrückung"
+
+#: handysoft.py:757
+msgid "Installing"
+msgstr "Installation"
+
+#: handysoft.py:758
+msgid "Configuring"
+msgstr "Konfigurieren"
+
+#: handysoft.py:761
+msgid ""
+"This is a simulation of what's about to happen.\n"
+"Make sure there is no problem before proceed"
+msgstr ""
+"Zusammenfassung der Änderungen zu kommen.\n"
+"Prüfen Operationen vor der Validierung"
+
+#: handysoft.py:862
 msgid ""
 "<b>{0}</b>\n"
 "\n"
@@ -356,10 +376,10 @@ msgstr "GTK + Frontend für am meisten verwendeten Komprimierungsformate"
 msgid "X Convert File Audio"
 msgstr ""
 
-#: soft_install.py:94
+#: soft_install.py:93
 msgid "<span size='large'>☺ All changes applied with success</span>"
 msgstr "<span size='large'>☺ Alle Änderungen erfolgreich angewendet</span>"
 
-#: soft_install.py:96
+#: soft_install.py:95
 msgid "<span size='large'>☹ An Error Occurred!</span>"
 msgstr "<span size='large'>☹ Ein Fehler ist aufgetreten!</span>"

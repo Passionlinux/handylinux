@@ -1,3 +1,15 @@
+handysoft (1.1-4) jessie; urgency=medium
+
+  * correction de l'avertissement
+
+ -- team handylinux <dev@handylinux.org>  Sun, 26 Jun 2016 15:25:43 +0200
+
+handysoft (1.1-3) jessie; urgency=medium
+
+  * ajout de l'avertissement en cas de désinstallation du handylinux-desktop
+
+ -- team handylinux <dev@handylinux.org>  Thu, 23 Jun 2016 23:48:50 +0200
+
 handysoft (1.1-2) jessie; urgency=medium
 
   * remove probressbar after packcage installation/remove

@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sun, 26 Jun 2016 16:48:26 +0200
+Source: handylinux-desktop
+Binary: handylinux-desktop
+Architecture: source all
+Version: 2.5.1-3
+Distribution: jessie
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handylinux-desktop - Méta-paquet principal pour HandyLinux
+Changes:
+ handylinux-desktop (2.5.1-3) jessie; urgency=medium
+ .
+   * ident fix in info4forum
+Checksums-Sha1:
+ ef8041b9ee66cf119c725f9ec45bff43dd6effe6 1421 handylinux-desktop_2.5.1-3.dsc
+ bc5a1e699553e1f64ec9311eca9a5696ccfef5fa 6516 handylinux-desktop_2.5.1-3.debian.tar.xz
+ 00bf02f9436e3d16593a21e4c74ce980385cbe6e 830534 handylinux-desktop_2.5.1-3_all.deb
+Checksums-Sha256:
+ f9e2233392cd511af30231f47b56473aceb013f43912a39be85b8fa3ce471bf7 1421 handylinux-desktop_2.5.1-3.dsc
+ 05d6658673b2fae4c38fcc647b9ae417b0a32a0d617622b97aa7be67d18b9a86 6516 handylinux-desktop_2.5.1-3.debian.tar.xz
+ 4b5e1c37768978192cd86db8a364c482d1afae37770bce7901cf952534fd1653 830534 handylinux-desktop_2.5.1-3_all.deb
+Files:
+ 4a36818b01be3f2add63cf1c78882c8a 1421 x11 extra handylinux-desktop_2.5.1-3.dsc
+ 2bf5d84352d2aae8f0c35a60299fd912 6516 x11 extra handylinux-desktop_2.5.1-3.debian.tar.xz
+ 202829358716b4cebb7704393ac3b60a 830534 x11 extra handylinux-desktop_2.5.1-3_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXb+tjAAoJELOLTsK+RB/P95IH/jgXAj1GEafVvEZJbJVAM41U
+UyK+DZeGKHBJNMcOF/hffrpnEkBJkw7oxW/tADAmQQhwczLjxSEdchCWwBgBJqR3
+OHg5fmoPhwRMH3jzzLlin/aEHo6z1SV5HM2EZcbMm6ftoRJxab2J1nOJjZLQN7VL
+v+gGh0Vr+uJUJoo2U0U+SZkKuaeeMe3uOe9Y9K6MrR1MhcXRasjz6Hd6QqWi8Zge
+ssFGKQ3bZA+GEJIi++EJh4ufX1gpA/CJ/BwknBHG5SaEjwBt96wOGG9rqNgJLRPa
+hKNDQETb3eZAtBe3Fyuv0bmKAWNP723gzBF+E9Yj0zyIezx4sPEQZmFflIOwBts=
+=7aNL
+-----END PGP SIGNATURE-----

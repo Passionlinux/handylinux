@@ -1,6 +1,6 @@
  dpkg-buildpackage -rfakeroot -D -us -uc
 dpkg-buildpackage: source package handysoft
-dpkg-buildpackage: source version 1.1-2
+dpkg-buildpackage: source version 1.1-4
 dpkg-buildpackage: source distribution jessie
 dpkg-buildpackage: source changed by team handylinux <dev@handylinux.org>
  dpkg-source --before-build handysoft-1.1
@@ -13,8 +13,8 @@ dh clean --with python3
  dpkg-source -b handysoft-1.1
 dpkg-source: info: using source format `3.0 (quilt)'
 dpkg-source: info: building handysoft using existing ./handysoft_1.1.orig.tar.xz
-dpkg-source: info: building handysoft in handysoft_1.1-2.debian.tar.xz
-dpkg-source: info: building handysoft in handysoft_1.1-2.dsc
+dpkg-source: info: building handysoft in handysoft_1.1-4.debian.tar.xz
+dpkg-source: info: building handysoft in handysoft_1.1-4.dsc
  debian/rules build
 dh build --with python3
    dh_testdir
@@ -60,16 +60,16 @@ make[1]: Leaving directory '/home/arp/debdev/handysoft/handysoft-1.1'
 dpkg-gencontrol: warning: package handysoft: unused substitution variable ${python3:Depends}
    dh_md5sums
    dh_builddeb
-dpkg-deb: building package `handysoft' in `../handysoft_1.1-2_all.deb'.
- dpkg-genchanges  >../handysoft_1.1-2_amd64.changes
+dpkg-deb: building package `handysoft' in `../handysoft_1.1-4_all.deb'.
+ dpkg-genchanges  >../handysoft_1.1-4_amd64.changes
 dpkg-genchanges: not including original source code in upload
  dpkg-source --after-build handysoft-1.1
 dpkg-buildpackage: binary and diff upload (original source NOT included)
 Now running lintian...
 Finished running lintian.
 Now signing changes and any dsc files...
- signfile handysoft_1.1-2.dsc BE441FCF
+ signfile handysoft_1.1-4.dsc BE441FCF
 
- signfile handysoft_1.1-2_amd64.changes BE441FCF
+ signfile handysoft_1.1-4_amd64.changes BE441FCF
 
 Successfully signed dsc and changes files

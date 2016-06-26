@@ -1,0 +1,114 @@
+Description: affichage du sources.list dans info4forum
+ .
+ handylinux-desktop (2.5.1-1) jessie; urgency=medium
+ .
+   * handylinux-2.5.1
+   * mise à jour de la base : Debian 8.5
+   * mise à jour de firefox - v47
+   * mise en place du service d'hébergement d'images
+   * mise à jour du handysoft par thuban
+   * ajout des traductions pour handysoft par l'équipe Emmabuntüs
+   * ajout du theme Xfwm4 Tron2 par Millie
+   * mise à jour des actions personnalisées Thunar :
+     prise en compte du service d'hébergement d'images handylinux
+   * correction du bug de priorité DNS unbound par thuban
+   * suppression de unoconv : conversion pdf assurée par libreoffice
+   * refonte de la documentation fr intégrée :
+     manuel d'installation + manuel de l'utilisateur.
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-desktop-2.5.1.orig/guide/guide-en.html
++++ handylinux-desktop-2.5.1/guide/guide-en.html
+@@ -11,7 +11,7 @@
+ </head>
+ <body>
+     <div id="header">
+-        <h1><span>lang : <a href="guide.html">fr</a> - en</span><h1><a href="https://handylinux.org/wiki/doku.php/en/start" title="go to online documentation page">HandyLinux Documentation</a></h1>
++        <h1><span>lang : <a href="guide.html">fr</a> - en</span><a href="https://handylinux.org/wiki/doku.php/en/start" title="go to online documentation page">HandyLinux Documentation</a></h1>
+     </div>
+     <div id="navbar">
+         <a href="#header" title="top page"><img src="pics-en/nav_up.png" /></a><br />
+--- handylinux-desktop-2.5.1.orig/guide/guide.html
++++ handylinux-desktop-2.5.1/guide/guide.html
+@@ -12,13 +12,13 @@
+ </head>
+ <body>
+     <div id="header">
+-        <h1><span>lang : fr - <a href="guide-en.html">en</a></span><a href="https://handylinux.org/wiki" title="Documentation HandyLinux en ligne">Documentation HandyLinux</a></h1>
++        <h1><span>lang : fr - <a href="guide-en.html">en</a></span><a href="http://wiki.handylinux.org" title="Documentation HandyLinux en ligne">Documentation HandyLinux</a></h1>
+     </div>
+     <div id="navbar">
+         <a href="#header" title="haut de page"><img src="pics/nav_up.png" /></a><br />
+         <a href="https://handylinux.org" title="accueil handylinux"><img src="pics/nav_home.png" /></a><br />
+         <a href="https://handylinux.org/forum" title="forum handylinux"><img src="pics/nav_forum.png" /></a><br />
+-        <a href="https://handylinux.org/wiki" title="aide handylinux"><img src="pics/nav_wiki.png" /></a><br />
++        <a href="http://wiki.handylinux.org" title="aide handylinux"><img src="pics/nav_wiki.png" /></a><br />
+         <a href="#souris" title="la souris et ses boutons"><img src="pics/mouse.png" /></a><br />
+         <a href="#clavier" title="le clavier et ses touches"><img src="pics/kbd.png" /></a><br />
+         <a href="#footer" title="bas de page"><img src="pics/nav_down.png" /></a>
+@@ -176,16 +176,7 @@
+                 Enfin, nous vous montrerons comment faire évoluer votre distribution Handy Linux, comment ajouter des applications, configurer finement votre système et vous libérer des contraintes windows™ .
+             </p>
+             <p>
+-                Vous n'êtes pas là pour apprendre à programmer ou pirater la box du voisin, alors restons simples et rendez-vous dans les différentes catégories de cette aide afin de prendre en main votre ordinateur avec HandyLinux :
+-                <ul>
+-                    <li><a href="https://handylinux.org/wiki/doku.php/fr/handymenu">découverte d'HandyLinux :</a> le bureau par défaut, le HandyMenu, la barre d'informations (le panel) ...</li>
+-                    <li><a href="https://handylinux.org/wiki/doku.php/fr/fichiers">découverte de son système :</a> organisation générale des dossiers et fichiers, gestion de vos données ...</li>
+-                    <li><a href="https://handylinux.org/wiki/doku.php/fr/media">découverte des applications multimédia :</a> visionner un film, écouter de la musique, parcourir ses photos de famille ...</li>
+-                    <li><a href="https://handylinux.org/wiki/doku.php/fr/office">découverte des applications bureautiques :</a> consultation et édition des documents préformatés, multipages (PDF), prise de notes, calcul simple ou scientifique ... </li>
+-                    <li><a href="https://handylinux.org/wiki/doku.php/fr/internet">découverte d'internet :</a> naviguer sur la toile, lire et écrire des courriers électroniques, communiquer gratuitement à travers le monde avec Skype, configurer votre connexion sans fil.</li>
+-                    <li><a href="https://handylinux.org/wiki/doku.php/fr/access">découverte des outils d'accessibilité :</a> loupe d'écran, clavier virtuel, synthèse vocale ...</li>
+-                    <li><a href="https://handylinux.org/wiki/doku.php/fr/config">découvrir comment configurer Handy Linux :</a> changer le fond d'écran, l'apparence de vos fenêtres, la taille et le style des polices de caractères ou de votre pointeur, vos applications favorites ...</li>
+-                </ul>
++            Vous n'êtes pas là pour apprendre à programmer ou pirater la box du voisin, alors restons simples et rendez-vous dans le dossier de la documentation (dossier_personnel/Documents/documentation) afin de prendre en main votre ordinateur avec HandyLinux.
+             </p>
+         </div>
+         <div class="chapitreorange">
+--- handylinux-desktop-2.5.1.orig/info4forum
++++ handylinux-desktop-2.5.1/info4forum
+@@ -55,6 +55,13 @@ class Info4forum():
+         ifconfig = os.popen("ifconfig -a").read()
+         route = os.popen("route -n").read()
+ 
++        with open('/etc/apt/sources.list', 'r') as s:
++            sources = "/etc/apt/sources.list:\n{}".format(s.read())
++        for sourcefile in os.listdir('/etc/apt/sources.list.d'):
++            if sourcefile.endswith('.list'):
++                with open(os.path.join('/etc/apt/sources.list.d',sourcefile), 'r') as s:
++                sources += "/etc/apt/sources.list.d/{}\n{}".format(sourcefile,s.read())
++
+         t = """    Informations sur {}
+ Cette page vous permettra de transmettre des informations à propos de votre système pour obtenir de l'aide sur le forum HandyLinux : le texte sera pré-formaté, il vous suffit de "coller" sur le forum.
+ Vous pouvez l'éditer afin de supprimer les informations inutiles (ou ce paragraphe).
+@@ -80,6 +87,8 @@ Réseau :
+ {}
+     route :
+ {}
++Sources :
++{}
+ """.format(host,\
+         handyinst,\
+         handyvs,\
+@@ -92,7 +101,8 @@ Réseau :
+         netinterfaces,\
+         resolvconf,\
+         ifconfig,\
+-        route)
++        route,\
++        sources)
+ 
+         self.buf.set_text(t)
+ 
