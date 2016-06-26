@@ -55,6 +55,13 @@ class Info4forum():
         ifconfig = os.popen("ifconfig -a").read()
         route = os.popen("route -n").read()
 
+        with open('/etc/apt/sources.list', 'r') as s:
+            sources = "/etc/apt/sources.list:\n{}".format(s.read())
+        for sourcefile in os.listdir('/etc/apt/sources.list.d'):
+            if sourcefile.endswith('.list'):
+                with open(os.path.join('/etc/apt/sources.list.d',sourcefile), 'r') as s:
+                sources += "/etc/apt/sources.list.d/{}\n{}".format(sourcefile,s.read())
+
         t = """    Informations sur {}
 Cette page vous permettra de transmettre des informations à propos de votre système pour obtenir de l'aide sur le forum HandyLinux : le texte sera pré-formaté, il vous suffit de "coller" sur le forum.
 Vous pouvez l'éditer afin de supprimer les informations inutiles (ou ce paragraphe).
@@ -80,6 +87,8 @@ Réseau :
 {}
     route :
 {}
+Sources :
+{}
 """.format(host,\
         handyinst,\
         handyvs,\
@@ -92,7 +101,8 @@ Réseau :
         netinterfaces,\
         resolvconf,\
         ifconfig,\
-        route)
+        route,\
+        sources)
 
         self.buf.set_text(t)
 
