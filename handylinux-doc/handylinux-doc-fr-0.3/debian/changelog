@@ -1,0 +1,27 @@
+handylinux-doc-fr (0.3-1) jessie; urgency=medium
+
+  * mise à jour
+  * ajout de la section recommandés
+  * changement des liens vers Debian-Facile
+
+ -- team handylinux <dev@handylinux.org>  Mon, 18 Jul 2016 21:16:09 +0200
+
+handylinux-doc-fr (0.2-1) jessie; urgency=medium
+
+  * refonte de la doumentation
+  * suppression des pages exportées du wiki
+  * ajout des manuels installation et utilisateur
+
+ -- team handylinux <dev@handylinux.org>  Thu, 09 Jun 2016 01:32:18 +0200
+
+handylinux-doc-fr (0.1-2) unstable; urgency=medium
+
+  * update to handylinux-2.3
+
+ -- arnault perret <arpinux@member.fsf.org>  Fri, 22 Jan 2016 05:34:30 +0100
+
+handylinux-doc-fr (0.1-1) unstable; urgency=low
+
+  * Initial release : import PDF files
+
+ -- arnault perret <arpinux@member.fsf.org>  Sat, 05 Sep 2015 06:00:06 +0200
