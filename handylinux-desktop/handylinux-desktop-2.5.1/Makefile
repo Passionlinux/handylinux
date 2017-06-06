@@ -40,6 +40,8 @@ install:
 	install -m 755 -o root -g root iceweasel2firefox $(DESTDIR)$(HLDIR)
 	install -m 755 -o root -g root iceweasel2firefox-launcher $(DESTDIR)$(HLDIR)
 	install -m 644 -o root -g root iceweasel2firefox.desktop $(DESTDIR)$(HLDIR)
+	#mise en place du sources.list via lescahiersdudebutant.fr
+	install -m 644 -o root -g root handylinux.list $(DESTDIR)$(HLDIR)
 
 
 uninstall:

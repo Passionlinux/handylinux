@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sat, 08 Oct 2016 01:24:59 +0200
+Source: handymenu
+Binary: handymenu
+Architecture: source all
+Version: 4.0-33
+Distribution: unstable
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handymenu  - Menu principal v4 pour HandyLinux
+Changes:
+ handymenu (4.0-33) unstable; urgency=medium
+ .
+   * remplacer hello par framatalk
+Checksums-Sha1:
+ 626dfc0656e0101a3217ffe9282ef8d8645071be 1397 handymenu_4.0-33.dsc
+ 5c057124f47da2e172c82080ae4e92a3468b3d3e 72032 handymenu_4.0-33.debian.tar.xz
+ dd2fcd219751c78ddd1398c639956d5b80baaf6f 86488 handymenu_4.0-33_all.deb
+Checksums-Sha256:
+ 4305dbe21ba4667ed056ac351974a7c7f6d1a6a0308f87d69bb10bb94fbd0978 1397 handymenu_4.0-33.dsc
+ 825ea74bef84cf344cfd9b21cf231a993427cddc40353c3d29ba69a1caff2c09 72032 handymenu_4.0-33.debian.tar.xz
+ 32577a73beba3bd3ec78f16ad9b15f081d4261a6496a7690c73b41971f606833 86488 handymenu_4.0-33_all.deb
+Files:
+ 1fed8e754aac332d5db2f8c0d0a8e908 1397 x11 optional handymenu_4.0-33.dsc
+ f4481a24a0d5df276fcb0addde259e4c 72032 x11 optional handymenu_4.0-33.debian.tar.xz
+ dc4081b7bc7496cf8be72686bdf365b6 86488 x11 optional handymenu_4.0-33_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJX+C8GAAoJELOLTsK+RB/P4HUIAKpl91874SrFu7MIm7U8REFc
+8Ow5hISfcEoI5AU6y/IPATyO1WliI2FJ/CeoDgSWoiV48lfQiZ0nVHrpnfjIqt4H
+whLPfWvbdD4Nlbl6bQAeeOe3geVky/iMVehivk4/ivTF10nrCHHs51W9msj4NFwb
+BB05dv4AMQECvYSumy0uFFB6Z07Icp7ptHzDpzPY6kL5vmwvltMEqTm1jeJCFRpe
+qwu2spiKTwEo0Zc6nzD3bP4GClPnSq8PQE4RGbYtfzaXu+tBq+nB1lw8BjqvIcln
+amScMeGrgd1r5UpDq2hp0mOv01mEjkDRztBz2I9lY+hBVwTUCL8mwb/gTXDdhVQ=
+=iSUq
+-----END PGP SIGNATURE-----

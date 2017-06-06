@@ -1,0 +1,11 @@
+Package: handylinux-doc-fr
+Version: 0.3-2
+Architecture: all
+Maintainer: team handylinux <dev@handylinux.org>
+Installed-Size: 15289
+Section: misc
+Priority: optional
+Homepage: https://handylinux.org
+Description: Documentation HandyLinux fr
+ Ce paquet contient le manuel de l'utilisateur
+ accompagné du manuel d'installation.

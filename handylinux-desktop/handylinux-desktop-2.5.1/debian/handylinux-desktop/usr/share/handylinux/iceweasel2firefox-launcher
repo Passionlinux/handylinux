@@ -1,0 +1,25 @@
+#!/bin/bash
+# iceweasel2firefox-launcher
+
+# texte à afficher
+
+MESSAGE="Firefox is replaced by Firefox in Debian repositories.\n It means that <b>Iceweasel will not be upgraded anymore</b>.\n You have to uninstall Iceweasel and install Firefox.\n\n This little tool can do it for you.\n Don't worry: you'll keep all your preferences and configurations.\n\n Would you like to preform the switch now ?"
+DISCARD="cancelled :\n note that <b>Iceweasel will not be upgraded anymore</b>."
+
+case $LANG in
+	fr*)
+		MESSAGE="Iceweasel est remplacé par Firefox dans les dépôts Debian.\n <b>Iceweasel ne sera donc plus mis à jour</b>.\n Vous devez supprimer Iceweasel et installer Firefox.\n\n Ce petit outil peut le faire pour vous.\n Vous conserverez toutes les préférences et configurations.\n\n Voulez-vous lancer le remplacement maintenant ?"
+		DISCARD="remplacement annulé :\n notez que <b>Iceweasel ne sera plus mis à jour</b>."
+		;;
+esac
+
+# lanceur
+
+ACTION=`zenity --question --title "Iceweasel 2 Firefox" --text "$MESSAGE"; ans=$? ; echo "$ans"`
+if [ "${ACTION}" == "0" ]; then
+	gksudo /usr/share/handylinux/iceweasel2firefox &
+	exit 0
+else
+	zenity --info --text "$DISCARD" --timeout 5
+	exit 0
+fi

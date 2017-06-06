@@ -1,3 +1,9 @@
+ldmconf (0.1-5) jessie; urgency=medium
+
+  * ajout de numlockx dans les dépendances
+
+ -- team handylinux <dev@handylinux.org>  Sun, 04 Sep 2016 18:53:49 +0200
+
 ldmconf (0.1-4) jessie; urgency=medium
 
   * ajout du support numlockX

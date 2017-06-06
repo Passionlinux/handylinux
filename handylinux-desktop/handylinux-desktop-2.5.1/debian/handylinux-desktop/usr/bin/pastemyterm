@@ -1,0 +1,67 @@
+#!/bin/sh
+#Auteur :      thuban <thuban@yeuxdelibad.net>
+#licence :     GNU General Public Licence v3
+
+#Description : Enregistre une session terminal puis l'envoie sur un patebin.
+#               L'adresse est automatiquement ouverte ensuite
+
+# dépendance : curl, zenity
+# dépendance optionnelle : pastebinit
+
+# bug : les codes couleurs du prompt de zsh ne sont pas effacées
+
+
+MSG="A new terminal will be opened. \nEverything you will type in will be pasted on the intenet. \nWhen you have finished, paste the url of your text on the forum"
+UPLOADED="Text uploaded to"
+PASTEMSG="Press ctrl-v to paste this url"
+
+case $LANG in
+	fr*)
+	    MSG="Un terminal va s'ouvrir. \nTapez vos commandes dedans, puis fermez-le. \nVotre session terminal sera copiée sur un site, sur lequel vous serez automatiquement redirigé. \nCollez l'adresse de ce site sur le forum pour recevoir de l'aide"
+        UPLOADED="La session terminal a été copiée sur"
+        PASTEMSG="Appuyez sur ctrl-v pour coller l'adresse du texte"
+        ;;
+esac
+
+zenity --info --text "$MSG"
+
+
+TMP=$(mktemp)
+
+xfce4-terminal --disable-server --command "script -f $TMP" 
+
+which pastebinit > /dev/null
+if [ $? -eq 0 ]; then
+    # il y a pastebinit d'installé
+    URL="$(cat $TMP | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | pastebinit )"
+fi
+
+if [ $? -ne 0  -o -z "$URL" ]; then
+    URL="$(cat $TMP | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | curl -F 'clbin=<-' https://clbin.com)"
+fi
+
+if [ $? -ne 0  -o -z "$URL" ]; then
+    # essai sur un autre site
+    URL="$(cat $TMP | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | curl -F 'sprunge=<-' http://sprunge.us)"
+fi
+
+if [ $? -ne 0  -o -z "$URL" ]; then
+    # essai sur un autre site
+    URL="$(cat $TMP | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | curl -F 'f:1=<-' ix.io)"
+fi
+
+if [ -n "$URL" ]; then
+    notify-send "$UPLOADED $URL. 
+$PASTEMSG" &
+    which xclip > /dev/null
+    if [ $? -eq 0 ]; then
+        echo "$URL" | xclip -selection clipboard
+    fi
+    x-www-browser "$URL" &
+else
+    notify-send "$ERROR" &
+fi
+
+rm $TMP
+
+exit 0

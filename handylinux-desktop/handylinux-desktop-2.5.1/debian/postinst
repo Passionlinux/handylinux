@@ -38,6 +38,12 @@ case "$1" in
             echo "Info : unbond DNS server fixed"
         fi
 
+        if grep --quiet "repo.handylinux.org" /etc/apt/sources.list.d/handylinux.list; then
+            rm /etc/apt/sources.list.d/handylinux.list
+            cp /usr/share/handylinux/handylinux.list /etc/apt/sources.list.d/handylinux.list
+            echo "Info : handylinux repo fixed"
+        fi
+
         echo "Info: Le paquet handylinux-desktop a été installé avec succès"
     ;;
 

@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 1.8
+Date: Tue, 06 Jun 2017 22:48:15 +0200
+Source: handylinux-doc-fr
+Binary: handylinux-doc-fr
+Architecture: source all
+Version: 0.3-2
+Distribution: jessie
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handylinux-doc-fr - Documentation HandyLinux fr
+Changes:
+ handylinux-doc-fr (0.3-2) jessie; urgency=medium
+ .
+   * mise à jour avec avertissment su passage en OLD STABLE
+Checksums-Sha1:
+ 7ed41ecd22f36e688b53c2a6423c771b246e68f8 1431 handylinux-doc-fr_0.3-2.dsc
+ 6e70c05a7a91fa1b658dc27e1a9292aaf2f76b57 9896876 handylinux-doc-fr_0.3-2.debian.tar.xz
+ e8d71db61413e492dac6423483e760388ad0bb01 9897130 handylinux-doc-fr_0.3-2_all.deb
+ a6a9a4cc3b317782b2021243cbc63e7e0c97b9ff 5436 handylinux-doc-fr_0.3-2_amd64.buildinfo
+Checksums-Sha256:
+ 54252e67da3aafe292984875c3dd2837bcaca1539f11e930adb0f144f8cf9a2c 1431 handylinux-doc-fr_0.3-2.dsc
+ 948153b5ce2a3decbba43692a7227aeb58857de0d738d48b952a0aa1a3f1c07f 9896876 handylinux-doc-fr_0.3-2.debian.tar.xz
+ 62ee0e425d0c2876f59bd48756061a5f611e58756739df521476d32a2c508c40 9897130 handylinux-doc-fr_0.3-2_all.deb
+ 574462d8a047d3643d2daaadd3fa55dcb1df414fc3741c77f3f3982cab8b0516 5436 handylinux-doc-fr_0.3-2_amd64.buildinfo
+Files:
+ 625ace7d45d5bd787a2760bf8e217264 1431 misc optional handylinux-doc-fr_0.3-2.dsc
+ e942595b67137bd8bce3589db8ba9926 9896876 misc optional handylinux-doc-fr_0.3-2.debian.tar.xz
+ b0abd78a899efaf624a82bae024cf358 9897130 misc optional handylinux-doc-fr_0.3-2_all.deb
+ f2d475bc2ce7bed0da1b7ade191d5c02 5436 misc optional handylinux-doc-fr_0.3-2_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEE4FmOWExDmsa6zPDJs4tOwr5EH88FAlk3FU4ACgkQs4tOwr5E
+H89HKAf/aIK8a061GAVDTFOh6ErOt1JBQtgcHHunXCIlpa/0xjrwyJYMJqjlUGiS
+yYXqmR9Yr/XPT0GsMwGiRJx/0XY3M6dM7Qw7DP3Xilmw9BWMyA9h00nVM02x4Ysy
+m8BtKjCawcXSTC+0y/Kif0OulQXOOX9iMSh1/4gbMeDffo+M8svEhg8RVHvagZ6P
+9axAOcGvaUUMA+qmvIwxBoda4psv+nGxQtKp8zY4a/i8YdgYJ6S3wLP8Sq7pmzdW
+CDtZCPXamgWOSjIIAUFyAwFieI5yprqjN5T4yYE4qfV+UYhBvwgwqRUGKWZYfOIa
+SOuFzyXSZxVF++FVQFlJb1FgA1Kxuw==
+=kURG
+-----END PGP SIGNATURE-----

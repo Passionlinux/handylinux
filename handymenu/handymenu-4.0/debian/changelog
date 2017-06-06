@@ -1,3 +1,9 @@
+handymenu (4.0-33) unstable; urgency=medium
+
+  * remplacer hello par framatalk
+
+ -- team handylinux <dev@handylinux.org>  Sat, 08 Oct 2016 01:24:59 +0200
+
 handymenu (4.0-32) unstable; urgency=medium
 
   * Use hello icon

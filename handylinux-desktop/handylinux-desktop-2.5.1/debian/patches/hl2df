@@ -1,0 +1,134 @@
+Description: fix links hl2df
+ .
+ handylinux-desktop (2.5.1-3) jessie; urgency=medium
+ .
+   * ident fix in info4forum
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-desktop-2.5.1.orig/ausecours
++++ handylinux-desktop-2.5.1/ausecours
+@@ -72,7 +72,7 @@ case $REP in
+ 
+     "doku")
+         case $LANG in
+-            fr*) x-www-browser "https://handylinux.org/wiki/doku.php/fr/start" ;;
++            fr*) x-www-browser "http://wiki.handylinux.org" ;;
+             *) x-www-browser "https://handylinux.org/wiki/doku.php/en/start" ;;
+         esac
+         ;;
+@@ -82,7 +82,7 @@ case $REP in
+         ;;
+ 
+     "forum")
+-        x-www-browser "https://handylinux.org/forum/index.php"
++        x-www-browser "https://debian-facile.org/viewtopic.php?id=14632"
+         ;;
+ 
+     "terminal")
+--- handylinux-desktop-2.5.1.orig/guide/guide.html
++++ handylinux-desktop-2.5.1/guide/guide.html
+@@ -17,7 +17,7 @@
+     <div id="navbar">
+         <a href="#header" title="haut de page"><img src="pics/nav_up.png" /></a><br />
+         <a href="https://handylinux.org" title="accueil handylinux"><img src="pics/nav_home.png" /></a><br />
+-        <a href="https://handylinux.org/forum" title="forum handylinux"><img src="pics/nav_forum.png" /></a><br />
++        <a href="https://debian-facile.org/viewtopic.php?id=14632" title="forum Debian-Facile"><img src="pics/nav_forum.png" /></a><br />
+         <a href="http://wiki.handylinux.org" title="aide handylinux"><img src="pics/nav_wiki.png" /></a><br />
+         <a href="#souris" title="la souris et ses boutons"><img src="pics/mouse.png" /></a><br />
+         <a href="#clavier" title="le clavier et ses touches"><img src="pics/kbd.png" /></a><br />
+--- handylinux-desktop-2.5.1.orig/handylinux_version
++++ handylinux-desktop-2.5.1/handylinux_version
+@@ -1 +1 @@
+-HandyLinux-2.5.1
++HandyLinux-2.5.2
+--- handylinux-desktop-2.5.1.orig/info4forum
++++ handylinux-desktop-2.5.1/info4forum
+@@ -43,7 +43,7 @@ class Info4forum():
+         pci = os.popen("lspci").read()
+         usb = os.popen("lsusb").read()
+         hw = os.popen("dmidecode -q -t bios -t system -t processor -t memory").read()
+-
++        reso = os.open("xrandr").read()
+         fs = os.popen("df -h").read()
+         part = os.popen("fdisk -l").read()
+ 
+@@ -75,6 +75,8 @@ lsusb :
+ {}
+ Info matériel :
+ {}
++Écran et affichage :
++{}
+ Système de fichier :
+ {}
+ Partitionnement : {}
+@@ -96,6 +98,7 @@ Sources :
+         pci,\
+         usb,\
+         hw,\
++        reso,\
+         fs,\
+         part,\
+         netinterfaces,\
+--- handylinux-desktop-2.5.1.orig/myhandylinux
++++ handylinux-desktop-2.5.1/myhandylinux
+@@ -23,24 +23,17 @@ import apt_pkg
+ blue  = '\033[34m'
+ handyicon = "/usr/share/pixmaps/handymenu_icon.png"
+ 
+-general = """ basée sur <a href='https://www.debian.org/' >Debian stable</a>
+- homepage : <a href='https://handylinux.org' >https://handylinux.org</a>
+- documentation : <a href='https://handylinux.org/wiki' >https://handylinux.org/wiki</a>
++general = """ basée sur <a href='https://www.debian.org' >Debian stable</a>
++ homepage : <a href='https://handylinux.org' >handylinux.org</a>
++ documentation : <a href='http://wiki.handylinux.org' >wiki.handylinux.org</a>
+  contact : <a href='contact@handylinux.org' >contact@handylinux.org</a>
+ """
+ 
+-authors = """ guantas -- grand initiateur
+- <a href='http://yeuxdelibad.net'>thuban</a> &amp; Starsheep -- admin &amp; dev
+- fibi -- zebulon'man -- <a href='http://blog.handylinux.org' >blog</a> et tests
+- <a href='http://www.salem-saberhagen.cat/' >wiscot</a> -- admin de l'ombre
+- <a href='http://coyotus.com' >coyotus</a> -- dev@tout'heure
+- bruno-legrand -- <a href='http://emmabuntus.sourceforge.net/blog/' >EmmaSpy</a>
+- Tiberias81 -- design(é)<a href='https://handylinux.org/start' >graphisme</a>
+- Trefix -- modé(t)ra(c)teur
+- Rouzigalos -- wiki'œil de lynx'
+- <a href='http://www.dypelec.com/fr/informatique/' >dyp</a> -- MyticModo
+- <a href='http://arpinux.org' >arpinux</a> -- packager
+- + Toute l'équipe Debian
++authors = """
++ => <a href='http://blog.handylinux.org/article249'>L'annonce sur le blog</a>
++ - <a href='http://blog.handylinux.org/article250'>Les détails de la transition</a>
++ - <a href='http://blog.handylinux.org/article251'>Les astuces pour la transition</a>
++ - <a href='https://debian-facile.org/viewtopic.php?id=14632'>L'accueil sur Debian-Facile</a>
+ """
+ 
+ handytools = ["handymenu", "handy-menu", "handysoft", "handytri", "handylinuxlook", "redshift-config", "mpartage", "btshare-hweb", "loupy", "cyclope"]
+@@ -96,12 +89,12 @@ class MyHandylinux():
+         infolabel.set_alignment(-0.9,0)
+ 
+         # auteurs de HL
+-        authorslbl = gtk.Label("<span color=\"blue\">L'équipe</span>\n{}".format(authors))
++        authorslbl = gtk.Label("<span color=\"red\">HandyLinux rejoint Debian-Facile</span>\n{}".format(authors))
+         authorslbl.set_use_markup(True)
+         authorslbl.set_alignment(-0.9,0)
+ 
+         # bouton contributions
+-        contribbtn = gtk.LinkButton(uri = "https://handylinux.org/wiki/doku.php/fr/contribution", label = "Participer")
++        contribbtn = gtk.LinkButton(uri = "https://debian-facile.org", label = "Debian-Facile")
+ 
+         # on met tout en place
+         mainbox.pack_start(titlelbl, True, True, 0)

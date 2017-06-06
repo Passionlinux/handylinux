@@ -1,0 +1,107 @@
+ dpkg-buildpackage -rfakeroot -us -uc
+dpkg-buildpackage: info: source package handylinux-desktop
+dpkg-buildpackage: info: source version 2.5.1-8
+dpkg-buildpackage: info: source distribution jessie
+dpkg-buildpackage: info: source changed by team handylinux <dev@handylinux.org>
+ dpkg-source --before-build handylinux-desktop-2.5.1
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handylinux-desktop-2.5.1
+dpkg-source: info: using source format '3.0 (quilt)'
+dpkg-source: info: building handylinux-desktop using existing ./handylinux-desktop_2.5.1.orig.tar.xz
+dpkg-source: info: building handylinux-desktop in handylinux-desktop_2.5.1-8.debian.tar.xz
+dpkg-source: info: building handylinux-desktop in handylinux-desktop_2.5.1-8.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_update_autotools_config
+   dh_auto_configure
+   dh_auto_build
+	make -j1
+make[1]: Entering directory '/home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary 
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot
+   dh_prep
+   dh_auto_install
+	make -j1 install DESTDIR=/home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1'
+#mise en place des dossiers
+install -d -m 755 -o root -g root /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/pixmaps
+install -d -m 755 -o root -g root /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/etc
+install -d -m 755 -o root -g root /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/handylinux
+#version handylinux
+install -m 644 -o root -g root handylinux_version /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/etc
+#mise en place du guide
+cp -a guide/* /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/handylinux
+chown root:root /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/handylinux
+#mise en place des icons
+install -m 644 -o root -g root handylinux.png /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/pixmaps
+install -m 644 -o root -g root handyhelp.png /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/pixmaps
+install -m 644 -o root -g root handyinfo.png /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/pixmaps
+#mise en place des scripts
+install -m 755 -o root -g root myhandylinux /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/bin
+install -m 755 -o root -g root info4forum /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/bin
+install -m 755 -o root -g root ausecours /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/bin
+install -m 755 -o root -g root pastemyterm /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/bin
+install -m 755 -o root -g root networkcheck /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/bin
+#mise en place des lanceurs
+install -m 644 -o root -g root myhandylinux.desktop /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/applications
+install -m 644 -o root -g root info4forum.desktop /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/applications
+install -m 644 -o root -g root ausecours.desktop /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/applications
+#mise en place de iceweasel2firefox au cas ou
+install -m 755 -o root -g root iceweasel2firefox /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/handylinux
+install -m 755 -o root -g root iceweasel2firefox-launcher /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/handylinux
+install -m 644 -o root -g root iceweasel2firefox.desktop /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/handylinux
+#mise en place du sources.list via lescahiersdudebutant.fr
+install -m 644 -o root -g root handylinux.list /home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1/debian/handylinux-desktop/usr/share/handylinux
+make[1]: Leaving directory '/home/arp/debdev/handylinux-desktop/handylinux-desktop-2.5.1'
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'handylinux-desktop' in '../handylinux-desktop_2.5.1-8_all.deb'.
+ dpkg-genbuildinfo
+ dpkg-genchanges  >../handylinux-desktop_2.5.1-8_amd64.changes
+dpkg-genchanges: info: not including original source code in upload
+ dpkg-source --after-build handylinux-desktop-2.5.1
+dpkg-buildpackage: info: binary and diff upload (original source NOT included)
+Now running lintian...
+W: handylinux-desktop source: ancient-standards-version 3.9.6 (current is 3.9.8)
+W: handylinux-desktop: binary-without-manpage usr/bin/ausecours
+W: handylinux-desktop: binary-without-manpage usr/bin/info4forum
+W: handylinux-desktop: binary-without-manpage usr/bin/myhandylinux
+W: handylinux-desktop: binary-without-manpage usr/bin/networkcheck
+W: handylinux-desktop: binary-without-manpage usr/bin/pastemyterm
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile dsc handylinux-desktop_2.5.1-8.dsc BE441FCF
+
+ fixup_buildinfo handylinux-desktop_2.5.1-8.dsc handylinux-desktop_2.5.1-8_amd64.buildinfo
+ signfile buildinfo handylinux-desktop_2.5.1-8_amd64.buildinfo BE441FCF
+
+ fixup_changes dsc handylinux-desktop_2.5.1-8.dsc handylinux-desktop_2.5.1-8_amd64.changes
+ fixup_changes buildinfo handylinux-desktop_2.5.1-8_amd64.buildinfo handylinux-desktop_2.5.1-8_amd64.changes
+ signfile changes handylinux-desktop_2.5.1-8_amd64.changes BE441FCF
+
+Successfully signed dsc, buildinfo, changes files

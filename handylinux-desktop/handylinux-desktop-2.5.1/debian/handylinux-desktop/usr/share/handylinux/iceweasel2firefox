@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# pas root ? on relance en root
+if [ `whoami` != root ]
+	then
+	    gksu -D "Iceweasel 2 Firefox" $0
+	exit 1
+fi
+
+# texte à afficher
+
+UPDATEMESS="Updating repositories ..."
+INSTALLMESS="Installing Firefox ...\n ...this could take some times."
+SUPREMESS="Removing Iceweasel ..."
+SUCCESS="Firefox is installed"
+ERROR="Oops, something got wrong, please visit our forum."
+
+case $LANG in
+	fr*)
+		UPDATEMESS="Mise à jour des dépôts ..."
+		INSTALLMESS="Installation de Firefox ...\n ...cela peut prendre quelques minutes."
+		SUPREMESS="Suppression de Iceweasel ..."
+		SUCCESS="Firefox est installé"
+		ERROR="Oops, une erreur est survenue. Visitez notre forum."
+		;;
+esac
+
+# modification des dépôts et mise à jour
+(
+	sed -i s/iceweasel/firefox/g /etc/apt/sources.list.d/mozilla.list
+	apt-get update
+) | zenity --progress \
+	--pulsate \
+	--width "350" \
+	--title "Iceweasel 2 Firefox" \
+	--text "$UPDATEMESS" \
+	--auto-kill --auto-close
+
+# installation de firefox
+(
+	apt-get install -y firefox
+	case $LANG in
+		fr*)
+			apt-get install -y firefox-l10n-fr
+			;;
+	esac
+) | zenity --progress \
+	--pulsate \
+	--width "350" \
+	--title "Iceweasel 2 Firefox" \
+	--text "$INSTALLMESS" \
+	--auto-kill --auto-close
+
+# suppression de iceweasel
+(
+	apt-get remove --purge -y iceweasel
+	ln -s /usr/bin/firefox /usr/bin/iceweasel
+) | zenity --progress \
+	--pulsate \
+	--width "350" \
+	--title "Iceweasel 2 Firefox" \
+	--text "$SUPREMESS" \
+	--auto-kill --auto-close
+
+
+if [ -e /usr/bin/firefox ]; then
+	rm /usr/bin/iceweasel2firefox-launcher
+	rm /etc/xdg/autostart/iceweasel2firefox.desktop
+	zenity --info --text "$SUCCESS" --timeout 4
+else
+	zenity --error --text "$ERROR"
+fi
+
+exit 0

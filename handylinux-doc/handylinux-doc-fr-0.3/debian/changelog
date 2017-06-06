@@ -1,3 +1,9 @@
+handylinux-doc-fr (0.3-2) jessie; urgency=medium
+
+  * mise à jour avec avertissment su passage en OLD STABLE
+
+ -- team handylinux <dev@handylinux.org>  Tue, 06 Jun 2017 22:48:15 +0200
+
 handylinux-doc-fr (0.3-1) jessie; urgency=medium
 
   * mise à jour

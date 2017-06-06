@@ -1,0 +1,16 @@
+#!/bin/sh
+# check internet
+# sources : crunchbanglinux 'check-internet-connection' by <corenominal>
+
+IS=`/bin/ping -c 1 ftp.fr.debian.org | grep -c "64 bytes"`
+if [ "$IS" -lt "1" ]; then
+    until [ "$CONT" != "" ]; do
+    IS=`/bin/ping -c 1 ftp.fr.debian.org | grep -c "64 bytes"`
+    if [ "$IS" -lt "1" ]; then
+        exit 1
+    else
+        exit 0
+    fi
+done
+fi
+exit

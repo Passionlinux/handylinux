@@ -1,3 +1,33 @@
+handylinux-desktop (2.5.1-8) jessie; urgency=medium
+
+  * sources.list en texte
+
+ -- team handylinux <dev@handylinux.org>  Tue, 06 Jun 2017 18:48:53 +0200
+
+handylinux-desktop (2.5.1-7) jessie; urgency=medium
+
+  * coquille
+
+ -- team handylinux <dev@handylinux.org>  Tue, 06 Jun 2017 18:32:44 +0200
+
+handylinux-desktop (2.5.1-6) jessie; urgency=medium
+
+  * changement de serveur pour les dépôts handylinux
+
+ -- team handylinux <dev@handylinux.org>  Tue, 06 Jun 2017 18:24:51 +0200
+
+handylinux-desktop (2.5.1-5) jessie; urgency=medium
+
+  * pfix -- arpidanslalune
+
+ -- team handylinux <dev@handylinux.org>  Tue, 02 Aug 2016 16:03:02 +0200
+
+handylinux-desktop (2.5.1-4) jessie; urgency=medium
+
+  * handylinux to debian-facile
+
+ -- team handylinux <dev@handylinux.org>  Tue, 02 Aug 2016 15:51:23 +0200
+
 handylinux-desktop (2.5.1-3) jessie; urgency=medium
 
   * ident fix in info4forum

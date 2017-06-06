@@ -1,0 +1,31 @@
+Description: pfix
+ .
+ handylinux-desktop (2.5.1-4) jessie; urgency=medium
+ .
+   * handylinux to debian-facile
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- handylinux-desktop-2.5.1.orig/info4forum
++++ handylinux-desktop-2.5.1/info4forum
+@@ -43,7 +43,7 @@ class Info4forum():
+         pci = os.popen("lspci").read()
+         usb = os.popen("lsusb").read()
+         hw = os.popen("dmidecode -q -t bios -t system -t processor -t memory").read()
+-        reso = os.open("xrandr").read()
++        reso = os.popen("xrandr").read()
+         fs = os.popen("df -h").read()
+         part = os.popen("fdisk -l").read()
+ 

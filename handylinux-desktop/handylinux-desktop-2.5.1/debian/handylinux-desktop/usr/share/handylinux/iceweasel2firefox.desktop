@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Iceweasel2Firefox
+Comment=switch from Iceweasel to Firefox
+Comment[fr]=passer de Iceweasel à Firefox
+Exec=/usr/bin/iceweasel2firefox-launcher
+Path=/usr/bin
+Terminal=false
+StartupNotify=false
+Hidden=false

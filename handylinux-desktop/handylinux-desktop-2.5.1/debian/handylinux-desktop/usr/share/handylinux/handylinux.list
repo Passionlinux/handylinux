@@ -1,0 +1,3 @@
+## HandyLinux Jessie ##
+deb http://lescahiersdudebutant.fr/handylinux/repo/debian jessie main
+#deb-src http://lescahiersdudebutant.fr/handylinux/repo/debian jessie main

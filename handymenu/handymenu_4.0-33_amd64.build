@@ -1,0 +1,78 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package handymenu
+dpkg-buildpackage: source version 4.0-33
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by team handylinux <dev@handylinux.org>
+ dpkg-source --before-build handymenu-4.0
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --with python3
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b handymenu-4.0
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building handymenu using existing ./handymenu_4.0.orig.tar.xz
+dpkg-source: info: building handymenu in handymenu_4.0-33.debian.tar.xz
+dpkg-source: info: building handymenu in handymenu_4.0-33.dsc
+ debian/rules build
+dh build --with python3
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+make[1]: Entering directory '/home/arp/debdev/handymenu/handymenu-4.0'
+Usage: as root
+make install  : installs application
+make uninstall: uninstalls application
+make[1]: Leaving directory '/home/arp/debdev/handymenu/handymenu-4.0'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary --with python3
+   dh_testroot
+   dh_prep
+   dh_auto_install
+make[1]: Entering directory '/home/arp/debdev/handymenu/handymenu-4.0'
+install -d -m 755 -o root -g root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/bin
+install -d -m 755 -o root -g root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/applications
+install -d -m 755 -o root -g root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/man/man1
+install -d -m 755 -o root -g root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/handymenu
+install -d -m 755 -o root -g root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/locale
+install -d -m 755 -o root -g root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/handymenu/icons
+install -d -m 755 -o root -g root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/pixmaps
+install -m 755 -o root -g root handymenu /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/bin
+install -m 644 -o root -g root handymenu.1 /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/man/man1
+install -m 755 -o root -g root *.py /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/handymenu
+install -m 644 -o root -g root icons/*.png /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/handymenu/icons
+install -m 644 -o root -g root handymenu_icon.png /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/pixmaps
+install -m 644 -o root -g root handymenu_v1_icon.png /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/pixmaps
+install -m 644 -o root -g root handymenu.desktop /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/applications
+cp -a locale/* /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/locale/
+find /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/locale -name "handymenu.po*" -exec rm {} \;
+chown -R root:root /home/arp/debdev/handymenu/handymenu-4.0/debian/handymenu/usr/share/locale
+make[1]: Leaving directory '/home/arp/debdev/handymenu/handymenu-4.0'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_python3
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: package handymenu: unused substitution variable ${python3:Depends}
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `handymenu' in `../handymenu_4.0-33_all.deb'.
+ dpkg-genchanges  >../handymenu_4.0-33_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build handymenu-4.0
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile handymenu_4.0-33.dsc BE441FCF
+
+ signfile handymenu_4.0-33_amd64.changes BE441FCF
+
+Successfully signed dsc and changes files

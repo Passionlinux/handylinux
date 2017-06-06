@@ -433,7 +433,7 @@ hm_default_sections = \
         {'name' : _("Communicate"),\
         'generic': _("Audio/Video chat"),\
         'icon' : "hello",\
-        'cmd' : "firefox https://handylinux.org/wiki/doku.php/fr/internet#hello_vs_skype"\
+        'cmd' : "firefox https://framatalk.org/accueil/"\
         },\
         {'name' : _("Framasoft Services"),\
         'generic': _("Acces to free (as in freedom) Framasoft services"),\

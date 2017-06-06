@@ -1,0 +1,166 @@
+#!/usr/bin/env python
+# -*- coding:Utf-8 -*- 
+
+
+"""
+Auteurs :      thuban (thuban@yeuxdelibad.net)  
+               arpinux (arpinux@member.fsf.org)
+licence :      GNU General Public Licence v3
+
+Description : Outil pour lister une description du matériel
+            permettant d'être plus facilement dépanné en 
+            cas de soucis.
+"""
+import sys
+import os
+import pygtk
+pygtk.require('2.0')
+import gtk
+
+class Info4forum():
+    def close_application(self, widget):
+        gtk.main_quit()
+
+    def copy(self, widget):
+        startiter, enditer = self.buf.get_bounds()
+        res = "[code]{}[/code]".format(self.buf.get_text(startiter, enditer))
+        clip = gtk.Clipboard()
+        clip.set_text(res)
+    
+    def prep_text(self):
+        if os.path.isfile('/etc/handylinux_installation'):
+            with open('/etc/handylinux_installation', 'r') as hi:
+                handyinst = hi.read()
+        else:
+            handyinst = "ante HandyLinux-1.5.1"
+        if os.path.isfile('/etc/handylinux_version'):
+            with open('/etc/handylinux_version', 'r') as hv:
+                handyvs = hv.read()
+        else:
+            handyvs = "not an HandyLinux system"
+        host = os.popen("uname -n").read()
+        kernel = os.popen("uname -sr").read()
+        pci = os.popen("lspci").read()
+        usb = os.popen("lsusb").read()
+        hw = os.popen("dmidecode -q -t bios -t system -t processor -t memory").read()
+
+        fs = os.popen("df -h").read()
+        part = os.popen("fdisk -l").read()
+
+        with open('/etc/network/interfaces', 'r') as ni:
+            netinterfaces = ni.read()
+        with open('/etc/resolv.conf', 'r') as r:
+            resolvconf = r.read()
+
+        ifconfig = os.popen("ifconfig -a").read()
+        route = os.popen("route -n").read()
+
+        with open('/etc/apt/sources.list', 'r') as s:
+            sources = "/etc/apt/sources.list:\n{}".format(s.read())
+        for sourcefile in os.listdir('/etc/apt/sources.list.d'):
+            if sourcefile.endswith('.list'):
+                with open(os.path.join('/etc/apt/sources.list.d',sourcefile), 'r') as s:
+                    sources += "/etc/apt/sources.list.d/{}\n{}".format(sourcefile,s.read())
+
+        t = """    Informations sur {}
+Cette page vous permettra de transmettre des informations à propos de votre système pour obtenir de l'aide sur le forum HandyLinux : le texte sera pré-formaté, il vous suffit de "coller" sur le forum.
+Vous pouvez l'éditer afin de supprimer les informations inutiles (ou ce paragraphe).
+
+Installation : {}
+Version : {}
+Kernel : {}
+lspci :
+{}
+lsusb :
+{}
+Info matériel :
+{}
+Système de fichier :
+{}
+Partitionnement : {}
+Réseau :
+    network/interfaces :
+{}
+    resolv.conf :
+{}
+    ifconfig :
+{}
+    route :
+{}
+Sources :
+{}
+""".format(host,\
+        handyinst,\
+        handyvs,\
+        kernel,\
+        pci,\
+        usb,\
+        hw,\
+        fs,\
+        part,\
+        netinterfaces,\
+        resolvconf,\
+        ifconfig,\
+        route,\
+        sources)
+
+        self.buf.set_text(t)
+
+    def __init__(self):
+        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        self.window.connect("delete_event", self.close_application)
+        self.window.set_title("Obtenir les spécificités de votre matériel")
+        self.window.set_border_width(5)
+        self.window.set_default_size(750, 500)
+        self.window.set_position(gtk.WIN_POS_CENTER)
+
+        box = gtk.VBox(False,5)
+
+        text = gtk.TextView(buffer=None)
+        text.set_editable(True)
+        text.set_wrap_mode(gtk.WRAP_WORD)
+
+        sw = gtk.ScrolledWindow()
+        sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        sw.add(text)
+
+        box.pack_start(sw, True, True, 0)
+
+        self.buf = text.get_buffer()
+        self.prep_text()
+
+        hbox = gtk.HBox(True, 5)
+        closebtn = gtk.Button(stock=gtk.STOCK_CLOSE)
+        closebtn.connect("clicked", self.close_application)
+        closebtn.set_flags(gtk.CAN_DEFAULT)
+        hbox.pack_start(closebtn, False, False, 0)
+
+        copybtn = gtk.Button(stock=gtk.STOCK_COPY)
+        copybtn.connect("clicked", self.copy)
+        copybtn.set_flags(gtk.CAN_DEFAULT)
+        hbox.pack_start(copybtn, False, False, 0)
+
+        box.pack_start(hbox,False,False,10)
+
+        self.window.add(box)
+
+        self.window.show_all()
+
+
+def main():
+    if os.geteuid() != 0:
+        import subprocess
+        print("You need to have root privileges to run this script.\n")
+        status = subprocess.call('gksudo {0}'.format(os.path.realpath(__file__)), shell=True)
+    elif os.geteuid() == 0:
+        i = Info4forum()
+        gtk.main()
+
+    return 0
+
+if __name__ == '__main__':
+	main()
+
+
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
+

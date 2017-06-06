@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=HandyLinux help tools
+Name[fr]=Outils d'aide HandyLinux
+Comment=Got a problem ? You're not alone
+Comment[fr]=Un problème ? Vous n'êtes pas seul(e)s
+Exec=/usr/bin/ausecours
+Icon=handyhelp
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=X-XFCE;Utility;

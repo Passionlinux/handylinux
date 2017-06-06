@@ -1,0 +1,43 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sun, 04 Sep 2016 18:53:49 +0200
+Source: ldmconf
+Binary: ldmconf
+Architecture: source all
+Version: 0.1-5
+Distribution: jessie
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ ldmconf    - Outil de configuration pour LightDM
+Changes:
+ ldmconf (0.1-5) jessie; urgency=medium
+ .
+   * ajout de numlockx dans les dépendances
+Checksums-Sha1:
+ 86f7c2a4c56e6d0be501a1f14cc182c6043f57aa 1324 ldmconf_0.1-5.dsc
+ 8b4dd6e9580bdf634bd019c9a738d548dd1ed659 7440 ldmconf_0.1-5.debian.tar.xz
+ f83dde01707bff1e6520b926fb84267329f6d38e 6374 ldmconf_0.1-5_all.deb
+Checksums-Sha256:
+ 9eaedca141fa571ca4d12908663ffc636760215e05e51cfcd16ed90d6db56e57 1324 ldmconf_0.1-5.dsc
+ ce2643b04f885c5eaba117a37c93960308133d1dba20795c36c286a10fdaa9d0 7440 ldmconf_0.1-5.debian.tar.xz
+ ee44c7d326342f25a0fad0c4d4c9279a18dbe3dc8c05339d020968eb0cca9c17 6374 ldmconf_0.1-5_all.deb
+Files:
+ 8300ed5b9896de3b2be55ac767c9ea10 1324 admin optional ldmconf_0.1-5.dsc
+ 3b1b3bdbb83145afd67baefd10023a6a 7440 admin optional ldmconf_0.1-5.debian.tar.xz
+ de0fd3dfd6295758dddeebbdde31935f 6374 admin optional ldmconf_0.1-5_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJXzFHUAAoJELOLTsK+RB/PDtcH/0FDddCtbLItubFp6GWeZhJv
+D0+ZmJE2u8nGSX+60KaZkfYf36HP4UItpYr0xjf+NtHKjoJ0TN/7G51v1vD8M3HJ
+FnRo8kM/Om5cvT1FGdxWoASTKR0zRr/TJi5rL6XGhLLLvgDHd1XcCkNd7u37Metu
+NY1uZD06DlbPVeAPBcjvGC7/qCpjCmqPM066rxiQsUCSXNWZpJzRwBPnq56Xv2fR
+zrUS9K3dl1sKJqgTV+GqQRmejIQLP9kmu3HW6qwqk9Rz2+Go0Z9UQAUZv02/WxO5
+S3glC7GwiEMrqBPiZVAx+xxPnrwAOPPEPT5KqPwRKhvamK/D2+NaBLSrD9ioB0c=
+=6zOh
+-----END PGP SIGNATURE-----

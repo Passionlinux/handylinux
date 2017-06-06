@@ -1,0 +1,37 @@
+Description: dépôts handylinux sur le site des cahiers
+ .
+ handylinux-desktop (2.5.1-7) jessie; urgency=medium
+ .
+   * coquille
+Author: team handylinux <dev@handylinux.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: 2017-06-06
+
+--- handylinux-desktop-2.5.1.orig/Makefile
++++ handylinux-desktop-2.5.1/Makefile
+@@ -40,6 +40,8 @@ install:
+ 	install -m 755 -o root -g root iceweasel2firefox $(DESTDIR)$(HLDIR)
+ 	install -m 755 -o root -g root iceweasel2firefox-launcher $(DESTDIR)$(HLDIR)
+ 	install -m 644 -o root -g root iceweasel2firefox.desktop $(DESTDIR)$(HLDIR)
++	#mise en place du sources.list via lescahiersdudebutant.fr
++	install -m 644 -o root -g root handylinux.list $(DESTDIR)$(HLDIR)
+ 
+ 
+ uninstall:
+--- /dev/null
++++ handylinux-desktop-2.5.1/handylinux.list
+@@ -0,0 +1,3 @@
++## HandyLinux Jessie ##
++deb http://lescahiersdudebutant.fr/handylinux/repo/debian jessie main
++#deb-src http://lescahiersdudebutant.fr/handylinux/repo/debian jessie main

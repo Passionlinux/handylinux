@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 1.8
+Date: Tue, 06 Jun 2017 18:48:53 +0200
+Source: handylinux-desktop
+Binary: handylinux-desktop
+Architecture: source all
+Version: 2.5.1-8
+Distribution: jessie
+Urgency: medium
+Maintainer: team handylinux <dev@handylinux.org>
+Changed-By: team handylinux <dev@handylinux.org>
+Description:
+ handylinux-desktop - Méta-paquet principal pour HandyLinux
+Changes:
+ handylinux-desktop (2.5.1-8) jessie; urgency=medium
+ .
+   * sources.list en texte
+Checksums-Sha1:
+ 167cd4063ff27b721c765dbc78a273acc260fae6 1438 handylinux-desktop_2.5.1-8.dsc
+ e3ab4dc7a19352706ecba62538b792e2dda17711 8320 handylinux-desktop_2.5.1-8.debian.tar.xz
+ 97b0b52ab6532daea5f979389537674be0ee8526 829754 handylinux-desktop_2.5.1-8_all.deb
+ 3938d66458329a11f05c58ebfdbec855d8835107 5455 handylinux-desktop_2.5.1-8_amd64.buildinfo
+Checksums-Sha256:
+ 4b3baff34979f5d3b93f3d4cf13fb36c0f4756f9d63fb8d52173cc7fe7cdc522 1438 handylinux-desktop_2.5.1-8.dsc
+ bbc8da9ea4b1c29e1634f9c9960386b809d90676e47e3e4ac23755e85977485e 8320 handylinux-desktop_2.5.1-8.debian.tar.xz
+ 5bf84f2241d49d97e4babf4c26bbddd998ed97a9a2bb2bff789358e912d232de 829754 handylinux-desktop_2.5.1-8_all.deb
+ 006ce44f5ffbcf249ec7a50a324e0d4b51df46b0e2f86b27aa3d3baba9c9c8da 5455 handylinux-desktop_2.5.1-8_amd64.buildinfo
+Files:
+ a2f2f13bfde923612fc1a98f918540c8 1438 x11 extra handylinux-desktop_2.5.1-8.dsc
+ 55dd3f6968b8e77b6bb4b52e66ba955c 8320 x11 extra handylinux-desktop_2.5.1-8.debian.tar.xz
+ 18f14727974b11fbea755fbb43027418 829754 x11 extra handylinux-desktop_2.5.1-8_all.deb
+ 11c242625974de52ef32b7c74188cbde 5455 x11 extra handylinux-desktop_2.5.1-8_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEE4FmOWExDmsa6zPDJs4tOwr5EH88FAlk23RAACgkQs4tOwr5E
+H8/FpggAqIL3RIV5iktt37kGAP0kQMqLC2ykwC6w0Byejr8D/mr2Hng4nwh4aVWU
+VDVo1wMR8nPtOxyVO3N1fI3CAVnCXGjD5cUN/Drz7/k7t5aUkwcUpWRWo7i4o7Mj
+cqv7zxxMZ17io95s4yrWvRy3t1zSGBusxlvBzyC+CZ1KC/Ygts8w31ZFZ+6Ke4Ai
+dX7WdAbo5LJyA7hqxTHtJ0aykI23X/wiccPoJVvA22csya+dh/BPhOpGHiC9hTMN
+/sbf7pCiU+aMjLKYACPo15Uc546L/hBZ9fgglS1FdKBvcuGoq/4Os/47yuQaW7z4
+Erhks0eG/XotO6PugX1K4/1qDILlyA==
+=MO9Z
+-----END PGP SIGNATURE-----
